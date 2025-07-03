@@ -5,7 +5,6 @@ import ArchieML from 'archieml';
 import { derived } from 'svelte/store';
 import { page } from '$app/stores';
 import Title from '$lib/components/Title.svelte';
-import Body from '$lib/components/Body.svelte';
 
 // Detecta a página pela rota ou usa 'index', mesmo em subpasta
 import { base } from '$app/paths';
@@ -21,7 +20,17 @@ const parsed = derived(
   ([$archiePages, $currentPage]) => {
     try {
       // Corrige para pegar apenas o campo .content
-      return ArchieML.load(($archiePages[$currentPage]?.content) || '');
+      const result = ArchieML.load(($archiePages[$currentPage]?.content) || '');
+      // Se não houver body, tenta gerar manualmente a partir do texto anônimo
+      if (!result.body && $archiePages[$currentPage]?.content) {
+        // Remove campos nomeados
+        const content = $archiePages[$currentPage].content;
+        const semCampos = content.replace(/^\w+:.*$/gm, '').trim();
+        if (semCampos) {
+          result.body = semCampos.split(/\n{2,}/).map(s => s.trim()).filter(Boolean);
+        }
+      }
+      return result;
     } catch {
       return { erro: 'Conteúdo ArchieML inválido' };
     }
@@ -35,13 +44,26 @@ const parsed = derived(
 {#if $parsed.erro}
   <div style="color: red; font-weight: bold;">Erro: {$parsed.erro}</div>
 {/if}
-{#if !$parsed.title && !$parsed.body && !$parsed.erro}
+{#if !$parsed.titulo && !$parsed.body && !$parsed.erro}
   <div style="color: orange;">Nenhum conteúdo encontrado para a página <b>{$currentPage}</b>. Verifique se o JSON está correto e se o fetch funcionou.</div>
 {/if}
-{#if $parsed.title}
-  <Title value={$parsed.title} />
+<!-- Renderiza campos nomeados com componentes específicos -->
+{#if $parsed.titulo}
+  <Title value={$parsed.titulo} />
 {/if}
+
+<!-- Renderiza blocos anônimos (body) como parágrafos -->
 {#if $parsed.body}
-  <Body value={$parsed.body} />
+  <div class="corpo">
+    {#each Array.isArray($parsed.body) ? $parsed.body : [$parsed.body] as bloco}
+      {#if bloco.trim().match(/^<a\b/i)}
+        <p>{@html bloco}</p>
+      {:else if bloco.trim().startsWith('<')}
+        {@html bloco}
+      {:else}
+        <p>{@html bloco}</p>
+      {/if}
+    {/each}
+  </div>
 {/if}
 

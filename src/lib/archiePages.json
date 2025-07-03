@@ -1,6 +1,34 @@
 {
   "index": {
-    "content": "body: Designer and consultant | 20+ years of experience in management, editorial design & communication | Specialist in infographics, data visualization & digital narrratives.",
+    "content": "Designer and consultant | 20+ years of experience in management, editorial design & communication | Specialist in infographics, data visualization & digital narrratives.\n\n<p><a href='/placar'>Tax Framework Scoreboard</a></p>\n\n<a href='/futebol'>Futebol feminino</a>\n\n<a href='/rota_segura'>+Safe Route: tool allows you to trace routes with fewer vehicle thefts in SP</a>\n\n<a href='/minhocao'>Minhocão in colors and paint: what are the stories of the murals in the center of SP</a>\n\n<a href='/ai2html'>AI2HTML</a>\n\n<a href='/uvapages'>UvaPages</a>\n\n<a href='/portifolio'>Portifolio</a>\n\n\n\n",
     "showInMenu": false
+  },
+  "futebol": {
+    "content": "embedWrapper: <script data-uva-id=\"2z5vdkegom09\" src=\"https://arte.estadao.com.br/arc/scripts/uva-render-01.js\"></script>",
+    "showInMenu": false
+  },
+  "placar": {
+    "content": "embedWrapper: <script data-uva-id=\"16BCURvVTN5T-361PH0AIc9yeCZ8HyqiwtMoLSR8XEUo\" src=\"https://arte.estadao.com.br/arc/scripts/uva-render-01.js\"></script>",
+    "showInMenu": false
+  },
+  "minhocao": {
+    "content": "embedWrapper: <script data-uva-id=\"1l_jmg5YDdT1FSK12vozVnppMNU7bCPXmASJFl8Fi5Zs\" src=\"https://arte.estadao.com.br/arc/scripts/uva-render-01.js\"></script>",
+    "showInMenu": false
+  },
+  "rota_segura": {
+    "content": "embedWrapper: <script data-uva-id=\"gz5oj3k2v9e3\" src=\"https://arte.estadao.com.br/arc/scripts/uva-render-01.js\"></script>",
+    "showInMenu": false
+  },
+  "ai2html": {
+    "content": "pdf: aitohtml.pdf",
+    "showInMenu": false
+  },
+  "uvapages": {
+    "content": "pdf: UvaPages.pdf",
+    "showInMenu": false
+  },
+  "portifolio": {
+    "content": "pdf: portifolio.pdf",
+    "showInMenu": true
   }
 }
