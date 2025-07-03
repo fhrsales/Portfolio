@@ -29,6 +29,7 @@
   },
   "portfolio": {
     "content": "pdf: portfolio.pdf",
-    "showInMenu": true
+    "showInMenu": true,
+    "menuLabel": "Meu portfolio"
   }
 }

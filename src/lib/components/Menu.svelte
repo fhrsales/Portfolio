@@ -7,33 +7,32 @@ import { base } from '$app/paths';
 let open = false;
 import { onDestroy } from 'svelte';
 let pages = [];
+let menuLabels = {};
 let current = '';
 import { onMount } from 'svelte';
 // Atualiza as páginas e a página atual reativamente
 onMount(() => {
   const unsubscribe = archiePages.subscribe(val => {
     // Filtra apenas páginas com showInMenu true (ou undefined para retrocompatibilidade)
-    pages = Object.entries(val)
+    const filtered = Object.entries(val)
       .filter(([k, v]) => {
         if (typeof v === 'object' && v !== null) {
           return v.showInMenu !== false;
         }
         return true; // retrocompatível: string = mostra
-      })
-      .map(([k]) => k);
+      });
+    pages = filtered.map(([k]) => k);
+    menuLabels = Object.fromEntries(filtered.map(([k, v]) => [k, v.menuLabel || k]));
   });
   return unsubscribe;
 });
 $: current = $page.url.pathname.replace(/^\//, '');
-function goTo(p) {
-  open = false;
-  window.location.href = p === 'main' ? base + '/' : `${base}/${p}`;
-}
+
 </script>
 
 <nav class="menu-bar">
   <div class="menu-container">
-    <a class="logo" href="{base}/" on:click|preventDefault={() => goTo('main')}>Fabio Sales</a>
+    <a class="logo" href="{base}/">Fabio Sales</a>
     <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
       &#9776;
     </button>
@@ -41,7 +40,7 @@ function goTo(p) {
     <ul class:open={open}>
       {#each pages as p}
         <li class:active={current === p || (p === 'main' && current === '')}>
-          <a href={p === 'main' ? `${base}/` : `${base}/${p}`} on:click|preventDefault={() => goTo(p)}>{p}</a>
+          <a href={p === 'main' ? `${base}/` : `${base}/${p}`}>{menuLabels[p]}</a>
         </li>
       {/each}
       {#if import.meta.env.DEV}

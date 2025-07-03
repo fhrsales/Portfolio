@@ -7,6 +7,7 @@ let content = '';
 let page = 'index';
 let error = '';
 let showInMenu = true;
+let menuLabel = '';
 let buildResult = '';
 let previewResult = '';
 let previewLoading = false;
@@ -25,7 +26,7 @@ async function saveContent() {
   try {
     ArchieML.load(content); // Valida o formato
     archiePages.update(pages => {
-      pages[page] = { content, showInMenu };
+      pages[page] = { content, showInMenu, menuLabel };
       return pages;
     });
     // Salva no JSON via API em dev
@@ -55,9 +56,11 @@ function loadContent() {
   if (typeof data === 'object' && data !== null) {
     content = data.content || '';
     showInMenu = data.showInMenu !== false; // default true
+    menuLabel = data.menuLabel || '';
   } else {
     content = data || '';
     showInMenu = true;
+    menuLabel = '';
   }
 }
 
@@ -185,6 +188,11 @@ $: if ($isAuthenticated) loadContent();
   <label style="display:inline-block;margin:0.5em 0;">
     <input type="checkbox" bind:checked={showInMenu}>
     Mostrar no menu
+  </label>
+  <br>
+  <label style="display:inline-block;margin:0.5em 0;">
+    Título do menu:
+    <input type="text" bind:value={menuLabel} placeholder="Texto do menu (opcional)" style="margin-left:0.5em;">
   </label>
   <button on:click={saveContent} type="button">Salvar</button>
   <button on:click={clearPage} type="button" style="margin-left:1em;color:#b00">Limpar página</button>
