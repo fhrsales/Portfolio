@@ -18,7 +18,8 @@ try {
   archiePages = Object.keys(parsed);
 } catch {}
 
-const base = '';
+const isProd = process.env.NODE_ENV === 'production';
+const base = isProd ? '/Portfolio' : '';
 const entries = [
   '/',
   ...archiePages.filter(p => p !== 'index').map(p => `/${p}`)
