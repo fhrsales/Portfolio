@@ -1,15 +1,13 @@
+
 <script>
 import { archiePages } from '$lib/stores';
 import { page } from '$app/stores';
 import { derived, get } from 'svelte/store';
+import { base } from '$app/paths';
 let open = false;
-
-
 import { onDestroy } from 'svelte';
 let pages = [];
 let current = '';
-
-
 import { onMount } from 'svelte';
 // Atualiza as páginas e a página atual reativamente
 onMount(() => {
@@ -27,16 +25,15 @@ onMount(() => {
   return unsubscribe;
 });
 $: current = $page.url.pathname.replace(/^\//, '');
-
 function goTo(p) {
   open = false;
-  window.location.href = p === 'main' ? '/' : `/${p}`;
+  window.location.href = p === 'main' ? base + '/' : `${base}/${p}`;
 }
 </script>
 
 <nav class="menu-bar">
   <div class="menu-container">
-    <a class="logo" href="/" on:click|preventDefault={() => goTo('main')}>Fabio Sales</a>
+    <a class="logo" href="{base}/" on:click|preventDefault={() => goTo('main')}>Fabio Sales</a>
     <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
       &#9776;
     </button>
@@ -44,7 +41,7 @@ function goTo(p) {
     <ul class:open={open}>
       {#each pages as p}
         <li class:active={current === p || (p === 'main' && current === '')}>
-          <a href={p === 'main' ? '/' : `/${p}`} on:click|preventDefault={() => goTo(p)}>{p}</a>
+          <a href={p === 'main' ? `${base}/` : `${base}/${p}`} on:click|preventDefault={() => goTo(p)}>{p}</a>
         </li>
       {/each}
       {#if import.meta.env.DEV}

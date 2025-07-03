@@ -8,12 +8,13 @@ export const isAuthenticated = writable(false);
 
 
 
+import { base } from '$app/paths';
 async function fetchArchiePages() {
   if (typeof window === 'undefined') {
     // SSR: não faz fetch, retorna vazio
     return {};
   }
-  const res = await fetch('/archiePages.json?_=' + Date.now());
+  const res = await fetch(`${base}/archiePages.json?_=${Date.now()}`);
   if (!res.ok) return {};
   return await res.json();
 }
