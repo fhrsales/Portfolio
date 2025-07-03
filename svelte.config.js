@@ -24,6 +24,7 @@ const entries = [
   ...archiePages.filter(p => p !== 'index').map(p => `/${p}`)
 ];
 
+console.log('Entradas para prerender:', entries);
 const config = {
   kit: {
     adapter: adapter({
