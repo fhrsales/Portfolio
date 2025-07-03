@@ -24,6 +24,14 @@ const parsed = derived(
 </script>
 
 <!-- <h1>Página Renderizada: {$currentPage}</h1> -->
+
+<!-- Diagnóstico: mensagens de erro e debug -->
+{#if $parsed.erro}
+  <div style="color: red; font-weight: bold;">Erro: {$parsed.erro}</div>
+{/if}
+{#if !$parsed.title && !$parsed.body && !$parsed.erro}
+  <div style="color: orange;">Nenhum conteúdo encontrado para a página <b>{$currentPage}</b>. Verifique se o JSON está correto e se o fetch funcionou.</div>
+{/if}
 {#if $parsed.title}
   <Title value={$parsed.title} />
 {/if}
