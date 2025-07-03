@@ -7,7 +7,12 @@ import Title from '$lib/components/Title.svelte';
 import EmbedWrapper from '$lib/components/EmbedWrapper.svelte';
 import PdfViewer from '$lib/components/PdfViewer.svelte';
 
-  const currentPage = derived(page, $page => $page.url.pathname.slice(1) || 'index');
+  import { base } from '$app/paths';
+  const currentPage = derived(page, $page => {
+    // Remove base path e barras extras
+    let path = $page.url.pathname.replace(base, '').replace(/^\/+|\/+$/g, '');
+    return (!path) ? 'index' : path;
+  });
 
   const parsed = derived(
     [archiePages, currentPage],
@@ -25,7 +30,14 @@ import PdfViewer from '$lib/components/PdfViewer.svelte';
   );
 </script>
 
-<!-- <h1>Página Renderizada: {$currentPage}</h1> -->
+
+<!-- Diagnóstico: mensagens de erro e debug -->
+{#if $parsed.erro}
+  <div style="color: red; font-weight: bold;">Erro: {$parsed.erro}</div>
+{/if}
+{#if !$parsed.titulo && !$parsed.body && !$parsed.embedWrapper && !$parsed.pdf && !$parsed.erro}
+  <div style="color: orange;">Nenhum conteúdo encontrado para a página <b>{$currentPage}</b>. Verifique se o JSON está correto e se o fetch funcionou.</div>
+{/if}
 
 
 <!-- Renderiza campo embedWrapper com componente -->
@@ -46,12 +58,19 @@ import PdfViewer from '$lib/components/PdfViewer.svelte';
   <div class="corpo">
     {#each Array.isArray($parsed.body) ? $parsed.body : [$parsed.body] as bloco}
       {#if bloco.trim().match(/^<a\b/i)}
-        <p>{@html bloco}</p>
+        <p>{@html fixLinks(bloco, base)}</p>
       {:else if bloco.trim().startsWith('<')}
-        {@html bloco}
+        {@html fixLinks(bloco, base)}
       {:else}
-        <p>{@html bloco}</p>
+        <p>{@html fixLinks(bloco, base)}</p>
       {/if}
+<script>
+  // ...existing code...
+  function fixLinks(html, base) {
+    if (!base) return html;
+    return html.replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${base}/$1'`);
+  }
+</script>
     {/each}
   </div>
 {/if}

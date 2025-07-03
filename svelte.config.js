@@ -28,6 +28,7 @@ const entries = [
 console.log('Entradas para prerender:', entries);
 const config = {
   kit: {
+    // trailingSlash: 'always',
     adapter: adapter({
       pages: 'build',
       assets: 'build',

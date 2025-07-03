@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "node copy-archiePages.cjs && vite build",
-		"preview": "vite preview",
+	"preview": "vite preview & sleep 2 && open http://localhost:4173/Portfolio/",
 		"prepare": "svelte-kit sync || echo ''",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",

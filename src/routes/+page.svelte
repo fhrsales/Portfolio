@@ -36,6 +36,12 @@ const parsed = derived(
     }
   }
 );
+
+// Corrige links internos para usar a base correta
+function fixLinks(html, base) {
+  if (!base) return html;
+  return html.replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${base}/$1'`);
+}
 </script>
 
 <!-- <h1>Página Renderizada: {$currentPage}</h1> -->
@@ -57,13 +63,14 @@ const parsed = derived(
   <div class="corpo">
     {#each Array.isArray($parsed.body) ? $parsed.body : [$parsed.body] as bloco}
       {#if bloco.trim().match(/^<a\b/i)}
-        <p>{@html bloco}</p>
+        <p>{@html fixLinks(bloco, base)}</p>
       {:else if bloco.trim().startsWith('<')}
-        {@html bloco}
+        {@html fixLinks(bloco, base)}
       {:else}
-        <p>{@html bloco}</p>
+        <p>{@html fixLinks(bloco, base)}</p>
       {/if}
     {/each}
   </div>
 {/if}
+
 

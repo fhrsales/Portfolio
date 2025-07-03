@@ -27,8 +27,8 @@
     "content": "pdf: UvaPages.pdf",
     "showInMenu": false
   },
-  "portifolio": {
-    "content": "pdf: portifolio.pdf",
+  "portfolio": {
+    "content": "pdf: portfolio.pdf",
     "showInMenu": true
   }
 }
