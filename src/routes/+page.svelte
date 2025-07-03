@@ -7,8 +7,14 @@ import { page } from '$app/stores';
 import Title from '$lib/components/Title.svelte';
 import Body from '$lib/components/Body.svelte';
 
-// Detecta a página pela rota ou usa 'index'
-const currentPage = derived(page, $page => $page.url.pathname.slice(1) || 'index');
+// Detecta a página pela rota ou usa 'index', mesmo em subpasta
+import { base } from '$app/paths';
+const currentPage = derived(page, $page => {
+  // Remove base path e barras extras
+  let path = $page.url.pathname.replace(base, '').replace(/^\/+|\/+$/g, '');
+  // Se vazio, retorna 'index'
+  return (!path) ? 'index' : path;
+});
 
 const parsed = derived(
   [archiePages, currentPage],
