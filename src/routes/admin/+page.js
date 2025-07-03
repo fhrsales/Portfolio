@@ -1,4 +1,4 @@
-// Este arquivo impede o build da rota /admin em produção
+export const prerender = false;// Este arquivo impede o build da rota /admin em produção
 export const ssr = false;
 
 if (import.meta.env.PROD) {

@@ -7,8 +7,8 @@ import { page } from '$app/stores';
 import Title from '$lib/components/Title.svelte';
 import Body from '$lib/components/Body.svelte';
 
-// Detecta a página pela rota ou usa 'main'
-const currentPage = derived(page, $page => $page.url.pathname.slice(1) || 'main');
+// Detecta a página pela rota ou usa 'index'
+const currentPage = derived(page, $page => $page.url.pathname.slice(1) || 'index');
 
 const parsed = derived(
   [archiePages, currentPage],

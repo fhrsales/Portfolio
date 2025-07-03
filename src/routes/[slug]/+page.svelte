@@ -6,7 +6,7 @@
   import Title from '$lib/components/Title.svelte';
   import Body from '$lib/components/Body.svelte';
 
-  const currentPage = derived(page, $page => $page.url.pathname.slice(1) || 'main');
+  const currentPage = derived(page, $page => $page.url.pathname.slice(1) || 'index');
 
   const parsed = derived(
     [archiePages, currentPage],

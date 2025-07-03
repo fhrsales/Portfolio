@@ -4,7 +4,7 @@ import ArchieML from 'archieml';
 let password = '';
 import { get } from 'svelte/store';
 let content = '';
-let page = 'main';
+let page = 'index';
 let error = '';
 let showInMenu = true;
 let buildResult = '';
@@ -70,7 +70,7 @@ function clearPage() {
     content = '';
     error = `Página "${page}" removida.`;
     // Volta para main se deletar a atual
-    page = 'main';
+    page = 'index';
     loadContent();
   }
 }
