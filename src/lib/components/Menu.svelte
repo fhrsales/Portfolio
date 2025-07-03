@@ -27,7 +27,7 @@ onMount(() => {
 $: current = $page.url.pathname.replace(/^\//, '');
 function goTo(p) {
   open = false;
-  window.location.href = p === 'main' ? base + '/' : `${base}/${p}`;
+  window.location.href = p === 'main' ? base + '/' : `${base}/${p}/`;
 }
 </script>
 
@@ -41,7 +41,7 @@ function goTo(p) {
     <ul class:open={open}>
       {#each pages as p}
         <li class:active={current === p || (p === 'main' && current === '')}>
-          <a href={p === 'main' ? `${base}/` : `${base}/${p}`} on:click|preventDefault={() => goTo(p)}>{p}</a>
+          <a href={p === 'main' ? `${base}/` : `${base}/${p}/`} on:click|preventDefault={() => goTo(p)}>{p}</a>
         </li>
       {/each}
       {#if import.meta.env.DEV}
