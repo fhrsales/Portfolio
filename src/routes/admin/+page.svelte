@@ -11,16 +11,18 @@ let menuLabel = '';
 let buildResult = '';
 let previewResult = '';
 let previewLoading = false;
-const ADMIN_PASSWORD = 'fabios'; // Troque para uma senha segura
 
-function login() {
-  if (password === ADMIN_PASSWORD) {
-    isAuthenticated.set(true);
-    error = '';
-  } else {
-    error = 'Senha incorreta';
-  }
-}
+// LOGIN DESABILITADO TEMPORARIAMENTE
+isAuthenticated.set(true);
+// const ADMIN_PASSWORD = 'fabios'; // Troque para uma senha segura
+// function login() {
+//   if (password === ADMIN_PASSWORD) {
+//     isAuthenticated.set(true);
+//     error = '';
+//   } else {
+//     error = 'Senha incorreta';
+//   }
+// }
 
 async function saveContent() {
   try {
@@ -199,9 +201,12 @@ $: if ($isAuthenticated) loadContent();
   <p>{error}</p>
   <!-- Botões de build e preview removidos, use o terminal para essas ações -->
 {:else}
+  <!-- Login desabilitado temporariamente -->
+  <!--
   <h2>Login Admin</h2>
   <input type="password" bind:value={password} placeholder="Senha" />
   <button on:click={login}>Entrar</button>
   <p>{error}</p>
+  -->
 {/if}
 

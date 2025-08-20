@@ -39,7 +39,12 @@ const config = {
       base
     },
     prerender: {
-      entries
+      entries,
+      handleUnseenRoutes: (route, opts) => {
+        // Ignora rotas não encontradas para evitar erro de build
+        if (route === '/demo/lucia/login') return 'ignore';
+        return 'error';
+      }
     }
   },
   preprocess: [mdsvex()],

@@ -28,6 +28,8 @@
         line-height: 1.6;
     }
 
+
+
     .corpo > p a {
     color: var(--cor-primaria);
     text-decoration: underline;

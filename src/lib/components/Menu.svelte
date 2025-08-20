@@ -32,7 +32,7 @@ $: current = $page.url.pathname.replace(/^\//, '');
 
 <nav class="menu-bar">
   <div class="menu-container">
-    <a class="logo" href="{base}/">Fabio Sales</a>
+  <a class="logo" href="{base}/">Fabio Sales</a>
     <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
       &#9776;
     </button>
