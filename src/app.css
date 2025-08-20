@@ -70,6 +70,15 @@ body {
 p {
     max-width: 500px;
     margin: 0 auto 3rem auto;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+}
+
+@media (max-width: 600px) {
+  p {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
 }
 
 p a {
