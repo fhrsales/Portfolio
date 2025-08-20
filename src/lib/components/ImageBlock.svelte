@@ -69,3 +69,20 @@ $: sizeClass =
     border-radius: 0;
 }
 </style>
+.image-block-wrapper.img-pp,
+.image-block-wrapper.img-p,
+.image-block-wrapper.img-m,
+.image-block-wrapper.img-g {
+        /* Desktop: sem padding extra */
+}
+
+@media (max-width: 600px) {
+    .image-block-wrapper.img-pp,
+    .image-block-wrapper.img-p,
+    .image-block-wrapper.img-m,
+    .image-block-wrapper.img-g {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        box-sizing: border-box;
+    }
+}
