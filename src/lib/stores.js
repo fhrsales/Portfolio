@@ -14,8 +14,8 @@ async function fetchArchiePages() {
     // SSR: não faz fetch, retorna vazio
     return {};
   }
-  // Busca sempre do static, ignorando base
-  const res = await fetch('/archiePages.json?_=' + Date.now());
+  // Busca usando o base path para funcionar em produção (GitHub Pages)
+  const res = await fetch(`${base}/archiePages.json?_=${Date.now()}`);
   if (!res.ok) return {};
   return await res.json();
 }
