@@ -1,32 +1,23 @@
 <script>
 import { archiePages } from '$lib/stores';
 import { page } from '$app/stores';
-import { derived, get } from 'svelte/store';
 import { base } from '$app/paths';
+import { onMount } from 'svelte';
 let open = false;
-import { onDestroy } from 'svelte';
 let pages = [];
 let menuLabels = {};
 let current = '';
-import { onMount } from 'svelte';
-// Atualiza as páginas e a página atual reativamente
+
 onMount(() => {
   const unsubscribe = archiePages.subscribe(val => {
-    // Filtra apenas páginas com showInMenu true (ou undefined para retrocompatibilidade)
     const filtered = Object.entries(val)
-      .filter(([k, v]) => {
-        if (typeof v === 'object' && v !== null) {
-          return v.showInMenu !== false;
-        }
-        return true; // retrocompatível: string = mostra
-      });
+      .filter(([_, v]) => typeof v === 'object' ? v.showInMenu !== false : true);
     pages = filtered.map(([k]) => k);
     menuLabels = Object.fromEntries(filtered.map(([k, v]) => [k, v.menuLabel || k]));
   });
   return unsubscribe;
 });
-$: current = $page.url.pathname.replace(/^\//, '');
-
+$: current = $page.url.pathname.replace(/^\/|\/$/g, '');
 </script>
 
 <nav class="menu-bar">
@@ -89,10 +80,15 @@ $: current = $page.url.pathname.replace(/^\//, '');
 }
 ul {
   list-style: none;
-  display: flex;
-  gap: 1em;
   margin: 0;
   padding: 0;
+}
+ul.desktop-menu {
+  display: flex;
+  gap: 1em;
+}
+ul.mobile-menu {
+  display: none;
 }
 li.active a {
   color: var(--cor-primaria, #0070f3);
@@ -104,14 +100,6 @@ li.active a {
   border: none;
   font-size: 2em;
   cursor: pointer;
-}
-
-/* CSS para mostrar/ocultar menus */
-ul.desktop-menu {
-  display: flex;
-}
-ul.mobile-menu {
-  display: none;
 }
 @media (max-width: 700px) {
   .menu-container {
