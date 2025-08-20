@@ -35,9 +35,23 @@ $: current = $page.url.pathname.replace(/^\//, '');
     <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
       &#9776;
     </button>
+    {#if pages.length || import.meta.env.DEV}
+      <ul class="desktop-menu">
+        {#each pages as p}
+          <li class:active={current === p || (p === 'main' && current === '')}>
+            <a href={p === 'main' ? `${base}/` : `${base}/${p}`}>{menuLabels[p]}</a>
+          </li>
+        {/each}
+        {#if import.meta.env.DEV}
+          <li class="admin-link">
+            <a href="/admin" style="color:#0070f3;font-weight:bold;">Admin</a>
+          </li>
+        {/if}
+      </ul>
+    {/if}
   </div>
   {#if pages.length || import.meta.env.DEV}
-    <ul class:open={open}>
+    <ul class:open={open} class="mobile-menu">
       {#each pages as p}
         <li class:active={current === p || (p === 'main' && current === '')}>
           <a href={p === 'main' ? `${base}/` : `${base}/${p}`}>{menuLabels[p]}</a>
@@ -91,6 +105,14 @@ li.active a {
   font-size: 2em;
   cursor: pointer;
 }
+
+/* CSS para mostrar/ocultar menus */
+ul.desktop-menu {
+  display: flex;
+}
+ul.mobile-menu {
+  display: none;
+}
 @media (max-width: 700px) {
   .menu-container {
     flex-direction: row;
@@ -102,7 +124,10 @@ li.active a {
   .logo {
     margin-bottom: 0;
   }
-  ul {
+  ul.desktop-menu {
+    display: none;
+  }
+  ul.mobile-menu {
     flex-direction: column;
     width: 100%;
     display: none;
@@ -110,9 +135,8 @@ li.active a {
     padding-left: 1.5em;
     padding-right: 1.5em;
     box-sizing: border-box;
-    padding-bottom: 1em;
   }
-  ul.open {
+  ul.mobile-menu.open {
     display: flex;
   }
   .menu-toggle {
