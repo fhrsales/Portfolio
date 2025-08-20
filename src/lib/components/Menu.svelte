@@ -1,4 +1,3 @@
-
 <script>
 import { archiePages } from '$lib/stores';
 import { page } from '$app/stores';
@@ -32,10 +31,11 @@ $: current = $page.url.pathname.replace(/^\//, '');
 
 <nav class="menu-bar">
   <div class="menu-container">
-  <a class="logo" href="{base}/">Fabio Sales</a>
+    <a class="logo" href="{base}/">Fabio Sales</a>
     <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
       &#9776;
     </button>
+  </div>
   {#if pages.length || import.meta.env.DEV}
     <ul class:open={open}>
       {#each pages as p}
@@ -44,13 +44,12 @@ $: current = $page.url.pathname.replace(/^\//, '');
         </li>
       {/each}
       {#if import.meta.env.DEV}
-        <li style="margin-left:2em;">
+        <li class="admin-link">
           <a href="/admin" style="color:#0070f3;font-weight:bold;">Admin</a>
         </li>
       {/if}
     </ul>
   {/if}
-  </div>
 </nav>
 
 <style>
@@ -94,20 +93,33 @@ li.active a {
 }
 @media (max-width: 700px) {
   .menu-container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5em 1em;
+  }
+  .logo {
+    margin-bottom: 0;
   }
   ul {
     flex-direction: column;
     width: 100%;
     display: none;
     margin-top: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    box-sizing: border-box;
   }
   ul.open {
     display: flex;
   }
   .menu-toggle {
     display: block;
+    margin-left: 1em;
+  }
+  .admin-link {
+    margin-left: 0 !important;
   }
 }
 </style>

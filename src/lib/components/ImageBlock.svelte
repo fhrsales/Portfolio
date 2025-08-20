@@ -68,7 +68,8 @@ $: sizeClass =
     max-width: 100vw;
     border-radius: 0;
 }
-</style>
+
+
 .image-block-wrapper.img-pp,
 .image-block-wrapper.img-p,
 .image-block-wrapper.img-m,
@@ -86,3 +87,5 @@ $: sizeClass =
         box-sizing: border-box;
     }
 }
+
+</style>
