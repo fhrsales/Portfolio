@@ -110,6 +110,7 @@ li.active a {
     padding-left: 1.5em;
     padding-right: 1.5em;
     box-sizing: border-box;
+    padding-bottom: 1em;
   }
   ul.open {
     display: flex;
