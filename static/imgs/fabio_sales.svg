@@ -2,8 +2,38 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 442.76 120.45">
   <defs>
     <style>
+      /* Filled-appearance handwriting: paths appear already filled (no outline).
+         We animate fill-opacity per path with short staggered delays so the signature 'writes' as filled ink. */
       .cls-1 {
         fill: #231f20;
+        fill-opacity: 0;
+        /* simple fill animation; timings overridden per-path for a sequential effect */
+        animation-name: fillIn;
+        /* slightly slower default duration */
+        animation-duration: 0.36s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0s;
+        paint-order: fill;
+      }
+
+      @keyframes fillIn { to { fill-opacity: 1; } }
+
+      /* Staggered per-path timings (fast, sequential) */
+  path:nth-of-type(1)  { animation-duration: .25s; animation-delay: 0s; }
+  path:nth-of-type(2)  { animation-duration: .28s; animation-delay: .08s; }
+  path:nth-of-type(3)  { animation-duration: .30s; animation-delay: .15s; }
+  path:nth-of-type(4)  { animation-duration: .28s; animation-delay: .22s; }
+  path:nth-of-type(5)  { animation-duration: .28s; animation-delay: .30s; }
+  path:nth-of-type(6)  { animation-duration: .30s; animation-delay: .38s; }
+  path:nth-of-type(7)  { animation-duration: .28s; animation-delay: .45s; }
+  path:nth-of-type(8)  { animation-duration: .25s; animation-delay: .52s; }
+  path:nth-of-type(9)  { animation-duration: .22s; animation-delay: .60s; }
+  path:nth-of-type(10) { animation-duration: .22s; animation-delay: .68s; }
+
+      /* Slightly faster on small screens */
+      @media (max-width: 600px) {
+        path { animation-duration: calc(.9 * var(--duration, 0.2s)); }
       }
     </style>
   </defs>
