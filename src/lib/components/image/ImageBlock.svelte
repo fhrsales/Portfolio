@@ -252,8 +252,8 @@
 
 .image-block-wrapper.img-pp { max-width: 250px; }
 .image-block-wrapper.img-p  { max-width: 500px; }
-.image-block-wrapper.img-m  { max-width: 720px; }
-.image-block-wrapper.img-g  { max-width: 860px; }
+.image-block-wrapper.img-m  { max-width: 620px; }
+.image-block-wrapper.img-g  { max-width: 760px; }
 .image-block-wrapper.img-gg { max-width: 100vw; border-radius: 0; }
 
 .image-block-wrapper.img-pp,
