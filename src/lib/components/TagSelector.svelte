@@ -75,6 +75,7 @@
         box-shadow: var(--shadow-2);
         font-size: calc(var(--grid) * 1.18);
         text-transform: uppercase;
+        color: var(--color-dark);
     }
     .tag-selector button.active {
         background: var(--color-primary);
