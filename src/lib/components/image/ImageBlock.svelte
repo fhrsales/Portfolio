@@ -268,9 +268,10 @@
     .image-block-wrapper.img-p,
     .image-block-wrapper.img-m,
     .image-block-wrapper.img-g {
-        padding-left: 1.5em;
-        padding-right: 1.5em;
+        /* padding-left: 1.5em;
+        padding-right: 1.5em; */
         box-sizing: border-box;
+        width: calc(100% - (var(--grid) * 4));
     }
 }
 
