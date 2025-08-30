@@ -1,88 +1,83 @@
 
-.footer {
-  width: 100vw;
-  padding: 3em 0 2em 0;
-  margin: 5em 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.95em;
-  color: #111;
-  background: none;
-  border: none;
-}
-.footer .icons {
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  margin-bottom: 0.5em;
-}
-.footer a {
-  display: flex;
-  align-items: center;
-  color: #111;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95em;
-  gap: 0.4em;
-}
-.footer svg {
-  width: 1em;
-  height: 1em;
-  fill: #111;
-}
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+:root {
+    --grid: 9px;
+    --font-primary: 'Fira Sans', sans-serif;
 
-@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+    --color-primary: #a81e87;
+    --color-secondary: #a0c10e;
+    --color-tertiary: #FFFFFF;
+    --color-dark: #1D1D1F;
+    --color-light: #F5F5F5;
+
+    --shadow-2: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    --multiply: multiply;
+}
+
+/* normalize css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  width: 100vw;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+    background: var(--color-light);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
 }
 
 .main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
-  margin-top: 84px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
 }
 
-
-.titulo, h1 {
-  max-width: 600px;
-  width: 100%;
-  margin: 32px auto 16px auto;
-  display: block;
-  text-align: center !important;
+strong {
+    font-weight: 600;
 }
 
-p {
-    max-width: 500px;
-    margin: 0 auto 3rem auto;
-    padding-left: 1.2em;
-    padding-right: 1.2em;
+.shadow-1 {
+    position: relative; /* Essential for positioning pseudo-elements */
 }
 
-@media (max-width: 600px) {
-  p {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-  }
+.shadow-1:before,
+.shadow-1:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 15px; /* Adjust as needed for desired lift */
+    height: 17px; /* Adjust for shadow thickness */
+    width: 50%; /* Adjust for shadow width */
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3); /* Shadow properties for corners */
 }
 
-p a {
-    color: var(--cor-primaria);
-    text-decoration: underline;
-    font-weight: bold;
+.shadow-1:before {
+    left: 10px; /* Position left corner shadow */
+    transform: rotate(-5deg); /* Angle the left shadow */
+}
+
+.shadow-1:after {
+    right: 10px; /* Position right corner shadow */
+    transform: rotate(5deg); /* Angle the right shadow */
+}
+
+/* Blend multiply helper: wrapper provides background color, image uses mix-blend-mode */
+.image-block-wrapper.blend-multiply {
+    background-color: var(--image-blend-bg);
+}
+.image-block-wrapper.blend-multiply img {
+    mix-blend-mode: var(--image-blend-mode);
 }

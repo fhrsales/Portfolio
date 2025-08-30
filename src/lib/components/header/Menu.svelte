@@ -22,14 +22,16 @@ $: current = $page.url.pathname.replace(/^\/|\/$/g, '');
 
 <nav class="menu-bar">
   <div class="menu-container">
-    <a class="logo" href="{base}/">Fabio Sales</a>
+    <a class="logo" href="{base}/">
+      <img src="{base}/imgs/fabio_sales.svg" alt="Fabio Sales" class="logo-img" />
+    </a>
     <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
       &#9776;
     </button>
     {#if pages.length || import.meta.env.DEV}
       <ul class="desktop-menu">
         {#each pages as p}
-          <li class:active={current === p || (p === 'main' && current === '')}>
+          <li class:active={current === p || (p === 'main' && (current === '' || current === 'index'))}>
             <a href={p === 'main' ? `${base}/` : `${base}/${p}`}>{menuLabels[p]}</a>
           </li>
         {/each}
@@ -61,22 +63,28 @@ $: current = $page.url.pathname.replace(/^\/|\/$/g, '');
 .menu-bar {
   width: 100vw;
   background: #fff;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   position: sticky;
   top: 0;
   z-index: 100;
+  margin-bottom: calc(var(--grid) * 5);
 }
 .menu-container {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5em 1em;
+  justify-content: center;
+  padding: 20px 1em;
 }
-.logo {
+/* .logo {
   font-weight: bold;
   font-size: 1.2em;
+} */
+.logo-img {
+  height: 46px;
+  display: block;
+  margin-right: 8px;
 }
 ul {
   list-style: none;
@@ -85,14 +93,39 @@ ul {
 }
 ul.desktop-menu {
   display: flex;
-  gap: 1em;
+  /* gap: 1em; */
 }
+/* bolinha antes de cada item de menu */
+ul.desktop-menu li::before,
+ul.mobile-menu li::before {
+    position: relative;
+    top: -2px;
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background: var(--color-dark);
+    border-radius: 50%;
+    margin: 0 calc(var(--grid) * 1);
+    vertical-align: middle;
+}
+
 ul.mobile-menu {
-  display: none;
+    display: none;
 }
+
+li a {
+    font-family: var(--font-primary);
+    font-size: calc(var(--grid) * 2);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--color-dark);
+    text-decoration: none;
+    margin: 0 calc(var(--grid) * 1);
+}
+
 li.active a {
-  color: var(--cor-primaria, #0070f3);
-  font-weight: bold;
+  color: var(--color-primary);
 }
 .menu-toggle {
   display: none;
@@ -126,6 +159,10 @@ li.active a {
   }
   ul.mobile-menu.open {
     display: flex;
+  }
+  /* space after last mobile menu item */
+  ul.mobile-menu li:last-child {
+    margin-bottom: calc(var(--grid) * 4);
   }
   .menu-toggle {
     display: block;

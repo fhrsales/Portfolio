@@ -1,19 +1,19 @@
 
 <script>
 	import '../app.css';
-	import Menu from '$lib/components/Menu.svelte';
+	import Menu from '$lib/components/header/Menu.svelte';
+	import Footer from '$lib/components/footer/Footer.svelte';
+	import { page } from '$app/stores';
 	let { children } = $props();
 </script>
 
 
 <Menu />
-<div class="main-content">
-	{@render children()}
-</div>
-
-<footer class="footer">
-	<div class="icons">
-		Contacts: <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener">fabio.sales@me.com</a> | 
-		<a href="https://www.linkedin.com/in/fabiohrsales/" title="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
+{#if $page.url.pathname && $page.url.pathname.startsWith('/admin')}
+	{@render children?.()}
+{:else}
+	<div class="main-content">
+		{@render children?.()}
 	</div>
-</footer>
+{/if}
+<Footer />
