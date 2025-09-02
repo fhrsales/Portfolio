@@ -202,7 +202,7 @@
 <style>
 /* Layout and sizing */
 .image-block {
-    margin: 6em auto 1rem auto;
+    margin: 3em auto 1rem auto;
     text-align: center;
     max-width: 100%;
     display: flex;
