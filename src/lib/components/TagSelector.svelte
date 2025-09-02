@@ -64,7 +64,7 @@
         z-index: 2;
         margin: 0 auto calc(var(--grid) * 3) auto;
         width: calc(100% - (var(--grid) * 4));
-        max-width: calc(var(--grid) * 200);
+        max-width: calc(var(--grid) * 70);
     }
     .tag-selector button {
         background: var(--color-light);
