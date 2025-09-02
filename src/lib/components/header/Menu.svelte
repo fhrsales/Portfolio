@@ -18,6 +18,11 @@ onMount(() => {
   return unsubscribe;
 });
 $: current = $page.url.pathname.replace(/^\/|\/$/g, '');
+
+// close mobile menu when navigating to a new route
+$: if (typeof current === 'string') {
+  open = false;
+}
 </script>
 
 <nav class="menu-bar">
@@ -25,8 +30,12 @@ $: current = $page.url.pathname.replace(/^\/|\/$/g, '');
     <a class="logo" href="{base}/">
       <img src="{base}/imgs/fabio_sales.svg" alt="Fabio Sales" class="logo-img" />
     </a>
-    <button class="menu-toggle" on:click={() => open = !open} aria-label="Abrir menu">
-      &#9776;
+    <button class="menu-toggle" class:open={open} on:click={() => open = !open} aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open}>
+      <svg viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+        <rect class="line l1" x="0" y="2" width="24" height="2" rx="1" />
+        <rect class="line l2" x="0" y="8" width="24" height="2" rx="1" />
+        <rect class="line l3" x="0" y="14" width="24" height="2" rx="1" />
+      </svg>
     </button>
     {#if pages.length || import.meta.env.DEV}
       <ul class="desktop-menu">
@@ -111,7 +120,13 @@ ul.mobile-menu li::before {
 }
 
 ul.mobile-menu {
-    display: none;
+  /* curtain animation: keep in DOM and animate max-height */
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 340ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+  transform-origin: top center;
+  box-shadow: none;
 }
 
 li a {
@@ -134,6 +149,16 @@ li.active a {
   font-size: 2em;
   cursor: pointer;
 }
+/* Hamburger SVG styles */
+.menu-toggle svg { width: 26px; height: 20px; display: block; }
+.menu-toggle .line { fill: var(--color-dark); transition: transform 220ms cubic-bezier(.2,.9,.3,1), opacity 180ms ease; transform-origin: 12px 9px; }
+.menu-toggle.open .l1 { transform: translateY(6px) rotate(45deg); }
+.menu-toggle.open .l2 { opacity: 0; transform: scaleX(0); }
+.menu-toggle.open .l3 { transform: translateY(-6px) rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-toggle .line { transition: none; }
+}
 @media (max-width: 700px) {
   .menu-container {
     flex-direction: row;
@@ -151,14 +176,15 @@ li.active a {
   ul.mobile-menu {
     flex-direction: column;
     width: 100%;
-    display: none;
     margin-top: 0.5em;
     padding-left: 1.5em;
     padding-right: 1.5em;
     box-sizing: border-box;
+    line-height: 1.5;
   }
   ul.mobile-menu.open {
-    display: flex;
+    max-height: 400px; /* tall enough for menu content; adjust if necessary */
+    box-shadow: 4px 20px 30px rgba(0, 0, 0, 0.12);
   }
   /* space after last mobile menu item */
   ul.mobile-menu li:last-child {
