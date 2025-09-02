@@ -279,4 +279,25 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
+/* Override global .shadow-1 pseudo-elements so they appear only after the image is shown
+   (global rules may place :before/:after as soon as class is present; we delay them until .show) */
+.image-block.shadow-1:before,
+.image-block.shadow-1:after {
+    display: none !important;
+}
+.image-block.show.shadow-1:before,
+.image-block.show.shadow-1:after {
+    /* mirror global shadow styles but only after .show is active */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    height: 17px;
+    width: 50%;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
+    display: block !important;
+}
+.image-block.show.shadow-1:before { left: 10px; transform: rotate(-5deg); }
+.image-block.show.shadow-1:after  { right: 10px; transform: rotate(5deg); }
+
 </style>

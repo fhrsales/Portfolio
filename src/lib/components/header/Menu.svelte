@@ -154,7 +154,7 @@ li.active a {
 .menu-toggle .line { fill: var(--color-dark); transition: transform 220ms cubic-bezier(.2,.9,.3,1), opacity 180ms ease; transform-origin: 12px 9px; }
 .menu-toggle.open .l1 { transform: translateY(6px) rotate(45deg); }
 .menu-toggle.open .l2 { opacity: 0; transform: scaleX(0); }
-.menu-toggle.open .l3 { transform: translateY(-6px) rotate(-45deg); }
+.menu-toggle.open .l3 { transform: translateY(-4px) rotate(-45deg); }
 
 @media (prefers-reduced-motion: reduce) {
   .menu-toggle .line { transition: none; }
