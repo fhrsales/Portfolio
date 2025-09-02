@@ -82,13 +82,3 @@ strong {
     mix-blend-mode: var(--image-blend-mode);
 }
 
-/* Mobile tweak: the left corner shadow needs a different offset on small screens */
-@media (max-width: 700px) {
-    .shadow-1:before {
-        left: 27px; /* adjusted for mobile layout */
-    }
-
-    .shadow-1:after {
-        right: 27px; /* adjusted for mobile layout */
-    }
-}
