@@ -363,7 +363,7 @@
 </script>
 
 {#if usedParsed?.erro}
-    <div style="color: red; font-weight: bold;">Erro: {usedParsed.erro}</div>
+    <!-- <div style="color: red; font-weight: bold;">Erro: {usedParsed.erro}</div> -->
 {:else}
     {#if annotatedBlocks && annotatedBlocks.length}
         {#each annotatedBlocks as obj, i}
