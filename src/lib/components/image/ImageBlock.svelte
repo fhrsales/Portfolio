@@ -86,7 +86,14 @@
     }
 
     // only apply visual classes (shadow, custom classes) when the image is shown
-    $: appliedClasses = show ? [shadowClass, (typeof classes === 'string' ? classes : '')].filter(Boolean).join(' ') : '';
+    // visual classes (shadow/custom) should be applied only after the fade-in completes
+    let showVisuals = false;
+    let _visualsTimer;
+    $: if (!show) {
+        showVisuals = false;
+        if (_visualsTimer) { clearTimeout(_visualsTimer); _visualsTimer = null; }
+    }
+    $: appliedClasses = showVisuals ? [shadowClass, (typeof classes === 'string' ? classes : '')].filter(Boolean).join(' ') : '';
     // removed fade transition imports to disable fade-in effect
 
     onMount(() => {
@@ -156,10 +163,24 @@
             _showTimeout = setTimeout(() => {
                 show = true;
                 _showTimeout = null;
-            }, 60);
+            }, 30);
         } else {
             show = false;
         }
+    }
+
+    // when show becomes true we wait for the CSS opacity transition to finish
+    function onImgTransitionEnd(e) {
+        if (e && e.propertyName === 'opacity') {
+            showVisuals = true;
+            if (_visualsTimer) { clearTimeout(_visualsTimer); _visualsTimer = null; }
+        }
+    }
+
+    $: if (show) {
+        // safety fallback: if transitionend doesn't fire, enable visuals after transition duration (600ms) + small buffer
+        if (_visualsTimer) { clearTimeout(_visualsTimer); _visualsTimer = null; }
+    _visualsTimer = setTimeout(() => { showVisuals = true; _visualsTimer = null; }, 600);
     }
 
     // when both preloaded and inViewport are true, assign currentSrc so the <img>
@@ -180,6 +201,7 @@
                 height={height}
                 loading="lazy"
                 on:load={() => imgLoaded = true}
+                on:transitionend={onImgTransitionEnd}
                 style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}` } />
         {/if}
 
@@ -221,7 +243,7 @@
     display: block;
     margin: 0 auto;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 600ms ease;
 }
 
 /* When the component has both loaded and entered viewport, show image with 2s fade */
