@@ -3,7 +3,8 @@
     import Button from '$lib/components/ui/Button.svelte';
 
     export let src = '';
-    export let sources = []; // optional array of source filenames or absolute URLs
+    export let sources = []; // optional array of source filenames or absolute URLs or objects {src, width, bitrate}
+    export let preview = ''; // optional small preview (video or image) used as poster/preview
     export let caption = '';
     export let controls = false;
     export let size = 'M';
@@ -20,6 +21,7 @@
     let show = false;
     let currentSrc = '';
     let currentSources = [];
+    let loaded = false; // whether we've assigned the heavy sources to the player
     let preloader;
     let isPlaying = false;
     let isMuted = true; // start muted for autoplay friendliness; user can unmute
@@ -29,6 +31,8 @@
     let userPaused = false; // when true, user explicitly paused and we should avoid auto-resume
 
     $: sizeClass = size === 'PP' ? 'video-pp' : size === 'P' ? 'video-p' : size === 'M' ? 'video-m' : size === 'G' ? 'video-g' : 'video-m';
+    // compute poster attribute safely (avoid using template conditionals inside tag attributes)
+    $: posterAttr = (typeof preview === 'string' && (preview.endsWith('.jpg') || preview.endsWith('.png') || preview.endsWith('.webp'))) ? preview : undefined;
 
     onMount(() => {
         if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
@@ -37,11 +41,12 @@
                     if (e.isIntersecting) {
                         try {
                             preloader = document.createElement('video');
+                            // prefer preview for lightweight metadata fetch if available
                             preloader.preload = 'metadata';
-                            // try sources first
-                            if (Array.isArray(sources) && sources.length) {
-                                // assign first source to preloader for metadata
-                                preloader.src = sources[0];
+                            if (preview) {
+                                preloader.src = preview;
+                            } else if (Array.isArray(sources) && sources.length) {
+                                preloader.src = (typeof sources[0] === 'string') ? sources[0] : (sources[0].src || src);
                             } else {
                                 preloader.src = src;
                             }
@@ -115,18 +120,29 @@
     $: {
         if (_showTimeout) { clearTimeout(_showTimeout); _showTimeout = null; }
         if (inViewport && preloaded) {
-            // assign currentSources for rendering
-            if (Array.isArray(sources) && sources.length) {
-                currentSources = sources.slice();
-            } else if (src) {
-                currentSources = [src];
+            // decide whether to auto-load heavy source depending on connection
+            const conn = (typeof navigator !== 'undefined' && navigator.connection) ? navigator.connection : null;
+            const saveData = conn && conn.saveData === true;
+            const eff = conn && conn.effectiveType ? String(conn.effectiveType) : '';
+            const slowNetwork = /2g|slow-2g/i.test(eff);
+
+            const shouldAutoLoad = !saveData && !slowNetwork;
+
+            // if we should auto load, pick the best source and assign; otherwise keep only preview/poster until user interacts
+            if (shouldAutoLoad) {
+                loadChosenSources();
             }
+
+            if (!currentSources.length && !loaded && preview) {
+                // keep empty sources so the poster/preview is shown and avoid assigning heavy files
+            }
+
             if (!currentSrc && currentSources.length) currentSrc = currentSources[0];
             _showTimeout = setTimeout(() => {
                 show = true;
                 // try play when shown: muted first for autoplay; if user previously interacted unmute
                 // do not auto-resume if the user explicitly paused the video
-                if (!userPaused && videoEl && typeof videoEl.play === 'function') {
+                if (!userPaused && shouldAutoLoad && videoEl && typeof videoEl.play === 'function') {
                     videoEl.muted = isMuted;
                     videoEl.play().then(() => { isPlaying = true; }).catch(() => { isPlaying = false; });
                 }
@@ -134,6 +150,65 @@
         } else {
             show = false;
             if (videoEl && typeof videoEl.pause === 'function') { videoEl.pause(); isPlaying = false; }
+        }
+    }
+
+    // normalize sources to objects {src, width, bitrate}
+    function normalizeSources(s) {
+        if (!s) return [];
+        if (!Array.isArray(s)) s = String(s).split(',').map(x=>x.trim()).filter(Boolean);
+        return s.map(item => {
+            if (typeof item === 'string') return { src: item };
+            return { src: item.src || item, width: item.width, bitrate: item.bitrate, codec: item.codec };
+        });
+    }
+
+    function pickSourceByProfile(sourcesArr) {
+        const list = normalizeSources(sourcesArr);
+        if (!list.length) return null;
+        const conn = (typeof navigator !== 'undefined' && navigator.connection) ? navigator.connection : null;
+        const saveData = conn && conn.saveData === true;
+        const eff = conn && conn.effectiveType ? String(conn.effectiveType) : '';
+        const slowNetwork = /2g|slow-2g/i.test(eff);
+        if (saveData || slowNetwork) {
+            // pick lowest bitrate or smallest width
+            return list.slice().sort((a,b)=> (a.bitrate||1e9)-(b.bitrate||1e9) || (a.width||1e9)-(b.width||1e9))[0];
+        }
+        // prefer exact 500px if present
+        const exact = list.find(x=>x.width===500);
+        if (exact) return exact;
+        // prefer nearest width <= 500
+        const le = list.filter(x=>x.width && x.width <= 500).sort((a,b)=>b.width-a.width)[0];
+        if (le) return le;
+        // fallback to first
+        return list[0];
+    }
+
+    function loadChosenSources(force = false) {
+        if (loaded && !force) return;
+        const normalized = normalizeSources(sources.length ? sources : [src]);
+        const chosen = pickSourceByProfile(normalized) || normalized[0];
+        if (!chosen) return;
+        currentSources = [chosen.src];
+        currentSrc = chosen.src;
+        loaded = true;
+        // if video element already present, reload and try to play if appropriate
+        if (videoEl) {
+            try {
+                videoEl.load();
+            } catch (e) {}
+        }
+    }
+
+    // user interaction to explicitly load / play the heavy source
+    function ensureLoadedAndPlay() {
+        if (!loaded) {
+            loadChosenSources(true);
+        }
+        if (videoEl) {
+            userPaused = false;
+            videoEl.muted = isMuted;
+            videoEl.play().then(()=>{ isPlaying = !videoEl.paused; }).catch(()=>{ isPlaying = false; });
         }
     }
 
@@ -193,6 +268,14 @@
             } catch (err) {}
         }
     }
+
+    function onPlaceholderKeyDown(e) {
+        const k = e && e.key ? e.key : '';
+        if (k === 'Enter' || k === ' ' || k === 'Spacebar') {
+            e.preventDefault();
+            ensureLoadedAndPlay();
+        }
+    }
 </script>
 
 <figure bind:this={wrapperEl} class={`video-block video-block-wrapper ${sizeClass}`} class:show={show}>
@@ -201,8 +284,9 @@
             <video bind:this={videoEl}
                 playsinline
                 controls={controls}
-                preload="metadata"
+                preload="none"
                 on:error={onVideoError}
+                poster={posterAttr}
                 style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`}>
                 {#each currentSources as s}
                     <source src={s} />
@@ -211,8 +295,17 @@
             </video>
         {/if}
 
-        {#if !show}
-            <div class="placeholder" aria-hidden="true"></div>
+        {#if !loaded}
+            {#if preview}
+                <!-- show preview video or image as lightweight placeholder -->
+                    {#if typeof preview === 'string' && (preview.endsWith('.mp4') || preview.endsWith('.webm'))}
+                        <video class="placeholder-preview" src={preview} muted loop playsinline style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`} on:click|preventDefault={ensureLoadedAndPlay} role="button" tabindex="0" aria-label="Reproduzir vídeo de pré-visualização" on:keydown={onPlaceholderKeyDown}></video>
+                    {:else}
+                        <img class="placeholder-preview" src={preview} alt="preview" style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`} on:click|preventDefault={ensureLoadedAndPlay} role="button" tabindex="0" aria-label="Reproduzir vídeo de pré-visualização" on:keydown={onPlaceholderKeyDown} />
+                    {/if}
+            {:else}
+                    <div class="placeholder" role="button" tabindex="0" aria-label="Carregar e reproduzir vídeo" on:click|preventDefault={ensureLoadedAndPlay} on:keydown={onPlaceholderKeyDown}></div>
+            {/if}
         {/if}
 
         <!-- overlay controls (bottom-right) -->
@@ -234,7 +327,8 @@
     .video-inner { position: relative; width:100%; }
     .video-block video { width:100%; height:auto; display:block; opacity:0; transition: opacity 1s ease; }
     .video-block.show video { opacity:1; }
-    .video-inner .placeholder { position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02)); background-size:200% 100%; animation: shimmer 1.2s linear infinite; border-radius: inherit; pointer-events: none; }
+    .video-inner .placeholder { position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02)); background-size:200% 100%; animation: shimmer 1.2s linear infinite; border-radius: inherit; pointer-events: auto; }
+    .placeholder-preview { display:block; cursor:pointer; }
     .video-controls { position: absolute; right: 12px; bottom: 12px; display:flex; gap:8px; z-index: 12; opacity:0; transform: translateY(6px); transition: opacity 180ms ease, transform 180ms ease; pointer-events: auto; }
     .video-inner:hover .video-controls, .video-controls.visible { opacity:1; transform: translateY(0); }
     .video-controls > * { display: inline-flex; }

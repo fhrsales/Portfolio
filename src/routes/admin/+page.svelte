@@ -278,4 +278,23 @@ onDestroy(() => {
         align-items: center;
         justify-content: flex-end;
     }
+
+    /* admin-only: make legacy Button with classe='button-outline' visually match the .button link (Sair)
+       This targets the rendered .btn and the legacy classe which becomes an additional class on the element. */
+    .saveContent-container .btn.button-outline,
+    .saveContent-container .btn.button {
+        background: transparent;
+        border: none;
+        color: var(--color-primary);
+        text-transform: none;
+        box-shadow: none;
+        padding: 0.25rem 0.6rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .saveContent-container .btn.button-outline:hover,
+    .saveContent-container .btn.button:hover {
+        text-decoration: underline;
+    }
 </style>
