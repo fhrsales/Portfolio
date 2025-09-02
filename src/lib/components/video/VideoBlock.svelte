@@ -60,6 +60,7 @@
             }, { rootMargin: '400px', threshold: 0 });
             if (wrapperEl) prefetchObserver.observe(wrapperEl);
 
+            // larger rootMargin so mobile devices trigger loading earlier as user scrolls
             observer = new IntersectionObserver(entries => {
                 for (const e of entries) {
                     if (e.isIntersecting) {
@@ -67,7 +68,7 @@
                         if (observer) { observer.disconnect(); observer = null; }
                     }
                 }
-            }, { rootMargin: '0px', threshold: 0.18 });
+            }, { rootMargin: '200px', threshold: 0.12 });
             if (wrapperEl) observer.observe(wrapperEl);
         } else {
             try {
@@ -119,7 +120,8 @@
     let _showTimeout;
     $: {
         if (_showTimeout) { clearTimeout(_showTimeout); _showTimeout = null; }
-        if (inViewport && preloaded) {
+        // when the block enters viewport, proceed even if preloaded isn't finished
+        if (inViewport) {
             // decide whether to auto-load heavy source depending on connection
             const conn = (typeof navigator !== 'undefined' && navigator.connection) ? navigator.connection : null;
             const saveData = conn && conn.saveData === true;
@@ -130,6 +132,13 @@
 
             // if we should auto load, pick the best source and assign; otherwise keep only preview/poster until user interacts
             if (shouldAutoLoad) {
+                console.debug('[VideoBlock] shouldAutoLoad=true — loading chosen sources');
+                loadChosenSources();
+            }
+
+            // If there's no lightweight preview to show, assign sources so the video element renders (helps some mobile cases)
+            if (!loaded && !preview) {
+                console.debug('[VideoBlock] no preview available — forcing loadChosenSources on inViewport');
                 loadChosenSources();
             }
 
