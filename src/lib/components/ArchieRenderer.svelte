@@ -5,6 +5,7 @@
     import PdfViewer from '$lib/components/image/PdfViewer.svelte';
     import Ai2Html from '$lib/components/image/Ai2Html.svelte';
     import ImageBlock from '$lib/components/image/ImageBlock.svelte';
+    import VideoBlock from '$lib/components/video/VideoBlock.svelte';
     import TagSelector from '$lib/components/TagSelector.svelte';
 
     import { archiePages } from '$lib/stores';
@@ -133,6 +134,61 @@
                 continue;
             }
 
+                // support {video} ... {} multi-line and split block format
+                if (/^\{video\}[\s\S]*\{\}$/i.test(trimmed)) {
+                    const lines = String(raw).split(/\r?\n/).map(l => l.trim());
+                    const inner = lines.slice(1, -1).map(l => l).filter(Boolean);
+                    const obj = {};
+                    for (const line of inner) {
+                        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+                        if (m) {
+                            const key = m[1].trim().toLowerCase();
+                            const val = m[2].trim();
+                            if (key === 'tags' && val) {
+                                obj.tags = val.split(',').map(t => t.trim()).filter(Boolean);
+                            } else if (key === 'classes' && val) {
+                                obj.classes = val.split(',').map(t => t.trim()).filter(Boolean);
+                            } else if (key === 'borda' || key === 'radius') {
+                                obj.borda = val;
+                            } else {
+                                obj[key] = val;
+                            }
+                        }
+                    }
+                    objs.push({ raw: { video: obj }, tags: (obj.tags || []).map(t => t.toLowerCase()) });
+                    continue;
+                } else if (/^\{video\}$/i.test(trimmed)) {
+                    const obj = {};
+                    const inner = [];
+                    let j = i + 1;
+                    for (; j < blocks.length; j++) {
+                        const line = String(blocks[j]).trim();
+                        if (/^\{\}$/i.test(line)) {
+                            break;
+                        }
+                        inner.push(line);
+                    }
+                    for (const line of inner) {
+                        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+                        if (m) {
+                            const key = m[1].trim().toLowerCase();
+                            const val = m[2].trim();
+                            if (key === 'tags' && val) {
+                                obj.tags = val.split(',').map(t => t.trim()).filter(Boolean);
+                            } else if (key === 'classes' && val) {
+                                obj.classes = val.split(',').map(t => t.trim()).filter(Boolean);
+                            } else if (key === 'borda' || key === 'radius') {
+                                obj.borda = val;
+                            } else {
+                                obj[key] = val;
+                            }
+                        }
+                    }
+                    objs.push({ raw: { video: obj }, tags: (obj.tags || []).map(t => t.toLowerCase()) });
+                    i = j;
+                    continue;
+                }
+
             // support: "tagSelector" or "tagSelector: <json>" or HTML-like "<tagSelector />"
             if (/^tagSelector(?:\s*:\s*)?/i.test(trimmed) || /^<tagSelector\b/i.test(trimmed)) {
                 // try parse JSON payload after ':' or inside tag
@@ -250,6 +306,56 @@
         return { nome, tamanho, legenda, classes, radius, tags, multiply: false };
     }
 
+    function parseVideo(bloco) {
+        if (typeof bloco === 'object' && bloco !== null) {
+            let obj = bloco.video && typeof bloco.video === 'object' ? bloco.video : bloco;
+            const nome = obj.nome || obj.name || '';
+            const tamanho = (obj.tamanho || obj.size || 'M').toString().toUpperCase();
+            const legenda = obj.legenda || obj.caption || '';
+            const classes = Array.isArray(obj.classes) ? obj.classes.join(' ') : (obj.classes || '');
+            const tags = Array.isArray(obj.tags) ? obj.tags.map(t => String(t).trim().toLowerCase()) : (typeof obj.tags === 'string' ? obj.tags.split(',').map(t => t.trim().toLowerCase()).filter(Boolean) : []);
+            const radius = obj.borda || obj.radius || '';
+            return { nome, tamanho, legenda, classes, radius, tags };
+        }
+        if (typeof bloco !== 'string') return { nome: '', tamanho: 'M', legenda: '', classes: '', radius: '', tags: [] };
+        const rest = bloco.trim().replace(/^video:\s*/i, '');
+        const parts = rest.split(',').map(p => p.trim()).filter(Boolean);
+        const nome = parts[0] || '';
+        let tamanho = 'M';
+        let legenda = '';
+        let radius = '';
+        const classLike = [];
+        const tags = [];
+        for (let i = 1; i < parts.length; i++) {
+            const p = parts[i];
+            if (!p) continue;
+            if (i === 1 && /^(?:P{1,2}|M|G|GG)$/i.test(p)) {
+                tamanho = p.toUpperCase();
+                continue;
+            }
+            if (/^\d+(?:\.\d+)?(?:[a-z%]+)?$/i.test(p)) {
+                radius = /^\d+$/.test(p) ? p + 'px' : p;
+                continue;
+            }
+            if (/^var\(|^--[\w-]+$/.test(p)) {
+                classLike.push(p);
+                continue;
+            }
+            if (/^shadow[-_\w]*$/i.test(p) || /^[\w-]+$/.test(p)) {
+                if (/multiply/i.test(p) || /var\(|--/.test(p)) {
+                    classLike.push(p);
+                } else {
+                    classLike.push(p);
+                    tags.push(p.toLowerCase());
+                }
+                continue;
+            }
+            legenda = legenda ? (legenda + ' ' + p) : p;
+        }
+        const classes = classLike.join(' ');
+        return { nome, tamanho, legenda, classes, radius, tags };
+    }
+
     function fixLinks(html, base) {
         if (!base) return html;
         return html.replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${base}/$1'`);
@@ -293,6 +399,20 @@
                                 />
                             {/await}
                         {/key}
+                    {:else if typeof bloco === 'object' && bloco.video}
+                        {#key i}
+                            {#await Promise.resolve(parseImagem(bloco.video || bloco)) then vid}
+                                <VideoBlock
+                                    src={`${base}/videos/${vid.nome || vid.name}`}
+                                    sources={vid.sources ? (Array.isArray(vid.sources) ? vid.sources.map(s => (s.startsWith('http') ? s : `${base}/videos/${s}`)) : String(vid.sources).split(',').map(s => s.trim()).filter(Boolean).map(s => (s.startsWith('http') ? s : `${base}/videos/${s}`))) : []}
+                                    size={vid.tamanho || vid.size || 'M'}
+                                    caption={vid.legenda || vid.caption || ''}
+                                    classes={vid.classes}
+                                    radius={vid.radius || vid.borda}
+                                    tags={vid.tags}
+                                />
+                            {/await}
+                        {/key}
                     {:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
                         {#key i}
                             {#await Promise.resolve(parseImagem(bloco)) then img}
@@ -305,6 +425,20 @@
                                     radius={img.radius}
                                     tags={img.tags}
                                     multiply={img.multiply}
+                                />
+                            {/await}
+                        {/key}
+                    {:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
+                        {#key i}
+                            {#await Promise.resolve(parseVideo(bloco)) then vid}
+                                <VideoBlock
+                                    src={`${base}/videos/${vid.nome}`}
+                                    sources={vid.sources ? (Array.isArray(vid.sources) ? vid.sources.map(s => (s.startsWith('http') ? s : `${base}/videos/${s}`)) : String(vid.sources).split(',').map(s => s.trim()).filter(Boolean).map(s => (s.startsWith('http') ? s : `${base}/videos/${s}`))) : []}
+                                    size={vid.tamanho}
+                                    caption={vid.legenda}
+                                    classes={vid.classes}
+                                    radius={vid.radius}
+                                    tags={vid.tags}
                                 />
                             {/await}
                         {/key}

@@ -206,12 +206,13 @@ onDestroy(() => {
         <div class="column" style="flex:1; padding-left:1rem;">
             <textarea class='text' bind:value={content} rows="20" cols="60" placeholder="Digite o conteúdo aqui..." style="width:100%"/>
             <div class='saveContent-container'>
+                <!-- criar um botao que muda o texto ao concluir a acao -->
                 <Button classe='button-outline' estilo='width: 150px' handleClick={saveContent} value='Salvar' newValue='Salvo!'/>
                 {#if page !== '__nova__'}
-                                        <Button classe='button-outline' handleClick={openDeleteModal} value='Apagar página'/>
+                    <Button classe='button-outline' handleClick={openDeleteModal} value='Apagar página'/>
                 {/if}
                 <!-- <span style="color:#b00;margin-left:0.5rem;">{error}</span> -->
-                 <a href='/' class='button'>Sair</a>
+                <a href='/' class='button'>Sair</a>
             </div>
         </div>
     </div>

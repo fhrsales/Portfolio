@@ -1,8 +1,10 @@
 <footer>
-	<div class="icons">
-		Contact • <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener">fabio.sales@me.com</a> | 
+	<div class="contacts">
+		Contacts • <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener">fabio.sales@me.com</a> | 
 		<a href="https://www.linkedin.com/in/fabiohrsales/" title="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
 	</div>
+    <div class='copyright'>© {new Date().getFullYear()} Fabio Sales</div>
+    <div class='rights'>All rights reserved</div>
 </footer>
 
 <style>
@@ -10,15 +12,14 @@
         content: '';
         display: block;
         height: 1px;
-        background: color-mix(in srgb, var(--color-dark) 20%, transparent);
-        margin: 2em auto;
-        width: 120px;
-
+        background: color-mix(in srgb, var(--color-dark) 30%, transparent);
+        margin: calc(var(--grid) * 2) auto;
+        width: 60px;
     }
 
     footer {
         width: 100vw;
-        padding: 3em 0 2em 0;
+        padding: calc(var(--grid) * 3) 0 calc(var(--grid) * 2) 0;
         width: 100vw;
         box-sizing: border-box;
         display: flex;
@@ -28,6 +29,7 @@
         font-family: var(--font-primary);
         font-size: calc(var(--grid) * 1.5);
         text-transform: uppercase;
+        color: color-mix(in srgb, var(--color-dark) 70%, transparent);
     }
 
     footer a {
@@ -63,6 +65,16 @@
     footer a:focus-visible::after {
         transform: scaleX(1);
         opacity: 1;
+    }
+
+    footer .contacts {
+        margin-bottom: calc(var(--grid) * 2);
+        font-weight: 500;
+    }
+
+    footer .copyright,
+    footer .rights {
+        font-size: calc(var(--grid) * 1.2);
     }
 
     /* Respect reduced motion preferences */

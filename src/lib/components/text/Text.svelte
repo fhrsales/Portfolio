@@ -34,7 +34,7 @@
         font-family: var(--font-primary);
         font-size: calc(var(--grid) * 2.2);
         font-weight: 300;
-        line-height: 1.75;
+        line-height: 1.5;
         letter-spacing: -0.035em;
         color: var(--color-dark);
         width: calc(100% - (var(--grid) * 4));

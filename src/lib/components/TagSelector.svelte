@@ -2,6 +2,7 @@
     import { archiePages } from '$lib/stores';
     import { derived } from 'svelte/store';
     import { onMount } from 'svelte';
+    import Button from '$lib/components/ui/Button.svelte';
 
     // bindable selected tag
     export let selected = '';
@@ -43,10 +44,10 @@
 </script>
 
 <div class="tag-selector">
-    <button class:active={selected === ''} on:click={() => selected = ''}>All</button>
+    <Button on:click={() => selected = ''} active={selected === ''}>All</Button>
     {#if visibleTags && visibleTags.length}
         {#each visibleTags as t}
-            <button class:active={selected === t} on:click={() => toggle(t)}>{t}</button>
+            <Button on:click={() => toggle(t)} active={selected === t}>{t}</Button>
         {/each}
     {/if}
 </div>
@@ -67,7 +68,7 @@
     }
     .tag-selector button {
         background: var(--color-light);
-        border: 1px solid rgba(0,0,0,0.06);
+        border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);;
         padding: 0.35rem 1rem;
         border-radius: 999px;
         cursor: pointer;
@@ -75,7 +76,7 @@
         box-shadow: var(--shadow-2);
         font-size: calc(var(--grid) * 1.18);
         text-transform: uppercase;
-        color: var(--color-dark);
+        color: var(--color-primary);
     }
     .tag-selector button.active {
         background: var(--color-primary);
