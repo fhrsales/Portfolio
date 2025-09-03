@@ -7,12 +7,12 @@ const destDir = path.join(__dirname, 'src', 'lib');
 const dest = path.join(destDir, 'archiePages.json');
 
 if (!fs.existsSync(src)) {
-  console.error('static/archiePages.json não encontrado!');
-  process.exit(1);
+    console.error('static/archiePages.json não encontrado!');
+    process.exit(1);
 }
 
 if (!fs.existsSync(destDir)) {
-  fs.mkdirSync(destDir, { recursive: true });
+    fs.mkdirSync(destDir, { recursive: true });
 }
 
 fs.copyFileSync(src, dest);
