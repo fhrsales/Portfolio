@@ -191,7 +191,6 @@ onDestroy(() => {
                         loadContent();
                     }
                     }}
-                    autofocus
                 />
                 {/if}
             </label>
@@ -204,7 +203,7 @@ onDestroy(() => {
         </div>
         <!--  -->
         <div class="column" style="flex:1; padding-left:1rem;">
-            <textarea class='text' bind:value={content} rows="20" cols="60" placeholder="Digite o conteúdo aqui..." style="width:100%"/>
+            <textarea class='text' bind:value={content} rows="20" cols="60" placeholder="Digite o conteúdo aqui..." style="width:100%"></textarea>
             <div class='saveContent-container'>
                 <!-- criar um botao que muda o texto ao concluir a acao -->
                 <Button classe='button-outline' estilo='width: 150px' handleClick={saveContent} value='Salvar' newValue='Salvo!'/>
@@ -247,19 +246,7 @@ onDestroy(() => {
         justify-content: flex-start;
     }
 
-    header {
-        position: fixed;
-        top: 0;
-        z-index: 300;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        width: 100%;
-        max-width: inherit;
-        height: 53px;
-    }
+    /* header styles removidos (markup não utilizado) */
 
     .text {
         height: 80vh;
@@ -281,8 +268,8 @@ onDestroy(() => {
 
     /* admin-only: make legacy Button with classe='button-outline' visually match the .button link (Sair)
        This targets the rendered .btn and the legacy classe which becomes an additional class on the element. */
-    .saveContent-container .btn.button-outline,
-    .saveContent-container .btn.button {
+    :global(.saveContent-container .btn.button-outline),
+    :global(.saveContent-container .btn.button) {
         background: transparent;
         border: none;
         color: var(--color-primary);
@@ -293,8 +280,8 @@ onDestroy(() => {
         cursor: pointer;
     }
 
-    .saveContent-container .btn.button-outline:hover,
-    .saveContent-container .btn.button:hover {
+    :global(.saveContent-container .btn.button-outline:hover),
+    :global(.saveContent-container .btn.button:hover) {
         text-decoration: underline;
     }
 </style>

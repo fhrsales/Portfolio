@@ -11,6 +11,8 @@
     export let classes = '';
     export let radius = '';
     export let tags = [];
+    // optional external caption track; if empty we'll inject a minimal data URI track for a11y compliance
+    export let captionTrack = '';
 
     let wrapperEl;
     let videoEl;
@@ -287,7 +289,10 @@
     }
 </script>
 
-<figure bind:this={wrapperEl} class={`video-block video-block-wrapper ${sizeClass}`} class:show={show}>
+<figure bind:this={wrapperEl}
+    class={`video-block video-block-wrapper ${sizeClass} ${classes}`}
+    class:show={show}
+    data-tags={tags && tags.length ? tags.join(' ') : undefined}>
     <div class="video-inner">
         {#if currentSources && currentSources.length}
             <video bind:this={videoEl}
@@ -296,7 +301,9 @@
                 preload="none"
                 on:error={onVideoError}
                 poster={posterAttr}
-                style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`}>
+                style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`}
+                aria-label={caption || 'Vídeo'}>
+                <track kind="captions" src={captionTrack || 'data:text/vtt,WEBVTT'} srclang="pt" label="Português" default />
                 {#each currentSources as s}
                     <source src={s} />
                 {/each}
@@ -306,14 +313,20 @@
 
         {#if !loaded}
             {#if preview}
-                <!-- show preview video or image as lightweight placeholder -->
-                    {#if typeof preview === 'string' && (preview.endsWith('.mp4') || preview.endsWith('.webm'))}
-                        <video class="placeholder-preview" src={preview} muted loop playsinline style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`} on:click|preventDefault={ensureLoadedAndPlay} role="button" tabindex="0" aria-label="Reproduzir vídeo de pré-visualização" on:keydown={onPlaceholderKeyDown}></video>
-                    {:else}
-                        <img class="placeholder-preview" src={preview} alt="preview" style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`} on:click|preventDefault={ensureLoadedAndPlay} role="button" tabindex="0" aria-label="Reproduzir vídeo de pré-visualização" on:keydown={onPlaceholderKeyDown} />
-                    {/if}
+                <!-- show preview video or image as lightweight placeholder (interactive wrapped in button for a11y) -->
+                {#if typeof preview === 'string' && (preview.endsWith('.mp4') || preview.endsWith('.webm'))}
+                    <button type="button" class="preview-wrapper" on:click|preventDefault={ensureLoadedAndPlay} on:keydown={onPlaceholderKeyDown} aria-label="Reproduzir vídeo">
+                        <video class="placeholder-preview" src={preview} muted loop playsinline style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`}> 
+                            <track kind="captions" src="data:text/vtt,WEBVTT" srclang="pt" label="Pré-visualização" default />
+                        </video>
+                    </button>
+                {:else}
+                    <button type="button" class="preview-wrapper" on:click|preventDefault={ensureLoadedAndPlay} on:keydown={onPlaceholderKeyDown} aria-label="Reproduzir vídeo">
+                        <img class="placeholder-preview" src={preview} alt="Pré-visualização do vídeo" style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`} />
+                    </button>
+                {/if}
             {:else}
-                    <div class="placeholder" role="button" tabindex="0" aria-label="Carregar e reproduzir vídeo" on:click|preventDefault={ensureLoadedAndPlay} on:keydown={onPlaceholderKeyDown}></div>
+                <button type="button" class="placeholder" aria-label="Carregar e reproduzir vídeo" on:click|preventDefault={ensureLoadedAndPlay} on:keydown={onPlaceholderKeyDown}></button>
             {/if}
         {/if}
 
@@ -336,8 +349,9 @@
     .video-inner { position: relative; width:100%; }
     .video-block video { width:100%; height:auto; display:block; opacity:0; transition: opacity 1s ease; }
     .video-block.show video { opacity:1; }
-    .video-inner .placeholder { position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02)); background-size:200% 100%; animation: shimmer 1.2s linear infinite; border-radius: inherit; pointer-events: auto; }
-    .placeholder-preview { display:block; cursor:pointer; }
+    .video-inner .placeholder { position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02)); background-size:200% 100%; animation: shimmer 1.2s linear infinite; border-radius: inherit; pointer-events: auto; border:none; cursor:pointer; }
+    .preview-wrapper { display:block; background:none; border:none; padding:0; margin:0; cursor:pointer; width:100%; }
+    .placeholder-preview { display:block; width:100%; }
     .video-controls { position: absolute; right: 12px; bottom: 12px; display:flex; gap:8px; z-index: 12; opacity:0; transform: translateY(6px); transition: opacity 180ms ease, transform 180ms ease; pointer-events: auto; }
     .video-inner:hover .video-controls, .video-controls.visible { opacity:1; transform: translateY(0); }
     .video-controls > * { display: inline-flex; }

@@ -22,8 +22,8 @@
 </script>
 
 {#if open}
-  <div class="mm-modal-backdrop" on:click={backdropClick}>
-    <div class="mm-modal" on:click|stopPropagation>
+  <div class="mm-modal-backdrop" role="presentation" on:click={backdropClick}>
+    <div class="mm-modal" role="dialog" aria-modal="true" aria-label={title || 'Confirmação'} tabindex="0" on:click|stopPropagation on:keydown={(e)=>{ if(e.key==='Escape'){ onCancel(); } }}>
       {#if title}
         <h4>{title}</h4>
       {/if}

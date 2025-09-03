@@ -66,20 +66,8 @@
         width: calc(100% - (var(--grid) * 4));
         max-width: calc(var(--grid) * 70);
     }
-    .tag-selector button {
-        background: var(--color-light);
-        border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);;
-        padding: 0.35rem 1rem;
-        border-radius: 999px;
-        cursor: pointer;
-        font-weight: 600;
-        box-shadow: var(--shadow-2);
-        font-size: calc(var(--grid) * 1.18);
-        text-transform: uppercase;
-        color: var(--color-primary);
-    }
-    .tag-selector button.active {
-        background: var(--color-primary);
-        color: white;
-    }
+    /* Style underlying .btn from Button component */
+    .tag-selector :global(.btn) { text-transform: uppercase; }
+    .tag-selector :global(.btn.primary),
+    .tag-selector :global(.btn.active) { background: var(--color-primary); color:#fff; }
 </style>

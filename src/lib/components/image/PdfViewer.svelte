@@ -6,7 +6,7 @@
 </script>
 
 <div class="pdf-viewer">
-  <iframe src={src} width="100%" height="600px" style="border:none;" allowfullscreen></iframe>
+  <iframe src={src} width="100%" height="600px" style="border:none;" allowfullscreen title={`PDF: ${value}`}></iframe>
   <p style="text-align:center; margin-top:0.5em;">
     <a href={src} target="_blank" rel="noopener">Abrir PDF em nova aba</a>
   </p>
