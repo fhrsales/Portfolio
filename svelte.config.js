@@ -7,22 +7,22 @@ const isProd = process.env.NODE_ENV === 'production';
 const base = isProd ? '/Portfolio' : '';
 
 const config = {
-  kit: {
-    adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: 'index.html',
-      strict: false
-    }),
-    paths: {
-      base
+    kit: {
+        adapter: adapter({
+            pages: 'build',
+            assets: 'build',
+            fallback: 'index.html',
+            strict: false
+        }),
+        paths: {
+            base
+        },
+        prerender: {
+            entries: []
+        }
     },
-    prerender: {
-      entries: []
-    }
-  },
-  preprocess: [mdsvex()],
-  extensions: ['.svelte', '.svx']
+    preprocess: [mdsvex()],
+    extensions: ['.svelte', '.svx']
 };
 
 export default config;
