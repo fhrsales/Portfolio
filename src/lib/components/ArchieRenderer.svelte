@@ -388,6 +388,7 @@
                             {#await Promise.resolve(parseImagem(bloco)) then img}
                                 <ImageBlock
                                     src={`${base}/imgs/${img.nome}`}
+                                    nome_mobile={img.nome_mobile ? `${base}/imgs/${img.nome_mobile}` : ''}
                                     alt={img.nome}
                                     size={img.tamanho}
                                     caption={img.legenda}

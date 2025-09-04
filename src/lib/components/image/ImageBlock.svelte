@@ -1,7 +1,9 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
+    import { writable } from 'svelte/store';
 
     export let src = '';
+    export let nome_mobile = '';
     export let alt = '';
     export let caption = '';
     export let width = '';
@@ -20,6 +22,9 @@
     let isIntersecting = false;
     let imgLoaded = false;
     let currentSrc = '';
+    // Store reativo para largura da tela
+    const screenWidth = writable(typeof window !== 'undefined' ? window.innerWidth : 1024);
+    let isMobile = false;
     let observer;
     let preloaded = false;
     let inViewport = false;
@@ -96,16 +101,58 @@
     $: appliedClasses = showVisuals ? [shadowClass, (typeof classes === 'string' ? classes : '')].filter(Boolean).join(' ') : '';
     // removed fade transition imports to disable fade-in effect
 
+    // Atualiza store ao redimensionar
+    function handleResize() {
+        if (typeof window !== 'undefined') {
+            screenWidth.set(window.innerWidth);
+        }
+    }
+
+    function pickSrc() {
+        if (isMobile && nome_mobile) return nome_mobile;
+        return src;
+    }
+
+
+    // Atualiza isMobile reativamente
+    $: unsubscribe = screenWidth.subscribe(w => {
+        isMobile = w <= 600;
+    });
+
+    // Troca reativa do src sempre que isMobile, src ou nome_mobile mudam
+    $: {
+        const nextSrc = pickSrc();
+        if (currentSrc !== nextSrc) {
+            imgLoaded = false;
+            show = false;
+            showVisuals = false;
+            preloaded = false;
+            currentSrc = nextSrc;
+            // Prefetch novo src
+            if (typeof window !== 'undefined') {
+                preloader = new Image();
+                preloader.src = nextSrc;
+                preloader.onload = () => { preloaded = true; };
+                preloader.onerror = () => { preloaded = true; };
+            }
+        }
+    }
+
     onMount(() => {
+        currentSrc = pickSrc();
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+            screenWidth.set(window.innerWidth);
+        }
         // create a prefetch observer that starts the preload a bit earlier
-        if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
             prefetchObserver = new IntersectionObserver(entries => {
                 for (const e of entries) {
                     if (e.isIntersecting) {
                         // start preloading in background
                         try {
                             preloader = new Image();
-                            preloader.src = src;
+                            preloader.src = pickSrc();
                             preloader.onload = () => { preloaded = true; };
                             preloader.onerror = () => { preloaded = true; };
                         } catch (e) { preloaded = false; }
@@ -136,18 +183,20 @@
             // Fallback: immediately preload and mark in viewport
             try {
                 preloader = new Image();
-                preloader.src = src;
+                preloader.src = pickSrc();
                 preloader.onload = () => { preloaded = true; };
                 preloader.onerror = () => { preloaded = true; };
             } catch (e) { preloaded = false; }
-            currentSrc = src;
+            currentSrc = pickSrc();
             inViewport = true;
         }
     });
 
     onDestroy(() => {
         if (observer) observer.disconnect();
-    if (prefetchObserver) prefetchObserver.disconnect();
+        if (prefetchObserver) prefetchObserver.disconnect();
+        if (typeof window !== 'undefined') window.removeEventListener('resize', handleResize);
+        if (unsubscribe) unsubscribe();
     });
 
     // when image has loaded and the element is in viewport, show it (trigger opacity)
@@ -183,10 +232,9 @@
     _visualsTimer = setTimeout(() => { showVisuals = true; _visualsTimer = null; }, 600);
     }
 
-    // when both preloaded and inViewport are true, assign currentSrc so the <img>
-    // renders quickly (it will be served from cache because of preloader)
+    // quando preloaded e inViewport, atualiza currentSrc para o correto
     $: if (inViewport && preloaded && !currentSrc) {
-        currentSrc = src;
+        currentSrc = pickSrc();
     }
 </script>
 
@@ -222,6 +270,15 @@
     {/if} -->
 
 <style>
+/*
+ * Adicione nome_mobile="..." para alternar a imagem automaticamente em mobile (<=600px).
+ * O src alterna dinamicamente ao redimensionar a tela.
+ * Exemplo ArchieML:
+ * {imagem}
+ * nome: caro_leitor.png
+ * nome_mobile: caro_leitor_mobile.png
+ * {}
+ */
 /* Layout and sizing */
 .image-block {
     margin: 3em auto 1rem auto;
