@@ -20,6 +20,8 @@
     let isIntersecting = false;
     let imgLoaded = false;
     let currentSrc = '';
+    let lastSrcChecked = '';
+    let isMobile = false;
     let observer;
     let preloaded = false;
     let inViewport = false;
@@ -96,7 +98,59 @@
     $: appliedClasses = showVisuals ? [shadowClass, (typeof classes === 'string' ? classes : '')].filter(Boolean).join(' ') : '';
     // removed fade transition imports to disable fade-in effect
 
+    let manifest = null;
+    async function loadManifest() {
+        if (!manifest) {
+            try {
+                const res = await fetch('/imgs/manifest.json');
+                if (res.ok) {
+                    manifest = await res.json();
+                } else {
+                    manifest = [];
+                }
+            } catch {
+                manifest = [];
+            }
+        }
+    }
+
+    async function imageExists(filename) {
+        await loadManifest();
+        return manifest.includes(filename);
+    }
+
+    async function getResponsiveSrc() {
+        if (typeof window !== 'undefined') {
+            const mobile = window.matchMedia('(max-width: 600px)').matches;
+            isMobile = mobile;
+            if (mobile && src) {
+                const dotIndex = src.lastIndexOf('.');
+                if (dotIndex !== -1) {
+                    const mobileFilename = `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`.replace(/^.*\//, '');
+                    const exists = await imageExists(mobileFilename);
+                    if (exists) {
+                        return `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`;
+                    }
+                }
+            }
+        }
+        return src;
+    }
+
+    async function updateSrc() {
+        const srcToUse = await getResponsiveSrc();
+        // Only update if src is different to avoid unnecessary reloads
+        if (srcToUse !== lastSrcChecked) {
+            lastSrcChecked = srcToUse;
+            currentSrc = srcToUse;
+        }
+    }
+
     onMount(() => {
+        updateSrc();
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', updateSrc);
+        }
         // create a prefetch observer that starts the preload a bit earlier
         if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
             prefetchObserver = new IntersectionObserver(entries => {
@@ -105,7 +159,10 @@
                         // start preloading in background
                         try {
                             preloader = new Image();
-                            preloader.src = src;
+                            // Preload correct src with fallback
+                            getResponsiveSrc().then(srcToUse => {
+                                preloader.src = srcToUse;
+                            });
                             preloader.onload = () => { preloaded = true; };
                             preloader.onerror = () => { preloaded = true; };
                         } catch (e) { preloaded = false; }
@@ -136,18 +193,23 @@
             // Fallback: immediately preload and mark in viewport
             try {
                 preloader = new Image();
-                preloader.src = src;
+                getResponsiveSrc().then(srcToUse => {
+                    preloader.src = srcToUse;
+                    currentSrc = srcToUse;
+                });
                 preloader.onload = () => { preloaded = true; };
                 preloader.onerror = () => { preloaded = true; };
             } catch (e) { preloaded = false; }
-            currentSrc = src;
             inViewport = true;
         }
     });
 
     onDestroy(() => {
         if (observer) observer.disconnect();
-    if (prefetchObserver) prefetchObserver.disconnect();
+        if (prefetchObserver) prefetchObserver.disconnect();
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', updateSrc);
+        }
     });
 
     // when image has loaded and the element is in viewport, show it (trigger opacity)
@@ -185,8 +247,8 @@
 
     // when both preloaded and inViewport are true, assign currentSrc so the <img>
     // renders quickly (it will be served from cache because of preloader)
-    $: if (inViewport && preloaded && !currentSrc) {
-        currentSrc = src;
+    $: if (inViewport && preloaded) {
+        updateSrc();
     }
 </script>
 
