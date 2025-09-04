@@ -98,52 +98,25 @@
     $: appliedClasses = showVisuals ? [shadowClass, (typeof classes === 'string' ? classes : '')].filter(Boolean).join(' ') : '';
     // removed fade transition imports to disable fade-in effect
 
-    let manifest = null;
-    async function loadManifest() {
-        if (!manifest) {
-            try {
-                const res = await fetch('/imgs/manifest.json');
-                if (res.ok) {
-                    manifest = await res.json();
-                } else {
-                    manifest = [];
-                }
-            } catch {
-                manifest = [];
-            }
-        }
-    }
 
-    async function imageExists(filename) {
-        await loadManifest();
-        return manifest.includes(filename);
-    }
-
-    async function getResponsiveSrc() {
+    function getResponsiveSrcSync() {
         if (typeof window !== 'undefined') {
             const mobile = window.matchMedia('(max-width: 600px)').matches;
             isMobile = mobile;
             if (mobile && src) {
                 const dotIndex = src.lastIndexOf('.');
                 if (dotIndex !== -1) {
-                    const mobileFilename = `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`.replace(/^.*\//, '');
-                    const exists = await imageExists(mobileFilename);
-                    if (exists) {
-                        return `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`;
-                    }
+                    return `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`;
                 }
             }
         }
         return src;
     }
 
-    async function updateSrc() {
-        const srcToUse = await getResponsiveSrc();
-        // Only update if src is different to avoid unnecessary reloads
-        if (srcToUse !== lastSrcChecked) {
-            lastSrcChecked = srcToUse;
-            currentSrc = srcToUse;
-        }
+    function updateSrc() {
+        const srcToUse = getResponsiveSrcSync();
+        lastSrcChecked = srcToUse;
+        currentSrc = srcToUse;
     }
 
     onMount(() => {
@@ -159,10 +132,7 @@
                         // start preloading in background
                         try {
                             preloader = new Image();
-                            // Preload correct src with fallback
-                            getResponsiveSrc().then(srcToUse => {
-                                preloader.src = srcToUse;
-                            });
+                            preloader.src = getResponsiveSrcSync();
                             preloader.onload = () => { preloaded = true; };
                             preloader.onerror = () => { preloaded = true; };
                         } catch (e) { preloaded = false; }
@@ -193,10 +163,8 @@
             // Fallback: immediately preload and mark in viewport
             try {
                 preloader = new Image();
-                getResponsiveSrc().then(srcToUse => {
-                    preloader.src = srcToUse;
-                    currentSrc = srcToUse;
-                });
+                preloader.src = getResponsiveSrcSync();
+                currentSrc = getResponsiveSrcSync();
                 preloader.onload = () => { preloaded = true; };
                 preloader.onerror = () => { preloaded = true; };
             } catch (e) { preloaded = false; }
