@@ -11,6 +11,7 @@ Motor de páginas com conteúdo estruturado + blocos customizados de mídia (ima
 Este projeto implementa um renderer de conteúdo baseado em um arquivo consolidado (`static/archiePages.json`) contendo páginas em formato ArchieML / texto estruturado. O componente central `ArchieRenderer.svelte` interpreta blocos, resolve mídia, injeta seletor de tags e aplica filtros somente nos blocos posteriores ao seletor.
 
 Principais recursos:
+
 - Sintaxe híbrida (linhas simples + blocos multilinha `{imagem} ... {}` e `{video} ... {}`)
 - Lazy load real para imagens e vídeos (IntersectionObserver + prefetch antecipado)
 - Heurísticas para vídeo: preview estático / clique para iniciar / seleção de fonte conforme rede (`navigator.connection` quando disponível)
@@ -39,6 +40,7 @@ src/routes/                 Páginas + admin/editor
 Formato suportado mistura linhas simples separadas por linhas em branco e blocos estruturados.
 
 ### Linhas Diretas
+
 ```
 titulo: Meu Título
 embedWrapper: https://...
@@ -49,6 +51,7 @@ tags: urbano, noite
 ```
 
 ### Blocos Multilinha `{imagem}`
+
 ```
 {imagem}
 nome: foto.jpg
@@ -61,6 +64,7 @@ tags: destaque, capa
 ```
 
 ### Blocos Multilinha `{video}`
+
 ```
 {video}
 nome: clipe.mp4
@@ -73,25 +77,32 @@ sources: clipe-720.mp4, clipe-480.mp4
 ```
 
 Observações:
+
 - `tags:` fora de blocos (linha isolada) anexa tags ao último e penúltimo bloco já acumulados (facilita agrupamento lógico)
 - Dentro de blocos `{imagem}` / `{video}` a linha `tags:` é parseada diretamente
 - Tokens ambíguos em `imagem:` (versão linha) viram ao mesmo tempo classes e tags (ex: `capa`, `destaque`)
 
 ### Inserção do Seletor de Tags
+
 Três formas equivalentes:
+
 ```
 tagSelector
 tagSelector: ["capa","destaque"]
 <tagSelector />
 ```
+
 Após o seletor, somente blocos cujas tags incluem a tag selecionada permanecem visíveis; antes dele nada é filtrado.
 
 ## 🖼 ImageBlock
+
 Props principais: `src`, `size (P|PP|M|G|GG)`, `caption`, `classes`, `radius`, `tags`, `multiply`.
 Fluxo: placeholder → prefetch antecipado → fade-in + aplicação de classes decorativas post-load.
 
 ## 🎬 VideoBlock
+
 Características:
+
 - Preview (imagem ou frame inicial) envolto em `<button>` acessível
 - Carregamento diferido só quando visível
 - Lista de `sources` opcional; heurística escolhe melhor (ex.: prioriza menor bitrate em redes lentas)
@@ -99,11 +110,13 @@ Características:
 - `track kind="captions"` sempre presente (placeholder para evitar warning – substitua por arquivo `.vtt` real p/ acessibilidade completa)
 
 ## 🔍 TagSelector
+
 - `bind:selected` atualiza `localSelectedTag`
 - Lista de tags pode vir inline (JSON) ou derivada dinamicamente dos blocos subsequentes
 - Filtro é case-insensitive
 
 ## ♿ Acessibilidade
+
 - Botões reais para interações (não rely somente em `<div>`)
 - `<track>` placeholder garante ausência de warning; recomendar substituir por conteúdo real posteriormente
 - `aria-label` em elementos de controle de vídeo quando aplicável
@@ -112,6 +125,7 @@ Características:
 ## ⚙️ Build & Execução
 
 Scripts:
+
 ```
 npm run dev        # Desenvolvimento (Vite + SvelteKit)
 npm run build      # Executa copy-archiePages.cjs e depois build Vite
@@ -124,12 +138,15 @@ npm test:unit      # Vitest
 Passo especial: `copy-archiePages.cjs` copia `static/archiePages.json` para `src/lib/archiePages.json` garantindo que importações estáticas funcionem no bundle.
 
 ## ➕ Adicionando Conteúdo
+
 1. Edite `static/archiePages.json` (ou use o editor admin se implementado com persistência)
 2. Use blocos conforme sintaxe acima
 3. Rode `npm run build` ou `npm run dev` (o script de cópia roda somente no build – para dev você pode importar diretamente do `static/` ou replicar o script num hook se desejar)
 
 ## 🗃 Estrutura do JSON
+
 Cada chave representa um slug de página. Exemplo simplificado:
+
 ```jsonc
 {
 	"index": "titulo: Página Inicial\n\n{imagem}\nnome: capa.jpg\nlegenda: Capa principal\ntags: destaque,capa\n{}\n\n<tagSelector />\n\nimagem: exemplo.jpg, M, Uma imagem, destaque\n"
@@ -137,21 +154,25 @@ Cada chave representa um slug de página. Exemplo simplificado:
 ```
 
 ## 🧪 Testes
+
 - Configurado Vitest (inclui projeto browser e node). Adicione arquivos `*.test.ts` ou `*.spec.ts`/`.svelte` conforme ambientes.
 
 ## 🚀 Deploy
+
 - O build atual usa Vite + plugin SvelteKit. Ajuste `svelte.config.js` (se existente) para trocar/adicionar adapter (ex: `adapter-static` ou `adapter-node`).
 - Verifique se `static/` está incluído no artefato (necessário para origem do JSON).
 
 ## 🐛 Troubleshooting
-| Sintoma | Possível Causa | Ação |
-|--------|----------------|------|
-| Página mostra "Nenhum conteúdo encontrado" | Slug não existe no JSON | Confirmar chave em `archiePages.json` |
-| Imagem não carrega | Caminho incorreto / arquivo ausente | Confirmar `static/imgs/<arquivo>` |
-| Vídeo não inicia autoplay | Política do navegador | Interação manual ou remover autoplay forçado |
-| Tags não filtram | Seletor antes dos blocos | Mover `tagSelector` para posição desejada |
+
+| Sintoma                                    | Possível Causa                      | Ação                                         |
+| ------------------------------------------ | ----------------------------------- | -------------------------------------------- |
+| Página mostra "Nenhum conteúdo encontrado" | Slug não existe no JSON             | Confirmar chave em `archiePages.json`        |
+| Imagem não carrega                         | Caminho incorreto / arquivo ausente | Confirmar `static/imgs/<arquivo>`            |
+| Vídeo não inicia autoplay                  | Política do navegador               | Interação manual ou remover autoplay forçado |
+| Tags não filtram                           | Seletor antes dos blocos            | Mover `tagSelector` para posição desejada    |
 
 ## 📌 Próximos Passos Possíveis
+
 - Implementar armazenamento real no editor (persistir alterações no JSON)
 - Substituir trilha de captions placeholder por arquivos `.vtt`
 - Otimizar geração de thumbnails de vídeo

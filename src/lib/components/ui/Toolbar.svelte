@@ -1,5 +1,5 @@
 <script>
-  export let actions = [];
+	export let actions = [];
 </script>
 
 <div><!-- toolbar removed --></div>

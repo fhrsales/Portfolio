@@ -31,8 +31,9 @@
 	}
 
 	// compute classes merging legacy 'classe' and any passed class
-	$: extraClass = ($$restProps && $$restProps.class) ? $$restProps.class : '';
-	$: classes = `btn ${variant === 'primary' ? 'primary' : ''} ${active ? 'active' : ''} ${classe || ''} ${extraClass}`.trim();
+	$: extraClass = $$restProps && $$restProps.class ? $$restProps.class : '';
+	$: classes =
+		`btn ${variant === 'primary' ? 'primary' : ''} ${active ? 'active' : ''} ${classe || ''} ${extraClass}`.trim();
 
 	function dispatchClick(e) {
 		dispatch('click', e);
@@ -47,13 +48,16 @@
 			try {
 				const res = handleClick(e);
 				ok = res && typeof res.then === 'function' ? await res : res;
-			} catch (err) {
+			} catch {
 				ok = false;
 			}
 			if (ok === true && newValue) {
 				displayed = newValue;
 				if (revertTimer) clearTimeout(revertTimer);
-				revertTimer = setTimeout(() => { displayed = original; revertTimer = null; }, resetAfter);
+				revertTimer = setTimeout(() => {
+					displayed = original;
+					revertTimer = null;
+				}, resetAfter);
 			}
 		}
 	}
@@ -62,7 +66,17 @@
 		if (revertTimer) clearTimeout(revertTimer);
 	});
 </script>
-<button {...$$restProps} {type} class={classes} {disabled} aria-label={ariaLabel} title={title} style={estilo} on:click={onClickHandler}>
+
+<button
+	{...$$restProps}
+	{type}
+	class={classes}
+	{disabled}
+	aria-label={ariaLabel}
+	{title}
+	style={estilo}
+	on:click={onClickHandler}
+>
 	{#if value}
 		{displayed}
 	{:else}
@@ -82,7 +96,10 @@
 		font-size: calc(var(--grid) * 1.18);
 		text-transform: uppercase;
 		color: var(--color-primary);
-		transition: background 160ms ease, color 160ms ease, transform 120ms ease;
+		transition:
+			background 160ms ease,
+			color 160ms ease,
+			transform 120ms ease;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -92,6 +109,12 @@
 		background: var(--color-primary);
 		color: white;
 	}
-	.btn.active { background: var(--color-primary); color: white; }
-	.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+	.btn.active {
+		background: var(--color-primary);
+		color: white;
+	}
+	.btn:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
 </style>

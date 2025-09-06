@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: 20
 
-
       - name: Clean npm cache and lockfile (workaround Rollup bug)
         run: rm -rf node_modules package-lock.json
 

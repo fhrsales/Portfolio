@@ -1,84 +1,82 @@
-
 :root {
-    --grid: 9px;
-    --font-primary: 'Fira Sans', sans-serif;
+	--grid: 9px;
+	--font-primary: 'Fira Sans', sans-serif;
 
-    --color-primary: #2a4264;
-    --color-secondary: #a0c10e;
-    --color-tertiary: #FFFFFF;
-    --color-dark: #1D1D1F;
-    --color-light: #F5F5F5;
+	--color-primary: #2a4264;
+	--color-secondary: #a0c10e;
+	--color-tertiary: #ffffff;
+	--color-dark: #1d1d1f;
+	--color-light: #f5f5f5;
 
-    --shadow-2: 0 8px 32px rgba(0, 0, 0, 0.1);
+	--shadow-2: 0 8px 32px rgba(0, 0, 0, 0.1);
 
-    --multiply: multiply;
+	--multiply: multiply;
 }
 
 /* normalize css */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    background: var(--color-light);
+	background: var(--color-light);
 }
 
 main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	width: 100vw;
 }
 
 .main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	width: 100vw;
 }
 
 strong {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .shadow-1 {
-    position: relative; /* Essential for positioning pseudo-elements */
+	position: relative; /* Essential for positioning pseudo-elements */
 }
 
 .shadow-1:before,
 .shadow-1:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    bottom: 15px; /* Adjust as needed for desired lift */
-    height: 17px; /* Adjust for shadow thickness */
-    width: 50%; /* Adjust for shadow width */
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3); /* Shadow properties for corners */
+	content: '';
+	position: absolute;
+	z-index: -1;
+	bottom: 15px; /* Adjust as needed for desired lift */
+	height: 17px; /* Adjust for shadow thickness */
+	width: 50%; /* Adjust for shadow width */
+	box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3); /* Shadow properties for corners */
 }
 
 .shadow-1:before {
-    left: 10px; /* Position left corner shadow */
-    transform: rotate(-5deg); /* Angle the left shadow */
+	left: 10px; /* Position left corner shadow */
+	transform: rotate(-5deg); /* Angle the left shadow */
 }
 
 .shadow-1:after {
-    right: 10px; /* Position right corner shadow */
-    transform: rotate(5deg); /* Angle the right shadow */
+	right: 10px; /* Position right corner shadow */
+	transform: rotate(5deg); /* Angle the right shadow */
 }
 
 /* Blend multiply helper: wrapper provides background color, image uses mix-blend-mode */
 .image-block-wrapper.blend-multiply {
-    background-color: var(--image-blend-bg);
+	background-color: var(--image-blend-bg);
 }
 .image-block-wrapper.blend-multiply img {
-    mix-blend-mode: var(--image-blend-mode);
+	mix-blend-mode: var(--image-blend-mode);
 }
-

@@ -1,4 +1,3 @@
-
 <script>
 	import '../app.css';
 	import Menu from '$lib/components/header/Menu.svelte';
@@ -6,7 +5,6 @@
 	import { page } from '$app/stores';
 	let { children } = $props();
 </script>
-
 
 <Menu />
 {#if $page.url.pathname && $page.url.pathname.startsWith('/admin')}
