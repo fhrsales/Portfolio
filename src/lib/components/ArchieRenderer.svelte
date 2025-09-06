@@ -13,6 +13,7 @@
 	import { derived } from 'svelte/store';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { parseVideo as parseVideoHelper } from '$lib/parsers/video.js';
+	import { withBase } from '$lib/paths.js';
 	import {
 		normalizeParsedToBlocks,
 		buildBlockObjects,
@@ -103,13 +104,15 @@
 				{:else if blocoStr.match(/^pdf: (.+)$/i)}
 					<PdfViewer value={blocoStr.replace(/^pdf: /i, '')} />
 				{:else if blocoStr.match(/^ai2html: (.+)$/i)}
-					<Ai2Html dir={`${base}/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`} />
+					<Ai2Html
+						dir={withBase(`/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`, base)}
+					/>
 				{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}
 					{#key i}
 						{#await Promise.resolve(parseImagem(bloco)) then img}
 							<ImageBlock
-								src={`${base}/imgs/${img.nome}`}
-								nome_mobile={img.nome_mobile ? `${base}/imgs/${img.nome_mobile}` : ''}
+								src={withBase(`/imgs/${img.nome}`, base)}
+								nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
 								alt={img.nome}
 								size={img.tamanho}
 								caption={img.legenda}
@@ -125,15 +128,17 @@
 					{#key i}
 						{#await Promise.resolve(parseImagem(bloco.video || bloco)) then vid}
 							<VideoBlock
-								src={`${base}/videos/${vid.nome || vid.name}`}
+								src={withBase(`/videos/${vid.nome || vid.name}`, base)}
 								sources={vid.sources
 									? Array.isArray(vid.sources)
-										? vid.sources.map((s) => (s.startsWith('http') ? s : `${base}/videos/${s}`))
+										? vid.sources.map((s) =>
+												s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+											)
 										: String(vid.sources)
 												.split(',')
 												.map((s) => s.trim())
 												.filter(Boolean)
-												.map((s) => (s.startsWith('http') ? s : `${base}/videos/${s}`))
+												.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
 									: []}
 								size={vid.tamanho || vid.size || 'M'}
 								caption={vid.legenda || vid.caption || ''}
@@ -147,7 +152,7 @@
 					{#key i}
 						{#await Promise.resolve(parseImagem(bloco)) then img}
 							<ImageBlock
-								src={`${base}/imgs/${img.nome}`}
+								src={withBase(`/imgs/${img.nome}`, base)}
 								alt={img.nome}
 								size={img.tamanho}
 								caption={img.legenda}
@@ -162,15 +167,17 @@
 					{#key i}
 						{#await Promise.resolve(parseVideo(bloco)) then vid}
 							<VideoBlock
-								src={`${base}/videos/${vid.nome}`}
+								src={withBase(`/videos/${vid.nome}`, base)}
 								sources={vid.sources
 									? Array.isArray(vid.sources)
-										? vid.sources.map((s) => (s.startsWith('http') ? s : `${base}/videos/${s}`))
+										? vid.sources.map((s) =>
+												s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+											)
 										: String(vid.sources)
 												.split(',')
 												.map((s) => s.trim())
 												.filter(Boolean)
-												.map((s) => (s.startsWith('http') ? s : `${base}/videos/${s}`))
+												.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
 									: []}
 								size={vid.tamanho}
 								caption={vid.legenda}

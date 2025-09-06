@@ -3,6 +3,9 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	export let src = '';
+	export let srcset = '';
+	export let sizes = '';
+	export let nome_mobile = '';
 	export let alt = '';
 	export let caption = '';
 	export let width = '';
@@ -301,6 +304,9 @@
 			<img
 				bind:this={imgEl}
 				src={currentSrc}
+				srcset={(srcset && srcset.trim()) ||
+					(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
+				sizes={sizes || (nome_mobile ? '(max-width: 600px) 600px, 1200px' : undefined)}
 				{alt}
 				{width}
 				{height}
