@@ -155,7 +155,24 @@ Cada chave representa um slug de página. Exemplo simplificado:
 
 ## 🧪 Testes
 
-- Configurado Vitest (inclui projeto browser e node). Adicione arquivos `*.test.ts` ou `*.spec.ts`/`.svelte` conforme ambientes.
+- Framework: Vitest com dois projetos:
+  - `server` (Node): testes de utilitários/parsers.
+  - `client` (DOM): ambiente `happy-dom` (sem navegador real).
+- Comandos rápidos:
+  - `npm run test:server` — executa testes Node.
+  - `npm run test:client` — executa testes DOM.
+  - `npm run test:unit` — executa configuração padrão do Vitest.
+- Observações:
+  - Em alguns ambientes isolados, o Vitest pode exibir um aviso “EPERM kill” ao encerrar; os testes ainda são executados.
+  - Pré‑requisitos: Node 18+, dependências dev instaladas (`npm ci`).
+
+### CI (GitHub Actions)
+
+- Este repositório inclui um workflow `tests.yml` que roda em `push`/`pull_request`:
+  - Instala dependências com `npm ci`.
+  - Roda `npm run lint`.
+  - Roda `npm run test:server` e `npm run test:client`.
+  - Ajuste a versão de Node no YAML conforme necessário.
 
 ## 🚀 Deploy
 
