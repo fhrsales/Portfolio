@@ -25,6 +25,70 @@ export function buildBlockObjects(blocks) {
 		const trimmed = String(raw).trim();
 
 		// {imagem} multi-line
+		// {video} multi-line
+		if (/^\{video\}[\s\S]*\{\}$/i.test(trimmed)) {
+			const lines = String(raw)
+				.split(/\r?\n/)
+				.map((l) => l.trim());
+			const inner = lines.slice(1, -1).map((l) => l).filter(Boolean);
+			const obj = {};
+			for (const line of inner) {
+				const m = String(line).match(/^([^:]+):\s*(.*)$/);
+				if (m) {
+					const key = m[1].trim().toLowerCase();
+					const val = m[2].trim();
+					if (key === 'tags' && val) {
+						obj.tags = val.split(',').map((t) => t.trim()).filter(Boolean);
+					} else if (key === 'classes' && val) {
+						obj.classes = val.split(',').map((t) => t.trim()).filter(Boolean);
+					} else if (key === 'multiply') {
+						obj.multiply = /^(?:1|true|yes|sim|multiply)$/i.test(val) ? val : val;
+					} else if (key === 'borda' || key === 'radius') {
+						obj.borda = val;
+					} else {
+						obj[key] = val;
+					}
+				}
+			}
+			// Wrap under video to signal type to renderer
+			objs.push({ raw: { video: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+			continue;
+		} 
+		// {video} single-line (open block)
+		else if (/^\{video\}$/i.test(trimmed)) {
+			const obj = {};
+			const inner = [];
+			let j = i + 1;
+			for (; j < blocks.length; j++) {
+				const line = String(blocks[j]).trim();
+				if (/^\{\}$/i.test(line)) break;
+				inner.push(line);
+			}
+			for (const line of inner) {
+				const m = String(line).match(/^([^:]+):\s*(.*)$/);
+				if (m) {
+					const key = m[1].trim().toLowerCase();
+					const val = m[2].trim();
+					if (key === 'tags' && val) {
+						obj.tags = val.split(',').map((t) => t.trim()).filter(Boolean);
+					} else if (key === 'classes' && val) {
+						obj.classes = val.split(',').map((t) => t.trim()).filter(Boolean);
+					} else if (key === 'multiply') {
+						obj.multiply = /^(?:1|true|yes|sim|multiply)$/i.test(val) ? val : val;
+					} else if (key === 'borda' || key === 'radius') {
+						obj.borda = val;
+					} else {
+						obj[key] = val;
+					}
+				}
+			}
+			// Wrap under video to signal type to renderer
+			objs.push({ raw: { video: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+			i = j;
+			continue;
+		}
+
+		// {imagem} multi-line
 		if (/^\{imagem\}[\s\S]*\{\}$/i.test(trimmed)) {
 			const lines = String(raw)
 				.split(/\r?\n/)

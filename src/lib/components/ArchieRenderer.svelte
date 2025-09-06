@@ -126,7 +126,7 @@
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.video}
 					{#key i}
-						{#await Promise.resolve(parseImagem(bloco.video || bloco)) then vid}
+						{#await Promise.resolve(parseVideo(bloco.video || bloco)) then vid}
 							<VideoBlock
 								src={withBase(`/videos/${vid.nome || vid.name}`, base)}
 								sources={vid.sources

@@ -25,7 +25,7 @@
 	let show = false;
 	let currentSrc = '';
 	let currentSources = [];
-	let loaded = false; // whether we've assigned the heavy sources to the player
+    let loaded = false; // whether we've assigned the heavy sources to the player
 	let preloader;
 	let isPlaying = false;
 	let isMuted = true; // start muted for autoplay friendliness; user can unmute
@@ -157,27 +157,27 @@
 			const _onpause = () => {
 				isPlaying = false;
 			};
-			const _onended = () => {
-				isPlaying = false;
-			};
-			try {
-				videoEl.addEventListener('play', _onplay);
-				videoEl.addEventListener('pause', _onpause);
-				videoEl.addEventListener('ended', _onended);
-			} catch {
-				/* ignore */
-			}
-			_attachedCleanup = () => {
-				try {
-					videoEl.removeEventListener('play', _onplay);
-					videoEl.removeEventListener('pause', _onpause);
-					videoEl.removeEventListener('ended', _onended);
-				} catch {
-					/* ignore */
-				}
-			};
-		}
-	}
+            const _onended = () => {
+                isPlaying = false;
+            };
+            try {
+                videoEl.addEventListener('play', _onplay);
+                videoEl.addEventListener('pause', _onpause);
+                videoEl.addEventListener('ended', _onended);
+            } catch {
+                /* ignore */
+            }
+            _attachedCleanup = () => {
+                try {
+                    videoEl.removeEventListener('play', _onplay);
+                    videoEl.removeEventListener('pause', _onpause);
+                    videoEl.removeEventListener('ended', _onended);
+                } catch {
+                    /* ignore */
+                }
+            };
+        }
+    }
 
 	let _showTimeout;
 	$: {
@@ -256,6 +256,8 @@
 		});
 	}
 
+// no explicit mime type assignment originally; rely on browser sniffing
+
 	function pickSourceByProfile(sourcesArr) {
 		const list = normalizeSources(sourcesArr);
 		if (!list.length) return null;
@@ -284,21 +286,21 @@
 
 	function loadChosenSources(force = false) {
 		if (loaded && !force) return;
-		const normalized = normalizeSources(sources.length ? sources : [src]);
-		const chosen = pickSourceByProfile(normalized) || normalized[0];
-		if (!chosen) return;
-		currentSources = [chosen.src];
-		currentSrc = chosen.src;
-		loaded = true;
-		// if video element already present, reload and try to play if appropriate
-		if (videoEl) {
-			try {
-				videoEl.load();
-			} catch {
-				/* ignore */
-			}
-		}
-	}
+        const normalized = normalizeSources(sources.length ? sources : [src]);
+        const chosen = pickSourceByProfile(normalized) || normalized[0];
+        if (!chosen) return;
+        currentSources = [chosen.src];
+        currentSrc = chosen.src;
+        loaded = true;
+        // if video element already present, reload and try to play if appropriate
+        if (videoEl) {
+            try {
+                videoEl.load();
+            } catch {
+                /* ignore */
+            }
+        }
+    }
 
 	// user interaction to explicitly load / play the heavy source
 	function ensureLoadedAndPlay() {
@@ -422,7 +424,7 @@
 				bind:this={videoEl}
 				playsinline
 				{controls}
-				preload="none"
+                preload="none"
 				on:error={onVideoError}
 				poster={posterAttr}
 				style={`width:100%; height:auto; ${radius ? `border-radius:${radius};` : ''}`}
