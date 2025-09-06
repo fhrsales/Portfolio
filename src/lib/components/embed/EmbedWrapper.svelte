@@ -4,6 +4,13 @@
 	import { onMount } from 'svelte';
 	export let value = '';
 
+	function sanitizeHtml(html) {
+		if (!html) return html;
+		return String(html)
+			.replace(/\son[a-z]+\s*=\s*(["']).*?\1/gi, '')
+			.replace(/(href|src)=(['"])javascript:[^\2]*\2/gi, '$1="#"');
+	}
+
 	onMount(() => {
 		// Seleciona todos os scripts dentro do componente
 		const container = document.querySelector('.embed-wrapper');
@@ -26,7 +33,7 @@
 <div class="embed-wrapper">
 	<div class="embed-container">
 		<div class="embed-container">
-			{@html value}
+			{@html sanitizeHtml(value)}
 		</div>
 	</div>
 </div>

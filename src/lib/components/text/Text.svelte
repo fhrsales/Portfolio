@@ -8,6 +8,18 @@
 		if (!base) return html;
 		return html.replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${base}/$1'`);
 	}
+
+	function sanitizeHtml(html) {
+		if (!html) return html;
+		// remove inline event handlers and javascript: URLs
+		return String(html)
+			.replace(/\son[a-z]+\s*=\s*(["']).*?\1/gi, '')
+			.replace(/(href|src)=(['"])javascript:[^\2]*\2/gi, '$1="#"');
+	}
+
+	function renderHtml(html) {
+		return sanitizeHtml(fixLinks(html, base));
+	}
 </script>
 
 {#if value.titulo}
@@ -20,13 +32,13 @@
 		{#if blocoStr.startsWith('<')}
 			{#if blocoStr.match(/^<(a|span|strong|em|b|i|img)(\s|>)/i)}
 				<!-- Inline HTML (anchor, strong, etc.) — wrap in paragraph -->
-				<p>{@html fixLinks(bloco, base)}</p>
+				<p>{@html renderHtml(bloco)}</p>
 			{:else}
 				<!-- Block-level HTML (figure, iframe, etc.) — render as-is -->
-				{@html fixLinks(bloco, base)}
+				{@html renderHtml(bloco)}
 			{/if}
 		{:else}
-			<p>{@html fixLinks(bloco, base)}</p>
+			<p>{@html renderHtml(bloco)}</p>
 		{/if}
 	{/each}
 {/if}

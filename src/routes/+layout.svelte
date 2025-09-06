@@ -6,12 +6,16 @@
 	let { children } = $props();
 </script>
 
-<Menu />
-{#if $page.url.pathname && $page.url.pathname.startsWith('/admin')}
+{#if !$page.url.pathname?.startsWith('/admin')}
+	<Menu />
+{/if}
+{#if $page.url.pathname?.startsWith('/admin')}
 	{@render children?.()}
 {:else}
 	<div class="main-content">
 		{@render children?.()}
 	</div>
 {/if}
-<Footer />
+{#if !$page.url.pathname?.startsWith('/admin')}
+	<Footer />
+{/if}

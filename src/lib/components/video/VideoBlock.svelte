@@ -198,15 +198,17 @@
 
 			// if we should auto load, pick the best source and assign; otherwise keep only preview/poster until user interacts
 			if (shouldAutoLoad) {
-				console.debug('[VideoBlock] shouldAutoLoad=true — loading chosen sources');
+				if (import.meta.env.DEV)
+					console.debug('[VideoBlock] shouldAutoLoad=true — loading chosen sources');
 				loadChosenSources();
 			}
 
 			// If there's no lightweight preview to show, assign sources so the video element renders (helps some mobile cases)
 			if (!loaded && !preview) {
-				console.debug(
-					'[VideoBlock] no preview available — forcing loadChosenSources on inViewport'
-				);
+				if (import.meta.env.DEV)
+					console.debug(
+						'[VideoBlock] no preview available — forcing loadChosenSources on inViewport'
+					);
 				loadChosenSources();
 			}
 
@@ -318,7 +320,8 @@
 	}
 
 	function togglePlay() {
-		console.debug('togglePlay, videoEl:', !!videoEl, 'isPlaying:', isPlaying);
+		if (import.meta.env.DEV)
+			console.debug('togglePlay, videoEl:', !!videoEl, 'isPlaying:', isPlaying);
 		if (!videoEl) return;
 		if (isPlaying) {
 			// user-initiated pause — mark userPaused to avoid auto-resume
@@ -326,7 +329,7 @@
 			try {
 				videoEl.pause();
 			} catch (e) {
-				console.debug('pause fail', e);
+				if (import.meta.env.DEV) console.debug('pause fail', e);
 			}
 			// ensure state reflects the element
 			isPlaying = !videoEl.paused;
@@ -339,25 +342,26 @@
 					isPlaying = !videoEl.paused;
 				})
 				.catch((err) => {
-					console.debug('play failed', err);
+					if (import.meta.env.DEV) console.debug('play failed', err);
 					isPlaying = false;
 				});
 		}
 	}
 
 	function toggleMute() {
-		console.debug('toggleMute, videoEl:', !!videoEl, 'isMuted before:', isMuted);
+		if (import.meta.env.DEV)
+			console.debug('toggleMute, videoEl:', !!videoEl, 'isMuted before:', isMuted);
 		if (!videoEl) return;
 		isMuted = !isMuted;
 		try {
 			videoEl.muted = isMuted;
 		} catch (e) {
-			console.debug('set muted failed', e);
+			if (import.meta.env.DEV) console.debug('set muted failed', e);
 		}
 		if (!isMuted) {
 			// ensure playing with sound
 			videoEl.play().catch((e) => {
-				console.debug('play after unmute failed', e);
+				if (import.meta.env.DEV) console.debug('play after unmute failed', e);
 			});
 		}
 	}
@@ -503,7 +507,7 @@
 		>
 			<Button
 				on:click={() => {
-					console.debug('play clicked');
+					if (import.meta.env.DEV) console.debug('play clicked');
 					togglePlay();
 				}}
 				variant={isPlaying ? 'primary' : 'default'}
@@ -511,7 +515,7 @@
 			>
 			<Button
 				on:click={() => {
-					console.debug('mute clicked');
+					if (import.meta.env.DEV) console.debug('mute clicked');
 					toggleMute();
 				}}
 				variant={isMuted ? 'default' : 'primary'}

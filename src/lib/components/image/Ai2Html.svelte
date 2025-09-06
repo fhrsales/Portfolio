@@ -8,6 +8,13 @@
 	let html = '';
 	let error = '';
 
+	function sanitizeHtml(str) {
+		if (!str) return str;
+		return String(str)
+			.replace(/\son[a-z]+\s*=\s*(["']).*?\1/gi, '')
+			.replace(/(href|src)=(['"])javascript:[^\2]*\2/gi, '$1="#"');
+	}
+
 	onMount(() => {
 		if (dir && file) {
 			fetch(`${dir}/${file}`)
@@ -18,6 +25,7 @@
 				.then((data) => {
 					// Corrige caminhos relativos de imagens/scripts
 					html = data.replace(/(src|href)=["'](?!https?:|data:|\/)/g, `$1=\"${dir}/`);
+					html = sanitizeHtml(html);
 					error = '';
 					// Executa scripts do ai2html, se houver
 					setTimeout(() => {

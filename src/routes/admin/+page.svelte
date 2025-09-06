@@ -1,7 +1,6 @@
 <script>
 	import { isAuthenticated, archiePages } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import { onMount, onDestroy } from 'svelte';
 	import ArchieML from 'archieml';
 
 	import Button from '$lib/components/ui/Button.svelte';
@@ -120,34 +119,8 @@
 		return true;
 	}
 
-	// Esconder o footer do site enquanto esta rota/admin estiver montada
-	// Esconder o footer e o nav do site enquanto esta rota/admin estiver montada
-	let _archie_admin_prev_footer_display;
-	let _archie_admin_prev_nav_display;
-	onMount(() => {
-		const f = document.querySelector('footer');
-		if (f) {
-			_archie_admin_prev_footer_display = f.style.display;
-			f.style.display = 'none';
-		}
-		const n = document.querySelector('nav');
-		if (n) {
-			_archie_admin_prev_nav_display = n.style.display;
-			n.style.display = 'none';
-		}
-	});
-
-	onDestroy(() => {
-		const f = document.querySelector('footer');
-		if (f) {
-			// restaura o estilo anterior (ou vazio para voltar ao padrão)
-			f.style.display = _archie_admin_prev_footer_display || '';
-		}
-		const n = document.querySelector('nav');
-		if (n) {
-			n.style.display = _archie_admin_prev_nav_display || '';
-		}
-	});
+	// Layout já esconde Menu/Footer via +layout.svelte quando em /admin
+	// Mantemos imports de lifecycle se necessário futuramente
 </script>
 
 <!-- {#if $isAuthenticated} -->

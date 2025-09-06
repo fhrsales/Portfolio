@@ -27,6 +27,7 @@
 	// eslint-disable-next-line no-unused-vars
 	let isMobile = false;
 	let observer;
+	let onResize;
 	let preloaded = false;
 	let inViewport = false;
 	let show = false; // when true, image opacity goes to 1
@@ -150,7 +151,12 @@
 	onMount(() => {
 		updateSrc();
 		if (typeof window !== 'undefined') {
-			window.addEventListener('resize', updateSrc);
+			let _resizeTimer;
+			onResize = () => {
+				if (_resizeTimer) clearTimeout(_resizeTimer);
+				_resizeTimer = setTimeout(() => updateSrc(), 120);
+			};
+			window.addEventListener('resize', onResize);
 		}
 		// create a prefetch observer that starts the preload a bit earlier
 		if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
@@ -222,7 +228,17 @@
 		if (observer) observer.disconnect();
 		if (prefetchObserver) prefetchObserver.disconnect();
 		if (typeof window !== 'undefined') {
-			window.removeEventListener('resize', updateSrc);
+			// remove both direct and debounced listeners
+			try {
+				window.removeEventListener('resize', updateSrc);
+			} catch {
+				/* ignore */
+			}
+			try {
+				window.removeEventListener('resize', onResize);
+			} catch {
+				/* ignore */
+			}
 		}
 	});
 
