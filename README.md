@@ -2,6 +2,8 @@
 
 # Portfolio Dinâmico (SvelteKit)
 
+<a href="https://github.com/fhrsales/portfolio/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/fhrsales/portfolio/actions/workflows/tests.yml/badge.svg?branch=main"></a>
+
 Motor de páginas com conteúdo estruturado + blocos customizados de mídia (imagem / vídeo), filtragem por tags inline e carregamento otimizado.
 
 </div>
