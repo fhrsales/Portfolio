@@ -29,7 +29,14 @@
 <nav class="menu-bar">
 	<div class="menu-container">
 		<a class="logo" href={resolve('/')}>
-			<img src="{base}/imgs/fabio_sales.svg" alt="Fabio Sales" class="logo-img" />
+			<img
+				src={resolve('/imgs/fabio_sales.svg')}
+				alt="Fabio Sales"
+				class="logo-img"
+				width="169"
+				height="46"
+				decoding="async"
+			/>
 		</a>
 		<button
 			class="menu-toggle"
