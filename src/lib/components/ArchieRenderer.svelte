@@ -76,6 +76,14 @@
 	function parseVideo(bloco) {
 		return parseVideoHelper(bloco);
 	}
+
+	// mark the first image on the page as priority (helps LCP)
+	let _firstImageMarked = false;
+	function nextImagePriority() {
+		if (_firstImageMarked) return false;
+		_firstImageMarked = true;
+		return true;
+	}
 </script>
 
 {#if usedParsed?.erro}
@@ -121,6 +129,7 @@
 								borda={img.radius}
 								tags={img.tags}
 								multiply={img.multiply}
+								priority={nextImagePriority()}
 							/>
 						{/await}
 					{/key}
@@ -160,6 +169,7 @@
 								radius={img.radius}
 								tags={img.tags}
 								multiply={img.multiply}
+								priority={nextImagePriority()}
 							/>
 						{/await}
 					{/key}

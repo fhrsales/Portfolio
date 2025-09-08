@@ -10,6 +10,8 @@
 	export let caption = '';
 	export let width = '';
 	export let height = '';
+	export let priority = false; // when true, treat as LCP: eager + high fetch priority
+	export let decoding = 'async';
 	export let size = 'M'; // P, M, G, GG
 	export let shadow = false; // legacy: can be boolean or string (e.g. 'shadow-1')
 	export let classes = ''; // new: space-separated classes or var(...) tokens
@@ -310,7 +312,9 @@
 				{alt}
 				{width}
 				{height}
-				loading="lazy"
+				loading={priority ? 'eager' : 'lazy'}
+				fetchpriority={priority ? 'high' : 'auto'}
+				{decoding}
 				on:load={() => (imgLoaded = true)}
 				on:transitionend={onImgTransitionEnd}
 				style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
