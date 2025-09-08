@@ -12,10 +12,10 @@ async function main() {
 	let sharp;
 	try {
 		sharp = require('sharp');
-  } catch {
-    console.error('optimize-images: sharp not installed');
-    process.exit(1);
-  }
+	} catch {
+		console.error('optimize-images: sharp not installed');
+		process.exit(1);
+	}
 
 	const root = path.resolve('static', 'imgs');
 	const entries = await fsp.readdir(root, { withFileTypes: true });

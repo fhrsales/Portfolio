@@ -8,7 +8,7 @@ async function main() {
 	let sharp;
 	try {
 		sharp = require('sharp');
-  } catch {
+	} catch {
 		console.error('gen-image-meta: sharp not installed');
 		process.exit(0);
 	}
@@ -18,10 +18,10 @@ async function main() {
 	let entries = [];
 	try {
 		entries = await fsp.readdir(imgsDir, { withFileTypes: true });
-  } catch {
-    console.error('gen-image-meta: cannot read', imgsDir, e.message);
-    process.exit(0);
-  }
+	} catch {
+		console.error('gen-image-meta: cannot read', imgsDir, e.message);
+		process.exit(0);
+	}
 	for (const ent of entries) {
 		if (!ent.isFile()) continue;
 		const file = path.join(imgsDir, ent.name);
@@ -33,9 +33,9 @@ async function main() {
 			const h = meta.height || 0;
 			const ratio = w && h ? Number((w / h).toFixed(6)) : 0;
 			map[ent.name] = { width: w, height: h, ratio };
-    } catch {
-      // ignore individual failures
-    }
+		} catch {
+			// ignore individual failures
+		}
 	}
 	await fsp.writeFile(outFile, JSON.stringify(map, null, '\t'));
 	console.log('gen-image-meta: wrote', outFile);
