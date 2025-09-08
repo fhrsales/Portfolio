@@ -13,11 +13,41 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - name: Show tool versions
+        run: |
+          node -v
+          npm -v
+          npm ls eslint eslint-plugin-svelte @sveltejs/kit || true
       # Workaround peer-deps/Rollup conflicts similar to deploy workflow
       - name: Clean npm cache and lockfile (workaround)
         run: rm -rf node_modules package-lock.json
       - name: Install dependencies (legacy peer deps)
         run: npm install --legacy-peer-deps
-      - run: npm run lint
-      - run: npm run test:server
-      - run: npm run test:client
+      - name: Lint (capture log)
+        run: |
+          set -euo pipefail
+          npm run lint 2>&1 | tee lint.log
+      - name: Upload lint log
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-log
+          path: lint.log
+      - name: Test server (capture log)
+        if: ${{ always() }}
+        run: |
+          set -euo pipefail
+          npm run test:server 2>&1 | tee test-server.log
+      - name: Test client (capture log)
+        if: ${{ always() }}
+        run: |
+          set -euo pipefail
+          npm run test:client 2>&1 | tee test-client.log
+      - name: Upload test logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitest-logs
+          path: |
+            test-server.log
+            test-client.log
