@@ -16,6 +16,7 @@
 	// let buildResult = '';
 	// let previewResult = '';
 	let newPageName = '';
+	// visual notice removed by request
 	// Inicializa conteúdo quando store for carregado (uma vez)
 	let _initialized = false;
 	$: if (!_initialized && typeof $archiePages === 'object' && Object.keys($archiePages).length) {
@@ -259,6 +260,8 @@
 		line-height: 1.6;
 		color: var(--color-dark);
 	}
+
+	/* notice removed */
 
 	.saveContent-container {
 		display: flex;
