@@ -5,6 +5,7 @@
 	import { normalizeParsedToBlocks, buildBlockObjects } from '$lib/parsers/content.js';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { withBase } from '$lib/paths.js';
+	const isProd = import.meta.env && import.meta.env.PROD;
 
 	// Find first image on index to preload as LCP
 	let lcpHref = '';
@@ -30,9 +31,13 @@
 					if (img && img.nome) {
 						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
 						// Prefer AVIF, then WebP, then original
-						const avif = withBase(`/imgs/${baseName}.avif`, base);
-						const webp = withBase(`/imgs/${baseName}.webp`, base);
-						lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
+						if (isProd) {
+							const avif = withBase(`/imgs/${baseName}.avif`, base);
+							const webp = withBase(`/imgs/${baseName}.webp`, base);
+							lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
+						} else {
+							lcpHref = withBase(`/imgs/${img.nome}`, base);
+						}
 						lcpImagesrcset = '';
 						lcpImagesizes = '(max-width: 860px) 100vw, 860px';
 						break;
@@ -41,9 +46,13 @@
 					const img = parseImageHelper(bloco);
 					if (img && img.nome) {
 						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
-						const avif = withBase(`/imgs/${baseName}.avif`, base);
-						const webp = withBase(`/imgs/${baseName}.webp`, base);
-						lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
+						if (isProd) {
+							const avif = withBase(`/imgs/${baseName}.avif`, base);
+							const webp = withBase(`/imgs/${baseName}.webp`, base);
+							lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
+						} else {
+							lcpHref = withBase(`/imgs/${img.nome}`, base);
+						}
 						lcpImagesrcset = '';
 						lcpImagesizes = '(max-width: 860px) 100vw, 860px';
 						break;
