@@ -10,6 +10,7 @@
 	export let caption = '';
 	export let width = '';
 	export let height = '';
+	export let ratio = '';
 	export let priority = false; // when true, treat as LCP: eager + high fetch priority
 	export let decoding = 'async';
 	export let size = 'M'; // P, M, G, GG
@@ -19,6 +20,11 @@
 	export let tags = []; // array of tag strings (lowercase)
 	export let multiply = false; // accept boolean or 'sim' or string token
 	export let borda = ''; // alternative border radius from ArchieML (e.g. '8px')
+
+	// optional modern formats / <picture> support
+	export let webp = '';
+	export let avif = '';
+	export let sources = [];
 
 	// Lazy-loading / in-viewport state
 	let wrapperEl;
@@ -67,6 +73,28 @@
 					.filter(Boolean)
 			: [];
 	$: effectiveRadius = radius || borda || '';
+	$: numericRatio = (() => {
+		if (!ratio) return 0;
+		const r = Number(String(ratio));
+		return Number.isFinite(r) && r > 0 ? r : 0;
+	})();
+
+	function defaultWidthForSize(sz) {
+		switch (sz) {
+			case 'PP':
+				return 250;
+			case 'P':
+				return 500;
+			case 'M':
+				return 620;
+			case 'G':
+				return 860;
+			case 'GG':
+				return 1200;
+			default:
+				return 620;
+		}
+	}
 	$: {
 		const source =
 			typeof classes === 'string' && classes.trim()
@@ -301,24 +329,63 @@
 	class={`image-block image-block-wrapper ${sizeClass} ${appliedClasses}`}
 	class:show
 >
-	<div class="image-inner" style="width:100%;">
+	<div
+		class="image-inner"
+		style={`width:100%; ${!height && numericRatio ? `aspect-ratio: ${numericRatio};` : ''}`}
+	>
 		{#if currentSrc}
-			<img
-				bind:this={imgEl}
-				src={currentSrc}
-				srcset={(srcset && srcset.trim()) ||
-					(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
-				sizes={sizes || (nome_mobile ? '(max-width: 600px) 600px, 1200px' : undefined)}
-				{alt}
-				{width}
-				{height}
-				loading={priority ? 'eager' : 'lazy'}
-				fetchpriority={priority ? 'high' : 'auto'}
-				{decoding}
-				on:load={() => (imgLoaded = true)}
-				on:transitionend={onImgTransitionEnd}
-				style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
-			/>
+			{#if (Array.isArray(sources) && sources.length) || webp || avif}
+				<picture>
+					{#if avif}
+						<source srcset={avif} type="image/avif" {sizes} />
+					{/if}
+					{#if webp}
+						<source srcset={webp} type="image/webp" {sizes} />
+					{/if}
+					{#each Array.isArray(sources) ? sources : [] as s, i (i)}
+						{#if typeof s === 'object'}
+							<source srcset={s.srcset} type={s.type} sizes={s.sizes} />
+						{:else}
+							<source srcset={s} />
+						{/if}
+					{/each}
+					<img
+						bind:this={imgEl}
+						src={currentSrc}
+						srcset={(srcset && srcset.trim()) ||
+							(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
+						sizes={sizes || (nome_mobile ? '(max-width: 600px) 600px, 1200px' : undefined)}
+						{alt}
+						width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
+						height={height ||
+							(numericRatio ? Math.round(defaultWidthForSize(size) / numericRatio) : undefined)}
+						loading={priority ? 'eager' : 'lazy'}
+						fetchpriority={priority ? 'high' : 'auto'}
+						{decoding}
+						on:load={() => (imgLoaded = true)}
+						on:transitionend={onImgTransitionEnd}
+						style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
+					/>
+				</picture>
+			{:else}
+				<img
+					bind:this={imgEl}
+					src={currentSrc}
+					srcset={(srcset && srcset.trim()) ||
+						(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
+					sizes={sizes || (nome_mobile ? '(max-width: 600px) 600px, 1200px' : undefined)}
+					{alt}
+					width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
+					height={height ||
+						(numericRatio ? Math.round(defaultWidthForSize(size) / numericRatio) : undefined)}
+					loading={priority ? 'eager' : 'lazy'}
+					fetchpriority={priority ? 'high' : 'auto'}
+					{decoding}
+					on:load={() => (imgLoaded = true)}
+					on:transitionend={onImgTransitionEnd}
+					style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
+				/>
+			{/if}
 		{/if}
 
 		{#if !show}

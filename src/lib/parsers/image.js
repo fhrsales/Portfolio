@@ -9,7 +9,16 @@ export function parseImageObject(input) {
 			classes: '',
 			radius: '',
 			tags: [],
-			multiply: false
+			multiply: false,
+			width: '',
+			height: '',
+			ratio: '',
+			nome_mobile: '',
+			webp: '',
+			avif: '',
+			srcset: '',
+			sizes: '',
+			sources: []
 		};
 	}
 	let obj = input;
@@ -28,7 +37,55 @@ export function parseImageObject(input) {
 			: [];
 	const multiply = obj.multiply || obj.multiplay || obj.mix || false;
 	const borda = obj.borda || obj.radius || obj.raio || obj.border || '';
-	return { nome, tamanho, legenda, classes, radius: borda || '', tags, multiply };
+	// width/height/ratio support
+	let width = obj.width || obj.w || obj.largura || '';
+	let height = obj.height || obj.h || obj.altura || '';
+	let ratio = obj.ratio || obj.aspect || '';
+	if (!ratio && width && height) {
+		const wn = Number(String(width).replace(/px|\s+/g, ''));
+		const hn = Number(String(height).replace(/px|\s+/g, ''));
+		if (wn > 0 && hn > 0) ratio = (wn / hn).toFixed(6);
+	}
+	if (ratio && typeof ratio === 'string' && ratio.includes('/')) {
+		const [a, b] = ratio.split('/').map((x) => Number(x));
+		if (a > 0 && b > 0) ratio = (a / b).toFixed(6);
+	}
+	const nome_mobile = obj.nome_mobile || obj.mobile || '';
+	const webp = obj.webp || obj.nome_webp || '';
+	const avif = obj.avif || obj.nome_avif || '';
+	// srcset/sizes pass-through (string or array)
+	let srcset = obj.srcset || '';
+	if (Array.isArray(srcset)) srcset = srcset.join(', ');
+	const sizes = obj.sizes || '';
+	// picture sources: allow array of strings (srcset) or objects {type, srcset, sizes}
+	let sources = [];
+	if (obj.sources) {
+		if (Array.isArray(obj.sources)) sources = obj.sources;
+		else if (typeof obj.sources === 'string') {
+			sources = String(obj.sources)
+				.split(',')
+				.map((s) => s.trim())
+				.filter(Boolean);
+		}
+	}
+	return {
+		nome,
+		tamanho,
+		legenda,
+		classes,
+		radius: borda || '',
+		tags,
+		multiply,
+		width,
+		height,
+		ratio,
+		nome_mobile,
+		webp,
+		avif,
+		srcset,
+		sizes,
+		sources
+	};
 }
 
 export function parseImageLine(line) {

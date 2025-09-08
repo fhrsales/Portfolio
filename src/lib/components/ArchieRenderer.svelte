@@ -129,6 +129,14 @@
 								borda={img.radius}
 								tags={img.tags}
 								multiply={img.multiply}
+								width={img.width}
+								height={img.height}
+								ratio={img.ratio}
+								srcset={img.srcset}
+								sizes={img.sizes}
+								webp={img.webp ? withBase(`/imgs/${img.webp}`, base) : ''}
+								avif={img.avif ? withBase(`/imgs/${img.avif}`, base) : ''}
+								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
 						{/await}
@@ -169,6 +177,14 @@
 								radius={img.radius}
 								tags={img.tags}
 								multiply={img.multiply}
+								width={img.width}
+								height={img.height}
+								ratio={img.ratio}
+								srcset={img.srcset}
+								sizes={img.sizes}
+								webp={img.webp ? withBase(`/imgs/${img.webp}`, base) : ''}
+								avif={img.avif ? withBase(`/imgs/${img.avif}`, base) : ''}
+								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
 						{/await}
