@@ -12,13 +12,13 @@ const fallback = resolve(buildDir, '404.html');
 const index = resolve(buildDir, 'index.html');
 
 try {
-  if (existsSync(fallback) && !existsSync(index)) {
-    copyFileSync(fallback, index);
-    console.log('postbuild: copied build/404.html -> build/index.html');
-  } else {
-    console.log('postbuild: nothing to do');
-  }
+	if (existsSync(fallback) && !existsSync(index)) {
+		copyFileSync(fallback, index);
+		console.log('postbuild: copied build/404.html -> build/index.html');
+	} else {
+		console.log('postbuild: nothing to do');
+	}
 } catch (err) {
-  console.error('postbuild: failed to ensure index.html', err);
-  process.exitCode = 1;
+	console.error('postbuild: failed to ensure index.html', err);
+	process.exitCode = 1;
 }
