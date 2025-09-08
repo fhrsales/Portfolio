@@ -18,10 +18,10 @@ async function main() {
 	let entries = [];
 	try {
 		entries = await fsp.readdir(imgsDir, { withFileTypes: true });
-	} catch {
-		console.error('gen-image-meta: cannot read', imgsDir, e.message);
-		process.exit(0);
-	}
+  } catch (e) {
+    console.error('gen-image-meta: cannot read', imgsDir, e && e.message);
+    process.exit(0);
+  }
 	for (const ent of entries) {
 		if (!ent.isFile()) continue;
 		const file = path.join(imgsDir, ent.name);

@@ -1,7 +1,7 @@
 <script>
 	import { archiePages } from '$lib/stores';
 	import { page } from '$app/stores';
-	import { base, resolve } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	let open = false;
 	let pages = [];
