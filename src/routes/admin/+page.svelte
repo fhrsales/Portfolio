@@ -16,8 +16,13 @@
 	// let buildResult = '';
 	// let previewResult = '';
 	let newPageName = '';
-	// Carregar conteúdo ao trocar de página
-	$: if ($isAuthenticated) loadContent();
+	// Inicializa conteúdo quando store for carregado (uma vez)
+	let _initialized = false;
+	$: if (!_initialized && typeof $archiePages === 'object' && Object.keys($archiePages).length) {
+		_initialized = true;
+		if (!page) page = 'index';
+		loadContent();
+	}
 
 	// Log error messages in dev to mark it as used
 	$: if (import.meta.env.DEV && error) console.debug('[admin] ', error);
