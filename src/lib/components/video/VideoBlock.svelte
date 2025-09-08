@@ -500,9 +500,9 @@
 		{/if}
 
 		<!-- overlay controls (bottom-right) -->
+		{#if show}
 		<div
 			class="video-controls"
-			aria-hidden={!show}
 			class:visible={controlsVisible}
 			on:touchstart={onTouchStart}
 			on:pointerdown={onPointerDown}
@@ -524,6 +524,7 @@
 				active={!isMuted}>{isMuted ? 'Unmute' : 'Mute'}</Button
 			>
 		</div>
+		{/if}
 		{#if error}
 			<div class="video-error">{error}</div>
 		{/if}
@@ -592,12 +593,15 @@
 		transition:
 			opacity 180ms ease,
 			transform 180ms ease;
-		pointer-events: auto;
+		pointer-events: none;
+		visibility: hidden;
 	}
 	.video-inner:hover .video-controls,
 	.video-controls.visible {
 		opacity: 1;
 		transform: translateY(0);
+		pointer-events: auto;
+		visibility: visible;
 	}
 	.video-controls > * {
 		display: inline-flex;
