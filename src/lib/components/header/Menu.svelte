@@ -45,7 +45,7 @@
 			aria-label={open ? 'Fechar menu' : 'Abrir menu'}
 			aria-expanded={open}
 		>
-			<svg viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+			<svg viewBox="1 1 24 18" aria-hidden="true" focusable="false">
 				<rect class="line l1" x="0" y="2" width="24" height="2" rx="1" />
 				<rect class="line l2" x="0" y="8" width="24" height="2" rx="1" />
 				<rect class="line l3" x="0" y="14" width="24" height="2" rx="1" />
@@ -191,7 +191,7 @@
 		transform: scaleX(0);
 	}
 	.menu-toggle.open .l3 {
-		transform: translateY(-4px) rotate(-45deg);
+		transform: translateY(-3px) rotate(-45deg);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
