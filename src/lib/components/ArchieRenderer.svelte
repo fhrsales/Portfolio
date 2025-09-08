@@ -15,6 +15,7 @@
 	import { parseVideo as parseVideoHelper } from '$lib/parsers/video.js';
 	import { withBase } from '$lib/paths.js';
 	import imageMeta from '$lib/imageMeta.json';
+	const isProd = import.meta.env && import.meta.env.PROD;
 	import {
 		normalizeParsedToBlocks,
 		buildBlockObjects,
@@ -137,8 +138,8 @@
 								ratio={img.ratio || (_meta && _meta.ratio) || ''}
 								srcset={img.srcset}
 								sizes={img.sizes}
-								webp={withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base)}
-								avif={withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base)}
+								webp={isProd ? withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base) : ''}
+								avif={isProd ? withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base) : ''}
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
@@ -187,8 +188,8 @@
 								ratio={img.ratio || (_meta2 && _meta2.ratio) || ''}
 								srcset={img.srcset}
 								sizes={img.sizes}
-								webp={withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base)}
-								avif={withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base)}
+								webp={isProd ? withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base) : ''}
+								avif={isProd ? withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base) : ''}
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
