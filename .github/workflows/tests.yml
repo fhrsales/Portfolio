@@ -17,4 +17,3 @@ jobs:
       - run: npm run lint
       - run: npm run test:server
       - run: npm run test:client
-

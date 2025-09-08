@@ -1,25 +1,30 @@
 // Video parsing helpers
 
 export function parseVideoObject(input) {
-    if (!input || typeof input !== 'object') {
-        return { nome: '', tamanho: 'M', legenda: '', classes: '', radius: '', tags: [] };
-    }
-    let obj = input.video && typeof input.video === 'object' ? input.video : input;
-    const nome = obj.nome || obj.name || '';
-    const tamanho = (obj.tamanho || obj.size || 'M').toString().toUpperCase();
-    const legenda = obj.legenda || obj.caption || '';
-    const classes = Array.isArray(obj.classes) ? obj.classes.join(' ') : obj.classes || '';
-       // Aceita tags como array, string separada por vírgula, ou string única
-       let tags = [];
-       if (Array.isArray(obj.tags)) {
-           tags = obj.tags.map((t) => String(t).trim()).filter(Boolean);
-       } else if (typeof obj.tags === 'string') {
-           tags = obj.tags.split(',').map((t) => t.trim()).filter(Boolean);
-       } else if (typeof obj.tags === 'object' && obj.tags !== null) {
-           tags = Object.values(obj.tags).map((t) => String(t).trim()).filter(Boolean);
-       }
-    const radius = obj.borda || obj.radius || '';
-    return { nome, tamanho, legenda, classes, radius, tags };
+	if (!input || typeof input !== 'object') {
+		return { nome: '', tamanho: 'M', legenda: '', classes: '', radius: '', tags: [] };
+	}
+	let obj = input.video && typeof input.video === 'object' ? input.video : input;
+	const nome = obj.nome || obj.name || '';
+	const tamanho = (obj.tamanho || obj.size || 'M').toString().toUpperCase();
+	const legenda = obj.legenda || obj.caption || '';
+	const classes = Array.isArray(obj.classes) ? obj.classes.join(' ') : obj.classes || '';
+	// Aceita tags como array, string separada por vírgula, ou string única
+	let tags = [];
+	if (Array.isArray(obj.tags)) {
+		tags = obj.tags.map((t) => String(t).trim()).filter(Boolean);
+	} else if (typeof obj.tags === 'string') {
+		tags = obj.tags
+			.split(',')
+			.map((t) => t.trim())
+			.filter(Boolean);
+	} else if (typeof obj.tags === 'object' && obj.tags !== null) {
+		tags = Object.values(obj.tags)
+			.map((t) => String(t).trim())
+			.filter(Boolean);
+	}
+	const radius = obj.borda || obj.radius || '';
+	return { nome, tamanho, legenda, classes, radius, tags };
 }
 
 export function parseVideoLine(line) {

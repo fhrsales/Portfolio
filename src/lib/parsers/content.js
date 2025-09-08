@@ -30,7 +30,10 @@ export function buildBlockObjects(blocks) {
 			const lines = String(raw)
 				.split(/\r?\n/)
 				.map((l) => l.trim());
-			const inner = lines.slice(1, -1).map((l) => l).filter(Boolean);
+			const inner = lines
+				.slice(1, -1)
+				.map((l) => l)
+				.filter(Boolean);
 			const obj = {};
 			for (const line of inner) {
 				const m = String(line).match(/^([^:]+):\s*(.*)$/);
@@ -38,9 +41,15 @@ export function buildBlockObjects(blocks) {
 					const key = m[1].trim().toLowerCase();
 					const val = m[2].trim();
 					if (key === 'tags' && val) {
-						obj.tags = val.split(',').map((t) => t.trim()).filter(Boolean);
+						obj.tags = val
+							.split(',')
+							.map((t) => t.trim())
+							.filter(Boolean);
 					} else if (key === 'classes' && val) {
-						obj.classes = val.split(',').map((t) => t.trim()).filter(Boolean);
+						obj.classes = val
+							.split(',')
+							.map((t) => t.trim())
+							.filter(Boolean);
 					} else if (key === 'multiply') {
 						obj.multiply = /^(?:1|true|yes|sim|multiply)$/i.test(val) ? val : val;
 					} else if (key === 'borda' || key === 'radius') {
@@ -53,7 +62,7 @@ export function buildBlockObjects(blocks) {
 			// Wrap under video to signal type to renderer
 			objs.push({ raw: { video: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
 			continue;
-		} 
+		}
 		// {video} single-line (open block)
 		else if (/^\{video\}$/i.test(trimmed)) {
 			const obj = {};
@@ -70,9 +79,15 @@ export function buildBlockObjects(blocks) {
 					const key = m[1].trim().toLowerCase();
 					const val = m[2].trim();
 					if (key === 'tags' && val) {
-						obj.tags = val.split(',').map((t) => t.trim()).filter(Boolean);
+						obj.tags = val
+							.split(',')
+							.map((t) => t.trim())
+							.filter(Boolean);
 					} else if (key === 'classes' && val) {
-						obj.classes = val.split(',').map((t) => t.trim()).filter(Boolean);
+						obj.classes = val
+							.split(',')
+							.map((t) => t.trim())
+							.filter(Boolean);
 					} else if (key === 'multiply') {
 						obj.multiply = /^(?:1|true|yes|sim|multiply)$/i.test(val) ? val : val;
 					} else if (key === 'borda' || key === 'radius') {
