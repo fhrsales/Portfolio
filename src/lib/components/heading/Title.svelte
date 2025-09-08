@@ -7,7 +7,7 @@
 <style>
 	.titulo {
 		font-size: 2em;
-		color: var(--cor-primaria);
+		color: var(--color-primary);
 		margin: 0 auto;
 		padding: 0.5em 0;
 		text-align: center;

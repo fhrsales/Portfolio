@@ -7,6 +7,8 @@
 
 	import Button from '$lib/components/ui/Button.svelte';
 	import ConfirmModal from '$lib/components/ui/ConfirmModal.svelte';
+	import Toolbar from '$lib/components/ui/Toolbar.svelte';
+	import IconButton from '$lib/components/ui/IconButton.svelte';
 
 	// let password = '';
 	let content = '';
@@ -301,12 +303,19 @@
                 }}
             ></textarea>
 				<div class="saveContent-container">
-
-                    <Button variant="link" on:click={makeBold} value="B" title="Negrito (Ctrl/Cmd+B)" />
-					<Button variant="link" on:click={makeItalic} value="I" title="Itálico (Ctrl/Cmd+I)" />
-					<Button variant="link" on:click={makeLink} value="Link" title="Link (Ctrl/Cmd+K)" />
-					<Button variant="link" on:click={clearFormatting} value="Limpar" title="Remover formatação (Ctrl/Cmd+0)" />
-                    <Button
+					<Toolbar align="end" ariaLabel="Ferramentas do editor">
+						<IconButton title="Negrito (Ctrl/Cmd+B)" ariaLabel="Negrito" on:click={makeBold}>B</IconButton>
+						<IconButton title="Itálico (Ctrl/Cmd+I)" ariaLabel="Itálico" on:click={makeItalic}><em>I</em></IconButton>
+						<IconButton title="Link (Ctrl/Cmd+K)" ariaLabel="Link" on:click={makeLink}>
+							<!-- simple chain icon -->
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 1 0-7.07-7.07L11 4" />
+								<path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L13 20" />
+							</svg>
+						</IconButton>
+						<IconButton title="Remover formatação (Ctrl/Cmd+0)" ariaLabel="Limpar formatação" on:click={clearFormatting}>⌫</IconButton>
+					</Toolbar>
+					<Button
                         variant="primary"
                         handleClick={saveContent}
                         value="Salvar"
