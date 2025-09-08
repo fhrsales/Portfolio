@@ -95,6 +95,36 @@
 				return 620;
 		}
 	}
+
+	function defaultSizesForSize(sz) {
+		const px = defaultWidthForSize(sz);
+		// mobile: occupy viewport width; otherwise clamp to designed width
+		return `(max-width: 600px) 100vw, ${px}px`;
+	}
+
+	function replaceExt(u, ext) {
+		if (!u) return '';
+		return u.replace(/\.(?:png|jpg|jpeg|webp|avif)(?:\?.*)?$/i, `.${ext}`);
+	}
+
+	// Build srcset for avif/webp using nome_mobile when available
+	$: computedSizes = sizes || (nome_mobile ? defaultSizesForSize(size) : undefined);
+	$: avifSrcset = (() => {
+		if (!avif) return '';
+		if (nome_mobile) {
+			const avifMobile = replaceExt(nome_mobile, 'avif');
+			return `${avifMobile} 600w, ${avif} 1200w`;
+		}
+		return avif;
+	})();
+	$: webpSrcset = (() => {
+		if (!webp) return '';
+		if (nome_mobile) {
+			const webpMobile = replaceExt(nome_mobile, 'webp');
+			return `${webpMobile} 600w, ${webp} 1200w`;
+		}
+		return webp;
+	})();
 	$: {
 		const source =
 			typeof classes === 'string' && classes.trim()
@@ -337,10 +367,10 @@
 			{#if (Array.isArray(sources) && sources.length) || webp || avif}
 				<picture>
 					{#if avif}
-						<source srcset={avif} type="image/avif" {sizes} />
+						<source srcset={avifSrcset} type="image/avif" sizes={computedSizes} />
 					{/if}
 					{#if webp}
-						<source srcset={webp} type="image/webp" {sizes} />
+						<source srcset={webpSrcset} type="image/webp" sizes={computedSizes} />
 					{/if}
 					{#each Array.isArray(sources) ? sources : [] as s, i (i)}
 						{#if typeof s === 'object'}
@@ -354,7 +384,7 @@
 						src={currentSrc}
 						srcset={(srcset && srcset.trim()) ||
 							(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
-						sizes={sizes || (nome_mobile ? '(max-width: 600px) 600px, 1200px' : undefined)}
+						sizes={computedSizes}
 						{alt}
 						width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
 						height={height ||
@@ -373,7 +403,7 @@
 					src={currentSrc}
 					srcset={(srcset && srcset.trim()) ||
 						(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
-					sizes={sizes || (nome_mobile ? '(max-width: 600px) 600px, 1200px' : undefined)}
+					sizes={computedSizes}
 					{alt}
 					width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
 					height={height ||
