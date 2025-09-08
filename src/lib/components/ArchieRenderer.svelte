@@ -118,27 +118,28 @@
 				{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}
 					{#key i}
 						{#await Promise.resolve(parseImagem(bloco)) then img}
-							<ImageBlock
-								src={withBase(`/imgs/${img.nome}`, base)}
-								nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
-								alt={img.nome}
-								size={img.tamanho}
-								caption={img.legenda}
-								classes={img.classes}
-								radius={img.radius}
-								borda={img.radius}
-								tags={img.tags}
-								multiply={img.multiply}
-								width={img.width}
-								height={img.height}
-								ratio={img.ratio}
-								srcset={img.srcset}
-								sizes={img.sizes}
-								webp={img.webp ? withBase(`/imgs/${img.webp}`, base) : ''}
-								avif={img.avif ? withBase(`/imgs/${img.avif}`, base) : ''}
-								sources={img.sources}
-								priority={nextImagePriority()}
-							/>
+								{@const _baseName = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
+								<ImageBlock
+									src={withBase(`/imgs/${img.nome}`, base)}
+									nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
+									alt={img.nome}
+									size={img.tamanho}
+									caption={img.legenda}
+									classes={img.classes}
+									radius={img.radius}
+									borda={img.radius}
+									tags={img.tags}
+									multiply={img.multiply}
+									width={img.width}
+									height={img.height}
+									ratio={img.ratio}
+									srcset={img.srcset}
+									sizes={img.sizes}
+									webp={withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base)}
+									avif={withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base)}
+									sources={img.sources}
+									priority={nextImagePriority()}
+								/>
 						{/await}
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.video}
@@ -168,25 +169,26 @@
 				{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
 					{#key i}
 						{#await Promise.resolve(parseImagem(bloco)) then img}
-							<ImageBlock
-								src={withBase(`/imgs/${img.nome}`, base)}
-								alt={img.nome}
-								size={img.tamanho}
-								caption={img.legenda}
-								classes={img.classes}
-								radius={img.radius}
-								tags={img.tags}
-								multiply={img.multiply}
-								width={img.width}
-								height={img.height}
-								ratio={img.ratio}
-								srcset={img.srcset}
-								sizes={img.sizes}
-								webp={img.webp ? withBase(`/imgs/${img.webp}`, base) : ''}
-								avif={img.avif ? withBase(`/imgs/${img.avif}`, base) : ''}
-								sources={img.sources}
-								priority={nextImagePriority()}
-							/>
+								{@const _baseName2 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
+								<ImageBlock
+									src={withBase(`/imgs/${img.nome}`, base)}
+									alt={img.nome}
+									size={img.tamanho}
+									caption={img.legenda}
+									classes={img.classes}
+									radius={img.radius}
+									tags={img.tags}
+									multiply={img.multiply}
+									width={img.width}
+									height={img.height}
+									ratio={img.ratio}
+									srcset={img.srcset}
+									sizes={img.sizes}
+									webp={withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base)}
+									avif={withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base)}
+									sources={img.sources}
+									priority={nextImagePriority()}
+								/>
 						{/await}
 					{/key}
 				{:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}

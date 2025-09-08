@@ -22,6 +22,12 @@ jobs:
       - name: Install dependencies (workaround Rollup bug)
         run: npm install --legacy-peer-deps
 
+      - name: Install sharp for image optimization
+        run: npm install sharp --no-save
+
+      - name: Generate WebP/AVIF images
+        run: node scripts/optimize-images.cjs
+
       - name: Build static site
         run: npm run build
 
