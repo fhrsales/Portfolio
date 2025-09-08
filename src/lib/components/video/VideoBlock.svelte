@@ -501,29 +501,29 @@
 
 		<!-- overlay controls (bottom-right) -->
 		{#if show}
-		<div
-			class="video-controls"
-			class:visible={controlsVisible}
-			on:touchstart={onTouchStart}
-			on:pointerdown={onPointerDown}
-		>
-			<Button
-				on:click={() => {
-					if (import.meta.env.DEV) console.debug('play clicked');
-					togglePlay();
-				}}
-				variant={isPlaying ? 'primary' : 'default'}
-				active={isPlaying}>{isPlaying ? 'Pause' : 'Play'}</Button
+			<div
+				class="video-controls"
+				class:visible={controlsVisible}
+				on:touchstart={onTouchStart}
+				on:pointerdown={onPointerDown}
 			>
-			<Button
-				on:click={() => {
-					if (import.meta.env.DEV) console.debug('mute clicked');
-					toggleMute();
-				}}
-				variant={isMuted ? 'default' : 'primary'}
-				active={!isMuted}>{isMuted ? 'Unmute' : 'Mute'}</Button
-			>
-		</div>
+				<Button
+					on:click={() => {
+						if (import.meta.env.DEV) console.debug('play clicked');
+						togglePlay();
+					}}
+					variant={isPlaying ? 'primary' : 'default'}
+					active={isPlaying}>{isPlaying ? 'Pause' : 'Play'}</Button
+				>
+				<Button
+					on:click={() => {
+						if (import.meta.env.DEV) console.debug('mute clicked');
+						toggleMute();
+					}}
+					variant={isMuted ? 'default' : 'primary'}
+					active={!isMuted}>{isMuted ? 'Unmute' : 'Mute'}</Button
+				>
+			</div>
 		{/if}
 		{#if error}
 			<div class="video-error">{error}</div>
