@@ -1,5 +1,5 @@
 <script>
-import { archiePages } from '$lib/stores';
+	import { archiePages } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import ArchieML from 'archieml';
 	import { resolve } from '$app/paths';
