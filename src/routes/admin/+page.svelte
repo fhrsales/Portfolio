@@ -2,6 +2,7 @@
 	import { isAuthenticated, archiePages } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import ArchieML from 'archieml';
+	import { resolve } from '$app/paths';
 
 	import Button from '$lib/components/ui/Button.svelte';
 	import ConfirmModal from '$lib/components/ui/ConfirmModal.svelte';
@@ -206,7 +207,7 @@
 					<Button classe="button-outline" handleClick={openDeleteModal} value="Apagar página" />
 				{/if}
 				<!-- <span style="color:#b00;margin-left:0.5rem;">{error}</span> -->
-				<a href="/" class="button">Sair</a>
+				<a href={resolve('/')} class="button">Sair</a>
 			</div>
 		</div>
 	</div>

@@ -1,8 +1,9 @@
 <script>
 	export let value = '';
-	import { base } from '$app/paths';
-	// Caminho base dos PDFs
-	const src = `${base}/pdfs/${value}`;
+	import { resolve } from '$app/paths';
+	// Caminho base dos PDFs (usa resolve para respeitar base em produção)
+	const path = `/pdfs/${value}`;
+	const src = resolve(path);
 </script>
 
 <div class="pdf-viewer">

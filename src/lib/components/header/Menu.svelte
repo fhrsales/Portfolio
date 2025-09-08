@@ -1,7 +1,7 @@
 <script>
 	import { archiePages } from '$lib/stores';
 	import { page } from '$app/stores';
-	import { base } from '$app/paths';
+	import { base, resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	let open = false;
 	let pages = [];
@@ -28,7 +28,7 @@
 
 <nav class="menu-bar">
 	<div class="menu-container">
-		<a class="logo" href="{base}/">
+		<a class="logo" href={resolve('/')}>
 			<img src="{base}/imgs/fabio_sales.svg" alt="Fabio Sales" class="logo-img" />
 		</a>
 		<button
@@ -51,12 +51,12 @@
 						class:active={current === p ||
 							(p === 'main' && (current === '' || current === 'index'))}
 					>
-						<a href={p === 'main' ? `${base}/` : `${base}/${p}`}>{menuLabels[p]}</a>
+						<a href={p === 'main' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
 					</li>
 				{/each}
 				{#if import.meta.env.DEV}
 					<li class="admin-link">
-						<a href="/admin" style="color:#0070f3;font-weight:bold;">Admin</a>
+						<a href={resolve('/admin')} style="color:#0070f3;font-weight:bold;">Admin</a>
 					</li>
 				{/if}
 			</ul>
@@ -66,12 +66,12 @@
 		<ul class:open class="mobile-menu">
 			{#each pages as p (p)}
 				<li class:active={current === p || (p === 'main' && current === '')}>
-					<a href={p === 'main' ? `${base}/` : `${base}/${p}`}>{menuLabels[p]}</a>
+					<a href={p === 'main' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
 				</li>
 			{/each}
 			{#if import.meta.env.DEV}
 				<li class="admin-link">
-					<a href="/admin" style="color:#0070f3;font-weight:bold;">Admin</a>
+					<a href={resolve('/admin')} style="color:#0070f3;font-weight:bold;">Admin</a>
 				</li>
 			{/if}
 		</ul>
