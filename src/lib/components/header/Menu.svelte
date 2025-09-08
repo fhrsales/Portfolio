@@ -54,7 +54,10 @@
 		{#if pages.length || import.meta.env.DEV}
 			<ul class="desktop-menu">
 				{#each pages as p (p)}
-					<li class:active={current === p || (p === 'index' && (current === '' || current === 'index'))}>
+					<li
+						class:active={current === p ||
+							(p === 'index' && (current === '' || current === 'index'))}
+					>
 						<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
 					</li>
 				{/each}
@@ -69,7 +72,9 @@
 	{#if pages.length || import.meta.env.DEV}
 		<ul class:open class="mobile-menu">
 			{#each pages as p (p)}
-				<li class:active={current === p || (p === 'index' && (current === '' || current === 'index'))}>
+				<li
+					class:active={current === p || (p === 'index' && (current === '' || current === 'index'))}
+				>
 					<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
 				</li>
 			{/each}

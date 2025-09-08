@@ -34,14 +34,30 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		transition: background 160ms ease, transform 120ms ease, color 160ms ease;
+		transition:
+			background 160ms ease,
+			transform 120ms ease,
+			color 160ms ease;
 	}
-	.icon-btn.sm { width: 28px; height: 28px; }
-	.icon-btn.md { width: 34px; height: 34px; }
-	.icon-btn.lg { width: 40px; height: 40px; }
+	.icon-btn.sm {
+		width: 28px;
+		height: 28px;
+	}
+	.icon-btn.md {
+		width: 34px;
+		height: 34px;
+	}
+	.icon-btn.lg {
+		width: 40px;
+		height: 40px;
+	}
 
-	.icon-btn:hover { filter: brightness(1.05); }
-	.icon-btn:active { transform: translateY(1px); }
+	.icon-btn:hover {
+		filter: brightness(1.05);
+	}
+	.icon-btn:active {
+		transform: translateY(1px);
+	}
 	.icon-btn.active {
 		background: var(--color-primary);
 		color: #fff;

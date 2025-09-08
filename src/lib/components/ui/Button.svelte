@@ -4,7 +4,7 @@
 	const dispatch = createEventDispatcher();
 
 	// modern props
-export let variant = 'default'; // 'default' | 'primary' | 'link'
+	export let variant = 'default'; // 'default' | 'primary' | 'link'
 	export let active = false;
 	export let type = 'button';
 	export let disabled = false;
@@ -32,8 +32,8 @@ export let variant = 'default'; // 'default' | 'primary' | 'link'
 
 	// compute classes merging legacy 'classe' and any passed class
 	$: extraClass = $$restProps && $$restProps.class ? $$restProps.class : '';
-$: classes =
-	`btn ${variant === 'primary' ? 'primary' : ''} ${variant === 'link' ? 'link' : ''} ${active ? 'active' : ''} ${classe || ''} ${extraClass}`.trim();
+	$: classes =
+		`btn ${variant === 'primary' ? 'primary' : ''} ${variant === 'link' ? 'link' : ''} ${active ? 'active' : ''} ${classe || ''} ${extraClass}`.trim();
 
 	function dispatchClick(e) {
 		dispatch('click', e);
@@ -85,7 +85,7 @@ $: classes =
 </button>
 
 <style>
-.btn {
+	.btn {
 		background: var(--color-light);
 		border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
 		padding: 0.35rem 1rem;
@@ -104,20 +104,20 @@ $: classes =
 		align-items: center;
 		justify-content: center;
 		gap: 0.4rem;
-}
-.btn.link {
-	background: transparent;
-	border: none;
-	box-shadow: none;
-	padding: 0;
-	border-radius: 0;
-	text-transform: none;
-	color: var(--color-primary);
-	font-weight: 600;
-}
-.btn.link:hover {
-	text-decoration: underline;
-}
+	}
+	.btn.link {
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		padding: 0;
+		border-radius: 0;
+		text-transform: none;
+		color: var(--color-primary);
+		font-weight: 600;
+	}
+	.btn.link:hover {
+		text-decoration: underline;
+	}
 	.btn.primary {
 		background: var(--color-primary);
 		color: white;

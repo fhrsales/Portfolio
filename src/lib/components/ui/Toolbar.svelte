@@ -14,7 +14,13 @@
 		align-items: center;
 		flex-wrap: wrap;
 	}
-	.toolbar.start { justify-content: flex-start; }
-	.toolbar.center { justify-content: center; }
-	.toolbar.end { justify-content: flex-end; }
+	.toolbar.start {
+		justify-content: flex-start;
+	}
+	.toolbar.center {
+		justify-content: center;
+	}
+	.toolbar.end {
+		justify-content: flex-end;
+	}
 </style>
