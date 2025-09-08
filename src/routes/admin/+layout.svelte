@@ -1,8 +1,1 @@
-<svelte:head>
-	<link
-		rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
-	/>
-</svelte:head>
-
 <slot />
