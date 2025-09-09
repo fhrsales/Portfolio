@@ -107,28 +107,39 @@
 		return u.replace(/\.(?:png|jpg|jpeg|webp|avif)(?:\?.*)?$/i, `.${ext}`);
 	}
 
-	// Build srcset for avif/webp using nome_mobile when available
-	$: computedSizes = sizes || (nome_mobile ? defaultSizesForSize(size) : undefined);
+	function withMobileSuffix(u) {
+		if (!u) return '';
+		// Insert -m before extension if not already present
+		return u.replace(/([^\/]+?)(\.(?:png|jpg|jpeg|webp|avif))(?:\?.*)?$/i, (m, name, ext) => {
+			return /-m$/i.test(name) ? `${name}${ext}` : `${name}-m${ext}`;
+		});
+	}
+
+	// Derive mobile candidate: explicit prop or inferred from src using -m suffix
+	$: mobileCandidate = nome_mobile || (src ? withMobileSuffix(src) : '');
+
+	// Build srcset for avif/webp using mobileCandidate when available
+	$: computedSizes = sizes || (mobileCandidate ? defaultSizesForSize(size) : undefined);
 	$: avifSrcset = (() => {
 		if (!avif) return '';
-		if (nome_mobile) {
-			const avifMobile = replaceExt(nome_mobile, 'avif');
+		if (mobileCandidate) {
+			const avifMobile = replaceExt(mobileCandidate, 'avif');
 			return `${avifMobile} 600w, ${avif} 1200w`;
 		}
 		return avif;
 	})();
 	$: webpSrcset = (() => {
 		if (!webp) return '';
-		if (nome_mobile) {
-			const webpMobile = replaceExt(nome_mobile, 'webp');
+		if (mobileCandidate) {
+			const webpMobile = replaceExt(mobileCandidate, 'webp');
 			return `${webpMobile} 600w, ${webp} 1200w`;
 		}
 		return webp;
 	})();
 
 	// explicit mobile variants for art direction with <picture>
-	$: mobileAvif = nome_mobile ? replaceExt(nome_mobile, 'avif') : '';
-	$: mobileWebp = nome_mobile ? replaceExt(nome_mobile, 'webp') : '';
+	$: mobileAvif = mobileCandidate ? replaceExt(mobileCandidate, 'avif') : '';
+	$: mobileWebp = mobileCandidate ? replaceExt(mobileCandidate, 'webp') : '';
 	$: {
 		const source =
 			typeof classes === 'string' && classes.trim()
@@ -370,7 +381,7 @@
 		{#if currentSrc}
 			{#if (Array.isArray(sources) && sources.length) || webp || avif}
 				<picture>
-					{#if nome_mobile}
+					{#if mobileCandidate}
 						<!-- Force mobile asset on small viewports regardless of DPR -->
 						{#if avif}
 							<source media="(max-width: 600px)" srcset={mobileAvif} type="image/avif" />
@@ -378,7 +389,7 @@
 						{#if webp}
 							<source media="(max-width: 600px)" srcset={mobileWebp} type="image/webp" />
 						{/if}
-						<source media="(max-width: 600px)" srcset={nome_mobile} />
+						<source media="(max-width: 600px)" srcset={mobileCandidate} />
 					{/if}
 					{#if avif}
 						<source srcset={avifSrcset} type="image/avif" sizes={computedSizes} />
@@ -397,7 +408,7 @@
 						bind:this={imgEl}
 						src={currentSrc}
 						srcset={(srcset && srcset.trim()) ||
-							(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
+							(mobileCandidate ? `${mobileCandidate} 600w, ${currentSrc} 1200w` : undefined)}
 						sizes={computedSizes}
 						{alt}
 						width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
@@ -416,7 +427,7 @@
 					bind:this={imgEl}
 					src={currentSrc}
 					srcset={(srcset && srcset.trim()) ||
-						(nome_mobile ? `${nome_mobile} 600w, ${currentSrc} 1200w` : undefined)}
+						(mobileCandidate ? `${mobileCandidate} 600w, ${currentSrc} 1200w` : undefined)}
 					sizes={computedSizes}
 					{alt}
 					width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
