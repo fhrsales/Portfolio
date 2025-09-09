@@ -1,7 +1,10 @@
 <script>
 	/* eslint-disable svelte/infinite-reactive-loop */
 	import { onMount, onDestroy } from 'svelte';
-	import Button from '$lib/components/ui/Button.svelte';
+	import PlayIcon from '$lib/components/icons/Play.svelte';
+	import PauseIcon from '$lib/components/icons/Pause.svelte';
+	import VolumeOnIcon from '$lib/components/icons/VolumeOn.svelte';
+	import VolumeOffIcon from '$lib/components/icons/VolumeOff.svelte';
 
 	export let src = '';
 	export let sources = []; // optional array of source filenames or absolute URLs or objects {src, width, bitrate}
@@ -33,6 +36,11 @@
 	let controlsVisible = false;
 	let _controlsHideTimer;
 	let userPaused = false; // when true, user explicitly paused and we should avoid auto-resume
+
+	// progress state
+	let currentTime = 0;
+	let duration = 0;
+	$: progressPct = duration > 0 ? Math.max(0, Math.min(100, (currentTime / duration) * 100)) : 0;
 
 	$: sizeClass =
 		size === 'PP'
@@ -160,10 +168,29 @@
 			const _onended = () => {
 				isPlaying = false;
 			};
+			const _ontime = () => {
+				try {
+					currentTime = videoEl.currentTime || 0;
+					if (!Number.isFinite(currentTime)) currentTime = 0;
+				} catch {
+					currentTime = 0;
+				}
+			};
+			const _onmeta = () => {
+				try {
+					duration = videoEl.duration || 0;
+					if (!Number.isFinite(duration)) duration = 0;
+					currentTime = videoEl.currentTime || 0;
+				} catch {
+					duration = 0;
+				}
+			};
 			try {
 				videoEl.addEventListener('play', _onplay);
 				videoEl.addEventListener('pause', _onpause);
 				videoEl.addEventListener('ended', _onended);
+				videoEl.addEventListener('timeupdate', _ontime);
+				videoEl.addEventListener('loadedmetadata', _onmeta);
 			} catch {
 				/* ignore */
 			}
@@ -172,6 +199,8 @@
 					videoEl.removeEventListener('play', _onplay);
 					videoEl.removeEventListener('pause', _onpause);
 					videoEl.removeEventListener('ended', _onended);
+					videoEl.removeEventListener('timeupdate', _ontime);
+					videoEl.removeEventListener('loadedmetadata', _onmeta);
 				} catch {
 					/* ignore */
 				}
@@ -387,6 +416,18 @@
 		}
 	}
 
+	function onProgressClick(e) {
+		if (!videoEl || !duration) return;
+		const rect = e.currentTarget.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const ratio = Math.max(0, Math.min(1, x / rect.width));
+		try {
+			videoEl.currentTime = ratio * duration;
+		} catch {
+			/* ignore */
+		}
+	}
+
 	function onTouchStart() {
 		showControlsTemporary();
 	}
@@ -499,7 +540,7 @@
 			{/if}
 		{/if}
 
-		<!-- overlay controls (bottom-right) -->
+		<!-- overlay controls (bottom-right) + progress bar -->
 		{#if show}
 			<div
 				class="video-controls"
@@ -507,22 +548,63 @@
 				on:touchstart={onTouchStart}
 				on:pointerdown={onPointerDown}
 			>
-				<Button
-					on:click={() => {
-						if (import.meta.env.DEV) console.debug('play clicked');
-						togglePlay();
-					}}
-					variant={isPlaying ? 'primary' : 'default'}
-					active={isPlaying}>{isPlaying ? 'Pause' : 'Play'}</Button
+				<button
+					class="icon-btn"
+					aria-label={isPlaying ? 'Pause' : 'Play'}
+					on:click={() => togglePlay()}
 				>
-				<Button
-					on:click={() => {
-						if (import.meta.env.DEV) console.debug('mute clicked');
-						toggleMute();
-					}}
-					variant={isMuted ? 'default' : 'primary'}
-					active={!isMuted}>{isMuted ? 'Unmute' : 'Mute'}</Button
+					{#if isPlaying}
+						<PauseIcon size={18} />
+					{:else}
+						<PlayIcon size={18} />
+					{/if}
+				</button>
+				<button
+					class="icon-btn"
+					aria-label={isMuted ? 'Unmute' : 'Mute'}
+					on:click={() => toggleMute()}
 				>
+					{#if isMuted}
+						<VolumeOffIcon size={18} />
+					{:else}
+						<VolumeOnIcon size={18} />
+					{/if}
+				</button>
+			</div>
+			<div
+				class="video-progress"
+				class:visible={controlsVisible}
+				on:click={onProgressClick}
+				role="slider"
+				tabindex="0"
+				aria-label="Progresso do vídeo"
+				aria-valuemin="0"
+				aria-valuemax={Math.round(duration || 0)}
+				aria-valuenow={Math.round(currentTime || 0)}
+				on:keydown={(e) => {
+					if (!videoEl || !duration) return;
+					switch (e.key) {
+						case 'ArrowLeft':
+							videoEl.currentTime = Math.max(0, (videoEl.currentTime || 0) - 5);
+							e.preventDefault();
+							break;
+						case 'ArrowRight':
+							videoEl.currentTime = Math.min(duration, (videoEl.currentTime || 0) + 5);
+							e.preventDefault();
+							break;
+						case 'Home':
+							videoEl.currentTime = 0;
+							e.preventDefault();
+							break;
+						case 'End':
+							videoEl.currentTime = duration;
+							e.preventDefault();
+							break;
+					}
+				}}
+			>
+				<div class="video-progress__track"></div>
+				<div class="video-progress__bar" style={`width:${progressPct}%`}></div>
 			</div>
 		{/if}
 		{#if error}
@@ -603,8 +685,61 @@
 		pointer-events: auto;
 		visibility: visible;
 	}
-	.video-controls > * {
+	.icon-btn {
+		appearance: none;
+		border: none;
+		outline: none;
+		padding: 8px;
+		border-radius: 8px;
+		background: rgba(0, 0, 0, 0.45);
+		color: #fff;
 		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: background-color 120ms ease, color 120ms ease, transform 60ms ease;
+	}
+	.icon-btn:hover {
+		background: rgba(0, 0, 0, 0.6);
+	}
+	.icon-btn:active {
+		background: rgba(255, 255, 255, 0.9);
+		color: #111;
+		transform: translateY(1px);
+	}
+
+	/* progress */
+	.video-progress {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 5px;
+		z-index: 11;
+		opacity: 0;
+		transform: translateY(4px);
+		transition: opacity 180ms ease, transform 180ms ease;
+		pointer-events: auto;
+		visibility: hidden;
+	}
+	.video-inner:hover .video-progress,
+	.video-progress.visible {
+		opacity: 1;
+		transform: translateY(0);
+		visibility: visible;
+	}
+	.video-progress__track {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.25);
+	}
+	.video-progress__bar {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		background: rgba(255, 255, 255, 0.9);
+		width: 0%;
 	}
 	.video-error {
 		position: absolute;

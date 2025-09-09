@@ -1,0 +1,20 @@
+<script>
+	export let size = 20;
+	export let title = 'Pause';
+	export let className = '';
+</script>
+
+<svg
+	{title}
+	role="img"
+	aria-label={title}
+	class={className}
+	width={size}
+	height={size}
+	viewBox="0 0 24 24"
+	fill="currentColor"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
+</svg>
+
