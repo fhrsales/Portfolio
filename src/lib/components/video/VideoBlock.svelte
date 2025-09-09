@@ -692,7 +692,7 @@
 		padding: 8px;
         border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
 		border-radius: 999px;
-		background: var(--color-light)
+		background: var(--color-light);
 		color: var(--color-primary);
 		display: inline-flex;
 		align-items: center;
@@ -707,7 +707,7 @@
 	}
 	.icon-btn:active {
 		background: rgba(255, 255, 255, 0.9);
-		color: #111;
+		color: var(--color-primary);
 		transform: translateY(1px);
 	}
 
