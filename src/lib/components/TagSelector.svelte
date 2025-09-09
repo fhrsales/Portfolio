@@ -87,7 +87,7 @@
 <style>
     .tag-selector {
         position: sticky;
-        top: calc(var(--grid) * 12);
+        top: calc(var(--grid) * 11);
         display: flex;
         gap: calc(var(--grid) * 0.5);
         flex-wrap: wrap;
@@ -97,7 +97,7 @@
         margin: 0 auto calc(var(--grid) * 3) auto;
         width: calc(100% - (var(--grid) * 4));
         max-width: calc(var(--grid) * 70);
-        transition: opacity 220ms ease;
+        transition: opacity 500ms ease;
     }
     .tag-selector.scrolling {
         opacity: 0;
