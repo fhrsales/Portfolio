@@ -689,7 +689,7 @@
 		appearance: none;
 		border: none;
 		outline: none;
-		padding: 8px;
+		padding: 10px;
         border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
 		border-radius: 999px;
 		background: var(--color-light);
