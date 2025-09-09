@@ -88,7 +88,7 @@
 	.btn {
 		background: var(--color-light);
 		border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-		padding: 0.35rem 1rem;
+		padding: 0.5rem 1rem;
 		border-radius: 999px;
 		cursor: pointer;
 		font-weight: 600;
