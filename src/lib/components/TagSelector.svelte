@@ -1,7 +1,7 @@
 <script>
 	import { archiePages } from '$lib/stores';
 	import { derived } from 'svelte/store';
-	import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 
 	// bindable selected tag
@@ -38,10 +38,35 @@
 	});
 
 	let derivedTags = [];
-	const unsubscribe = allTags.subscribe((v) => (derivedTags = v));
-	onMount(() => {
-		return () => unsubscribe();
-	});
+    const unsubscribe = allTags.subscribe((v) => (derivedTags = v));
+    let _scrollTimer;
+    let _onScroll;
+    let scrolling = false;
+
+    onMount(() => {
+        _onScroll = () => {
+            scrolling = true;
+            if (_scrollTimer) clearTimeout(_scrollTimer);
+            _scrollTimer = setTimeout(() => {
+                scrolling = false;
+            }, 220);
+        };
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', _onScroll, { passive: true });
+        }
+        return () => {
+            unsubscribe();
+            if (typeof window !== 'undefined' && _onScroll) {
+                try {
+                    window.removeEventListener('scroll', _onScroll);
+                } catch {}
+            }
+            if (_scrollTimer) {
+                clearTimeout(_scrollTimer);
+                _scrollTimer = null;
+            }
+        };
+    });
 
 	$: visibleTags = tags && Array.isArray(tags) ? tags : derivedTags;
 
@@ -50,7 +75,7 @@
 	}
 </script>
 
-<div class="tag-selector">
+<div class="tag-selector" class:scrolling>
 	<Button on:click={() => (selected = '')} active={selected === ''}>All</Button>
 	{#if visibleTags && visibleTags.length}
 		{#each visibleTags as t (t)}
@@ -60,19 +85,24 @@
 </div>
 
 <style>
-	.tag-selector {
-		position: sticky;
-		top: calc(var(--grid) * 12);
-		display: flex;
-		gap: calc(var(--grid) * 0.5);
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		z-index: 2;
-		margin: 0 auto calc(var(--grid) * 3) auto;
-		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 70);
-	}
+    .tag-selector {
+        position: sticky;
+        top: calc(var(--grid) * 12);
+        display: flex;
+        gap: calc(var(--grid) * 0.5);
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        margin: 0 auto calc(var(--grid) * 3) auto;
+        width: calc(100% - (var(--grid) * 4));
+        max-width: calc(var(--grid) * 70);
+        transition: opacity 220ms ease;
+    }
+    .tag-selector.scrolling {
+        opacity: 0;
+        pointer-events: none;
+    }
 	/* Style underlying .btn from Button component */
 	.tag-selector :global(.btn) {
 		text-transform: uppercase;
