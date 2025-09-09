@@ -435,7 +435,7 @@
 		background: var(--color-primary);
 		color: #fff;
 		text-decoration: none;
-		padding: 0.35rem 1rem;
+		padding: 0.6rem 1rem;
 		border-radius: 999px;
 		font-weight: 600;
 		box-shadow: var(--shadow-2);
