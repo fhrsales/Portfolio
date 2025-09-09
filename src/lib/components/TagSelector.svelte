@@ -104,9 +104,9 @@
         pointer-events: none;
     }
 	/* Style underlying .btn from Button component */
-	.tag-selector :global(.btn) {
-		text-transform: uppercase;
-	}
+    .tag-selector :global(.btn) {
+        text-transform: uppercase;
+    }
 	.tag-selector :global(.btn.primary),
 	.tag-selector :global(.btn.active) {
 		background: var(--color-primary);
