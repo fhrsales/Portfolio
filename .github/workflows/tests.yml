@@ -18,11 +18,9 @@ jobs:
           node -v
           npm -v
           npm ls eslint eslint-plugin-svelte @sveltejs/kit || true
-      # Workaround peer-deps/Rollup conflicts similar to deploy workflow
-      - name: Clean npm cache and lockfile (workaround)
-        run: rm -rf node_modules package-lock.json
-      - name: Install dependencies (legacy peer deps)
-        run: npm install --legacy-peer-deps
+      # Use pinned lockfile for deterministic installs
+      - name: Install dependencies (CI)
+        run: npm ci
       - name: Lint (capture log)
         run: |
           set -euo pipefail
