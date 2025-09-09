@@ -3,9 +3,6 @@ node_modules
 
 # Output
 .output
-.vercel
-.netlify
-.wrangler
 /.svelte-kit
 /build
 /sandbox
@@ -23,9 +20,6 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-
-# Paraglide
-src/lib/paraglide
 
 *storybook.log
 storybook-static
