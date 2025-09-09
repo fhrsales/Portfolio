@@ -87,7 +87,7 @@
 <style>
     .tag-selector {
         position: sticky;
-        top: calc(var(--grid) * 11);
+        top: calc(var(--grid) * 10);
         display: flex;
         gap: calc(var(--grid) * 0.5);
         flex-wrap: wrap;
