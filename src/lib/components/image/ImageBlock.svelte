@@ -125,6 +125,10 @@
 		}
 		return webp;
 	})();
+
+	// explicit mobile variants for art direction with <picture>
+	$: mobileAvif = nome_mobile ? replaceExt(nome_mobile, 'avif') : '';
+	$: mobileWebp = nome_mobile ? replaceExt(nome_mobile, 'webp') : '';
 	$: {
 		const source =
 			typeof classes === 'string' && classes.trim()
@@ -366,6 +370,16 @@
 		{#if currentSrc}
 			{#if (Array.isArray(sources) && sources.length) || webp || avif}
 				<picture>
+					{#if nome_mobile}
+						<!-- Force mobile asset on small viewports regardless of DPR -->
+						{#if avif}
+							<source media="(max-width: 600px)" srcset={mobileAvif} type="image/avif" />
+						{/if}
+						{#if webp}
+							<source media="(max-width: 600px)" srcset={mobileWebp} type="image/webp" />
+						{/if}
+						<source media="(max-width: 600px)" srcset={nome_mobile} />
+					{/if}
 					{#if avif}
 						<source srcset={avifSrcset} type="image/avif" sizes={computedSizes} />
 					{/if}
