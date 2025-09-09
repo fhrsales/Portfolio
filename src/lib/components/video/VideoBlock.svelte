@@ -690,17 +690,20 @@
 		border: none;
 		outline: none;
 		padding: 8px;
-		border-radius: 8px;
-		background: rgba(0, 0, 0, 0.45);
-		color: #fff;
+        border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+		border-radius: 999px;
+		background: var(--color-light)
+		color: var(--color-primary);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		transition: background-color 120ms ease, color 120ms ease, transform 60ms ease;
+        box-shadow: var(--shadow-2);
 	}
 	.icon-btn:hover {
-		background: rgba(0, 0, 0, 0.6);
+		background: var(--color-primary);
+        color: var(--color-light);
 	}
 	.icon-btn:active {
 		background: rgba(255, 255, 255, 0.9);
