@@ -41,8 +41,13 @@
     "menuLabel": ""
   },
   "Teste": {
-    "content": "",
+    "content": "embedWrapper: <script data-uva-id=\"1hmrQSCQHmvKXDWXthTyoGPtjIvTyogFNoOZmqPm2NDw\" src=\"https://arte.estadao.com.br/arc/scripts/uva-render-01.js\"></script>",
     "showInMenu": false,
-    "menuLabel": "Teste"
+    "menuLabel": "Manual"
+  },
+  "manual": {
+    "content": "embedWrapper: <script data-uva-id=\"1hmrQSCQHmvKXDWXthTyoGPtjIvTyogFNoOZmqPm2NDw\" src=\"https://arte.estadao.com.br/arc/scripts/uva-render-02.js\"></script>",
+    "showInMenu": false,
+    "menuLabel": ""
   }
 }

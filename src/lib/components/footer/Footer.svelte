@@ -1,15 +1,13 @@
 <footer>
 	<div class="contacts">
 		Contacts • <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
-			>fabio.sales@me.com</a
-		>
+			>fabio.sales@me.com</a>
 		|
 		<a
 			href="https://www.linkedin.com/in/fabiohrsales/"
 			title="LinkedIn"
 			target="_blank"
-			rel="noopener">LinkedIn</a
-		>
+			rel="noopener">LinkedIn</a>
 	</div>
 	<div class="copyright">© {new Date().getFullYear()} Fabio Sales</div>
 	<div class="rights">All rights reserved</div>
