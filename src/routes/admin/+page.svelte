@@ -261,14 +261,28 @@
 						placeholder="Nome da nova página"
 						on:keydown={(e) => {
 							if (e.key === 'Enter' && newPageName && newPageName !== '__nova__') {
+								// Define a nova página e garante que exista no store para aparecer no select
 								page = newPageName;
+								archiePages.update((pages) => {
+									if (!pages[page]) {
+										pages[page] = { content: '', showInMenu: true, menuLabel: '' };
+									}
+									return pages;
+								});
 								loadContent();
 								e.target.blur();
 							}
 						}}
 						on:blur={() => {
 							if (newPageName && newPageName !== '__nova__') {
+								// Define a nova página e garante que exista no store para aparecer no select
 								page = newPageName;
+								archiePages.update((pages) => {
+									if (!pages[page]) {
+										pages[page] = { content: '', showInMenu: true, menuLabel: '' };
+									}
+									return pages;
+								});
 								loadContent();
 							}
 						}}
