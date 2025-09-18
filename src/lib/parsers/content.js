@@ -24,7 +24,151 @@ export function buildBlockObjects(blocks) {
 		const raw = blocks[i];
 		const trimmed = String(raw).trim();
 
-		// {imagem} multi-line
+    // {scrollerVideo} multi-line
+    if (/^\{scrollerVideo\}[\s\S]*\{\}$/i.test(trimmed)) {
+      const lines = String(raw)
+        .split(/\r?\n/)
+        .map((l) => l.trim());
+      const inner = lines
+        .slice(1, -1)
+        .map((l) => l)
+        .filter((l) => l.length > 0);
+      const obj = {};
+      obj.passos = [];
+      for (let k = 0; k < inner.length; k++) {
+        const line = inner[k];
+        if (/^\{\.passo\}$/i.test(line)) {
+          const passo = {};
+          const stepLines = [];
+          let m = k + 1;
+          for (; m < inner.length; m++) {
+            const l2 = inner[m];
+            if (/^\{\}$/i.test(l2)) break;
+            stepLines.push(l2);
+          }
+          for (const sl of stepLines) {
+            const mm = String(sl).match(/^([^:]+):\s*([\s\S]*)$/);
+            if (mm) {
+              const skey = mm[1].trim().toLowerCase();
+              const sval = mm[2]; // keep raw (allow html)
+              if (skey === 'posicao' || skey === 'posição' || skey === 'at') {
+                passo.posicao = sval.trim();
+              } else if (skey === 'texto' || skey === 'text' || skey === 'html') {
+                passo.texto = sval; // raw html allowed
+              } else if (skey === 'classe' || skey === 'class') {
+                passo.classe = sval.trim();
+              } else {
+                passo[skey] = sval.trim();
+              }
+            }
+          }
+          obj.passos.push(passo);
+          k = m; // jump to closing
+          continue;
+        }
+        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2].trim();
+          if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else if (key === 'classes' && val) {
+            obj.classes = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else if (key === 'texto') {
+            if (!obj.textos) obj.textos = [];
+            obj.textos.push(val);
+          } else if (key === 'guia') {
+            obj.guia = /^(?:1|true|yes|sim|ligado|on)$/i.test(val);
+          } else if (key === 'altura' || key === 'scroll' || key === 'height') {
+            obj.altura = val;
+          } else {
+            obj[key] = val;
+          }
+        }
+      }
+      objs.push({ raw: { scrollerVideo: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      continue;
+    }
+    // {scrollerVideo} single-line (open block)
+    else if (/^\{scrollerVideo\}$/i.test(trimmed)) {
+      const obj = {};
+      obj.passos = [];
+      const inner = [];
+      let j = i + 1;
+      for (; j < blocks.length; j++) {
+        const line = String(blocks[j]).trim();
+        if (/^\{\}$/i.test(line)) break;
+        inner.push(line);
+      }
+      for (let k = 0; k < inner.length; k++) {
+        const line = inner[k];
+        if (/^\{\.passo\}$/i.test(line)) {
+          const passo = {};
+          const stepLines = [];
+          let m = k + 1;
+          for (; m < inner.length; m++) {
+            const l2 = String(inner[m]).trim();
+            if (/^\{\}$/i.test(l2)) break;
+            stepLines.push(l2);
+          }
+          for (const sl of stepLines) {
+            const mm = String(sl).match(/^([^:]+):\s*([\s\S]*)$/);
+            if (mm) {
+              const skey = mm[1].trim().toLowerCase();
+              const sval = mm[2];
+              if (skey === 'posicao' || skey === 'posição' || skey === 'at') {
+                passo.posicao = sval.trim();
+              } else if (skey === 'texto' || skey === 'text' || skey === 'html') {
+                passo.texto = sval;
+              } else if (skey === 'classe' || skey === 'class') {
+                passo.classe = sval.trim();
+              } else {
+                passo[skey] = sval.trim();
+              }
+            }
+          }
+          obj.passos.push(passo);
+          k = m;
+          continue;
+        }
+        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2].trim();
+          if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else if (key === 'classes' && val) {
+            obj.classes = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else if (key === 'texto') {
+            if (!obj.textos) obj.textos = [];
+            obj.textos.push(val);
+          } else if (key === 'guia') {
+            obj.guia = /^(?:1|true|yes|sim|ligado|on)$/i.test(val);
+          } else if (key === 'altura' || key === 'scroll' || key === 'height') {
+            obj.altura = val;
+          } else {
+            obj[key] = val;
+          }
+        }
+      }
+      objs.push({ raw: { scrollerVideo: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      i = j;
+      continue;
+    }
+
+    // {imagem} multi-line
 		// {video} multi-line
 		if (/^\{video\}[\s\S]*\{\}$/i.test(trimmed)) {
 			const lines = String(raw)

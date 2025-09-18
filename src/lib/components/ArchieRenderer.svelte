@@ -6,6 +6,7 @@
 	import Ai2Html from '$lib/components/image/Ai2Html.svelte';
 	import ImageBlock from '$lib/components/image/ImageBlock.svelte';
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
+	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
 	import TagSelector from '$lib/components/TagSelector.svelte';
 
 	import { archiePages } from '$lib/stores';
@@ -168,6 +169,49 @@
 								tags={vid.tags}
 							/>
 						{/await}
+					{/key}
+				{:else if typeof bloco === 'object' && bloco.scrollerVideo}
+					{#key i}
+						{@const conf = bloco.scrollerVideo}
+						{@const file = conf.video || conf.nome || conf.src || ''}
+						{@const _extMatch = String(file).match(/\.([a-z0-9]+)$/i)}
+						{@const _ext = _extMatch ? _extMatch[1] : ''}
+						{@const _base = _ext ? String(file).slice(0, -(_ext.length + 1)) : String(file)}
+						{@const fileMobile = conf['video-mobile'] || conf.mobile || conf.nome_mobile || (_base ? `${_base}-mobile${_ext ? `.${_ext}` : ''}` : '')}
+						{@const fileDesktop = conf['video-desktop'] || conf.desktop || conf.nome_desktop || (_base ? `${_base}-desktop${_ext ? `.${_ext}` : ''}` : '')}
+						{@const guide = conf.guia !== undefined ? !!conf.guia : true}
+						{@const height = conf.altura || conf.scroll || '300vh'}
+						{@const texts = conf.passos && Array.isArray(conf.passos)
+							? conf.passos.map((p) => ({
+								at: parseFloat(p.posicao || p.at || 0),
+								text: p.texto || p.text || '',
+								class: p.classe || p.class || ''
+							}))
+							: Array.isArray(conf.textos)
+							? conf.textos
+							: conf.texto
+								? Array.isArray(conf.texto)
+									? conf.texto
+									: [conf.texto]
+								: []}
+						<ScrollerVideo
+							src={withBase(`/videos/${file}`, base)}
+							srcMobile={fileMobile ? withBase(`/videos/${fileMobile}`, base) : ''}
+							srcDesktop={fileDesktop ? withBase(`/videos/${fileDesktop}`, base) : ''}
+							size={(conf.tamanho || conf.size || 'M')}
+							texts={texts}
+							showGuide={guide}
+							height={height}
+							objectFit={conf.fit || conf.objectfit || 'cover'}
+							ease={conf.ease ? Number(conf.ease) : 0.2}
+							offsetTop={conf.top ? Number(conf.top) : 0}
+							vhPerSecond={conf.vhpersecond ? Number(conf.vhpersecond) : conf.vhps ? Number(conf.vhps) : undefined}
+							windowSize={conf.windowsize ? Number(conf.windowsize) : conf.janela ? Number(conf.janela) : undefined}
+							travelVh={conf.travelvh ? Number(conf.travelvh) : undefined}
+							overlayVAlign={(conf.overlay || conf.alinhamento || conf.valign || '').toLowerCase() || undefined}
+							showVignette={conf.vignette !== undefined ? !!conf.vignette : conf.vinheta !== undefined ? !!conf.vinheta : undefined}
+							speedVh={conf.speedvh ? Number(conf.speedvh) : 100}
+						/>
 					{/key}
 				{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
 					{#key i}
