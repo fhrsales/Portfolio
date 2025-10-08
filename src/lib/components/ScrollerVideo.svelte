@@ -15,14 +15,17 @@
   export let height = '';
   // when height is not provided, compute proportional to video duration
   export let autoHeight = true;
-  // vh per second of video when autoHeight is active
+  // vh per second of video when autoHeight is active (fallback mode)
   export let vhPerSecond = 80;
+  // Frame-aware height: if fps > 0 and pxPerFrame > 0 and no explicit height, compute px height
+  export let fps = 0; // frames per second (provide from content when known)
+  export let pxPerFrame = 0; // pixels of scroll per frame (e.g., 3-6)
   // sticky offset (top), usually 0
   export let offsetTop = 0;
   // fit: 'cover' | 'contain'
   export let objectFit = 'cover';
-  // easing factor for scrubbing (0..1), 1 = immediate
-  export let ease = 0.2;
+  // If provided, easing factor for scrubbing (0..1); when omitted, scrub is immediate
+  export let ease = undefined;
   // whether to pin the viewport (sticky)
   export let pin = true;
   // overlay vertical alignment preserved for compatibility (unused in new flow)
@@ -38,6 +41,8 @@
   export let speedVh = 100; // used only in moving-text mode (when no fixed top)
   // Optional: limit per-frame time jump when scrubbing (seconds)
   export let maxStepSec = undefined;
+  // Preload mode override: 'metadata' | 'auto'
+  export let preloadMode = 'metadata';
 
   let containerEl; // tall wrapper
   let stickyEl; // viewport-sized sticky area
@@ -60,6 +65,11 @@
   let _raf = 0;
   let _scrollBind = null;
   let _lastTarget = 0;
+  let viewH = 0;
+  let containerHeightPx = 0;
+  let measuredFps = 0;
+  let measuringFps = false;
+  let _measureCancel = null;
   // Fade plateau model (no fade-out):
   // - Bottom entry: 90vh -> 65vh ramps 0 -> 1
   // - Plateau full: 65vh -> 35vh stays at 1
@@ -77,7 +87,8 @@
   function computeProgress() {
     if (!containerEl) return 0;
     const rect = containerEl.getBoundingClientRect();
-    const viewH = window.innerHeight || document.documentElement.clientHeight || 0;
+    viewH = window.innerHeight || document.documentElement.clientHeight || 0;
+    containerHeightPx = rect.height;
     const total = Math.max(0, rect.height - viewH);
     const advanced = clamp01(total === 0 ? 0 : Math.min(total, -rect.top) / total);
     return advanced;
@@ -90,13 +101,12 @@
     target = externalProgress != null ? clamp01(externalProgress) : computeProgress();
     // detect direction (up when target decreases)
     dirUp = target < _lastTarget - 0.0005 ? true : target > _lastTarget + 0.0005 ? false : dirUp;
-    if (ease >= 1) {
-      progress = target;
-    } else {
-      // simple exponential smoothing
+    // Immediate mapping by default (no easing) for precise scrub
+    if (typeof ease === 'number' && ease >= 0 && ease < 1) {
       progress = progress + (target - progress) * clamp01(ease);
-      // snap when close to target to avoid jitter
       if (Math.abs(target - progress) < 0.0005) progress = target;
+    } else {
+      progress = target;
     }
 
     if (videoEl && duration) {
@@ -109,9 +119,8 @@
           const cap = Math.abs(diff) > maxStepSec ? Math.sign(diff) * maxStepSec : diff;
           if (Math.abs(cap) > 0.0005) videoEl.currentTime = curr + cap;
         } else {
-          if (Math.abs(curr - t) > 0.02) {
-            videoEl.currentTime = t;
-          }
+          // tiny threshold to allow frame-precise scrubbing
+          if (Math.abs(curr - t) > 0.0005) videoEl.currentTime = t;
         }
       } catch {
         /* ignore */
@@ -125,8 +134,54 @@
     try {
       duration = videoEl?.duration || 0;
       if (!Number.isFinite(duration)) duration = 0;
+      // Dynamic FPS measurement using requestVideoFrameCallback when fps not provided
+      if (!fps && typeof videoEl.requestVideoFrameCallback === 'function' && !measuredFps && duration > 0) {
+        measureFps();
+      }
     } catch {
       duration = 0;
+    }
+  }
+
+  function measureFps() {
+    if (measuringFps || !videoEl) return;
+    try {
+      measuringFps = true;
+      let frames = 0;
+      let t0 = 0;
+      let t1 = 0;
+      const prevPaused = videoEl.paused;
+      const prevTime = videoEl.currentTime || 0;
+      const finish = () => {
+        try { videoEl.pause(); } catch {}
+        try { videoEl.currentTime = prevTime; } catch {}
+        measuringFps = false;
+        _measureCancel = null;
+      };
+      const cb = (_now, meta) => {
+        const mt = meta?.mediaTime || videoEl.currentTime || 0;
+        if (frames === 0) {
+          t0 = mt;
+        }
+        frames++;
+        t1 = mt;
+        if (frames < 15) {
+          videoEl.requestVideoFrameCallback(cb);
+        }
+      };
+      videoEl.muted = true;
+      videoEl.playbackRate = 1;
+      videoEl.requestVideoFrameCallback(cb);
+      videoEl.play().catch(() => {});
+      // Stop after ~300ms or 15 frames
+      _measureCancel = setTimeout(() => {
+        const dt = Math.max(0.0001, t1 - t0);
+        const f = frames > 1 ? (frames - 1) / dt : 0;
+        measuredFps = Number.isFinite(f) && f > 0 ? Math.round(f) : 0;
+        finish();
+      }, 320);
+    } catch {
+      measuringFps = false;
     }
   }
 
@@ -218,6 +273,10 @@
       window.removeEventListener('scroll', _scrollBind);
       window.removeEventListener('resize', _scrollBind);
     }
+    if (_measureCancel) {
+      clearTimeout(_measureCancel);
+      _measureCancel = null;
+    }
   });
 
   // derive active texts based on progress
@@ -268,11 +327,25 @@
     : [];
 
   // computed container height
-  $: appliedHeight = height && String(height).trim()
-    ? String(height).trim()
-    : autoHeight && duration
-    ? `${Math.max(150, Math.round(duration * vhPerSecond))}vh`
-    : '300vh';
+  $: computedPxHeight = (() => {
+    if (height && String(height).trim()) return 0; // explicit height provided; not frame mode
+    if (!autoHeight || !duration) return 0;
+    const effFps = fps > 0 ? fps : (measuredFps > 0 ? measuredFps : 0);
+    const effPpf = pxPerFrame > 0 ? pxPerFrame : (typeof window !== 'undefined' ? Math.max(3, Math.round((window.devicePixelRatio || 1) * 3)) : 4);
+    if (effFps > 0 && effPpf > 0) {
+      const frames = Math.max(1, Math.round(duration * effFps));
+      const vh = (typeof window !== 'undefined') ? (window.innerHeight || document.documentElement.clientHeight || 0) : 0;
+      return Math.max(vh * 2, Math.round(frames * effPpf) + vh); // include 1 viewport to scroll through contents
+    }
+    return 0;
+  })();
+
+  $: appliedHeight = (() => {
+    if (height && String(height).trim()) return String(height).trim();
+    if (computedPxHeight > 0) return `${computedPxHeight}px`;
+    if (autoHeight && duration) return `${Math.max(150, Math.round(duration * vhPerSecond))}vh`;
+    return '300vh';
+  })();
 
   // Moving model tied to video fraction: a text with `at` sits exactly on the line `at` when progress == at,
   // and moves naturally with the container as the user scrolls.
@@ -282,19 +355,24 @@
   }
   $: containerVh = (() => {
     const n = parseVh(appliedHeight);
-    return Number.isFinite(n) ? n : 300;
+    if (Number.isFinite(n)) return n;
+    // if appliedHeight is px, approximate VH based on current viewport height
+    if (containerHeightPx && viewH) return (containerHeightPx / viewH) * 100;
+    return 300;
   })();
   $: textStates = normalizedTexts.map((item) => {
     // Compute top position in vh (within sticky viewport)
-    const total = Math.max(0, containerVh - 100);
-    let topVh;
+    const totalPx = Math.max(0, containerHeightPx - viewH);
+    let topPx;
     if (item.top && String(item.top).trim()) {
       const m = String(item.top).match(/([0-9.]+)\s*vh/i);
-      topVh = m ? parseFloat(m[1]) : 50;
+      topPx = m ? (parseFloat(m[1]) / 100) * viewH : 0.5 * viewH;
     } else {
-      topVh = item.at * containerVh - progress * total;
+      topPx = item.at * containerHeightPx - progress * totalPx;
     }
-    const topCss = `${topVh.toFixed(3)}vh`;
+    const topCss = `${topPx.toFixed(1)}px`;
+    // convert to vh for opacity thresholds
+    const topVh = viewH ? (topPx / viewH) * 100 : 50;
     // Piecewise opacity without fade-out: bottom entry ramp, plateau, top entry ramp
     let op = 0;
     if (topVh >= fadeInStartVH) {
@@ -338,7 +416,7 @@
         src={shouldLoad ? (chosenSrc || src || undefined) : undefined}
         playsinline
         muted
-        preload={shouldLoad ? 'metadata' : 'none'}
+        preload={shouldLoad ? preloadMode : 'none'}
         on:loadedmetadata={onLoadedMetadata}
         on:error={onVideoError}
         on:canplay={onLoadedMetadata}

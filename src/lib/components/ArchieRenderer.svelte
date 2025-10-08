@@ -203,15 +203,18 @@
 							showGuide={guide}
 							height={height}
 							objectFit={conf.fit || conf.objectfit || 'cover'}
-							ease={conf.ease ? Number(conf.ease) : 0.2}
+                        ease={conf.ease !== undefined ? Number(conf.ease) : undefined}
 							offsetTop={conf.top ? Number(conf.top) : 0}
 							vhPerSecond={conf.vhpersecond ? Number(conf.vhpersecond) : conf.vhps ? Number(conf.vhps) : undefined}
+							fps={conf.fps ? Number(conf.fps) : undefined}
+							pxPerFrame={(conf.pxperframe ? Number(conf.pxperframe) : (conf.ppf ? Number(conf.ppf) : undefined))}
 							windowSize={conf.windowsize ? Number(conf.windowsize) : conf.janela ? Number(conf.janela) : undefined}
 							travelVh={conf.travelvh ? Number(conf.travelvh) : undefined}
 							overlayVAlign={(conf.overlay || conf.alinhamento || conf.valign || '').toLowerCase() || undefined}
 							showVignette={conf.vignette !== undefined ? !!conf.vignette : conf.vinheta !== undefined ? !!conf.vinheta : undefined}
 							speedVh={conf.speedvh ? Number(conf.speedvh) : 100}
 							maxStepSec={(conf.maxstepsec ? Number(conf.maxstepsec) : (conf.maxstep ? Number(conf.maxstep) : undefined))}
+                        preloadMode={conf.preload ? String(conf.preload) : undefined}
 						/>
 					{/key}
 				{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
