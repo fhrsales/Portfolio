@@ -36,6 +36,8 @@
   export let externalProgress = null;
   // Speed of text crossing in vh per unit progress (default 100vh)
   export let speedVh = 100; // used only in moving-text mode (when no fixed top)
+  // Optional: limit per-frame time jump when scrubbing (seconds)
+  export let maxStepSec = undefined;
 
   let containerEl; // tall wrapper
   let stickyEl; // viewport-sized sticky area
@@ -43,7 +45,8 @@
   let chosenSrc = '';
   let _fallbackTried = false;
   let shouldLoad = false;
-  let hasAppeared = false;
+  let hasAppeared = false; // stage fade-in
+  let dirUp = false; // scroll direction: true when scrolling up
   $: sizeClass =
     size === 'GG'
       ? 'scroller-gg'
@@ -56,6 +59,16 @@
   let progress = 0; // 0..1 scroll progress
   let _raf = 0;
   let _scrollBind = null;
+  let _lastTarget = 0;
+  // Fade plateau model (no fade-out):
+  // - Bottom entry: 90vh -> 65vh ramps 0 -> 1
+  // - Plateau full: 65vh -> 35vh stays at 1
+  // - Top entry: 10vh -> 35vh ramps 0 -> 1 (when entering from top)
+  const fadeInStartVH = 94;  // bottom entry start (more down)
+  const fadeInEndVH   = 74;  // bottom entry end (full sooner after entering)
+  const topInStartVH  = 6;   // top entry start (closer to the top)
+  const topInEndVH    = 26;  // top entry end (full sooner after entering)
+  const maxOffsetPx = 14;    // max translateY at edges
 
   function clamp01(v) {
     return Math.max(0, Math.min(1, v));
@@ -75,6 +88,8 @@
   function loop() {
     _raf = requestAnimationFrame(loop);
     target = externalProgress != null ? clamp01(externalProgress) : computeProgress();
+    // detect direction (up when target decreases)
+    dirUp = target < _lastTarget - 0.0005 ? true : target > _lastTarget + 0.0005 ? false : dirUp;
     if (ease >= 1) {
       progress = target;
     } else {
@@ -88,13 +103,22 @@
       // set currentTime based on progress without playing
       try {
         const t = clamp01(progress) * duration;
-        if (Math.abs((videoEl.currentTime || 0) - t) > 0.02) {
-          videoEl.currentTime = t;
+        const curr = videoEl.currentTime || 0;
+        if (maxStepSec && Number(maxStepSec) > 0) {
+          const diff = t - curr;
+          const cap = Math.abs(diff) > maxStepSec ? Math.sign(diff) * maxStepSec : diff;
+          if (Math.abs(cap) > 0.0005) videoEl.currentTime = curr + cap;
+        } else {
+          if (Math.abs(curr - t) > 0.02) {
+            videoEl.currentTime = t;
+          }
         }
       } catch {
         /* ignore */
       }
     }
+
+    _lastTarget = target;
   }
 
   function onLoadedMetadata() {
@@ -261,13 +285,39 @@
     return Number.isFinite(n) ? n : 300;
   })();
   $: textStates = normalizedTexts.map((item) => {
-    // If explicit top provided, use it (fixed). Otherwise compute viewport position for this fraction
-    if (item.top && String(item.top).trim()) {
-      return { key: item.key, text: item.text, class: item.class, topCss: item.top, active: true };
-    }
+    // Compute top position in vh (within sticky viewport)
     const total = Math.max(0, containerVh - 100);
-    const topCss = `${(item.at * containerVh - progress * total).toFixed(3)}vh`;
-    return { key: item.key, text: item.text, class: item.class, topCss, active: true };
+    let topVh;
+    if (item.top && String(item.top).trim()) {
+      const m = String(item.top).match(/([0-9.]+)\s*vh/i);
+      topVh = m ? parseFloat(m[1]) : 50;
+    } else {
+      topVh = item.at * containerVh - progress * total;
+    }
+    const topCss = `${topVh.toFixed(3)}vh`;
+    // Piecewise opacity without fade-out: bottom entry ramp, plateau, top entry ramp
+    let op = 0;
+    if (topVh >= fadeInStartVH) {
+      // below viewport: hidden
+      op = 0;
+    } else if (topVh > fadeInEndVH && topVh < fadeInStartVH) {
+      // bottom entry ramp
+      op = (fadeInStartVH - topVh) / (fadeInStartVH - fadeInEndVH);
+    } else if (topVh >= topInEndVH && topVh <= fadeInEndVH) {
+      // plateau full
+      op = 1;
+    } else if (topVh > topInStartVH && topVh < topInEndVH) {
+      // top entry ramp (entering from top)
+      op = (topVh - topInStartVH) / (topInEndVH - topInStartVH);
+    } else if (topVh <= topInStartVH) {
+      // above viewport: hidden
+      op = 0;
+    }
+    if (op < 0) op = 0; if (op > 1) op = 1;
+    // Direction-based subtle offset (up/down)
+    const sign = dirUp ? -1 : 1;
+    const off = (1 - op) * maxOffsetPx * sign;
+    return { key: item.key, text: item.text, class: item.class, topCss, op, off, active: true };
   });
 
   $: overlayClass = `scroller-video__overlay overlay--${overlayVAlign === 'top' ? 'top' : overlayVAlign === 'bottom' ? 'bottom' : 'center'}`;
@@ -282,7 +332,7 @@
     bind:this={stickyEl}
     style={pin ? `position: sticky; top: ${offsetTop}px;` : ''}
   >
-    <div class="scroller-video__stage" class:visible={hasAppeared}>
+  <div class="scroller-video__stage" class:visible={hasAppeared}>
       <video
         bind:this={videoEl}
         src={shouldLoad ? (chosenSrc || src || undefined) : undefined}
@@ -313,11 +363,11 @@
         <div class="scroller-video__vignette" class:visible={hasAppeared}></div>
       {/if}
       <div class="scroller-video__overlay" class:visible={hasAppeared}>
-        {#each textStates as item (item.key)}
+        {#each textStates as item, i (item.key)}
           {#if item.active}
             <div
               class={`overlay-text ${item.class || ''}`}
-              style={`top:${item.topCss};`}
+              style={`top:${item.topCss}; left:50%; transform: translate(-50%, ${item.off.toFixed(2)}px); opacity: ${item.op.toFixed(3)};`}
             >{@html item.text}</div>
           {/if}
         {/each}
@@ -418,18 +468,25 @@
   .scroller-video__overlay.visible { opacity: 1; }
   .scroller-video__overlay > .overlay-text {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    will-change: top;
+    will-change: top, opacity, transform;
+    /* Common paragraph layout constraints */
+    width: calc(100% - (var(--grid) * 4));
+    /* Width P (~500px) */
+    max-width: 500px;
   }
 
+  /* Base style matching common paragraph, but light color */
   .overlay-text {
-    color: #fff;
-    font-size: clamp(18px, 4vw, 48px);
-    line-height: 1.1;
+    color: var(--color-light);
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: calc(var(--grid) * 2.2);
+    line-height: 1.5;
+    letter-spacing: -0.035em;
     text-align: center;
-    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
-    animation: overlay-in 380ms ease both;
+    margin: 0 auto;
+    /* transform/opacity fully controlled via inline style tied to scroll */
+    will-change: transform, opacity, top;
   }
   .overlay-text + .overlay-text { margin-top: 12px; }
 
@@ -453,14 +510,5 @@
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     backdrop-filter: saturate(120%) blur(2px);
   }
-  @keyframes overlay-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  /* Remove keyframes; transitions handle the entrance */
 </style>

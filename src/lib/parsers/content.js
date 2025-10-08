@@ -34,6 +34,7 @@ export function buildBlockObjects(blocks) {
         .map((l) => l)
         .filter((l) => l.length > 0);
       const obj = {};
+      obj.tags = [];
       obj.passos = [];
       for (let k = 0; k < inner.length; k++) {
         const line = inner[k];
@@ -57,6 +58,13 @@ export function buildBlockObjects(blocks) {
                 passo.texto = sval; // raw html allowed
               } else if (skey === 'classe' || skey === 'class') {
                 passo.classe = sval.trim();
+              } else if (skey === 'tags') {
+                const arr = String(sval)
+                  .split(',')
+                  .map((t) => t.trim())
+                  .filter(Boolean);
+                passo.tags = arr;
+                obj.tags = Array.from(new Set([...(obj.tags || []), ...arr]));
               } else {
                 passo[skey] = sval.trim();
               }
@@ -98,6 +106,7 @@ export function buildBlockObjects(blocks) {
     // {scrollerVideo} single-line (open block)
     else if (/^\{scrollerVideo\}$/i.test(trimmed)) {
       const obj = {};
+      obj.tags = [];
       obj.passos = [];
       const inner = [];
       let j = i + 1;
@@ -128,6 +137,13 @@ export function buildBlockObjects(blocks) {
                 passo.texto = sval;
               } else if (skey === 'classe' || skey === 'class') {
                 passo.classe = sval.trim();
+              } else if (skey === 'tags') {
+                const arr = String(sval)
+                  .split(',')
+                  .map((t) => t.trim())
+                  .filter(Boolean);
+                passo.tags = arr;
+                obj.tags = Array.from(new Set([...(obj.tags || []), ...arr]));
               } else {
                 passo[skey] = sval.trim();
               }
