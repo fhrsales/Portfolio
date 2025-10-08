@@ -66,10 +66,13 @@
 	}
 
 	// Enhance the first paragraph on the index page with width M and per-line/word animation
-		onMount(() => {
-			if (typeof window === 'undefined' || typeof document === 'undefined') return;
-			const container = document.querySelector('.main-content');
-			if (!container) return;
+	onMount(() => {
+		if (typeof window === 'undefined' || typeof document === 'undefined') return;
+		const container = document.querySelector('.main-content');
+		if (!container) return;
+
+		let firstEl = null;
+		let secondEl = null;
 
 			function wrapWords(node) {
 				// Avoid referencing NodeFilter directly to keep SSR/import safer
@@ -142,6 +145,9 @@
 			// Ensure transitions apply: force a reflow, then reveal in next frame(s)
 			// Initial reveal after two frames
 			requestAnimationFrame(() => requestAnimationFrame(reveal));
+
+			// Record references for background switching
+			if (!firstEl) firstEl = p; else if (!secondEl && p !== firstEl) secondEl = p;
 
 			// Replay on scroll: toggle reveal when (re)entering/leaving viewport
 			if (!p._introObserver && 'IntersectionObserver' in window) {
@@ -220,6 +226,8 @@
 			setTimeout(tryInitOnce, 1000);
 			setTimeout(tryInitOnce, 3000);
 		}
+
+		// Background color now controlled by {fundo} blocks via ScrollBg component
 	});
 </script>
 

@@ -9,6 +9,10 @@
 	--color-dark: #2b2b2f;
 	--color-light: #f5f5f5;
 
+	/* Scroll background defaults */
+	--bg-first: var(--color-primary);
+	--bg-second: var(--color-secondary);
+
 	--shadow-2: 0 8px 32px rgba(0, 0, 0, 0.1);
 
 	--multiply: multiply;
@@ -22,7 +26,8 @@
 }
 
 body {
-    background: var(--color-light);
+	background-color: var(--body-bg, var(--color-light));
+	transition: background-color 480ms ease;
 }
 
 main {

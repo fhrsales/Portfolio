@@ -103,6 +103,67 @@ export function buildBlockObjects(blocks) {
       objs.push({ raw: { scrollerVideo: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
       continue;
     }
+    // {fundo} multi-line
+    if (/^[\ufeff]?\{fundo\}[\s\S]*\{\}$/i.test(trimmed)) {
+      const lines = String(raw)
+        .split(/\r?\n/)
+        .map((l) => l.trim());
+      const inner = lines
+        .slice(1, -1)
+        .map((l) => l)
+        .filter((l) => l.length > 0);
+      const obj = {};
+      for (const line of inner) {
+        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2].trim();
+          if (key === 'cor' || key === 'color' || key === 'bg' || key === 'fundo') {
+            obj.cor = val;
+          } else if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else {
+            obj[key] = val;
+          }
+        }
+      }
+      objs.push({ raw: { fundo: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      continue;
+    }
+    // {fundo} single-line (open block)
+    else if (/^[\ufeff]?\{fundo\}$/i.test(trimmed)) {
+      const obj = {};
+      const inner = [];
+      let j = i + 1;
+      for (; j < blocks.length; j++) {
+        const line = String(blocks[j]).trim();
+        if (/^\{\}$/i.test(line)) break;
+        inner.push(line);
+      }
+      for (const line of inner) {
+        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2].trim();
+          if (key === 'cor' || key === 'color' || key === 'bg' || key === 'fundo') {
+            obj.cor = val;
+          } else if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else {
+            obj[key] = val;
+          }
+        }
+      }
+      objs.push({ raw: { fundo: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      i = j;
+      continue;
+    }
     // {scrollerVideo} single-line (open block)
     else if (/^\{scrollerVideo\}$/i.test(trimmed)) {
       const obj = {};

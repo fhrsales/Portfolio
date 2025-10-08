@@ -7,6 +7,7 @@
 	import ImageBlock from '$lib/components/image/ImageBlock.svelte';
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
+    import ScrollBg from '$lib/components/ScrollBg.svelte';
 	import TagSelector from '$lib/components/TagSelector.svelte';
 
 	import { archiePages } from '$lib/stores';
@@ -118,6 +119,13 @@
 					<Ai2Html
 						dir={withBase(`/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`, base)}
 					/>
+				{:else if typeof bloco === 'object' && bloco.fundo}
+					{#key i}
+						<ScrollBg
+							color={(bloco.fundo.cor || bloco.fundo.color || bloco.fundo.bg || '').trim() || 'var(--color-light)'}
+							height={(bloco.fundo.altura || bloco.fundo.height || bloco.fundo.vh || '').trim()}
+						/>
+					{/key}
 				{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}
 					{#key i}
 						{#await Promise.resolve(parseImagem(bloco)) then img}
