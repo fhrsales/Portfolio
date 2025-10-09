@@ -99,6 +99,12 @@
         max-width: calc(var(--grid) * 70);
         transition: opacity 500ms ease;
     }
+    @media (min-width: 900px) {
+        .tag-selector {
+            /* desktop: total +10px vs mobile */
+            top: calc(var(--grid) * 10 + 10px);
+        }
+    }
     .tag-selector.scrolling {
         opacity: 0;
         pointer-events: none;
