@@ -84,8 +84,9 @@
     // Initial path-based setup (runs in SSR too)
     const initial = get(page);
     const homePath = `${base || ''}/`;
-    isHome = initial?.url?.pathname === homePath;
-    showMenu = isHome ? false : true;
+    const initialIsHome = initial?.url?.pathname === homePath;
+    isHome = initialIsHome;
+    showMenu = initialIsHome ? false : true;
 
     function handleRouteChange(v) {
         const nowHome = v?.url?.pathname === homePath;
@@ -119,8 +120,9 @@
 {/if}
 {#if $page.url.pathname?.startsWith('/admin')}
 	{@render children?.()}
+
 {:else}
-	<div class="main-content">
+	<div class="main-content" class:home-initial={isHome && !showMenu}>
 		{@render children?.()}
 	</div>
 {/if}
