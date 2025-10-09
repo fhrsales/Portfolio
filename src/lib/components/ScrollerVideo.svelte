@@ -44,6 +44,11 @@
   // Preload mode override: 'metadata' | 'auto'
   export let preloadMode = 'metadata';
 
+  // Consume deprecated/legacy props to avoid Svelte unused export warnings when parents pass them
+  $: void windowSize;
+  $: void travelVh;
+  $: void speedVh;
+
   let containerEl; // tall wrapper
   let stickyEl; // viewport-sized sticky area
   let videoEl; // video element
@@ -422,7 +427,7 @@
         on:canplay={onLoadedMetadata}
         on:durationchange={onLoadedMetadata}
         style={`object-fit:${objectFit};`}
-      />
+      ></video>
 
       {#if showGuide}
         <div class="scroller-video__guide">
