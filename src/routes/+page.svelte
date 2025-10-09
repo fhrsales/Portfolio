@@ -74,6 +74,24 @@
 		let firstEl = null;
 		let secondEl = null;
 
+		function replaceNameWithLogo(p) {
+			if (!p) return;
+			const strongs = p.querySelectorAll('strong');
+			for (const s of strongs) {
+				const txt = (s.textContent || '').trim();
+				if (/^Fabio\s+Sales\.?$/i.test(txt)) {
+					const img = document.createElement('img');
+					img.src = withBase('/imgs/fabio_sales.svg', base);
+					img.alt = 'Fabio Sales';
+					img.className = 'inline-logo';
+					const endsDot = /\.$/.test(txt);
+					s.replaceWith(img);
+					if (endsDot) img.insertAdjacentText('afterend', '.');
+					break;
+				}
+			}
+		}
+
 			function wrapWords(node) {
 				// Avoid referencing NodeFilter directly to keep SSR/import safer
 				const SHOW_TEXT = 4; // NodeFilter.SHOW_TEXT
@@ -112,6 +130,9 @@
 			// Do NOT restructure DOM to avoid hydration mismatches; apply classes only
 			// Both first and second paragraphs get hero treatment and width M
 			p.classList.add('intro-paragraph', 'text-m');
+
+			// Replace inline name with logo image before wrapping words
+			if (!firstEl) replaceNameWithLogo(p);
 
 			wrapWords(p);
 			const words = Array.from(p.querySelectorAll('.word'));

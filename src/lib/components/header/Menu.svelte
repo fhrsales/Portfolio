@@ -3,7 +3,8 @@
 	import { page } from '$app/stores';
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
-	let open = false;
+    export let fadeIn = false;
+    let open = false;
 	let pages = [];
 	let menuLabels = {};
 	let current = '';
@@ -26,7 +27,7 @@
 	}
 </script>
 
-<nav class="menu-bar">
+<nav class="menu-bar" class:fadeIn>
 	<div class="menu-container">
 		<a class="logo" href={resolve('/')}>
 			<img
@@ -96,6 +97,16 @@
 		top: 0;
 		z-index: 100;
 		margin-bottom: calc(var(--grid) * 5);
+	}
+
+	/* optional fade-in on mount (home only) */
+	.menu-bar.fadeIn {
+		animation: menu-fade-in 360ms ease-out both;
+	}
+
+	@keyframes menu-fade-in {
+		from { opacity: 0; transform: translateY(-8px); }
+		to { opacity: 1; transform: translateY(0); }
 	}
 	.menu-container {
 		max-width: 900px;
