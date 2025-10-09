@@ -526,7 +526,7 @@
 		max-width: 450px;
 	}
 	.image-block-wrapper.img-m {
-		max-width: 620px;
+		max-width: 640px;
 	}
 	.image-block-wrapper.img-g {
 		max-width: 875px;
