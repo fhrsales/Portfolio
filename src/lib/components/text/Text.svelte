@@ -53,7 +53,7 @@
 		color: var(--color-dark);
 		width: calc(100% - (var(--grid) * 4));
 		max-width: calc(var(--grid) * 50);
-		margin: 0 auto calc(var(--grid) * 3) auto;
+		margin: 0 auto calc(var(--grid) * 4) auto;
 	}
 
 	p :global(a) {
