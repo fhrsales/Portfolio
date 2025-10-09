@@ -523,13 +523,13 @@
 		max-width: 250px;
 	}
 	.image-block-wrapper.img-p {
-		max-width: 500px;
+		max-width: 450px;
 	}
 	.image-block-wrapper.img-m {
 		max-width: 620px;
 	}
 	.image-block-wrapper.img-g {
-		max-width: 860px;
+		max-width: 875px;
 	}
 	.image-block-wrapper.img-gg {
 		max-width: 100vw;

@@ -285,6 +285,16 @@
 									: ['']
 						}}
 					/>
+					{#if typeof bloco === 'string' && obj.tags && obj.tags.length}
+						<div class="inline-tags">
+                        <div class="inline-tags__label">What I did:</div>
+							<div class="inline-tags__chips">
+								{#each obj.tags as t (t)}
+									<span class="chip">{t}</span>
+								{/each}
+							</div>
+						</div>
+					{/if}
 				{/if}
 			{/if}
 		{/if}
@@ -293,3 +303,45 @@
 	<!-- Fallback: show page name when available -->
 	<!-- <div style="color: orange; text-align: center; padding: 2rem;">Nenhum conteúdo encontrado para a página <b>{usedCurrentPage}</b>.</div> -->
 {/if}
+
+<style>
+  /* Inline, non-interactive tag chips displayed after text blocks */
+  .inline-tags {
+    width: calc(100% - (var(--grid) * 4));
+    max-width: calc(var(--grid) * 50);
+    margin: calc(var(--grid) * -3.5) auto calc(var(--grid) * 4) auto; /* pull closer to the paragraph above */
+  }
+  .inline-tags__label {
+    font-family: var(--font-primary);
+    font-size: calc(var(--grid) * 1.2);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-dark);
+    margin-bottom: calc(var(--grid) * 1);
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .inline-tags__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--grid) * 0.5);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.22rem 0.5rem; /* smaller padding */
+    border-radius: 999px;
+    background: var(--color-primary); /* dark blue */
+    color: #fff; /* white text */
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: calc(var(--grid) * 0.95); /* smaller text */
+    line-height: 1; /* compact height */
+    text-transform: uppercase;
+    letter-spacing: 0.06em; /* increased spacing */
+    border: 1px solid color-mix(in srgb, #000 12%, transparent);
+    /* explicit: no shadow */
+    box-shadow: none;
+  }
+</style>
