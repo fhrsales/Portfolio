@@ -15,12 +15,8 @@
     function updateHeaderVar() {
         try {
             const header = document.querySelector('.menu-bar');
-            let h = header ? header.offsetHeight : 0;
-            if (header) {
-                const cs = getComputedStyle(header);
-                const mb = parseFloat(cs.marginBottom || '0') || 0;
-                h += mb;
-            }
+            // Use only the actual header height; exclude margins to avoid scroll jank
+            const h = header ? header.offsetHeight : 0;
             document.documentElement.style.setProperty('--header-h', `${h}px`);
         } catch {
             /* ignore */
@@ -63,12 +59,18 @@
     }
 
     function attachScrollWatcher() {
+        // Stronger hysteresis to prevent threshold tug-of-war when layout shifts
+        const SHOW_OFFSET = -40; // show only after the paragraph is clearly above
+        const HIDE_OFFSET = 20;  // hide only after it re-enters clearly
         let last = showMenu;
         const onScroll = () => {
             if (!secondParagraph) return;
             const r = secondParagraph.getBoundingClientRect();
-            // Show menu only after the 2nd paragraph has fully passed above the viewport
-            const next = r.bottom <= 0;
+            const shouldShow = r.bottom <= SHOW_OFFSET;
+            const shouldHide = r.bottom >= HIDE_OFFSET;
+            let next = last;
+            if (!last && shouldShow) next = true;
+            else if (last && shouldHide) next = false;
             if (next !== last) {
                 showMenu = next;
                 last = next;
