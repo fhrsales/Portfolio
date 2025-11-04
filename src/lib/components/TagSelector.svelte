@@ -87,7 +87,8 @@
 <style>
     .tag-selector {
         position: sticky;
-        top: calc(var(--grid) * 10);
+        /* account for safe-area top on mobile UI chrome */
+        top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 8));
         display: flex;
         gap: calc(var(--grid) * 0.5);
         flex-wrap: wrap;
@@ -101,8 +102,8 @@
     }
     @media (min-width: 900px) {
         .tag-selector {
-            /* desktop: total +10px vs mobile */
-            top: calc(var(--grid) * 10 + 10px);
+            /* desktop: slightly lower offset for breathing room */
+            top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 10));
         }
     }
     .tag-selector.scrolling {

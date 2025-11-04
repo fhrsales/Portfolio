@@ -348,9 +348,12 @@
   .card img {
     height: auto;
     width: auto;
-    max-height: 65vh;
+    max-height: 65vh; /* fallback */
     object-fit: contain;
     display: block;
+  }
+  @supports (height: 100svh) {
+    .card img { max-height: 65svh; }
   }
   .scroll-viewport.hasHeight .card img {
     height: 100%;
@@ -360,7 +363,10 @@
   /* Mobile: show a bit more context by reducing height */
   @media (max-width: 600px) {
     .scroll-viewport:not(.hasHeight) .card img {
-      max-height: 44vh;
+      max-height: 44vh; /* fallback */
+    }
+    @supports (height: 100svh) {
+      .scroll-viewport:not(.hasHeight) .card img { max-height: 44svh; }
     }
     /* Allow swipe with native snapping */
     .scroll-viewport {
