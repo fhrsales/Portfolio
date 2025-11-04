@@ -344,6 +344,13 @@
     height: 100%;
     max-height: none;
   }
+
+  /* Mobile: show a bit more context by reducing height */
+  @media (max-width: 600px) {
+    .scroll-viewport:not(.hasHeight) .card img {
+      max-height: 50vh;
+    }
+  }
   .pdf-frame {
     height: 100%;
     width: min(80vw, 900px);
