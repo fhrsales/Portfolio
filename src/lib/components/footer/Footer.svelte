@@ -34,7 +34,7 @@
 		text-align: center;
 		font-family: var(--font-primary);
 		font-size: calc(var(--grid) * 1.5);
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
 		color: color-mix(in srgb, var(--color-dark) 70%, transparent);
 	}
 

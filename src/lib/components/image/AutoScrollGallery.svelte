@@ -194,30 +194,42 @@
   function step() {
     if (!containerEl) return;
     const vw = containerEl.clientWidth || 0;
+    const maxScroll = Math.max(0, containerEl.scrollWidth - vw);
+
+    // Mobile: snap to center of nearest next card (single or double page)
+    const isMobile = typeof window !== 'undefined' ? (window.innerWidth || 0) <= 600 : false;
+    if (isMobile && trackEl && trackEl.children && trackEl.children.length) {
+      const cards = Array.from(trackEl.children);
+      const currentCenter = (containerEl.scrollLeft || 0) + vw / 2;
+      // Find next card center strictly after current center
+      let targetLeft = 0;
+      let found = false;
+      for (const el of cards) {
+        const left = el.offsetLeft || 0;
+        const width = el.offsetWidth || 0;
+        const center = left + width / 2;
+        if (center > currentCenter + 1) {
+          targetLeft = Math.min(maxScroll, Math.max(0, Math.round(center - vw / 2)));
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        // wrap to beginning
+        targetLeft = 0;
+      }
+      try { containerEl.scrollTo({ left: targetLeft, behavior: 'smooth' }); } catch { containerEl.scrollLeft = targetLeft; }
+      return;
+    }
+
+    // Desktop: keep fractional shift, then loop
     const dx = Math.max(24, Math.round(vw * Math.max(0.1, Math.min(1, stepViewportFraction))));
-    const maxScroll = containerEl.scrollWidth - vw;
     const next = Math.min(maxScroll, (containerEl.scrollLeft || 0) + dx);
     if (next >= maxScroll - 2) {
-      // loop back to start after the smooth scroll completes
-      try {
-        containerEl.scrollTo({ left: next, behavior: 'smooth' });
-      } catch {
-        containerEl.scrollLeft = next;
-      }
-      // small delay so user perceives last step, then jump to 0 without animation
-      setTimeout(() => {
-        try {
-          containerEl.scrollTo({ left: 0 });
-        } catch {
-          containerEl.scrollLeft = 0;
-        }
-      }, 280);
+      try { containerEl.scrollTo({ left: next, behavior: 'smooth' }); } catch { containerEl.scrollLeft = next; }
+      setTimeout(() => { try { containerEl.scrollTo({ left: 0 }); } catch { containerEl.scrollLeft = 0; } }, 280);
     } else {
-      try {
-        containerEl.scrollBy({ left: dx, behavior: 'smooth' });
-      } catch {
-        containerEl.scrollLeft = (containerEl.scrollLeft || 0) + dx;
-      }
+      try { containerEl.scrollBy({ left: dx, behavior: 'smooth' }); } catch { containerEl.scrollLeft = (containerEl.scrollLeft || 0) + dx; }
     }
   }
 
@@ -350,6 +362,19 @@
     .scroll-viewport:not(.hasHeight) .card img {
       max-height: 50vh;
     }
+    /* Allow swipe with native snapping */
+    .scroll-viewport {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    .scroll-viewport::-webkit-scrollbar { display: none; }
+    .scroll-viewport .card {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+    .scroll-viewport .card img { pointer-events: none; }
   }
   .pdf-frame {
     height: 100%;

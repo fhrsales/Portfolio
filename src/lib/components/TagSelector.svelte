@@ -118,4 +118,15 @@
 		background: var(--color-primary);
 		color: #fff;
 	}
+
+    /* Mobile: smaller chips */
+    @media (max-width: 600px) {
+        .tag-selector {
+            gap: calc(var(--grid) * 0.35);
+        }
+        .tag-selector :global(.btn) {
+            padding: 0.35rem 0.7rem;
+            font-size: calc(var(--grid) * 0.9);
+        }
+    }
 </style>
