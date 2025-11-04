@@ -360,7 +360,7 @@
   /* Mobile: show a bit more context by reducing height */
   @media (max-width: 600px) {
     .scroll-viewport:not(.hasHeight) .card img {
-      max-height: 50vh;
+      max-height: 44vh;
     }
     /* Allow swipe with native snapping */
     .scroll-viewport {
