@@ -7,6 +7,7 @@
 	import ImageBlock from '$lib/components/image/ImageBlock.svelte';
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
+    import AutoScrollGallery from '$lib/components/image/AutoScrollGallery.svelte';
     import ScrollBg from '$lib/components/ScrollBg.svelte';
 	import TagSelector from '$lib/components/TagSelector.svelte';
 
@@ -154,6 +155,26 @@
 							/>
 						{/await}
 					{/key}
+				{:else if typeof bloco === 'object' && bloco.slider}
+					{#key i}
+						{@const conf = bloco.slider}
+						{@const dir = (conf.pasta || conf.dir || '').trim()}
+						{@const size = (conf.tamanho || conf.size || '').trim()}
+						{@const intervalMs = conf.tempo ? Math.max(200, Math.round(Number(conf.tempo) * 1000)) : 3000}
+						<AutoScrollGallery
+							dir={dir ? `imgs/${dir}` : 'imgs'}
+							intervalMs={intervalMs}
+							height={(conf.altura || conf.height || '').trim()}
+							background={(conf.fundo || conf.bg || '').trim()}
+							size={size}
+							classes={conf.classes}
+							gap={(conf.espaco || conf['espaço'] || conf.gap || conf.gutter) ? Number(String(conf.espaco || conf['espaço'] || conf.gap || conf.gutter).replace(/px$/,'').trim()) : undefined}
+							pdfAsImage={true}
+							padding={(conf.padding || '').trim()}
+							paddingTop={(conf['padding-top'] || conf.paddingtop || '').trim()}
+							paddingBottom={(conf['padding-bottom'] || conf.paddingbottom || '').trim()}
+						/>
+					{/key}
 				{:else if typeof bloco === 'object' && bloco.video}
 					{#key i}
 						{#await Promise.resolve(parseVideo(bloco.video || bloco)) then vid}
@@ -288,11 +309,11 @@
 					{#if typeof bloco === 'string' && obj.tags && obj.tags.length}
 						<div class="inline-tags">
                         <div class="inline-tags__label">What I did:</div>
-							<div class="inline-tags__chips">
-								{#each obj.tags as t (t)}
-									<span class="chip">{t}</span>
-								{/each}
-							</div>
+                    <div class="inline-tags__chips">
+                        {#each obj.tags as t (t)}
+                            <span class="chip">{t}</span>
+                        {/each}
+                    </div>
 						</div>
 					{/if}
 				{/if}
@@ -341,7 +362,6 @@
     text-transform: uppercase;
     letter-spacing: 0.06em; /* increased spacing */
     border: 1px solid color-mix(in srgb, #000 12%, transparent);
-    /* explicit: no shadow */
     box-shadow: none;
     vertical-align: middle;
   }

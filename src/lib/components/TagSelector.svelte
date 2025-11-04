@@ -2,7 +2,7 @@
 	import { archiePages } from '$lib/stores';
 	import { derived } from 'svelte/store';
     import { onMount, onDestroy } from 'svelte';
-	import Button from '$lib/components/ui/Button.svelte';
+    import Button from '$lib/components/ui/Button.svelte';
 
 	// bindable selected tag
 	export let selected = '';
@@ -109,7 +109,7 @@
         opacity: 0;
         pointer-events: none;
     }
-	/* Style underlying .btn from Button component */
+    /* Style underlying .btn from Button component */
     .tag-selector :global(.btn) {
         text-transform: uppercase;
     }

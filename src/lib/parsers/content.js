@@ -20,10 +20,103 @@ export function normalizeParsedToBlocks(usedParsed) {
 export function buildBlockObjects(blocks) {
 	if (!blocks || !blocks.length) return [];
 	const objs = [];
-	for (let i = 0; i < blocks.length; i++) {
-		const raw = blocks[i];
-		const trimmed = String(raw).trim();
+  for (let i = 0; i < blocks.length; i++) {
+    const raw = blocks[i];
+    const trimmed = String(raw).trim();
 
+    // {slider} multi-line
+    if (/^\{slider\}[\s\S]*\{\}$/i.test(trimmed)) {
+      const lines = String(raw)
+        .split(/\r?\n/)
+        .map((l) => l.trim());
+      const inner = lines
+        .slice(1, -1)
+        .map((l) => l)
+        .filter((l) => l.length > 0);
+      const obj = {};
+      for (const line of inner) {
+        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2].trim();
+          if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else if (key === 'classes' && val) {
+            obj.classes = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean)
+              .join(' ');
+          } else if (key === 'tempo') {
+            obj.tempo = val; // seconds; convert later
+          } else if (key === 'altura' || key === 'height') {
+            obj.altura = val;
+          } else if (key === 'fundo' || key === 'bg' || key === 'background') {
+            obj.fundo = val;
+          } else if (key === 'pasta' || key === 'dir' || key === 'folder') {
+            obj.pasta = val;
+          } else if (key === 'tamanho' || key === 'size') {
+            obj.tamanho = val;
+          } else if (key === 'espaco' || key === 'espaço' || key === 'gap' || key === 'gutter') {
+            obj.espaco = val;
+          } else {
+            obj[key] = val;
+          }
+        }
+      }
+      objs.push({ raw: { slider: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      continue;
+    }
+    // {slider} single-line open block
+    else if (/^\{slider\}$/i.test(trimmed)) {
+      const obj = {};
+      const inner = [];
+      let j = i + 1;
+      for (; j < blocks.length; j++) {
+        const line = String(blocks[j]).trim();
+        if (/^\{\}$/i.test(line)) break;
+        inner.push(line);
+      }
+      for (const line of inner) {
+        const m = String(line).match(/^([^:]+):\s*(.*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2].trim();
+          if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else if (key === 'classes' && val) {
+            obj.classes = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean)
+              .join(' ');
+          } else if (key === 'tempo') {
+            obj.tempo = val;
+          } else if (key === 'altura' || key === 'height') {
+            obj.altura = val;
+          } else if (key === 'fundo' || key === 'bg' || key === 'background') {
+            obj.fundo = val;
+          } else if (key === 'pasta' || key === 'dir' || key === 'folder') {
+            obj.pasta = val;
+          } else if (key === 'tamanho' || key === 'size') {
+            obj.tamanho = val;
+          } else if (key === 'espaco' || key === 'espaço' || key === 'gap' || key === 'gutter') {
+            obj.espaco = val;
+          } else {
+            obj[key] = val;
+          }
+        }
+      }
+      objs.push({ raw: { slider: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      i = j;
+      continue;
+    }
     // {scrollerVideo} multi-line
     if (/^\{scrollerVideo\}[\s\S]*\{\}$/i.test(trimmed)) {
       const lines = String(raw)
