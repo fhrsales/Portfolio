@@ -51,7 +51,9 @@
 					? 'video-m'
 					: size === 'G'
 						? 'video-g'
-						: 'video-m';
+						: size === 'GG'
+							? 'video-gg'
+							: 'video-m';
 	// compute poster attribute safely (avoid using template conditionals inside tag attributes)
 	$: posterAttr =
 		typeof preview === 'string' &&
@@ -772,13 +774,17 @@
 		max-width: 250px;
 	}
 	.video-block-wrapper.video-p {
-		max-width: 500px;
+		max-width: 450px;
 	}
 	.video-block-wrapper.video-m {
-		max-width: 620px;
+		max-width: 640px;
 	}
 	.video-block-wrapper.video-g {
-		max-width: 860px;
+		max-width: 875px;
+	}
+	.video-block-wrapper.video-gg {
+		max-width: 100vw;
+		border-radius: 0;
 	}
 
 	@media (max-width: 600px) {
