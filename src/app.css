@@ -71,6 +71,10 @@ strong {
 	font-weight: 600;
 }
 
+.sublinks {
+	font-size: 70%;
+}
+
 .shadow-1 {
 	position: relative; /* Essential for positioning pseudo-elements */
 }
