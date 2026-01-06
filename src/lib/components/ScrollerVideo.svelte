@@ -470,7 +470,7 @@
   .scroller-video.scroller-g { max-width: 860px; margin: calc(var(--grid) * 4) auto; }
   .scroller-video.scroller-gg { margin: calc(var(--grid) * 4) auto; }
   .scroller-video__sticky {
-    height: 100vh;
+    height: calc(var(--stable-vh, 1vh) * 100);
     width: 100%;
   }
   .scroller-video__stage {

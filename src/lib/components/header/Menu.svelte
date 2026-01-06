@@ -47,9 +47,9 @@
 			aria-expanded={open}
 		>
 			<svg viewBox="1 1 24 18" aria-hidden="true" focusable="false">
-				<rect class="line l1" x="0" y="5" width="24" height="2" rx="1" />
+				<rect class="line l1" x="0" y="4" width="24" height="2" rx="2" />
 				<!-- <rect class="line l2" x="0" y="8" width="24" height="2" rx="1" /> -->
-				<rect class="line l3" x="0" y="12" width="24" height="2" rx="1" />
+				<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
 			</svg>
 		</button>
 		{#if pages.length || import.meta.env.DEV}
