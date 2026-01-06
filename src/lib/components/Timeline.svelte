@@ -99,10 +99,10 @@
 		content: '';
 		position: absolute;
 		left: var(--line-x);
-		top: calc(0.45em + (var(--dot-size) / 2));
+		top: calc(1.65em + (var(--dot-size) / 10));
 		bottom: 0;
 		width: 0;
-		border-left: 2px dotted color-mix(in srgb, var(--color-dark) 70%, transparent);
+		border-left: 1px dotted color-mix(in srgb, var(--color-dark) 70%, transparent);
 		opacity: 1;
 	}
 	.timeline-item:last-child::before {
