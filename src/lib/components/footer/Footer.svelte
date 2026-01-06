@@ -1,6 +1,6 @@
 <footer>
 	<div class="contacts">
-		Available for curated projects and collaborations • <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
+		Need a partner who speaks both design and code? Let’s talk and bring your digital product to life! <br/> <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
 			>fabio.sales@me.com</a>
 		|
 		<a
@@ -31,8 +31,8 @@
 
 	footer {
 		width: 100vw;
+        max-width: calc(var(--grid) * 70);
 		padding: calc(var(--grid) * 3) 0 calc(var(--grid) * 2) 0;
-		width: 100vw;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
@@ -40,6 +40,7 @@
 		text-align: center;
 		font-family: var(--font-primary);
 		font-size: calc(var(--grid) * 1.5);
+        line-height: 1.4;
 		/* text-transform: uppercase; */
 		color: var(--color-dark);
 	}

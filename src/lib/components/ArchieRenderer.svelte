@@ -1,5 +1,11 @@
 <script>
 	import Title from '$lib/components/heading/Title.svelte';
+	import H1 from '$lib/components/heading/H1.svelte';
+	import H2 from '$lib/components/heading/H2.svelte';
+	import H3 from '$lib/components/heading/H3.svelte';
+	import H4 from '$lib/components/heading/H4.svelte';
+	import H5 from '$lib/components/heading/H5.svelte';
+	import Timeline from '$lib/components/Timeline.svelte';
 	import Text from '$lib/components/text/Text.svelte';
 	import EmbedWrapper from '$lib/components/embed/EmbedWrapper.svelte';
 	import PdfViewer from '$lib/components/image/PdfViewer.svelte';
@@ -113,7 +119,17 @@
 			{#if !obj.isAfterSelector || !localSelectedTag || (obj.tags && obj.tags
 						.map((t) => t.toLowerCase())
 						.includes(localSelectedTag.toLowerCase()))}
-				{#if blocoStr.match(/^titulo: (.+)$/i)}
+				{#if blocoStr.match(/^h1:\s*(.+)$/i)}
+					<H1 value={blocoStr.replace(/^h1:\s*/i, '')} />
+				{:else if blocoStr.match(/^h2:\s*(.+)$/i)}
+					<H2 value={blocoStr.replace(/^h2:\s*/i, '')} />
+				{:else if blocoStr.match(/^h3:\s*(.+)$/i)}
+					<H3 value={blocoStr.replace(/^h3:\s*/i, '')} />
+				{:else if blocoStr.match(/^h4:\s*(.+)$/i)}
+					<H4 value={blocoStr.replace(/^h4:\s*/i, '')} />
+				{:else if blocoStr.match(/^h5:\s*(.+)$/i)}
+					<H5 value={blocoStr.replace(/^h5:\s*/i, '')} />
+				{:else if blocoStr.match(/^titulo: (.+)$/i)}
 					<Title value={blocoStr.replace(/^titulo: /i, '')} />
 				{:else if blocoStr.match(/^embedWrapper: (.+)$/i)}
 					<EmbedWrapper value={blocoStr.replace(/^embedWrapper: /i, '')} />
@@ -128,6 +144,14 @@
 						<ScrollBg
 							color={(bloco.fundo.cor || bloco.fundo.color || bloco.fundo.bg || '').trim() || 'var(--color-light)'}
 							height={(bloco.fundo.altura || bloco.fundo.height || bloco.fundo.vh || '').trim()}
+						/>
+					{/key}
+				{:else if typeof bloco === 'object' && bloco.cronologia}
+					{#key i}
+						<Timeline
+							items={Array.isArray(bloco.cronologia.itens) ? bloco.cronologia.itens : []}
+							title={bloco.cronologia.titulo || ''}
+							classes={bloco.cronologia.classes || ''}
 						/>
 					{/key}
 				{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}

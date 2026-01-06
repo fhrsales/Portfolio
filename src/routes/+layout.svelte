@@ -19,6 +19,16 @@
     let scrollFadeTimer;
     let scrollFadeHandler;
 
+    function applyMenuState() {
+        if (typeof document === 'undefined') return;
+        document.documentElement.classList.toggle('menu-hidden', !showMenu);
+        if (!showMenu) {
+            document.documentElement.style.setProperty('--header-h', '0px');
+        } else {
+            requestAnimationFrame(updateHeaderVar);
+        }
+    }
+
     function disconnectTagObserver() {
         if (tagMutation) {
             tagMutation.disconnect();
@@ -96,6 +106,10 @@
             /* ignore */
         }
     }
+
+    $effect(() => {
+        applyMenuState();
+    });
 
     // Initial path-based setup (runs in SSR too)
     const initial = get(page);

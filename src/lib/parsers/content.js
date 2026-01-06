@@ -16,14 +16,91 @@ export function normalizeParsedToBlocks(usedParsed) {
 	return arr;
 }
 
-// Build array of block descriptors from freeform blocks array
-export function buildBlockObjects(blocks) {
-	if (!blocks || !blocks.length) return [];
-	const objs = [];
+	// Build array of block descriptors from freeform blocks array
+	export function buildBlockObjects(blocks) {
+		if (!blocks || !blocks.length) return [];
+		const objs = [];
   for (let i = 0; i < blocks.length; i++) {
     const raw = blocks[i];
     const trimmed = String(raw).trim();
 
+    // {cronologia} multi-line
+    if (/^\{cronologia\}[\s\S]*\{\}$/i.test(trimmed)) {
+      const lines = String(raw)
+        .split(/\r?\n/)
+        .map((l) => l.trim());
+      const inner = lines
+        .slice(1, -1)
+        .map((l) => l)
+        .filter((l) => l.length > 0);
+      const obj = { itens: [], tags: [] };
+      for (const line of inner) {
+        const m = String(line).match(/^([^:]+):\s*([\s\S]*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2];
+          if ((key === 'periodo' || key === 'item' || key === 'linha') && val) {
+            obj.itens.push(val.trim());
+          } else if (key === 'titulo' || key === 'title') {
+            obj.titulo = val.trim();
+          } else if (key === 'classes' && val) {
+            obj.classes = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean)
+              .join(' ');
+          } else if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else {
+            obj[key] = val.trim();
+          }
+        }
+      }
+      objs.push({ raw: { cronologia: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      continue;
+    }
+    // {cronologia} single-line (open block)
+    else if (/^\{cronologia\}$/i.test(trimmed)) {
+      const obj = { itens: [], tags: [] };
+      const inner = [];
+      let j = i + 1;
+      for (; j < blocks.length; j++) {
+        const line = String(blocks[j]).trim();
+        if (/^\{\}$/i.test(line)) break;
+        inner.push(line);
+      }
+      for (const line of inner) {
+        const m = String(line).match(/^([^:]+):\s*([\s\S]*)$/);
+        if (m) {
+          const key = m[1].trim().toLowerCase();
+          const val = m[2];
+          if ((key === 'periodo' || key === 'item' || key === 'linha') && val) {
+            obj.itens.push(val.trim());
+          } else if (key === 'titulo' || key === 'title') {
+            obj.titulo = val.trim();
+          } else if (key === 'classes' && val) {
+            obj.classes = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean)
+              .join(' ');
+          } else if (key === 'tags' && val) {
+            obj.tags = val
+              .split(',')
+              .map((t) => t.trim())
+              .filter(Boolean);
+          } else {
+            obj[key] = val.trim();
+          }
+        }
+      }
+      objs.push({ raw: { cronologia: obj }, tags: (obj.tags || []).map((t) => t.toLowerCase()) });
+      i = j;
+      continue;
+    }
     // {slider} multi-line
     if (/^\{slider\}[\s\S]*\{\}$/i.test(trimmed)) {
       const lines = String(raw)

@@ -184,17 +184,25 @@ strong {
 
 /* Sticky anchor for tag selector */
 .tag-selector-anchor {
+	--tag-offset: calc(var(--grid) * 1.5);
 	position: sticky;
-	top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + (var(--grid) * 1.5));
+	top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
 	z-index: 5;
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-self: stretch;
 	/* background: var(--body-bg, var(--color-light)); */
+}
+html.menu-hidden .tag-selector-anchor {
+	--tag-offset: 0px;
 }
 @media (min-width: 900px) {
 	.tag-selector-anchor {
-		top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + (var(--grid) * 2));
+		--tag-offset: calc(var(--grid) * 2);
+	}
+	html.menu-hidden .tag-selector-anchor {
+		--tag-offset: 0px;
 	}
 }
 
@@ -209,6 +217,10 @@ html.is-scrolling .tag-selector-anchor {
 	pointer-events: none;
 }
 html:not(.is-scrolling) .menu-bar:not(.hidden) {
+	opacity: 1;
+	pointer-events: auto;
+}
+html:not(.is-scrolling) .tag-selector-anchor {
 	opacity: 1;
 	pointer-events: auto;
 }
