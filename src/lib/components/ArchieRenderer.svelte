@@ -9,6 +9,7 @@
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
     import AutoScrollGallery from '$lib/components/image/AutoScrollGallery.svelte';
     import ScrollBg from '$lib/components/ScrollBg.svelte';
+	import LazyMount from '$lib/components/LazyMount.svelte';
 	import TagSelector from '$lib/components/TagSelector.svelte';
 
 	import { archiePages } from '$lib/stores';
@@ -97,12 +98,14 @@
 	{#each annotatedBlocks as obj, i (i)}
 		{#if obj.selector}
 			{#key i}
-				<TagSelector
-					bind:selected={localSelectedTag}
-					tags={obj.selectorConfig && Array.isArray(obj.selectorConfig)
-						? obj.selectorConfig
-						: undefined}
-				/>
+				<div class="tag-selector-anchor">
+					<TagSelector
+						bind:selected={localSelectedTag}
+						tags={obj.selectorConfig && Array.isArray(obj.selectorConfig)
+							? obj.selectorConfig
+							: undefined}
+					/>
+				</div>
 			{/key}
 		{:else}
 			{@const bloco = obj.raw}
@@ -238,7 +241,7 @@
 							showGuide={guide}
 							height={height}
 							objectFit={conf.fit || conf.objectfit || 'cover'}
-                        ease={conf.ease !== undefined ? Number(conf.ease) : undefined}
+							ease={conf.ease !== undefined ? Number(conf.ease) : undefined}
 							offsetTop={conf.top ? Number(conf.top) : 0}
 							vhPerSecond={conf.vhpersecond ? Number(conf.vhpersecond) : conf.vhps ? Number(conf.vhps) : undefined}
 							fps={conf.fps ? Number(conf.fps) : undefined}
@@ -249,7 +252,7 @@
 							showVignette={conf.vignette !== undefined ? !!conf.vignette : conf.vinheta !== undefined ? !!conf.vinheta : undefined}
 							speedVh={conf.speedvh ? Number(conf.speedvh) : 100}
 							maxStepSec={(conf.maxstepsec ? Number(conf.maxstepsec) : (conf.maxstep ? Number(conf.maxstep) : undefined))}
-                        preloadMode={conf.preload ? String(conf.preload) : undefined}
+							preloadMode={conf.preload ? String(conf.preload) : undefined}
 						/>
 					{/key}
 				{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}

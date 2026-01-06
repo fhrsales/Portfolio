@@ -20,7 +20,6 @@
             const d = Math.abs(mid - center);
             if (!best || d < best.d) best = { it, d };
         }
-        const root = document.documentElement;
         if (best) {
             const c = best.it.color || 'var(--color-light)';
             document.body.style.setProperty('--body-bg', c.startsWith('var(') ? c : c);
