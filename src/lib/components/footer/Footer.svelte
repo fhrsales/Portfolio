@@ -41,11 +41,11 @@
 		font-family: var(--font-primary);
 		font-size: calc(var(--grid) * 1.5);
 		/* text-transform: uppercase; */
-		color: color-mix(in srgb, var(--color-dark) 70%, transparent);
+		color: var(--color-dark);
 	}
 
 	footer a {
-		color: inherit;
+		color: var(--color-primary);
 		text-decoration: none;
 		position: relative;
 		padding-bottom: 2px;

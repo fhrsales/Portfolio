@@ -88,7 +88,7 @@
     .tag-selector {
         position: sticky;
         /* account for safe-area top on mobile UI chrome */
-        top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 8));
+        top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 9));
         display: flex;
         gap: calc(var(--grid) * 0.5);
         flex-wrap: wrap;

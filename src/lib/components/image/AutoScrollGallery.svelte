@@ -38,7 +38,7 @@
   let hasFocus = true;
   let error = '';
 
-  /** @type {Array<{ url: string, type: 'image'|'pdf', loaded: boolean, previewIdx?: number, previewSrc?: string }>} */
+  /** @type {Array<{ url: string, type: 'image'|'pdf', loaded: boolean, width?: number, height?: number, previewIdx?: number, previewSrc?: string }>} */
   let items = [];
   let observer = null;
   // Prefer to render PDFs as image thumbnails (if available) instead of embedding a viewer
@@ -93,19 +93,26 @@
       const res = await fetch(manifestUrl, { headers: { 'cache-control': 'no-cache' } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      const list = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
+      const rawList = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
+      const list = rawList
+        .map((entry) => (typeof entry === 'string' ? { name: entry } : entry))
+        .filter((entry) => entry && entry.name);
       if (!list.length) {
         error = 'manifest.json vazio. Gere a lista de arquivos.';
         return;
       }
       const allowed = list
-        .map((name) => String(name))
-        .filter((n) => /\.(jpe?g|png|webp|avif|svg|pdf)$/i.test(n))
-        .map((name) => {
-          const extMatch = name.match(/\.([a-z0-9]+)$/i);
+        .map((entry) => ({
+          name: String(entry.name),
+          width: Number(entry.width) || 0,
+          height: Number(entry.height) || 0
+        }))
+        .filter((entry) => /\.(jpe?g|png|webp|avif|svg|pdf)$/i.test(entry.name))
+        .map((entry) => {
+          const extMatch = entry.name.match(/\.([a-z0-9]+)$/i);
           const ext = (extMatch ? extMatch[1] : '').toLowerCase();
-          const base = ext ? name.slice(0, -(ext.length + 1)) : name;
-          return { name, base, ext };
+          const base = ext ? entry.name.slice(0, -(ext.length + 1)) : entry.name;
+          return { name: entry.name, base, ext, width: entry.width, height: entry.height };
         });
 
       // Prefer a single entry per base name; priority by extension (png first)
@@ -125,11 +132,11 @@
       }
 
       const chosen = Array.from(byBase.values());
-      items = chosen.map(({ name, ext }) => {
+      items = chosen.map(({ name, ext, width, height }) => {
         const enc = encodeURIComponent(name);
         const url = resolve(`${normalizedDir}/${enc}`);
         const type = ext === 'pdf' ? 'pdf' : 'image';
-        return { url, type, loaded: false, previewIdx: -1, previewSrc: '' };
+        return { url, type, loaded: false, width, height, previewIdx: -1, previewSrc: '' };
       });
     } catch (e) {
       error = `Não foi possível carregar ${manifestUrl}. Crie um manifest.json nessa pasta.`;
@@ -267,7 +274,13 @@
         <div class={`card ${shadow ? 'shadow-1' : ''}`} data-index={i} style={height ? `height:${height};` : ''}>
           {#if it.type === 'image'}
             {#if it.loaded}
-              <img src={it.url} alt={`Imagem ${i + 1}`} loading="lazy" />
+              <img
+                src={it.url}
+                alt={`Imagem ${i + 1}`}
+                loading="lazy"
+                width={it.width || undefined}
+                height={it.height || undefined}
+              />
             {:else}
               <div class="placeholder" aria-hidden="true"></div>
             {/if}

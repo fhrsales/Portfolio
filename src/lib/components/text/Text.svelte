@@ -17,8 +17,19 @@
 			.replace(/(href|src)=(['"])javascript:[^\2]*\2/gi, '$1="#"');
 	}
 
+	function injectInlineLogo(html) {
+		if (!html) return html;
+		const logoSrc = base ? `${base}/imgs/fabio_sales.svg` : '/imgs/fabio_sales.svg';
+		return String(html).replace(
+			/<strong>\s*Fabio\s+Sales(\.)?\s*<\/strong>/gi,
+			(_, dot) =>
+				`<span class="inline-logo" role="img" aria-label="Fabio Sales" style="--inline-logo-url: url('${logoSrc}')">Fabio Sales</span>` +
+				(dot ? '.' : '')
+		);
+	}
+
 	function renderHtml(html) {
-		return sanitizeHtml(fixLinks(html, base));
+		return sanitizeHtml(injectInlineLogo(fixLinks(html, base)));
 	}
 </script>
 

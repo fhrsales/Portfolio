@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import ArchieRenderer from '$lib/components/ArchieRenderer.svelte';
 	import pages from '$lib/archiePages.json';
+	import imageMeta from '$lib/imageMeta.json';
 	import { normalizeParsedToBlocks, buildBlockObjects } from '$lib/parsers/content.js';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { withBase } from '$lib/paths.js';
@@ -31,10 +32,13 @@
 					const img = parseImageHelper(bloco);
 					if (img && img.nome) {
 						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
+						const meta = imageMeta[img.nome];
+						const hasAvif = !!(meta && meta.avif);
+						const hasWebp = !!(meta && meta.webp);
 						// Prefer AVIF, then WebP, then original
 						if (isProd) {
-							const avif = withBase(`/imgs/${baseName}.avif`, base);
-							const webp = withBase(`/imgs/${baseName}.webp`, base);
+							const avif = hasAvif ? withBase(`/imgs/${baseName}.avif`, base) : '';
+							const webp = hasWebp ? withBase(`/imgs/${baseName}.webp`, base) : '';
 							lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
 						} else {
 							lcpHref = withBase(`/imgs/${img.nome}`, base);
@@ -47,9 +51,12 @@
 					const img = parseImageHelper(bloco);
 					if (img && img.nome) {
 						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
+						const meta = imageMeta[img.nome];
+						const hasAvif = !!(meta && meta.avif);
+						const hasWebp = !!(meta && meta.webp);
 						if (isProd) {
-							const avif = withBase(`/imgs/${baseName}.avif`, base);
-							const webp = withBase(`/imgs/${baseName}.webp`, base);
+							const avif = hasAvif ? withBase(`/imgs/${baseName}.avif`, base) : '';
+							const webp = hasWebp ? withBase(`/imgs/${baseName}.webp`, base) : '';
 							lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
 						} else {
 							lcpHref = withBase(`/imgs/${img.nome}`, base);
@@ -73,24 +80,6 @@
 
 		let firstEl = null;
 		let secondEl = null;
-
-		function replaceNameWithLogo(p) {
-			if (!p) return;
-			const strongs = p.querySelectorAll('strong');
-			for (const s of strongs) {
-				const txt = (s.textContent || '').trim();
-				if (/^Fabio\s+Sales\.?$/i.test(txt)) {
-					const img = document.createElement('img');
-					img.src = withBase('/imgs/fabio_sales.svg', base);
-					img.alt = 'Fabio Sales';
-					img.className = 'inline-logo';
-					const endsDot = /\.$/.test(txt);
-					s.replaceWith(img);
-					if (endsDot) img.insertAdjacentText('afterend', '.');
-					break;
-				}
-			}
-		}
 
 			function wrapWords(node) {
 				// Avoid referencing NodeFilter directly to keep SSR/import safer
@@ -124,6 +113,14 @@
 			}
 		}
 
+		function runWhenIdle(fn, timeout = 1200) {
+			if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+				window.requestIdleCallback(fn, { timeout });
+			} else {
+				setTimeout(fn, 200);
+			}
+		}
+
 		function setupAndAnimate(p, { hero } = { hero: true }) {
 			if (!p || p.dataset.introProcessed === '1') return true;
 			p.dataset.introProcessed = '1';
@@ -131,67 +128,62 @@
 			// Both first and second paragraphs get hero treatment and width M
 			p.classList.add('intro-paragraph', 'text-m');
 
-			// Replace inline name with logo image before wrapping words
-			if (!firstEl) replaceNameWithLogo(p);
+			runWhenIdle(() => {
+				wrapWords(p);
+				const words = Array.from(p.querySelectorAll('.word'));
+				if (!words.length) return;
 
-			wrapWords(p);
-			const words = Array.from(p.querySelectorAll('.word'));
-			if (!words.length) return true;
+				// compute lines by offsetTop
+				const tops = words.map((w) => w.offsetTop);
+				const uniqueTops = Array.from(new Set(tops)).sort((a, b) => a - b);
+				const lineIndexByTop = new Map(uniqueTops.map((t, i) => [t, i]));
 
-			// compute lines by offsetTop
-			const tops = words.map((w) => w.offsetTop);
-			const uniqueTops = Array.from(new Set(tops)).sort((a, b) => a - b);
-			const lineIndexByTop = new Map(uniqueTops.map((t, i) => [t, i]));
+				const wordCounterByLine = new Map();
+				for (const w of words) {
+					const top = w.offsetTop;
+					const lineIdx = lineIndexByTop.get(top) || 0;
+					const pos = wordCounterByLine.get(lineIdx) || 0;
+					wordCounterByLine.set(lineIdx, pos + 1);
+					const lineDelay = 360; // slower narration pace per line
+					const wordDelay = 90; // slower per word
+					const totalDelay = lineIdx * lineDelay + pos * wordDelay;
+					w.style.transitionDelay = `${totalDelay}ms`;
+				}
 
-			const wordCounterByLine = new Map();
-			for (const w of words) {
-				const top = w.offsetTop;
-				const lineIdx = lineIndexByTop.get(top) || 0;
-				const pos = wordCounterByLine.get(lineIdx) || 0;
-				wordCounterByLine.set(lineIdx, pos + 1);
-				const lineDelay = 360; // slower narration pace per line
-				const wordDelay = 90; // slower per word
-				const totalDelay = lineIdx * lineDelay + pos * wordDelay;
-				w.style.transitionDelay = `${totalDelay}ms`;
-			}
-
-			const reveal = () => {
-				p.classList.add('reveal');
-			};
-
-			// Measure to aid vertical centering via CSS var (only for hero)
-			const h = p.offsetHeight;
-			p.style.setProperty('--intro-p-height', `${h}px`);
-
-			// Ensure transitions apply: force a reflow, then reveal in next frame(s)
-			// Initial reveal after two frames
-			requestAnimationFrame(() => requestAnimationFrame(reveal));
-
-			// Record references for background switching
-			if (!firstEl) firstEl = p; else if (!secondEl && p !== firstEl) secondEl = p;
-
-			// Replay on scroll: toggle reveal when (re)entering/leaving viewport
-			if (!p._introObserver && 'IntersectionObserver' in window) {
-				const toggle = (visible) => {
-					if (visible) p.classList.add('reveal');
-					else p.classList.remove('reveal');
+				const reveal = () => {
+					p.classList.add('reveal');
 				};
-				const io = new IntersectionObserver(
-					(entries) => {
-						for (const e of entries) {
-							const vis = e.isIntersecting && e.intersectionRatio > 0.35;
-							toggle(vis);
-						}
-					},
-					{ threshold: [0, 0.2, 0.35, 0.6, 0.8] }
-				);
-				io.observe(p);
-				p._introObserver = io;
-				// Set initial state based on current visibility
-				const r = p.getBoundingClientRect();
-				const initialVisible = r.top < window.innerHeight * 0.65 && r.bottom > window.innerHeight * 0.15;
-				toggle(initialVisible);
-			}
+
+				// Ensure transitions apply: force a reflow, then reveal in next frame(s)
+				// Initial reveal after two frames
+				requestAnimationFrame(() => requestAnimationFrame(reveal));
+
+				// Record references for background switching
+				if (!firstEl) firstEl = p; else if (!secondEl && p !== firstEl) secondEl = p;
+
+				// Replay on scroll: toggle reveal when (re)entering/leaving viewport
+				if (!p._introObserver && 'IntersectionObserver' in window) {
+					const toggle = (visible) => {
+						if (visible) p.classList.add('reveal');
+						else p.classList.remove('reveal');
+					};
+					const io = new IntersectionObserver(
+						(entries) => {
+							for (const e of entries) {
+								const vis = e.isIntersecting && e.intersectionRatio > 0.35;
+								toggle(vis);
+							}
+						},
+						{ threshold: [0, 0.2, 0.35, 0.6, 0.8] }
+					);
+					io.observe(p);
+					p._introObserver = io;
+					// Set initial state based on current visibility
+					const r = p.getBoundingClientRect();
+					const initialVisible = r.top < window.innerHeight * 0.65 && r.bottom > window.innerHeight * 0.15;
+					toggle(initialVisible);
+				}
+			});
 
 			return true;
 		}

@@ -4,6 +4,7 @@
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
     export let fadeIn = false;
+    export let hidden = false;
     let open = false;
 	let pages = [];
 	let menuLabels = {};
@@ -27,7 +28,7 @@
 	}
 </script>
 
-<nav class="menu-bar" class:fadeIn>
+<nav class="menu-bar" class:fadeIn class:hidden>
 	<div class="menu-container">
 		<a class="logo" href={resolve('/')}>
 			<img
@@ -95,13 +96,17 @@
 		/* border-bottom: 1px solid #eee; */
 		position: sticky;
 		top: 0;
-		z-index: 100;
+		z-index: 1000;
 		margin-bottom: calc(var(--grid) * 5);
 	}
 
 	/* optional fade-in on mount (home only) */
 	.menu-bar.fadeIn {
 		animation: menu-fade-in 360ms ease-out both;
+	}
+	.menu-bar.hidden {
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	@keyframes menu-fade-in {

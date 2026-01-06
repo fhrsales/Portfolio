@@ -11,6 +11,9 @@
     let isHome = $state(false);
     let secondParagraph = null;
     let rafId;
+    let anchorBottom = 0;
+    let scrollHandler;
+    let resizeHandler;
 
     function updateHeaderVar() {
         try {
@@ -60,14 +63,19 @@
 
     function attachScrollWatcher() {
         // Stronger hysteresis to prevent threshold tug-of-war when layout shifts
-        const SHOW_OFFSET = -40; // show only after the paragraph is clearly above
-        const HIDE_OFFSET = 20;  // hide only after it re-enters clearly
+        const SHOW_MARGIN = 40; // show only after the paragraph is clearly above
+        const HIDE_MARGIN = 20; // hide only after it re-enters clearly
         let last = showMenu;
-        const onScroll = () => {
+        const measureAnchor = () => {
             if (!secondParagraph) return;
             const r = secondParagraph.getBoundingClientRect();
-            const shouldShow = r.bottom <= SHOW_OFFSET;
-            const shouldHide = r.bottom >= HIDE_OFFSET;
+            anchorBottom = (window.scrollY || window.pageYOffset || 0) + r.bottom;
+        };
+        const onScroll = () => {
+            if (!secondParagraph) return;
+            const y = window.scrollY || window.pageYOffset || 0;
+            const shouldShow = y >= anchorBottom + SHOW_MARGIN;
+            const shouldHide = y <= anchorBottom - HIDE_MARGIN;
             let next = last;
             if (!last && shouldShow) next = true;
             else if (last && shouldHide) next = false;
@@ -78,9 +86,19 @@
                 rafId = requestAnimationFrame(updateHeaderVar);
             }
         };
+        const onResize = () => {
+            measureAnchor();
+            onScroll();
+        };
         // Prime state and listen
+        measureAnchor();
         onScroll();
-        window.addEventListener('scroll', onScroll, { passive: true });
+        if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
+        if (resizeHandler) window.removeEventListener('resize', resizeHandler);
+        scrollHandler = onScroll;
+        resizeHandler = onResize;
+        window.addEventListener('scroll', scrollHandler, { passive: true });
+        window.addEventListener('resize', resizeHandler);
     }
 
     // Initial path-based setup (runs in SSR too)
@@ -116,17 +134,15 @@
 </script>
 
 {#if !$page.url.pathname?.startsWith('/admin')}
-	{#if showMenu}
-		<Menu fadeIn={isHome} />
-	{/if}
+	<Menu hidden={!showMenu} fadeIn={isHome && showMenu} />
 {/if}
 {#if $page.url.pathname?.startsWith('/admin')}
 	{@render children?.()}
 
 {:else}
-	<div class="main-content" class:home-initial={isHome && !showMenu}>
+	<main class="main-content" class:home-initial={isHome && !showMenu} class:is-home={isHome}>
 		{@render children?.()}
-	</div>
+	</main>
 {/if}
 {#if !$page.url.pathname?.startsWith('/admin')}
 	<Footer />

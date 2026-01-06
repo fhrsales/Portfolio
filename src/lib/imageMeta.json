@@ -1,1 +1,212 @@
-{}
+{
+	"atbl-app-m.avif": {
+		"width": 600,
+		"height": 457,
+		"ratio": 1.31291,
+		"avif": true,
+		"webp": true
+	},
+	"atbl-app-m.png": {
+		"width": 600,
+		"height": 457,
+		"ratio": 1.31291,
+		"avif": true,
+		"webp": true
+	},
+	"atbl-app-m.webp": {
+		"width": 600,
+		"height": 457,
+		"ratio": 1.31291,
+		"avif": true,
+		"webp": true
+	},
+	"atbl-app.avif": {
+		"width": 1115,
+		"height": 849,
+		"ratio": 1.31331,
+		"avif": true,
+		"webp": true
+	},
+	"atbl-app.png": {
+		"width": 1115,
+		"height": 849,
+		"ratio": 1.31331,
+		"avif": true,
+		"webp": true
+	},
+	"atbl-app.webp": {
+		"width": 1115,
+		"height": 849,
+		"ratio": 1.31331,
+		"avif": true,
+		"webp": true
+	},
+	"caro_leitor-m.png": {
+		"width": 900,
+		"height": 1895,
+		"ratio": 0.474934,
+		"avif": false,
+		"webp": false
+	},
+	"caro_leitor.png": {
+		"width": 2000,
+		"height": 437,
+		"ratio": 4.576659,
+		"avif": false,
+		"webp": false
+	},
+	"cronologia_copa-m.png": {
+		"width": 600,
+		"height": 230,
+		"ratio": 2.608696,
+		"avif": false,
+		"webp": false
+	},
+	"cronologia_copa.png": {
+		"width": 2000,
+		"height": 768,
+		"ratio": 2.604167,
+		"avif": false,
+		"webp": false
+	},
+	"fabio_sales-m.png": {
+		"width": 557,
+		"height": 557,
+		"ratio": 1,
+		"avif": false,
+		"webp": false
+	},
+	"fabio_sales.png": {
+		"width": 557,
+		"height": 557,
+		"ratio": 1,
+		"avif": false,
+		"webp": false
+	},
+	"favela_amazonia-m.png": {
+		"width": 1744,
+		"height": 762,
+		"ratio": 2.288714,
+		"avif": false,
+		"webp": false
+	},
+	"favela_amazonia.png": {
+		"width": 1744,
+		"height": 762,
+		"ratio": 2.288714,
+		"avif": false,
+		"webp": false
+	},
+	"germanico-m.avif": {
+		"width": 600,
+		"height": 582,
+		"ratio": 1.030928,
+		"avif": true,
+		"webp": true
+	},
+	"germanico-m.png": {
+		"width": 600,
+		"height": 582,
+		"ratio": 1.030928,
+		"avif": true,
+		"webp": true
+	},
+	"germanico-m.webp": {
+		"width": 600,
+		"height": 582,
+		"ratio": 1.030928,
+		"avif": true,
+		"webp": true
+	},
+	"germanico.avif": {
+		"width": 900,
+		"height": 874,
+		"ratio": 1.029748,
+		"avif": true,
+		"webp": true
+	},
+	"germanico.png": {
+		"width": 900,
+		"height": 874,
+		"ratio": 1.029748,
+		"avif": true,
+		"webp": true
+	},
+	"germanico.webp": {
+		"width": 900,
+		"height": 874,
+		"ratio": 1.029748,
+		"avif": true,
+		"webp": true
+	},
+	"malofiej-m.png": {
+		"width": 1132,
+		"height": 700,
+		"ratio": 1.617143,
+		"avif": false,
+		"webp": false
+	},
+	"malofiej.png": {
+		"width": 1132,
+		"height": 700,
+		"ratio": 1.617143,
+		"avif": false,
+		"webp": false
+	},
+	"movimento_baterista-m.png": {
+		"width": 900,
+		"height": 1096,
+		"ratio": 0.821168,
+		"avif": false,
+		"webp": false
+	},
+	"movimento_baterista.png": {
+		"width": 6109,
+		"height": 2162,
+		"ratio": 2.825624,
+		"avif": false,
+		"webp": false
+	},
+	"rota_segura-m.jpg": {
+		"width": 2500,
+		"height": 1563,
+		"ratio": 1.599488,
+		"avif": false,
+		"webp": false
+	},
+	"rota_segura.jpg": {
+		"width": 2500,
+		"height": 1563,
+		"ratio": 1.599488,
+		"avif": false,
+		"webp": false
+	},
+	"speeches-m.png": {
+		"width": 2228,
+		"height": 2962,
+		"ratio": 0.752194,
+		"avif": false,
+		"webp": false
+	},
+	"speeches.png": {
+		"width": 2228,
+		"height": 2962,
+		"ratio": 0.752194,
+		"avif": false,
+		"webp": false
+	},
+	"tapuiassauro-m.png": {
+		"width": 1343,
+		"height": 1163,
+		"ratio": 1.154772,
+		"avif": false,
+		"webp": false
+	},
+	"tapuiassauro.png": {
+		"width": 1343,
+		"height": 1163,
+		"ratio": 1.154772,
+		"avif": false,
+		"webp": false
+	}
+}

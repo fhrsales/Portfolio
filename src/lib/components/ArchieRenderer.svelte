@@ -132,6 +132,8 @@
 						{#await Promise.resolve(parseImagem(bloco)) then img}
 							{@const _baseName = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
 							{@const _meta = imageMeta[img.nome]}
+							{@const _hasAvif = !!(_meta && _meta.avif)}
+							{@const _hasWebp = !!(_meta && _meta.webp)}
 							<ImageBlock
 								src={withBase(`/imgs/${img.nome}`, base)}
 								nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
@@ -148,8 +150,12 @@
 								ratio={img.ratio || (_meta && _meta.ratio) || ''}
 								srcset={img.srcset}
 								sizes={img.sizes}
-								webp={isProd ? withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base) : ''}
-								avif={isProd ? withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base) : ''}
+								webp={
+									isProd && _hasWebp ? withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base) : ''
+								}
+								avif={
+									isProd && _hasAvif ? withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base) : ''
+								}
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
@@ -251,6 +257,8 @@
 						{#await Promise.resolve(parseImagem(bloco)) then img}
 							{@const _baseName2 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
 							{@const _meta2 = imageMeta[img.nome]}
+							{@const _hasAvif2 = !!(_meta2 && _meta2.avif)}
+							{@const _hasWebp2 = !!(_meta2 && _meta2.webp)}
 							<ImageBlock
 								src={withBase(`/imgs/${img.nome}`, base)}
 								alt={img.nome}
@@ -265,8 +273,16 @@
 								ratio={img.ratio || (_meta2 && _meta2.ratio) || ''}
 								srcset={img.srcset}
 								sizes={img.sizes}
-								webp={isProd ? withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base) : ''}
-								avif={isProd ? withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base) : ''}
+								webp={
+									isProd && _hasWebp2
+										? withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base)
+										: ''
+								}
+								avif={
+									isProd && _hasAvif2
+										? withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base)
+										: ''
+								}
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
@@ -338,9 +354,14 @@
     font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--color-dark);
+    background: color-mix(in srgb, var(--color-tertiary) 92%, transparent);
+    padding: 0.2rem 0.45rem 0.15rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
     margin-bottom: calc(var(--grid) * 1);
     text-transform: uppercase;
-    opacity: 0.8;
+    opacity: 1;
   }
   .inline-tags__chips {
     display: flex;
