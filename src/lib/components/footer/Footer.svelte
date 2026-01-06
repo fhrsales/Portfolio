@@ -8,6 +8,12 @@
 			title="LinkedIn"
 			target="_blank"
 			rel="noopener">LinkedIn</a>
+        |
+        <a
+            href="https://github.com/fhrsales"
+            title="GitHub"
+            target="_blank"
+            rel="noopener">GitHub</a>
 	</div>
 	<div class="copyright">© {new Date().getFullYear()} Fabio Sales</div>
 	<div class="rights">All rights reserved</div>
