@@ -13,7 +13,7 @@
 	--bg-first: var(--color-primary);
 	--bg-second: var(--color-secondary);
 
-	--shadow-2: 0 8px 32px rgba(0, 0, 0, 0.2);
+	--shadow-2: 0 1px 6px rgba(0, 0, 0, 0.2);
 
 	--multiply: multiply;
 }
