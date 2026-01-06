@@ -1,6 +1,6 @@
 <footer>
 	<div class="contacts">
-		Available for select projects and collaborations • <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
+		Available for curated projects and collaborations • <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
 			>fabio.sales@me.com</a>
 		|
 		<a
