@@ -6,6 +6,7 @@
 	import { normalizeParsedToBlocks, buildBlockObjects } from '$lib/parsers/content.js';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { withBase } from '$lib/paths.js';
+	import { onMount } from 'svelte';
 	const isProd = import.meta.env && import.meta.env.PROD;
 
 	// Find first image on index to preload as LCP
@@ -70,6 +71,131 @@
 			// ignore
 		}
 	}
+
+	function runWhenIdle(fn, timeout = 1200) {
+		if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+			window.requestIdleCallback(fn, { timeout });
+		} else {
+			setTimeout(fn, 200);
+		}
+	}
+
+	function wrapWords(node) {
+		const SHOW_TEXT = 4; // NodeFilter.SHOW_TEXT
+		const FILTER_ACCEPT = 1; // NodeFilter.FILTER_ACCEPT
+		const FILTER_REJECT = 2; // NodeFilter.FILTER_REJECT
+		const walker = document.createTreeWalker(node, SHOW_TEXT, {
+			acceptNode(n) {
+				if (!n.nodeValue) return FILTER_REJECT;
+				return /\S/.test(n.nodeValue) ? FILTER_ACCEPT : FILTER_REJECT;
+			}
+		});
+		const textNodes = [];
+		while (walker.nextNode()) textNodes.push(walker.currentNode);
+		for (const tn of textNodes) {
+			const parent = tn.parentNode;
+			const parts = String(tn.nodeValue).split(/(\s+)/);
+			const frag = document.createDocumentFragment();
+			for (const part of parts) {
+				if (!part) continue;
+				if (/^\s+$/.test(part)) {
+					frag.appendChild(document.createTextNode(part));
+				} else {
+					const span = document.createElement('span');
+					span.className = 'word';
+					span.textContent = part;
+					frag.appendChild(span);
+				}
+			}
+			parent.replaceChild(frag, tn);
+		}
+	}
+
+	function setupIntro(p) {
+		if (!p || p.dataset.introProcessed === '1') return true;
+		p.dataset.introProcessed = '1';
+		p.classList.add('intro-paragraph', 'text-m');
+
+		runWhenIdle(() => {
+			wrapWords(p);
+			const words = Array.from(p.querySelectorAll('.word'));
+			if (!words.length) return;
+
+			const tops = words.map((w) => w.offsetTop);
+			const uniqueTops = Array.from(new Set(tops)).sort((a, b) => a - b);
+			const lineIndexByTop = new Map(uniqueTops.map((t, i) => [t, i]));
+
+			const wordCounterByLine = new Map();
+			for (const w of words) {
+				const top = w.offsetTop;
+				const lineIdx = lineIndexByTop.get(top) || 0;
+				const pos = wordCounterByLine.get(lineIdx) || 0;
+				wordCounterByLine.set(lineIdx, pos + 1);
+				const lineDelay = 360;
+				const wordDelay = 90;
+				const totalDelay = lineIdx * lineDelay + pos * wordDelay;
+				w.style.transitionDelay = `${totalDelay}ms`;
+			}
+
+			const revealOnce = () => {
+				if (p.dataset.introAnimated === '1') return;
+				p.dataset.introAnimated = '1';
+				p.classList.add('reveal');
+			};
+
+			const r = p.getBoundingClientRect();
+			const initialVisible = r.top < window.innerHeight * 0.65 && r.bottom > window.innerHeight * 0.15;
+			if (initialVisible) {
+				requestAnimationFrame(() => requestAnimationFrame(revealOnce));
+			}
+
+			if (!p._introObserver && 'IntersectionObserver' in window) {
+				const io = new IntersectionObserver(
+					(entries) => {
+						for (const e of entries) {
+							const vis = e.isIntersecting && e.intersectionRatio > 0.35;
+							if (vis) revealOnce();
+						}
+					},
+					{ threshold: [0, 0.2, 0.35, 0.6, 0.8] }
+				);
+				io.observe(p);
+				p._introObserver = io;
+			}
+		});
+		return true;
+	}
+
+	onMount(() => {
+		if (typeof window === 'undefined' || typeof document === 'undefined') return;
+		const container = document.querySelector('.main-content');
+		if (!container) return;
+
+		function tryInitOnce() {
+			const allP = Array.from(container.querySelectorAll('p'));
+			const candidates = allP.filter((el) => (el.textContent || '').trim().length > 20).slice(0, 2);
+			if (!candidates.length) return false;
+			let ok = false;
+			if (candidates[0]) ok = setupIntro(candidates[0]) || ok;
+			if (candidates[1]) ok = setupIntro(candidates[1]) || ok;
+			return ok;
+		}
+
+		if (!tryInitOnce()) {
+			const start = Date.now();
+			const mo = new MutationObserver(() => {
+				if (tryInitOnce()) {
+					mo.disconnect();
+					return;
+				}
+				if (Date.now() - start > 5000) mo.disconnect();
+			});
+			mo.observe(container, { childList: true, subtree: true });
+			setTimeout(tryInitOnce, 250);
+			setTimeout(tryInitOnce, 1000);
+			setTimeout(tryInitOnce, 3000);
+		}
+	});
 
 	// Background color now controlled by {fundo} blocks via ScrollBg component
 </script>

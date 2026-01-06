@@ -13,8 +13,11 @@
     let tagAnchor;
     let scrollHandler;
     let resizeHandler;
+    let menuLocked = false;
     let anchorTop = 0;
     let headerH = 0;
+    let scrollFadeTimer;
+    let scrollFadeHandler;
 
     function disconnectTagObserver() {
         if (tagMutation) {
@@ -25,6 +28,7 @@
         if (resizeHandler) window.removeEventListener('resize', resizeHandler);
         scrollHandler = null;
         resizeHandler = null;
+        menuLocked = false;
     }
 
     function measureAnchor() {
@@ -38,10 +42,15 @@
     function evaluateMenu() {
         const y = window.scrollY || window.pageYOffset || 0;
         const threshold = anchorTop - headerH - 8;
+        if (menuLocked) return;
         const shouldShow = y >= threshold;
         if (showMenu !== shouldShow) {
             showMenu = shouldShow;
-            if (shouldShow) requestAnimationFrame(updateHeaderVar);
+            if (shouldShow) {
+                menuLocked = true;
+                requestAnimationFrame(updateHeaderVar);
+                disconnectTagObserver();
+            }
         }
     }
 
@@ -115,7 +124,21 @@
         const unsubscribe = page.subscribe((v) => handleRouteChange(v));
         // Run once for client side to configure watchers
         handleRouteChange(get(page));
-        return () => unsubscribe();
+        // Fade menu/tag selector while scrolling
+        scrollFadeHandler = () => {
+            document.documentElement.classList.add('is-scrolling');
+            if (scrollFadeTimer) clearTimeout(scrollFadeTimer);
+            scrollFadeTimer = setTimeout(() => {
+                document.documentElement.classList.remove('is-scrolling');
+            }, 180);
+        };
+        window.addEventListener('scroll', scrollFadeHandler, { passive: true });
+        return () => {
+            unsubscribe();
+            disconnectTagObserver();
+            if (scrollFadeHandler) window.removeEventListener('scroll', scrollFadeHandler);
+            if (scrollFadeTimer) clearTimeout(scrollFadeTimer);
+        };
     });
 </script>
 

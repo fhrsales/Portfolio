@@ -182,6 +182,37 @@ strong {
     opacity: 1;
 }
 
+/* Sticky anchor for tag selector */
+.tag-selector-anchor {
+	position: sticky;
+	top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + (var(--grid) * 1.5));
+	z-index: 5;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	/* background: var(--body-bg, var(--color-light)); */
+}
+@media (min-width: 900px) {
+	.tag-selector-anchor {
+		top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + (var(--grid) * 2));
+	}
+}
+
+/* Fade menu + tag selector while scrolling */
+.menu-bar,
+.tag-selector-anchor {
+	transition: opacity 220ms ease;
+}
+html.is-scrolling .menu-bar:not(.hidden),
+html.is-scrolling .tag-selector-anchor {
+	opacity: 0;
+	pointer-events: none;
+}
+html:not(.is-scrolling) .menu-bar:not(.hidden) {
+	opacity: 1;
+	pointer-events: auto;
+}
+
 /* 100vh hero wrapper to guarantee first scroll occupation */
 .intro-hero {
 	/* legacy: no longer used, kept for compatibility */

@@ -1,7 +1,7 @@
 <script>
 	import { archiePages } from '$lib/stores';
 	import { derived } from 'svelte/store';
-    import { onMount, onDestroy } from 'svelte';
+    import { onDestroy } from 'svelte';
     import Button from '$lib/components/ui/Button.svelte';
 
 	// bindable selected tag
@@ -39,34 +39,7 @@
 
 	let derivedTags = [];
     const unsubscribe = allTags.subscribe((v) => (derivedTags = v));
-    let _scrollTimer;
-    let _onScroll;
-    let scrolling = false;
-
-    onMount(() => {
-        _onScroll = () => {
-            scrolling = true;
-            if (_scrollTimer) clearTimeout(_scrollTimer);
-            _scrollTimer = setTimeout(() => {
-                scrolling = false;
-            }, 220);
-        };
-        if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', _onScroll, { passive: true });
-        }
-        return () => {
-            unsubscribe();
-            if (typeof window !== 'undefined' && _onScroll) {
-                try {
-                    window.removeEventListener('scroll', _onScroll);
-                } catch {}
-            }
-            if (_scrollTimer) {
-                clearTimeout(_scrollTimer);
-                _scrollTimer = null;
-            }
-        };
-    });
+    onDestroy(() => unsubscribe());
 
 	$: visibleTags = tags && Array.isArray(tags) ? tags : derivedTags;
 
@@ -75,7 +48,7 @@
 	}
 </script>
 
-<div class="tag-selector" class:scrolling>
+<div class="tag-selector">
 	<Button on:click={() => (selected = '')} active={selected === ''}>All</Button>
 	{#if visibleTags && visibleTags.length}
 		{#each visibleTags as t (t)}
@@ -86,29 +59,14 @@
 
 <style>
     .tag-selector {
-        position: sticky;
-        /* account for safe-area top on mobile UI chrome */
-        top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 9));
         display: flex;
         gap: calc(var(--grid) * 0.5);
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        z-index: 2;
         margin: 0 auto calc(var(--grid) * 3) auto;
         width: calc(100% - (var(--grid) * 4));
         max-width: calc(var(--grid) * 70);
-        transition: opacity 500ms ease;
-    }
-    @media (min-width: 900px) {
-        .tag-selector {
-            /* desktop: slightly lower offset for breathing room */
-            top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 10));
-        }
-    }
-    .tag-selector.scrolling {
-        opacity: 0;
-        pointer-events: none;
     }
     /* Style underlying .btn from Button component */
     .tag-selector :global(.btn) {
@@ -118,6 +76,10 @@
 	.tag-selector :global(.btn.active) {
 		background: var(--color-primary);
 		color: #fff;
+	}
+	.tag-selector :global(.btn:hover:not(.active):not(.primary)) {
+		background: color-mix(in srgb, var(--color-primary) 12%, var(--color-light));
+		color: var(--color-primary);
 	}
 
     /* Mobile: smaller chips */
