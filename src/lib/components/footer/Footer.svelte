@@ -30,7 +30,7 @@
 	}
 
 	footer {
-		width: 100vw;
+		width: calc(100% - (var(--grid) * 4));
         max-width: calc(var(--grid) * 70);
 		padding: calc(var(--grid) * 3) 0 calc(var(--grid) * 2) 0;
 		box-sizing: border-box;
