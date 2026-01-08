@@ -252,15 +252,6 @@ html:not(.is-scrolling) .tag-selector-anchor {
 		margin-top: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) - var(--intro-offset, 0px)) !important;
 		margin-bottom: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) + var(--intro-offset, 0px)) !important;
 	}
-	.main-content.is-home p:first-of-type,
-	.main-content.is-home p:nth-of-type(2) {
-		font-size: calc(var(--grid) * 2.6) !important;
-		line-height: 1.4 !important;
-		--intro-offset: 12px;
-		--intro-p-height: min(55vh, 240px);
-		margin-top: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) - var(--intro-offset, 0px)) !important;
-		margin-bottom: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) + var(--intro-offset, 0px)) !important;
-	}
 	.intro-hero {
 		padding: calc(var(--grid) * 3) 0;
 	}

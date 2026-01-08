@@ -18,11 +18,11 @@
 		max-width: calc(var(--grid) * 50);
 	}
 	.heading-4 {
-		font-size: calc(var(--grid) * 1.9);
+		font-size: calc(var(--grid) * 2.4);
 	}
 	@media (max-width: 600px) {
 		.heading-4 {
-			font-size: calc(var(--grid) * 1.6);
+			font-size: calc(var(--grid) * 2.3);
 		}
 	}
 </style>

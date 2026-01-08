@@ -19,11 +19,11 @@
 		/* text-align: center; */
 	}
 	.heading-3 {
-		font-size: calc(var(--grid) * 2.3);
+		font-size: calc(var(--grid) * 2.6);
 	}
 	@media (max-width: 600px) {
 		.heading-3 {
-			font-size: calc(var(--grid) * 2.0);
+			font-size: calc(var(--grid) * 2.4);
 		}
 	}
 </style>
