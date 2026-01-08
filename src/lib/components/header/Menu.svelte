@@ -47,18 +47,7 @@
 	}
 
 	onMount(() => {
-		try {
-			const stored = localStorage.getItem('theme');
-			if (stored === 'dark' || stored === 'light') {
-				applyTheme(stored);
-				return;
-			}
-		} catch {
-			// ignore
-		}
-		if (typeof window !== 'undefined' && window.matchMedia) {
-			applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-		}
+		applyTheme('light');
 	});
 
 	// close mobile menu when navigating to a new route
@@ -92,23 +81,6 @@
 				<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
 			</svg>
 		</button>
-		<button
-			class="theme-toggle"
-			type="button"
-			aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
-			on:click={toggleTheme}
-		>
-			{#if isDark}
-				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-					<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z" />
-				</svg>
-			{:else}
-				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-					<circle cx="12" cy="12" r="4.2" />
-					<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
-				</svg>
-			{/if}
-		</button>
 		{#if pages.length || import.meta.env.DEV}
 			<ul class="desktop-menu">
 				{#each pages as p (p)}
@@ -119,6 +91,25 @@
 						<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
 					</li>
 				{/each}
+				<li class="theme-item">
+					<button
+						class="theme-toggle theme-toggle-desktop"
+						type="button"
+						aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
+						on:click={toggleTheme}
+					>
+						{#if isDark}
+							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+								<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z" />
+							</svg>
+						{:else}
+							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+								<circle cx="12" cy="12" r="4.2" />
+								<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
+							</svg>
+						{/if}
+					</button>
+				</li>
 				{#if import.meta.env.DEV}
 					<li class="admin-link">
 						<a href={resolve('/admin')} style="color:#0070f3;font-weight:bold;">Admin</a>
@@ -148,12 +139,7 @@
 <style>
 	.menu-bar {
 		width: 100vw;
-		background: linear-gradient(
-			135deg,
-			var(--glass-1) 0%,
-			var(--glass-2) 55%,
-			var(--glass-3) 100%
-		);
+		background: var(--glass-1);
 		backdrop-filter: blur(14px) saturate(160%);
 		-webkit-backdrop-filter: blur(14px) saturate(160%);
 		/* border-bottom: 1px solid #eee; */
@@ -161,7 +147,7 @@
 		top: env(safe-area-inset-top, 0px);
 		padding-top: env(safe-area-inset-top, 0px);
 		z-index: 1000;
-		margin-bottom: calc(var(--grid) * 5);
+		/* margin-bottom: calc(var(--grid) * 5); */
 	}
 
 	/* optional fade-in on mount (home only) */
@@ -277,20 +263,18 @@
 		cursor: pointer;
 	}
 	.theme-toggle {
-		position: absolute;
-		right: 1em;
-		top: 50%;
-		transform: translateY(-50%);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		width: 34px;
 		height: 34px;
 		border-radius: 50%;
-		border: 1px solid color-mix(in srgb, var(--color-dark) 25%, transparent);
-		background: color-mix(in srgb, var(--color-light) 80%, transparent);
+		border: none;
+		background: transparent;
 		cursor: pointer;
-		transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+		transition: background 180ms ease;
+		position: relative;
+		top: -2px;
 	}
 	.theme-toggle svg {
 		width: 18px;
@@ -301,12 +285,18 @@
 		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
+	li.theme-item {
+		display: flex;
+		align-items: center;
+	}
+	.theme-toggle-desktop {
+		width: 30px;
+		height: 30px;
+	}
 	.theme-toggle:hover,
 	.theme-toggle:focus-visible {
 		background: color-mix(in srgb, var(--color-primary) 10%, transparent);
-		border-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
 		outline: none;
-		transform: translateY(-50%) scale(1.04);
 	}
 	/* Hamburger SVG styles */
 	.menu-toggle svg {
@@ -373,12 +363,9 @@
 		}
 		.menu-toggle {
 			display: block;
-			margin-left: 1em;
 		}
 		.theme-toggle {
-			position: static;
-			transform: none;
-			margin-left: 0.5em;
+			margin-left: 0;
 		}
 		.admin-link {
 			margin-left: 0 !important;

@@ -39,6 +39,9 @@
         scrollHandler = null;
         resizeHandler = null;
         menuLocked = false;
+        if (typeof document !== 'undefined') {
+            document.documentElement.classList.remove('has-tag-selector');
+        }
     }
 
     function measureAnchor() {
@@ -86,6 +89,7 @@
                 if (tagAnchor) {
                     tagMutation.disconnect();
                     tagMutation = null;
+                    document.documentElement.classList.add('has-tag-selector');
                     attachScrollWatcher();
                 }
             });
@@ -93,6 +97,7 @@
             if (container) tagMutation.observe(container, { childList: true, subtree: true });
             return;
         }
+        document.documentElement.classList.add('has-tag-selector');
         attachScrollWatcher();
     }
 
