@@ -6,6 +6,8 @@
     export let fadeIn = false;
     export let hidden = false;
     let open = false;
+	let logoTick = 0;
+	const logoSrc = resolve('/imgs/fabio_sales.svg');
 	let pages = [];
 	let menuLabels = {};
 	let current = '';
@@ -21,6 +23,9 @@
 		return unsubscribe;
 	});
 	$: current = $page.url.pathname.replace(/^\/|\/$/g, '');
+	const replayLogo = () => {
+		logoTick = (logoTick + 1) % 10000;
+	};
 
 	// close mobile menu when navigating to a new route
 	$: if (typeof current === 'string') {
@@ -30,9 +35,9 @@
 
 <nav class="menu-bar" class:fadeIn class:hidden>
 	<div class="menu-container">
-		<a class="logo" href={resolve('/')}>
+		<a class="logo" href={resolve('/')} on:mouseenter={replayLogo} on:focus={replayLogo}>
 			<img
-				src={resolve('/imgs/fabio_sales.svg')}
+				src={`${logoSrc}?v=${logoTick}`}
 				alt="Fabio Sales"
 				class="logo-img"
 				width="169"
@@ -176,10 +181,31 @@
 		color: var(--color-dark);
 		text-decoration: none;
 		margin: 0 calc(var(--grid) * 1);
+		position: relative;
+		transition: color 180ms ease;
 	}
 
 	li.active a {
 		color: var(--color-primary);
+	}
+	ul.desktop-menu li a::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -3px;
+		height: 2px;
+		width: 0;
+		background: currentColor;
+		transition: width 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+	ul.desktop-menu li a:hover,
+	ul.desktop-menu li a:focus {
+		color: var(--color-primary);
+		outline: none;
+	}
+	ul.desktop-menu li a:hover::after,
+	ul.desktop-menu li a:focus::after {
+		width: 100%;
 	}
 	.menu-toggle {
 		display: none;
