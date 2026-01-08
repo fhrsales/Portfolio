@@ -281,6 +281,7 @@
 		border: none;
 		font-size: 2em;
 		cursor: pointer;
+        margin-right: 0.4em;
 	}
 	.menu-actions {
 		display: none;
@@ -409,7 +410,7 @@
 		}
 		.theme-toggle-mobile {
 			position: relative;
-			top: 2px;
+			top: 1px;
 		}
 		.theme-toggle {
 			margin-left: 0;
