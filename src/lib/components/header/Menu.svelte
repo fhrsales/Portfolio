@@ -68,19 +68,39 @@
 				decoding="async"
 			/>
 		</a>
-		<button
-			class="menu-toggle"
-			class:open
-			on:click={() => (open = !open)}
-			aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-			aria-expanded={open}
-		>
-			<svg viewBox="1 1 24 18" aria-hidden="true" focusable="false">
-				<rect class="line l1" x="0" y="4" width="24" height="2" rx="2" />
-				<!-- <rect class="line l2" x="0" y="8" width="24" height="2" rx="1" /> -->
-				<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
-			</svg>
-		</button>
+		<div class="menu-actions">
+			<button
+				class="menu-toggle"
+				class:open
+				on:click={() => (open = !open)}
+				aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+				aria-expanded={open}
+			>
+				<svg viewBox="1 1 24 18" aria-hidden="true" focusable="false">
+					<rect class="line l1" x="0" y="4" width="24" height="2" rx="2" />
+					<!-- <rect class="line l2" x="0" y="8" width="24" height="2" rx="1" /> -->
+					<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
+				</svg>
+			</button>
+			<span class="menu-sep" aria-hidden="true"></span>
+			<button
+				class="theme-toggle theme-toggle-mobile"
+				type="button"
+				aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
+				on:click={toggleTheme}
+			>
+				{#if isDark}
+					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z" />
+					</svg>
+				{:else}
+					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<circle cx="12" cy="12" r="4.2" />
+						<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
+					</svg>
+				{/if}
+			</button>
+		</div>
 		{#if pages.length || import.meta.env.DEV}
 			<ul class="desktop-menu">
 				{#each pages as p (p)}
@@ -262,6 +282,23 @@
 		font-size: 2em;
 		cursor: pointer;
 	}
+	.menu-actions {
+		display: none;
+		position: absolute;
+		right: 1em;
+		top: 50%;
+		transform: translateY(-50%);
+		align-items: center;
+		gap: 0.5em;
+	}
+	.menu-sep {
+		display: inline-block;
+		width: 1px;
+		height: 1em;
+		background: var(--color-dark);
+		border-radius: 1px;
+		opacity: 0.3;
+	}
 	.theme-toggle {
 		display: inline-flex;
 		align-items: center;
@@ -341,6 +378,9 @@
 		ul.desktop-menu {
 			display: none;
 		}
+		li.theme-item {
+			display: none;
+		}
 		ul.mobile-menu {
 			flex-direction: column;
 			width: 100%;
@@ -363,6 +403,13 @@
 		}
 		.menu-toggle {
 			display: block;
+		}
+		.menu-actions {
+			display: inline-flex;
+		}
+		.theme-toggle-mobile {
+			position: relative;
+			top: 2px;
 		}
 		.theme-toggle {
 			margin-left: 0;
