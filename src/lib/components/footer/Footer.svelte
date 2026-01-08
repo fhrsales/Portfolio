@@ -43,6 +43,7 @@
         line-height: 1.4;
 		/* text-transform: uppercase; */
 		color: var(--color-dark);
+        opacity: 0.8;
 	}
 
 	footer a {

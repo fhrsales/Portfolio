@@ -6,6 +6,7 @@
 	import H4 from '$lib/components/heading/H4.svelte';
 	import H5 from '$lib/components/heading/H5.svelte';
 	import Timeline from '$lib/components/Timeline.svelte';
+	import Divider from '$lib/components/Divider.svelte';
 	import Text from '$lib/components/text/Text.svelte';
 	import EmbedWrapper from '$lib/components/embed/EmbedWrapper.svelte';
 	import PdfViewer from '$lib/components/image/PdfViewer.svelte';
@@ -13,14 +14,17 @@
 	import ImageBlock from '$lib/components/image/ImageBlock.svelte';
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
-    import AutoScrollGallery from '$lib/components/image/AutoScrollGallery.svelte';
+	import AutoScrollGallery from '$lib/components/image/AutoScrollGallery.svelte';
+	import FadeCarousel from '$lib/components/image/FadeCarousel.svelte';
     import ScrollBg from '$lib/components/ScrollBg.svelte';
 	import LazyMount from '$lib/components/LazyMount.svelte';
 	import TagSelector from '$lib/components/TagSelector.svelte';
+	import InlineTags from '$lib/components/InlineTags.svelte';
 
 	import { archiePages } from '$lib/stores';
 	import { page } from '$app/stores';
 	import { derived } from 'svelte/store';
+	import { fade } from 'svelte/transition';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { parseVideo as parseVideoHelper } from '$lib/parsers/video.js';
 	import { withBase } from '$lib/paths.js';
@@ -36,6 +40,16 @@
 	export let base = '';
 	// local selection when TagSelector is rendered inside the content
 	let localSelectedTag = '';
+	const fadeIn = { duration: 220 };
+	const fadeOut = { duration: 160 };
+	const noFade = { duration: 0 };
+	let enableFilterFade = false;
+	let _lastFilter = '';
+
+	$: if (localSelectedTag !== _lastFilter) {
+		_lastFilter = localSelectedTag;
+		enableFilterFade = true;
+	}
 
 	// derive currentPage from $page
 	const currentPage = derived(page, ($page) => {
@@ -78,6 +92,21 @@
 
 	// inline parsing code removed (logic moved to parsers)
 
+	function parseDurationMs(value, fallbackMs) {
+		const raw = String(value || '').trim().toLowerCase();
+		if (!raw) return fallbackMs;
+		if (/ms$/.test(raw)) {
+			const ms = Number(raw.replace(/ms$/, '').trim());
+			return Number.isFinite(ms) ? Math.max(200, Math.round(ms)) : fallbackMs;
+		}
+		if (/s$/.test(raw)) {
+			const s = Number(raw.replace(/s$/, '').trim());
+			return Number.isFinite(s) ? Math.max(200, Math.round(s * 1000)) : fallbackMs;
+		}
+		const n = Number(raw);
+		return Number.isFinite(n) ? Math.max(200, Math.round(n * 1000)) : fallbackMs;
+	}
+
 	// annotate blocks: mark whether they appear after a selector (so filtering only affects blocks after it)
 	$: annotatedBlocks = annotateBlocks(blockObjects);
 
@@ -87,6 +116,43 @@
 
 	function parseVideo(bloco) {
 		return parseVideoHelper(bloco);
+	}
+
+	function fixLinks(html, basePath) {
+		if (!basePath) return html;
+		return String(html).replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${basePath}/$1'`);
+	}
+
+	function injectInlineLogo(html, basePath) {
+		if (!html) return html;
+		const logoSrc = basePath ? `${basePath}/imgs/fabio_sales.svg` : '/imgs/fabio_sales.svg';
+		return String(html).replace(
+			/<strong>\s*Fabio\s+Sales(\.)?\s*<\/strong>/gi,
+			(_, dot) =>
+				`<span class="inline-logo" role="img" aria-label="Fabio Sales" style="--inline-logo-url: url('${logoSrc}')">Fabio Sales</span>` +
+				(dot ? '.' : '')
+		);
+	}
+
+	function sanitizeHeadingHtml(html) {
+		if (!html) return '';
+		return String(html)
+			.replace(/\son[a-z]+\s*=\s*(["']).*?\1/gi, '')
+			.replace(/(href|src)=(['"])javascript:[^\2]*\2/gi, '$1="#"');
+	}
+
+	function renderIntroHtml(html) {
+		return sanitizeHeadingHtml(injectInlineLogo(fixLinks(html, base), base));
+	}
+
+	function sameTags(a, b) {
+		if (!Array.isArray(a) || !Array.isArray(b)) return false;
+		if (a.length !== b.length) return false;
+		const setA = new Set(a.map((t) => String(t).toLowerCase()));
+		for (const t of b) {
+			if (!setA.has(String(t).toLowerCase())) return false;
+		}
+		return true;
 	}
 
 	// mark the first image on the page as priority (helps LCP)
@@ -116,9 +182,15 @@
 		{:else}
 			{@const bloco = obj.raw}
 			{@const blocoStr = typeof bloco === 'string' ? bloco.trim() : ''}
-			{#if !obj.isAfterSelector || !localSelectedTag || (obj.tags && obj.tags
-						.map((t) => t.toLowerCase())
-						.includes(localSelectedTag.toLowerCase()))}
+			{#if !localSelectedTag || obj.isAfterSelector}
+				{#if !localSelectedTag || (obj.tags && obj.tags
+							.map((t) => t.toLowerCase())
+							.includes(localSelectedTag.toLowerCase()))}
+				<div
+					class="filtered-block"
+					in:fade={enableFilterFade ? fadeIn : noFade}
+					out:fade={enableFilterFade ? fadeOut : noFade}
+				>
 				{#if blocoStr.match(/^h1:\s*(.+)$/i)}
 					<H1 value={blocoStr.replace(/^h1:\s*/i, '')} />
 				{:else if blocoStr.match(/^h2:\s*(.+)$/i)}
@@ -129,6 +201,8 @@
 					<H4 value={blocoStr.replace(/^h4:\s*/i, '')} />
 				{:else if blocoStr.match(/^h5:\s*(.+)$/i)}
 					<H5 value={blocoStr.replace(/^h5:\s*/i, '')} />
+				{:else if blocoStr.match(/^<divisor\s*\/?>$/i) || blocoStr.match(/^<divisor\s*>\s*<\/divisor>$/i) || blocoStr.match(/^\{divisor\}$/i)}
+					<Divider />
 				{:else if blocoStr.match(/^titulo: (.+)$/i)}
 					<Title value={blocoStr.replace(/^titulo: /i, '')} />
 				{:else if blocoStr.match(/^embedWrapper: (.+)$/i)}
@@ -136,15 +210,143 @@
 				{:else if blocoStr.match(/^pdf: (.+)$/i)}
 					<PdfViewer value={blocoStr.replace(/^pdf: /i, '')} />
 				{:else if blocoStr.match(/^ai2html: (.+)$/i)}
-					<Ai2Html
-						dir={withBase(`/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`, base)}
-					/>
+					<Ai2Html dir={withBase(`/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`, base)} />
 				{:else if typeof bloco === 'object' && bloco.fundo}
 					{#key i}
 						<ScrollBg
 							color={(bloco.fundo.cor || bloco.fundo.color || bloco.fundo.bg || '').trim() || 'var(--color-light)'}
 							height={(bloco.fundo.altura || bloco.fundo.height || bloco.fundo.vh || '').trim()}
 						/>
+					{/key}
+				{:else if typeof bloco === 'object' && bloco.intro}
+					{#key i}
+						{@const conf = bloco.intro}
+						{#if conf.fundo1}
+							<ScrollBg
+								color={String(conf.fundo1 || '').trim() || 'var(--color-light)'}
+								height={String(conf.altura1 || '').trim()}
+							/>
+						{/if}
+						{#if conf.texto1}
+							<h1 class="intro-paragraph text-m intro-animated intro-h1">
+								{@html renderIntroHtml(conf.texto1)}
+							</h1>
+						{/if}
+						{#if conf.fundo2}
+							<ScrollBg
+								color={String(conf.fundo2 || '').trim() || 'var(--color-light)'}
+								height={String(conf.altura2 || '').trim()}
+							/>
+						{/if}
+						{#if conf.texto2}
+							<h2 class="intro-paragraph text-m intro-animated">
+								{@html renderIntroHtml(conf.texto2)}
+							</h2>
+						{/if}
+					{/key}
+				{:else if typeof bloco === 'object' && bloco.bloco}
+					{#key i}
+						{@const conf = bloco.bloco}
+						{@const blocoTags = conf.tags && conf.tags.length ? conf.tags : obj.tags}
+						<div
+							class={`content-block ${conf.display && conf.display.toLowerCase() === 'flex' ? 'is-flex' : ''} ${conf.classes || ''}`}
+							style={`${conf.display ? `display:${conf.display};` : ''}${conf.gap ? `gap:${conf.gap};` : ''}${conf.align ? `align-items:${conf.align};` : ''}`}
+						>
+							{#each conf.items || [] as item, bi (bi)}
+								{#if item.type === 'image'}
+									{#await Promise.resolve(parseImagem(item.data)) then img}
+										{@const _baseName3 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
+										{@const _meta3 = imageMeta[img.nome]}
+										{@const _hasAvif3 = !!(_meta3 && _meta3.avif)}
+										{@const _hasWebp3 = !!(_meta3 && _meta3.webp)}
+										<ImageBlock
+											src={withBase(`/imgs/${img.nome}`, base)}
+											nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
+											alt={img.nome}
+											size={img.tamanho}
+											caption={img.legenda}
+											classes={img.classes}
+											radius={img.radius}
+											borda={img.radius}
+											tags={img.tags}
+											multiply={img.multiply}
+											width={img.width || (_meta3 && _meta3.width) || ''}
+											height={img.height || (_meta3 && _meta3.height) || ''}
+											ratio={img.ratio || (_meta3 && _meta3.ratio) || ''}
+											srcset={img.srcset}
+											sizes={img.sizes}
+											webp={
+												isProd && _hasWebp3
+													? withBase(`/imgs/${img.webp || `${_baseName3}.webp`}`, base)
+													: ''
+											}
+											avif={
+												isProd && _hasAvif3
+													? withBase(`/imgs/${img.avif || `${_baseName3}.avif`}`, base)
+													: ''
+											}
+											sources={img.sources}
+											priority={nextImagePriority()}
+										/>
+									{/await}
+								{:else if item.type === 'video'}
+									{#await Promise.resolve(parseVideo(item.data.video || item.data)) then vid}
+										<VideoBlock
+											src={withBase(`/videos/${vid.nome || vid.name}`, base)}
+											sources={vid.sources
+												? Array.isArray(vid.sources)
+													? vid.sources.map((s) =>
+															s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+														)
+													: String(vid.sources)
+															.split(',')
+															.map((s) => s.trim())
+															.filter(Boolean)
+															.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
+												: []}
+											size={vid.tamanho || vid.size || 'M'}
+											caption={vid.legenda || vid.caption || ''}
+											classes={vid.classes}
+											radius={vid.radius || vid.borda}
+											tags={vid.tags}
+										/>
+									{/await}
+								{:else if item.type === 'text'}
+									<Text
+										value={{
+											body: String(item.text || '')
+												.split(/\n+/)
+												.map((s) => s.trim())
+												.filter(Boolean)
+										}}
+									/>
+								{:else if item.type === 'heading'}
+									{#if item.level === 1}
+										<H1 value={item.text || ''} />
+									{:else if item.level === 2}
+										<H2 value={item.text || ''} />
+									{:else if item.level === 3}
+										<H3 value={item.text || ''} />
+									{:else if item.level === 4}
+										<H4 value={item.text || ''} />
+									{:else if item.level === 5}
+										<H5 value={item.text || ''} />
+									{:else}
+										<Text
+											value={{
+												body: String(item.text || '')
+													.split(/\n+/)
+													.map((s) => s.trim())
+													.filter(Boolean)
+											}}
+										/>
+									{/if}
+								{/if}
+							{/each}
+							{#if blocoTags && blocoTags.length}
+								<InlineTags tags={blocoTags} />
+							{/if}
+						</div>
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.cronologia}
 					{#key i}
@@ -186,6 +388,11 @@
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
+							{#if obj.tags && obj.tags.length}
+								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
+									<InlineTags tags={obj.tags} />
+								{/if}
+							{/if}
 						{/await}
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.slider}
@@ -206,6 +413,23 @@
 							padding={(conf.padding || '').trim()}
 							paddingTop={(conf['padding-top'] || conf.paddingtop || '').trim()}
 							paddingBottom={(conf['padding-bottom'] || conf.paddingbottom || '').trim()}
+						/>
+					{/key}
+				{:else if typeof bloco === 'object' && bloco.carrossel}
+					{#key i}
+						{@const conf = bloco.carrossel}
+						{@const dir = (conf.pasta || conf.dir || '').trim()}
+						{@const size = (conf.tamanho || conf.size || '').trim()}
+						{@const intervalMs = parseDurationMs(conf.tempo, 3000)}
+						{@const fadeMs = parseDurationMs(conf.fade || conf.transicao || conf['transição'], 600)}
+						<FadeCarousel
+							dir={dir ? `imgs/${dir}` : 'imgs'}
+							intervalMs={intervalMs}
+							fadeMs={fadeMs}
+							height={(conf.altura || conf.height || '').trim()}
+							background={(conf.fundo || conf.bg || '').trim()}
+							size={size}
+							classes={conf.classes}
 						/>
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.video}
@@ -230,6 +454,11 @@
 								radius={vid.radius || vid.borda}
 								tags={vid.tags}
 							/>
+							{#if obj.tags && obj.tags.length}
+								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
+									<InlineTags tags={obj.tags} />
+								{/if}
+							{/if}
 						{/await}
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.scrollerVideo}
@@ -313,6 +542,11 @@
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
+							{#if obj.tags && obj.tags.length}
+								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
+									<InlineTags tags={obj.tags} />
+								{/if}
+							{/if}
 						{/await}
 					{/key}
 				{:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
@@ -337,6 +571,11 @@
 								radius={vid.radius}
 								tags={vid.tags}
 							/>
+							{#if obj.tags && obj.tags.length}
+								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
+									<InlineTags tags={obj.tags} />
+								{/if}
+							{/if}
 						{/await}
 					{/key}
 				{:else}
@@ -349,16 +588,8 @@
 									: ['']
 						}}
 					/>
-					{#if typeof bloco === 'string' && obj.tags && obj.tags.length}
-						<div class="inline-tags">
-                        <div class="inline-tags__label">What I did:</div>
-                    <div class="inline-tags__chips">
-                        {#each obj.tags as t (t)}
-                            <span class="chip">{t}</span>
-                        {/each}
-                    </div>
-						</div>
-					{/if}
+				{/if}
+				</div>
 				{/if}
 			{/if}
 		{/if}
@@ -369,48 +600,16 @@
 {/if}
 
 <style>
-  /* Inline, non-interactive tag chips displayed after text blocks */
-  .inline-tags {
-    width: calc(100% - (var(--grid) * 4));
-    max-width: calc(var(--grid) * 50);
-    margin: calc(var(--grid) * -3.5) auto calc(var(--grid) * 4) auto; /* pull closer to the paragraph above */
-  }
-  .inline-tags__label {
-    font-family: var(--font-primary);
-    font-size: calc(var(--grid) * 1.2);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-dark);
-    background: color-mix(in srgb, var(--color-tertiary) 92%, transparent);
-    padding: 0.2rem 0.45rem 0.15rem;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: calc(var(--grid) * 1);
-    text-transform: uppercase;
-    opacity: 1;
-  }
-  .inline-tags__chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--grid) * 0.5);
-  }
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.30rem 0.50rem 0.20rem; /* top slightly larger to visually center on iOS */
-    border-radius: 999px;
-    background: var(--color-primary); /* dark blue */
-    color: #fff; /* white text */
-    font-family: var(--font-primary);
-    font-weight: 700;
-    font-size: calc(var(--grid) * 0.95); /* smaller text */
-    line-height: 1.12; /* improves vertical balance on iOS */
-    text-transform: uppercase;
-    letter-spacing: 0.06em; /* increased spacing */
-    border: 1px solid color-mix(in srgb, #000 12%, transparent);
-    box-shadow: none;
-    vertical-align: middle;
-  }
+	.filtered-block {
+		width: 100%;
+	}
+	.content-block {
+		width: 100%;
+		display: block;
+	}
+	.content-block.is-flex {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
 </style>

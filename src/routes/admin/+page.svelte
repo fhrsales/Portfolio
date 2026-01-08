@@ -23,6 +23,8 @@
 	let _fadeIn = false;
 	// formatting helpers for textarea
 	let editorEl;
+
+
 	function makeBold() {
 		if (editorEl) {
 			editorEl.focus();
@@ -549,7 +551,13 @@
 	textarea {
 		min-height: 240px;
 		resize: vertical;
-		line-height: 1.5;
+		line-height: inherit;
+	}
+	.editor-wrapper .editor-input {
+		color: transparent;
+		background: transparent;
+		border: none;
+		box-shadow: none;
 	}
 
 	input[type='checkbox'] {

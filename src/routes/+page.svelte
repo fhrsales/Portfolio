@@ -111,14 +111,14 @@
 		}
 	}
 
-	function setupIntro(p) {
-		if (!p || p.dataset.introProcessed === '1') return true;
-		p.dataset.introProcessed = '1';
-		p.classList.add('intro-paragraph', 'text-m');
+	function setupIntro(el) {
+		if (!el || el.dataset.introProcessed === '1') return true;
+		el.dataset.introProcessed = '1';
+		el.classList.add('intro-paragraph', 'text-m');
 
 		runWhenIdle(() => {
-			wrapWords(p);
-			const words = Array.from(p.querySelectorAll('.word'));
+			wrapWords(el);
+			const words = Array.from(el.querySelectorAll('.word'));
 			if (!words.length) return;
 
 			const tops = words.map((w) => w.offsetTop);
@@ -138,18 +138,18 @@
 			}
 
 			const revealOnce = () => {
-				if (p.dataset.introAnimated === '1') return;
-				p.dataset.introAnimated = '1';
-				p.classList.add('reveal');
+				if (el.dataset.introAnimated === '1') return;
+				el.dataset.introAnimated = '1';
+				el.classList.add('reveal');
 			};
 
-			const r = p.getBoundingClientRect();
+			const r = el.getBoundingClientRect();
 			const initialVisible = r.top < window.innerHeight * 0.65 && r.bottom > window.innerHeight * 0.15;
 			if (initialVisible) {
 				requestAnimationFrame(() => requestAnimationFrame(revealOnce));
 			}
 
-			if (!p._introObserver && 'IntersectionObserver' in window) {
+			if (!el._introObserver && 'IntersectionObserver' in window) {
 				const io = new IntersectionObserver(
 					(entries) => {
 						for (const e of entries) {
@@ -159,8 +159,8 @@
 					},
 					{ threshold: [0, 0.2, 0.35, 0.6, 0.8] }
 				);
-				io.observe(p);
-				p._introObserver = io;
+				io.observe(el);
+				el._introObserver = io;
 			}
 		});
 		return true;
@@ -172,8 +172,11 @@
 		if (!container) return;
 
 		function tryInitOnce() {
-			const allP = Array.from(container.querySelectorAll('p'));
-			const candidates = allP.filter((el) => (el.textContent || '').trim().length > 20).slice(0, 2);
+			let candidates = Array.from(container.querySelectorAll('.intro-animated'));
+			if (!candidates.length) {
+				const allP = Array.from(container.querySelectorAll('p'));
+				candidates = allP.filter((el) => (el.textContent || '').trim().length > 20).slice(0, 2);
+			}
 			if (!candidates.length) return false;
 			let ok = false;
 			if (candidates[0]) ok = setupIntro(candidates[0]) || ok;

@@ -2,11 +2,11 @@
 	--grid: 9px;
 	--font-primary: 'Fira Sans', sans-serif;
 
-	--color-primary: #120b68;
+	--color-primary: #060422;
 	--color-secondary: #a0c10e;
 	--color-tertiary: #ffffff;
     --color-danger: #e63946;
-	--color-dark: #2b2b2f;
+	--color-dark: #333338;
 	--color-light: #f5f5f5;
 
 	/* Scroll background defaults */
@@ -110,10 +110,13 @@ strong {
 
 /* Intro paragraph (index hero) */
 .intro-paragraph {
+    font-family: var(--font-primary);
+    font-weight: 300;
     font-size: calc(var(--grid) * 3.3) !important; /* slightly larger on desktop */
     line-height: 1.5 !important; /* increased line-height */
     letter-spacing: -0.02em;
     text-align: center;
+    color: var(--color-dark);
     --intro-offset: 24px;
     --intro-p-height: min(60vh, 320px);
 	/* vertical centering of the first scroll using dynamic margins with offset */
@@ -121,9 +124,8 @@ strong {
 	margin-bottom: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
 }
 
-/* Pre-apply hero layout on home to avoid CLS before JS decorates paragraphs */
-.main-content.is-home p:first-of-type,
-.main-content.is-home p:nth-of-type(2) {
+/* Pre-apply hero layout on home to avoid CLS before JS decorates headings */
+.main-content.is-home .intro-paragraph {
 	font-size: calc(var(--grid) * 3.3) !important;
 	line-height: 1.5 !important;
 	letter-spacing: -0.02em;
@@ -169,6 +171,12 @@ strong {
     overflow: hidden;
     text-indent: -9999px;
     white-space: nowrap;
+}
+
+/* Slightly larger inline logo in intro H1 */
+.intro-h1 .inline-logo {
+	width: 140px;
+	height: 38px;
 }
 
 @media (min-width: 900px) {

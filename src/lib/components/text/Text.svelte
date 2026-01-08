@@ -64,7 +64,7 @@
 		color: var(--color-dark);
 		width: calc(100% - (var(--grid) * 4));
 		max-width: calc(var(--grid) * 50);
-		margin: 0 auto calc(var(--grid) * 5) auto;
+		margin: 0 auto calc(var(--grid) * 2) auto;
 	}
 
 	p :global(a) {

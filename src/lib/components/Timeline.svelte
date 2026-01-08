@@ -98,12 +98,13 @@
 	.timeline-item::before {
 		content: '';
 		position: absolute;
-		left: var(--line-x);
+		/* left: var(--line-x); */
+        left: -2px;
 		top: calc(1.65em + (var(--dot-size) / 10));
 		bottom: 0;
 		width: 0;
-		border-left: 1px dotted color-mix(in srgb, var(--color-dark) 70%, transparent);
-		opacity: 1;
+		border-left: 2px solid color-mix(in srgb, var(--color-dark) 100%, transparent);
+		opacity: 0.1;
 	}
 	.timeline-item:last-child::before {
 		content: none;
@@ -119,8 +120,20 @@
 		height: var(--dot-size);
 		border-radius: 999px;
 		background: var(--color-primary);
-		box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 20%, transparent);
+		box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 10%, transparent);
 		z-index: 1;
+		animation: timeline-dot-blink 0.8s ease-in-out infinite;
+	}
+	@keyframes timeline-dot-blink {
+		0%,
+		100% {
+			box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 12%, transparent);
+		}
+		50% {
+			box-shadow:
+				0 0 0 7px color-mix(in srgb, var(--color-primary) 10%, transparent),
+				0 0 16px color-mix(in srgb, var(--color-primary) 10%, transparent);
+		}
 	}
 	.timeline-content {
 		font-family: var(--font-primary);
@@ -142,6 +155,9 @@
 	@media (prefers-reduced-motion: reduce) {
 		.timeline-item {
 			transition: none;
+		}
+		.timeline-dot {
+			animation: none;
 		}
 	}
 </style>

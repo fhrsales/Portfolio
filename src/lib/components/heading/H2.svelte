@@ -12,12 +12,12 @@
 		font-weight: 700;
 		letter-spacing: -0.02em;
 		line-height: 1.2;
-		color: var(--color-primary);
-		margin: 0 auto calc(var(--grid) * 2) auto;
+		color: var(--color-dark);
+		margin: calc(var(--grid) * 4) auto calc(var(--grid) * 2) auto;
 		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 70);
-		text-align: center;
+		max-width: calc(var(--grid) * 50);
 	}
+
 	.heading-2 {
 		font-size: calc(var(--grid) * 2.8);
 	}

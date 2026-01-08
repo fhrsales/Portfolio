@@ -37,6 +37,11 @@
   let isPaused = false;
   let hasFocus = true;
   let error = '';
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+  let dragPointerId = null;
+  let wasAutoRunning = false;
 
   /** @type {Array<{ url: string, type: 'image'|'pdf', loaded: boolean, width?: number, height?: number, previewIdx?: number, previewSrc?: string }>} */
   let items = [];
@@ -198,6 +203,35 @@
     else start();
   }
 
+  function onPointerDown(e) {
+    if (!containerEl) return;
+    if (typeof e.button === 'number' && e.button !== 0) return;
+    isDragging = true;
+    dragPointerId = e.pointerId;
+    dragStartX = e.clientX;
+    dragStartScroll = containerEl.scrollLeft || 0;
+    wasAutoRunning = !isPaused;
+    if (wasAutoRunning) stop();
+    try { containerEl.setPointerCapture && containerEl.setPointerCapture(e.pointerId); } catch {}
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging || e.pointerId !== dragPointerId || !containerEl) return;
+    const dx = e.clientX - dragStartX;
+    containerEl.scrollLeft = Math.max(0, dragStartScroll - dx);
+  }
+
+  function endDrag(e) {
+    if (!isDragging) return;
+    if (containerEl && dragPointerId !== null) {
+      try { containerEl.releasePointerCapture && containerEl.releasePointerCapture(dragPointerId); } catch {}
+    }
+    isDragging = false;
+    dragPointerId = null;
+    if (wasAutoRunning && !isPaused) start();
+    wasAutoRunning = false;
+  }
+
   function step() {
     if (!containerEl) return;
     const vw = containerEl.clientWidth || 0;
@@ -266,8 +300,14 @@
   <div
     bind:this={containerEl}
     class={`scroll-viewport ${size ? `size-${size}` : ''} ${classes || ''}`}
+    class:dragging={isDragging}
     class:hasHeight={!!height}
     style={`gap:${gap}px; ${height ? `height:${height};` : ''} ${background ? `background:${background};` : ''} ${padding || paddingTop ? `padding-top:${paddingTop || padding};` : ''} ${padding || paddingBottom ? `padding-bottom:${paddingBottom || padding};` : ''}`}
+    on:pointerdown={onPointerDown}
+    on:pointermove={onPointerMove}
+    on:pointerup={endDrag}
+    on:pointerleave={endDrag}
+    on:pointercancel={endDrag}
   >
     <div bind:this={trackEl} class="scroll-track" style={`gap:${gap}px`}>
       {#each items as it, i (i)}
@@ -280,6 +320,7 @@
                 loading="lazy"
                 width={it.width || undefined}
                 height={it.height || undefined}
+                draggable="false"
               />
             {:else}
               <div class="placeholder" aria-hidden="true"></div>
@@ -289,7 +330,13 @@
               {#if pdfAsImage}
                 {#if it.previewSrc}
                   <div class="pdf-thumb" style={`padding:${pdfPadding};`}>
-                    <img src={it.previewSrc} alt={`PDF ${i + 1}`} loading="lazy" on:error={() => onPreviewError(i)} />
+                    <img
+                      src={it.previewSrc}
+                      alt={`PDF ${i + 1}`}
+                      loading="lazy"
+                      draggable="false"
+                      on:error={() => onPreviewError(i)}
+                    />
                   </div>
                 {:else}
                   <div class="placeholder pdf" aria-hidden="true">PDF</div>
@@ -336,6 +383,11 @@
     overflow: hidden;
     position: relative;
     display: block;
+    cursor: grab;
+  }
+  .scroll-viewport.dragging {
+    cursor: grabbing;
+    user-select: none;
   }
   .scroll-viewport.size-PP { max-width: 250px; }
   .scroll-viewport.size-P { max-width: 500px; }
