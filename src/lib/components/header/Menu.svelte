@@ -147,12 +147,13 @@
 		top: -2px;
 		content: '';
 		display: inline-block;
-		width: 3px;
-		height: 3px;
+		width: 1px;
+		height: 1em;
 		background: var(--color-dark);
-		border-radius: 50%;
+		border-radius: 1px;
 		margin: 0 calc(var(--grid) * 1);
 		vertical-align: middle;
+        opacity: 0.3;
 	}
 
 	ul.mobile-menu {
@@ -238,6 +239,9 @@
 			padding-right: 1.5em;
 			box-sizing: border-box;
 			line-height: 1.5;
+		}
+		ul.mobile-menu li::before {
+			display: none;
 		}
 		ul.mobile-menu.open {
 			max-height: 400px; /* tall enough for menu content; adjust if necessary */
