@@ -12,7 +12,7 @@
 		font-weight: 600;
 		letter-spacing: -0.01em;
 		line-height: 1.3;
-		color: var(--color-primary);
+		color: var(--color-dark);
 		margin: 0 auto calc(var(--grid) * 1.2) auto;
 		width: calc(100% - (var(--grid) * 4));
 		max-width: calc(var(--grid) * 50);
