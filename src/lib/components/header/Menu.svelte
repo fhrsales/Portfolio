@@ -95,7 +95,8 @@
 		background: #fff;
 		/* border-bottom: 1px solid #eee; */
 		position: sticky;
-		top: 0;
+		top: env(safe-area-inset-top, 0px);
+		padding-top: env(safe-area-inset-top, 0px);
 		z-index: 1000;
 		margin-bottom: calc(var(--grid) * 5);
 	}

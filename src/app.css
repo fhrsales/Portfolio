@@ -1,8 +1,9 @@
 :root {
 	--grid: 9px;
 	--font-primary: 'Fira Sans', sans-serif;
+	--vh: 1vh;
 
-	--color-primary: #060422;
+	--color-primary: #09017c;
 	--color-secondary: #a0c10e;
 	--color-tertiary: #ffffff;
     --color-danger: #e63946;
@@ -16,6 +17,11 @@
 	--shadow-2: 0 1px 6px rgba(0, 0, 0, 0.2);
 
 	--multiply: multiply;
+}
+@supports (height: 100svh) {
+	:root {
+		--vh: 1svh;
+	}
 }
 
 /* normalize css */
@@ -36,7 +42,7 @@ main {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-height: 100vh;
+	min-height: calc(var(--vh) * 100);
 	width: 100vw;
 }
 
@@ -46,7 +52,7 @@ main {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-height: 100vh;
+	min-height: calc(var(--vh) * 100);
 	width: 100vw;
 }
 
@@ -54,16 +60,16 @@ main {
 .main-content.home-initial .intro-paragraph {
 	/* ignore header height when menu is hidden */
 	--intro-offset: 16px;
-	margin-top: calc(((100vh - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
-	margin-bottom: calc(((100vh - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
+	margin-top: calc(((calc(var(--vh) * 100) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
+	margin-bottom: calc(((calc(var(--vh) * 100) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
 }
 
 @media (max-width: 600px) {
 	.main-content.home-initial .intro-paragraph {
 		/* on mobile, also use true center instead of 1/3 distribution */
 		--intro-offset: 10px;
-		margin-top: calc(((100vh - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
-		margin-bottom: calc(((100vh - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
+		margin-top: calc(((calc(var(--vh) * 100) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
+		margin-bottom: calc(((calc(var(--vh) * 100) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
 	}
 }
 
@@ -117,11 +123,11 @@ strong {
     letter-spacing: -0.02em;
     text-align: center;
     color: var(--color-dark);
-    --intro-offset: 24px;
+	--intro-offset: 24px;
     --intro-p-height: min(60vh, 320px);
 	/* vertical centering of the first scroll using dynamic margins with offset */
-	margin-top: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
-	margin-bottom: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
+	margin-top: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
+	margin-bottom: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
 }
 
 /* Pre-apply hero layout on home to avoid CLS before JS decorates headings */
@@ -136,8 +142,8 @@ strong {
 	width: calc(100% - (var(--grid) * 4));
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
-	margin-bottom: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
+	margin-top: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
+	margin-bottom: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
 }
 
 /* Width M (aligns with image M: 620px) */
@@ -236,7 +242,7 @@ html:not(.is-scrolling) .tag-selector-anchor {
 /* 100vh hero wrapper to guarantee first scroll occupation */
 .intro-hero {
 	/* legacy: no longer used, kept for compatibility */
-	min-height: 100vh;
+	min-height: calc(var(--vh) * 100);
 	width: 100%;
 	padding: calc(var(--grid) * 4) 0;
 }
@@ -249,8 +255,8 @@ html:not(.is-scrolling) .tag-selector-anchor {
 		line-height: 1.4 !important;
 		--intro-offset: 12px;
 		--intro-p-height: min(55vh, 240px);
-		margin-top: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) - var(--intro-offset, 0px)) !important;
-		margin-bottom: calc(((100vh - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) + var(--intro-offset, 0px)) !important;
+		margin-top: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) - var(--intro-offset, 0px)) !important;
+		margin-bottom: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 3) + var(--intro-offset, 0px)) !important;
 	}
 	.intro-hero {
 		padding: calc(var(--grid) * 3) 0;
