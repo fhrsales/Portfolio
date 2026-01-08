@@ -45,7 +45,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.30rem 0.50rem 0.20rem; /* top slightly larger to visually center on iOS */
+		padding: 0.25rem 0.50rem 0.20rem; /* top slightly larger to visually center on iOS */
 		border-radius: 999px;
 		background: var(--color-primary); /* dark blue */
 		color: #fff; /* white text */
@@ -55,7 +55,7 @@
 		line-height: 1.12; /* improves vertical balance on iOS */
 		text-transform: uppercase;
 		letter-spacing: 0.06em; /* increased spacing */
-		border: 1px solid color-mix(in srgb, #000 12%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
 		box-shadow: none;
 		vertical-align: middle;
 	}

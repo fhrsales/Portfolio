@@ -64,7 +64,7 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        margin: 0 auto calc(var(--grid) * 3) auto;
+        margin: calc(var(--grid) * 1) auto calc(var(--grid) * 3) auto;
         width: calc(100% - (var(--grid) * 4));
         max-width: calc(var(--grid) * 70);
     }
@@ -92,4 +92,9 @@
             font-size: calc(var(--grid) * 0.9);
         }
     }
+	@media (min-width: 900px) {
+		.tag-selector {
+			max-width: 875px;
+		}
+	}
 </style>

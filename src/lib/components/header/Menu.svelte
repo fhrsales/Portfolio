@@ -8,6 +8,7 @@
     let open = false;
 	let logoTick = 0;
 	const logoSrc = resolve('/imgs/fabio_sales.svg');
+	let isDark = false;
 	let pages = [];
 	let menuLabels = {};
 	let current = '';
@@ -26,6 +27,39 @@
 	const replayLogo = () => {
 		logoTick = (logoTick + 1) % 10000;
 	};
+	function applyTheme(next) {
+		isDark = next === 'dark';
+		if (typeof document === 'undefined') return;
+		const root = document.documentElement;
+		root.classList.toggle('theme-dark', isDark);
+		root.classList.toggle('theme-light', !isDark);
+		root.style.colorScheme = isDark ? 'dark' : 'light';
+		const meta = document.querySelector('meta[name="theme-color"]');
+		if (meta) meta.setAttribute('content', isDark ? '#0f1116' : '#ffffff');
+		try {
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		} catch {
+			// ignore
+		}
+	}
+	function toggleTheme() {
+		applyTheme(isDark ? 'light' : 'dark');
+	}
+
+	onMount(() => {
+		try {
+			const stored = localStorage.getItem('theme');
+			if (stored === 'dark' || stored === 'light') {
+				applyTheme(stored);
+				return;
+			}
+		} catch {
+			// ignore
+		}
+		if (typeof window !== 'undefined' && window.matchMedia) {
+			applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+		}
+	});
 
 	// close mobile menu when navigating to a new route
 	$: if (typeof current === 'string') {
@@ -57,6 +91,23 @@
 				<!-- <rect class="line l2" x="0" y="8" width="24" height="2" rx="1" /> -->
 				<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
 			</svg>
+		</button>
+		<button
+			class="theme-toggle"
+			type="button"
+			aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
+			on:click={toggleTheme}
+		>
+			{#if isDark}
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z" />
+				</svg>
+			{:else}
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<circle cx="12" cy="12" r="4.2" />
+					<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
+				</svg>
+			{/if}
 		</button>
 		{#if pages.length || import.meta.env.DEV}
 			<ul class="desktop-menu">
@@ -97,7 +148,14 @@
 <style>
 	.menu-bar {
 		width: 100vw;
-		background: #fff;
+		background: linear-gradient(
+			135deg,
+			var(--glass-1) 0%,
+			var(--glass-2) 55%,
+			var(--glass-3) 100%
+		);
+		backdrop-filter: blur(14px) saturate(160%);
+		-webkit-backdrop-filter: blur(14px) saturate(160%);
 		/* border-bottom: 1px solid #eee; */
 		position: sticky;
 		top: env(safe-area-inset-top, 0px);
@@ -126,6 +184,7 @@
 		align-items: center;
 		justify-content: center;
 		padding: 10px 1em;
+		position: relative;
 	}
 	/* .logo {
   font-weight: bold;
@@ -135,6 +194,9 @@
 		height: 46px;
 		display: block;
 		margin-right: 8px;
+	}
+	:global(html.theme-dark) .logo-img {
+		filter: invert(1) brightness(1.1);
 	}
 	ul {
 		list-style: none;
@@ -214,6 +276,38 @@
 		font-size: 2em;
 		cursor: pointer;
 	}
+	.theme-toggle {
+		position: absolute;
+		right: 1em;
+		top: 50%;
+		transform: translateY(-50%);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		border: 1px solid color-mix(in srgb, var(--color-dark) 25%, transparent);
+		background: color-mix(in srgb, var(--color-light) 80%, transparent);
+		cursor: pointer;
+		transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+	}
+	.theme-toggle svg {
+		width: 18px;
+		height: 18px;
+		fill: none;
+		stroke: var(--color-dark);
+		stroke-width: 1.8;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+	.theme-toggle:hover,
+	.theme-toggle:focus-visible {
+		background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+		border-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+		outline: none;
+		transform: translateY(-50%) scale(1.04);
+	}
 	/* Hamburger SVG styles */
 	.menu-toggle svg {
 		width: 26px;
@@ -280,6 +374,11 @@
 		.menu-toggle {
 			display: block;
 			margin-left: 1em;
+		}
+		.theme-toggle {
+			position: static;
+			transform: none;
+			margin-left: 0.5em;
 		}
 		.admin-link {
 			margin-left: 0 !important;
