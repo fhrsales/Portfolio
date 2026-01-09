@@ -47,7 +47,7 @@
 
 <section class={`timeline ${classes || ''}`.trim()}>
 	{#if title}
-		<h3 class="timeline-title">{title}</h3>
+		<h2 class="timeline-title">{title}</h2>
 	{/if}
 	<ol class="timeline-list">
 		{#each items as item, i (i)}

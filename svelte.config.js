@@ -17,7 +17,7 @@ const config = {
 			base
 		},
 		prerender: {
-			entries: []
+			entries: ['*']
 		}
 	},
 	// no additional preprocessors; using plain Svelte
