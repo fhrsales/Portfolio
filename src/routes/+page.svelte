@@ -8,11 +8,17 @@
 	import { withBase } from '$lib/paths.js';
 	import { onMount } from 'svelte';
 	const isProd = import.meta.env && import.meta.env.PROD;
+	const siteUrl = 'https://fhrsales.github.io/Portfolio/';
+	const imageUrl = 'https://fhrsales.github.io/Portfolio/imgs/fabio_sales.png';
+	const defaultDescription =
+		'Fabio Sales is a self-taught creative developer, designer, and digital transformation consultant with over 30 years of experience in visual communication, data-driven storytelling, and complex digital projects';
 
 	// Find first image on index to preload as LCP
 	let lcpHref = '';
 	let lcpImagesrcset = '';
 	let lcpImagesizes = '';
+	let metaDescription = '';
+	let jsonLd = null;
 	{
 		try {
 			const raw = pages.index?.content || '';
@@ -26,9 +32,20 @@
 				: null;
 			const blocks = usedParsed ? normalizeParsedToBlocks(usedParsed) : [];
 			const objs = buildBlockObjects(blocks);
+			let introConf = null;
+			let lcpFound = false;
+			const stripHtml = (value) =>
+				String(value || '')
+					.replace(/<[^>]*>/g, ' ')
+					.replace(/\s+/g, ' ')
+					.trim();
+
 			for (const o of objs) {
 				const bloco = o.raw;
-				if (typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))) {
+				if (!introConf && bloco && typeof bloco === 'object' && bloco.intro) {
+					introConf = bloco.intro;
+				}
+				if (!lcpFound && typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))) {
 					const img = parseImageHelper(bloco);
 					if (img && img.nome) {
 						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
@@ -45,9 +62,9 @@
 						}
 						lcpImagesrcset = '';
 						lcpImagesizes = '(max-width: 860px) 100vw, 860px';
-						break;
+						lcpFound = true;
 					}
-				} else if (typeof bloco === 'string' && /^imagem:/i.test(bloco)) {
+				} else if (!lcpFound && typeof bloco === 'string' && /^imagem:/i.test(bloco)) {
 					const img = parseImageHelper(bloco);
 					if (img && img.nome) {
 						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
@@ -63,10 +80,27 @@
 						}
 						lcpImagesrcset = '';
 						lcpImagesizes = '(max-width: 860px) 100vw, 860px';
-						break;
+						lcpFound = true;
 					}
 				}
+				if (introConf && lcpFound) break;
 			}
+
+			if (introConf) {
+				const parts = [introConf.texto1, introConf.texto2].filter(Boolean).map(stripHtml);
+				metaDescription = parts.join(' ').replace(/\s+/g, ' ').trim();
+			}
+			if (!metaDescription) metaDescription = defaultDescription;
+			jsonLd = {
+				'@context': 'https://schema.org',
+				'@type': 'Person',
+				name: 'Fabio Sales',
+				url: siteUrl,
+				image: imageUrl,
+				sameAs: [],
+				jobTitle: 'Designer and Consultant',
+				description: metaDescription
+			};
 		} catch {
 			// ignore
 		}
@@ -209,6 +243,14 @@
 </script>
 
 <svelte:head>
+	{#if metaDescription}
+		<meta name="description" content={metaDescription} />
+		<meta property="og:description" content={metaDescription} />
+		<meta name="twitter:description" content={metaDescription} />
+	{/if}
+	{#if jsonLd}
+		<script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+	{/if}
 	{#if lcpHref}
 		<link
 			rel="preload"
