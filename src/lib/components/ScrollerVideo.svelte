@@ -560,7 +560,7 @@
 
   /* Base style matching common paragraph, but light color */
   .overlay-text {
-    color: var(--color-light);
+    color: #F5F5F8;
     font-family: var(--font-primary);
     font-weight: 300;
     font-size: calc(var(--grid) * 2.2);

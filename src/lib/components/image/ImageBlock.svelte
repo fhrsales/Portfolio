@@ -44,6 +44,9 @@
 	let show = false; // when true, image opacity goes to 1
 	let preloader;
 	let prefetchObserver;
+	let themeObserver;
+	let isDarkTheme = false;
+	let effectiveClasses = '';
 
 	// Determina a classe CSS baseada no tamanho
 	$: sizeClass =
@@ -141,6 +144,10 @@
 	$: mobileAvif = mobileCandidate ? replaceExt(mobileCandidate, 'avif') : '';
 	$: mobileWebp = mobileCandidate ? replaceExt(mobileCandidate, 'webp') : '';
 	$: {
+		shadowClass = '';
+		shadowStyle = '';
+		mixBlendStyle = '';
+		effectiveClasses = typeof classes === 'string' ? classes.trim() : '';
 		const source =
 			typeof classes === 'string' && classes.trim()
 				? classes.trim()
@@ -158,6 +165,14 @@
 			} else {
 				classTokens.push(t);
 			}
+		}
+		const isMultiplyVar =
+			/^var\(--multiply\)$/i.test(varToken) || /^--multiply$/i.test(varToken);
+		if (isDarkTheme && isMultiplyVar) {
+			varToken = '';
+			effectiveClasses = effectiveClasses
+				.replace(/(^|\s)(?:var\(--multiply\)|--multiply)(?=\s|$)/gi, ' ')
+				.trim();
 		}
 		shadowClass = classTokens.join(' ');
 		if (!varToken && classTokens.includes('blend-multiply')) {
@@ -201,9 +216,7 @@
 			_visualsTimer = null;
 		}
 	}
-	$: appliedClasses = showVisuals
-		? [shadowClass, typeof classes === 'string' ? classes : ''].filter(Boolean).join(' ')
-		: '';
+	$: appliedClasses = showVisuals ? [shadowClass, effectiveClasses].filter(Boolean).join(' ') : '';
 	// removed fade transition imports to disable fade-in effect
 
 	function getResponsiveSrcSync() {
@@ -229,6 +242,11 @@
 	onMount(() => {
 		updateSrc();
 		if (typeof window !== 'undefined') {
+			isDarkTheme = document.documentElement.classList.contains('theme-dark');
+			themeObserver = new MutationObserver(() => {
+				isDarkTheme = document.documentElement.classList.contains('theme-dark');
+			});
+			themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 			let _resizeTimer;
 			onResize = () => {
 				if (_resizeTimer) clearTimeout(_resizeTimer);
@@ -305,6 +323,7 @@
 	onDestroy(() => {
 		if (observer) observer.disconnect();
 		if (prefetchObserver) prefetchObserver.disconnect();
+		if (themeObserver) themeObserver.disconnect();
 		if (typeof window !== 'undefined') {
 			// remove both direct and debounced listeners
 			try {

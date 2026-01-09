@@ -194,6 +194,7 @@ strong {
     display: inline-block;
     width: 129px;
     height: 35px;
+    background-color: var(--color-dark);
     background-image: var(--inline-logo-url);
     background-repeat: no-repeat;
     background-size: contain;
@@ -202,6 +203,19 @@ strong {
     overflow: hidden;
     text-indent: -9999px;
     white-space: nowrap;
+}
+@supports ((-webkit-mask-image: url('')) or (mask-image: url(''))) {
+	.inline-logo {
+		background-image: none;
+		-webkit-mask-image: var(--inline-logo-url);
+		mask-image: var(--inline-logo-url);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
 }
 
 /* Slightly larger inline logo in intro H1 */
