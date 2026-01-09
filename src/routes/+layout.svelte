@@ -10,6 +10,7 @@
     let showMenu = $state(true);
     let isHome = $state(false);
     let tagMutation;
+    let contentMutation;
     let tagAnchor;
     let scrollHandler;
     let resizeHandler;
@@ -34,6 +35,10 @@
         if (tagMutation) {
             tagMutation.disconnect();
             tagMutation = null;
+        }
+        if (contentMutation) {
+            contentMutation.disconnect();
+            contentMutation = null;
         }
         if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
         if (resizeHandler) window.removeEventListener('resize', resizeHandler);
@@ -113,6 +118,16 @@
         }
         document.documentElement.classList.add('has-tag-selector');
         attachScrollWatcher();
+        const container = document.querySelector('.main-content');
+        if (container) {
+            contentMutation = new MutationObserver(() => {
+                requestAnimationFrame(() => {
+                    measureAnchor();
+                    evaluateMenu();
+                });
+            });
+            contentMutation.observe(container, { childList: true, subtree: true });
+        }
     }
 
     function updateHeaderVar() {
