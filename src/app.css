@@ -3,8 +3,8 @@
 	--font-primary: 'Fira Sans', sans-serif;
 	--vh: 1vh;
 
-	--color-primary: #0050e8;
-	--color-secondary: #a0c10e;
+	--color-primary: #32379d;
+	--color-secondary: #f4604a;
 	--color-tertiary: #ffffff;
     --color-danger: #e63946;
 	--color-dark: #333338;
@@ -144,11 +144,15 @@ strong {
     letter-spacing: -0.02em;
     text-align: center;
     color: var(--color-dark);
-	--intro-offset: 24px;
+    --intro-offset: 24px;
     --intro-p-height: min(60vh, 320px);
 	/* vertical centering of the first scroll using dynamic margins with offset */
 	margin-top: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) - var(--intro-offset, 0px)) !important;
 	margin-bottom: calc(((calc(var(--vh) * 100) - var(--header-h, 0px) - var(--intro-p-height, 0px)) / 2) + var(--intro-offset, 0px)) !important;
+}
+.intro-h2 {
+	padding-bottom: calc(var(--vh) * 85);
+	box-sizing: border-box;
 }
 
 /* Pre-apply hero layout on home to avoid CLS before JS decorates headings */
@@ -220,15 +224,26 @@ strong {
 /* Sticky anchor for tag selector */
 .tag-selector-anchor {
 	--tag-offset: 0px;
-	position: sticky;
-	top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
-	z-index: 5;
+	position: relative;
+	height: 0;
 	width: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	opacity: 0;
+}
+html.tag-fixed .tag-selector-anchor {
+	position: fixed;
+	top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
+	left: 0;
+	right: 0;
+	z-index: 5;
 	display: flex;
 	justify-content: center;
 	align-self: stretch;
-	margin-top: -1px;
-	position: sticky;
+	pointer-events: auto;
+	opacity: 1;
+	height: auto;
+	overflow: visible;
 }
 .tag-selector-anchor::before {
 	content: '';

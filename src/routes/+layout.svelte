@@ -18,6 +18,7 @@
     let headerH = 0;
     let scrollFadeTimer;
     let scrollFadeHandler;
+    let tagFixed = false;
 
     function applyMenuState() {
         if (typeof document === 'undefined') return;
@@ -29,7 +30,7 @@
         }
     }
 
-    function disconnectTagObserver() {
+    function disconnectTagObserver(resetTagFixed = true) {
         if (tagMutation) {
             tagMutation.disconnect();
             tagMutation = null;
@@ -39,8 +40,10 @@
         scrollHandler = null;
         resizeHandler = null;
         menuLocked = false;
+        tagFixed = resetTagFixed ? false : tagFixed;
         if (typeof document !== 'undefined') {
             document.documentElement.classList.remove('has-tag-selector');
+            if (resetTagFixed) document.documentElement.classList.remove('tag-fixed');
         }
     }
 
@@ -55,14 +58,25 @@
     function evaluateMenu() {
         const y = window.scrollY || window.pageYOffset || 0;
         const threshold = anchorTop - headerH - 8;
-        if (menuLocked) return;
+        const shouldFixTag = y >= anchorTop - headerH;
+        if (tagFixed !== shouldFixTag) {
+            tagFixed = shouldFixTag;
+            document.documentElement.classList.toggle('tag-fixed', tagFixed);
+        }
         const shouldShow = y >= threshold;
-        if (showMenu !== shouldShow) {
-            showMenu = shouldShow;
-            if (shouldShow) {
-                menuLocked = true;
+        if (isHome) {
+            if (showMenu !== shouldShow) {
+                showMenu = shouldShow;
                 requestAnimationFrame(updateHeaderVar);
-                disconnectTagObserver();
+            }
+        } else {
+            if (menuLocked) return;
+            if (showMenu !== shouldShow) {
+                showMenu = shouldShow;
+                if (shouldShow) {
+                    menuLocked = true;
+                    requestAnimationFrame(updateHeaderVar);
+                }
             }
         }
     }
@@ -129,6 +143,7 @@
         disconnectTagObserver();
         if (isHome) {
             showMenu = false;
+            menuLocked = false;
             observeTagSelector();
         } else {
             showMenu = true;

@@ -239,7 +239,7 @@
 							/>
 						{/if}
 						{#if conf.texto2}
-							<h2 class="intro-paragraph text-m intro-animated">
+							<h2 class="intro-paragraph text-m intro-animated intro-h2">
 								{@html renderIntroHtml(conf.texto2)}
 							</h2>
 						{/if}
