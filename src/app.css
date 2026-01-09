@@ -161,7 +161,7 @@ strong {
 	line-height: 1.5 !important;
 	letter-spacing: -0.02em;
 	text-align: center;
-	--intro-offset: 24px;
+	--intro-offset: -10px;
 	--intro-p-height: min(60vh, 320px);
 	max-width: 620px !important;
 	width: calc(100% - (var(--grid) * 4));
