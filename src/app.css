@@ -227,6 +227,7 @@ strong {
 	display: flex;
 	justify-content: center;
 	align-self: stretch;
+	margin-top: -1px;
 	position: sticky;
 }
 .tag-selector-anchor::before {

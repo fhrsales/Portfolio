@@ -117,6 +117,11 @@
 		el.classList.add('intro-paragraph', 'text-m');
 
 		runWhenIdle(() => {
+			const logoSrc = base ? `${base}/imgs/fabio_sales.svg` : '/imgs/fabio_sales.svg';
+			const logoTick = Date.now();
+			el.querySelectorAll('.inline-logo').forEach((node) => {
+				node.style.setProperty('--inline-logo-url', `url('${logoSrc}?v=${logoTick}')`);
+			});
 			wrapWords(el);
 			const words = Array.from(el.querySelectorAll('.word'));
 			if (!words.length) return;

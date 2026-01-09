@@ -266,6 +266,16 @@
 		background: currentColor;
 		transition: width 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
+	ul.mobile-menu li a::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -3px;
+		height: 2px;
+		width: 0;
+		background: currentColor;
+		transition: width 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
 	ul.desktop-menu li a:hover,
 	ul.desktop-menu li a:focus {
 		color: var(--color-primary);
@@ -273,6 +283,15 @@
 	}
 	ul.desktop-menu li a:hover::after,
 	ul.desktop-menu li a:focus::after {
+		width: 100%;
+	}
+	ul.mobile-menu li a:hover,
+	ul.mobile-menu li a:focus {
+		color: var(--color-primary);
+		outline: none;
+	}
+	ul.mobile-menu li a:hover::after,
+	ul.mobile-menu li a:focus::after {
 		width: 100%;
 	}
 	.menu-toggle {
@@ -390,6 +409,9 @@
 			padding-right: 1.5em;
 			box-sizing: border-box;
 			line-height: 1.5;
+		}
+		ul.mobile-menu li + li {
+			margin-top: calc(var(--grid) * 1);
 		}
 		ul.mobile-menu li::before {
 			display: none;
