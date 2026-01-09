@@ -2,6 +2,7 @@
 <script>
 	/* eslint-disable svelte/no-at-html-tags */
 	import { base } from '$app/paths';
+	import Bullet from '$lib/components/Bullet.svelte';
 	export let value = {};
 
 	function fixLinks(html, base) {
@@ -17,6 +18,18 @@
 			.replace(/(href|src)=(['"])javascript:[^\2]*\2/gi, '$1="#"');
 	}
 
+	function injectBullet(html) {
+		if (!html) return html;
+		return String(html).replace(/<bullet\b([^>]*)\/?>/gi, (match, attrs) => {
+			const textoMatch = String(attrs).match(/texto\s*[:=]\s*(['"])(.*?)\1/i);
+			const corMatch = String(attrs).match(/cor\s*[:=]\s*(['"])(.*?)\1/i);
+			const texto = textoMatch ? textoMatch[2].trim() : '';
+			const cor = corMatch ? corMatch[2].trim() : '';
+			const style = cor ? ` style="--bullet-bg: ${cor};"` : '';
+			return `<span class="bullet"${style}>${texto}</span>`;
+		});
+	}
+
 	function injectInlineLogo(html) {
 		if (!html) return html;
 		const logoSrc = base ? `${base}/imgs/fabio_sales.svg` : '/imgs/fabio_sales.svg';
@@ -29,7 +42,7 @@
 	}
 
 	function renderHtml(html) {
-		return sanitizeHtml(injectInlineLogo(fixLinks(html, base)));
+		return sanitizeHtml(injectInlineLogo(injectBullet(fixLinks(html, base))));
 	}
 </script>
 
@@ -37,11 +50,13 @@
 	<h1>{value.titulo}</h1>
 {/if}
 
+<Bullet renderOnlyStyle={true} />
+
 {#if value.body}
 	{#each Array.isArray(value.body) ? value.body : [value.body] as bloco, i (i)}
 		{@const blocoStr = typeof bloco === 'string' ? bloco.trim() : ''}
 		{#if blocoStr.startsWith('<')}
-			{#if blocoStr.match(/^<(a|span|strong|em|b|i|img)(\s|>)/i)}
+			{#if blocoStr.match(/^<(a|span|strong|em|b|i|img|bullet)(\s|>)/i)}
 				<!-- Inline HTML (anchor, strong, etc.) — wrap in paragraph -->
 				<p>{@html renderHtml(bloco)}</p>
 			{:else}

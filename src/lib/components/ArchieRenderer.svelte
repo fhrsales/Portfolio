@@ -145,6 +145,7 @@
 		return sanitizeHeadingHtml(injectInlineLogo(fixLinks(html, base), base));
 	}
 
+
 	function sameTags(a, b) {
 		if (!Array.isArray(a) || !Array.isArray(b)) return false;
 		if (a.length !== b.length) return false;
