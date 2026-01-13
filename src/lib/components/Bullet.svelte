@@ -15,7 +15,7 @@
 		--bullet-bg: var(--color-danger);
 		--bullet-fg: var(--color-light);
 		position: relative;
-        top: -5px;
+        top: -4px;
 		display: inline-flex;
 		align-items: center;
 		padding: 4px 14px 3px 16px;
