@@ -143,7 +143,7 @@
 		letter-spacing: -0.035em;
 		color: var(--color-dark);
 	}
-	.timeline-content strong {
+	.timeline-content :global(strong) {
 		font-weight: 700;
 	}
 

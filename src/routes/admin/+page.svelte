@@ -553,13 +553,6 @@
 		resize: vertical;
 		line-height: inherit;
 	}
-	.editor-wrapper .editor-input {
-		color: transparent;
-		background: transparent;
-		border: none;
-		box-shadow: none;
-	}
-
 	input[type='checkbox'] {
 		accent-color: var(--color-primary);
 		transform: translateY(2px);
