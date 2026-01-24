@@ -95,7 +95,7 @@
         const y = window.scrollY || window.pageYOffset || 0;
         const threshold = (isHome && introThreshold > 0 ? introThreshold : anchorTop) - headerH - 8;
         if (tagAnchor) {
-            const shouldFixTag = y >= anchorTop - headerH;
+            const shouldFixTag = showMenu && y >= anchorTop - headerH;
             if (tagFixed !== shouldFixTag) {
                 tagFixed = shouldFixTag;
                 document.documentElement.classList.toggle('tag-fixed', tagFixed);

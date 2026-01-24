@@ -111,6 +111,8 @@
       const res = await fetch(manifestUrl, { headers: { 'cache-control': 'no-cache' } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
+      const defaultWidth = Number(data?.defaultWidth ?? data?.width) || 0;
+      const defaultHeight = Number(data?.defaultHeight ?? data?.height) || 0;
       const rawList = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
       const list = rawList
         .map((entry) => (typeof entry === 'string' ? { name: entry } : entry))
@@ -122,8 +124,8 @@
       const allowed = list
         .map((entry) => ({
           name: String(entry.name),
-          width: Number(entry.width) || 0,
-          height: Number(entry.height) || 0
+          width: Number(entry.width) || defaultWidth || 0,
+          height: Number(entry.height) || defaultHeight || 0
         }))
         .filter((entry) => /\.(jpe?g|png|webp|avif|svg|pdf)$/i.test(entry.name))
         .map((entry) => {
@@ -321,12 +323,20 @@
     return pdfPreviewExts.map((ext) => `${base}${ext}`);
   }
 
-  function imageStyle(it) {
-    const size =
-      respectSizes && hasSizeData && it?.width && it?.height
-        ? `width:${Math.round(it.width * sizeScale)}px; height:${Math.round(it.height * sizeScale)}px;`
-        : '';
-    return size;
+  function scaledSize(it) {
+    if (!it || it.type !== 'image' || height) return null;
+    if (!respectSizes || !hasSizeData || !it.width || !it.height) return null;
+    return {
+      w: Math.round(it.width * sizeScale),
+      h: Math.round(it.height * sizeScale)
+    };
+  }
+
+  function imageStyle(it, size) {
+    if (size) return 'width:100%; height:100%;';
+    return respectSizes && hasSizeData && it.width && it.height
+      ? `width:${Math.round(it.width * sizeScale)}px; height:${Math.round(it.height * sizeScale)}px;`
+      : '';
   }
 
   function onPreviewError(i) {
@@ -361,7 +371,12 @@
   >
     <div bind:this={trackEl} class="scroll-track" style={`gap:${gap}px`}>
       {#each items as it, i (i)}
-        <div class={`card ${shadow ? 'shadow-1' : ''}`} data-index={i} style={height ? `height:${height};` : ''}>
+        {@const size = scaledSize(it)}
+        <div
+          class={`card ${shadow ? 'shadow-1' : ''} ${size ? 'fixed-size' : ''}`}
+          data-index={i}
+          style={`${height ? `height:${height};` : ''}${size ? `width:${size.w}px; height:${size.h}px;` : ''}`}
+        >
           {#if it.type === 'image'}
             {#if it.loaded}
               <img
@@ -370,7 +385,7 @@
                 loading="lazy"
                 width={it.width || undefined}
                 height={it.height || undefined}
-                style={respectSizes && hasSizeData && it.width && it.height ? `width:${Math.round(it.width * sizeScale)}px; height:${Math.round(it.height * sizeScale)}px;` : ''}
+                style={imageStyle(it, size)}
                 draggable="false"
               />
             {:else}
@@ -462,6 +477,12 @@
   /* add soft elevation on the card itself; corner shadows handled by global .shadow-1 */
   .card.shadow-1 {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .card.fixed-size .placeholder,
+  .card.fixed-size .pdf-thumb {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
   }
   .card img {
     height: auto;

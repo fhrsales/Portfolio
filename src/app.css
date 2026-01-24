@@ -311,13 +311,6 @@ html:not(.is-scrolling) .tag-selector-anchor {
 	opacity: 1;
 	pointer-events: auto;
 }
-@media (max-width: 600px) {
-	html.is-scrolling .menu-bar:not(.hidden),
-	html.is-scrolling .tag-selector-anchor {
-		opacity: 1;
-		pointer-events: auto;
-	}
-}
 
 /* 100vh hero wrapper to guarantee first scroll occupation */
 .intro-hero {
