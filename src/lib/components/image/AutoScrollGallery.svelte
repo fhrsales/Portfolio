@@ -54,6 +54,7 @@
   let observer = null;
   let sizeScale = 1;
   let hasSizeData = false;
+  let viewportWidth = 0;
   // Prefer to render PDFs as image thumbnails (if available) instead of embedding a viewer
   export let pdfAsImage = true;
   const pdfPreviewExts = ['.png', '.jpg', '.webp', '.avif'];
@@ -85,6 +86,7 @@
       await tick();
       setupObserver();
       computeScale();
+      updateViewportWidth();
       start();
       // trigger initial lazy-load for items in view
       try { observer && observer.takeRecords && observer.takeRecords(); } catch {}
@@ -295,6 +297,7 @@
   function computeScale() {
     if (!respectSizes || !hasSizeData || typeof window === 'undefined') {
       sizeScale = 1;
+      updateViewportWidth();
       return;
     }
     const maxH = Math.max(
@@ -315,6 +318,20 @@
       _resizeHandler = () => computeScale();
       window.addEventListener('resize', _resizeHandler);
     }
+    updateViewportWidth();
+  }
+
+  function updateViewportWidth() {
+    if (typeof window === 'undefined' || !containerEl) return;
+    const styles = window.getComputedStyle(containerEl);
+    const padL = parseFloat(styles.paddingLeft || '0') || 0;
+    const padR = parseFloat(styles.paddingRight || '0') || 0;
+    const inner = (containerEl.clientWidth || 0) - padL - padR;
+    viewportWidth = Math.max(0, Math.round(inner));
+  }
+
+  function isMobile() {
+    return typeof window !== 'undefined' ? (window.innerWidth || 0) <= 600 : false;
   }
 
   function candidatesFor(it) {
@@ -326,10 +343,14 @@
   function scaledSize(it) {
     if (!it || it.type !== 'image' || height) return null;
     if (!respectSizes || !hasSizeData || !it.width || !it.height) return null;
-    return {
-      w: Math.round(it.width * sizeScale),
-      h: Math.round(it.height * sizeScale)
-    };
+    let w = Math.round(it.width * sizeScale);
+    let h = Math.round(it.height * sizeScale);
+    if (isMobile() && viewportWidth > 0 && w > viewportWidth) {
+      const fitScale = viewportWidth / w;
+      w = Math.round(w * fitScale);
+      h = Math.round(h * fitScale);
+    }
+    return { w, h };
   }
 
   function imageStyle(it, size) {
@@ -478,6 +499,10 @@
   .card.shadow-1 {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   }
+  .card.fixed-size img {
+    max-height: none;
+    max-width: none;
+  }
   .card.fixed-size .placeholder,
   .card.fixed-size .pdf-thumb {
     width: 100%;
@@ -510,6 +535,10 @@
     }
     @supports (height: 100svh) {
       .scroll-viewport:not(.hasHeight) .card img { max-height: 44svh; }
+    }
+    .scroll-viewport:not(.hasHeight) .card.fixed-size img {
+      max-height: none;
+      max-width: none;
     }
     /* Allow swipe with native snapping */
     .scroll-viewport {
