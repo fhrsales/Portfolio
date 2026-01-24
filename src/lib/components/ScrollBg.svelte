@@ -2,6 +2,7 @@
     import { onMount, onDestroy } from 'svelte';
     export let color = '';
     export let height = '';
+    export let intro = false;
     let el;
 
     // Shared registry to choose the closest marker to viewport center
@@ -75,7 +76,13 @@
     onDestroy(() => {});
 </script>
 
-<div class="scroll-bg-marker" bind:this={el} aria-hidden="true" style={`height:${height ? height : '1px'};`}></div>
+<div
+    class="scroll-bg-marker"
+    bind:this={el}
+    aria-hidden="true"
+    data-intro={intro ? 'true' : undefined}
+    style={`height:${height ? height : '1px'};`}
+></div>
 
 <style>
     .scroll-bg-marker {

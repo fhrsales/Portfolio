@@ -234,6 +234,7 @@
 							<ScrollBg
 								color={String(conf.fundo1 || '').trim() || 'var(--color-light)'}
 								height={String(conf.altura1 || '').trim()}
+								intro={true}
 							/>
 						{/if}
 						{#if conf.texto1}
@@ -245,6 +246,7 @@
 							<ScrollBg
 								color={String(conf.fundo2 || '').trim() || 'var(--color-light)'}
 								height={String(conf.altura2 || '').trim()}
+								intro={true}
 							/>
 						{/if}
 						{#if conf.texto2}

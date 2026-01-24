@@ -20,6 +20,8 @@
     let scrollFadeTimer;
     let scrollFadeHandler;
     let tagFixed = false;
+    let introThreshold = 0;
+    let isMobile = $state(false);
 
     function applyMenuState() {
         if (typeof document === 'undefined') return;
@@ -46,10 +48,16 @@
         resizeHandler = null;
         menuLocked = false;
         tagFixed = resetTagFixed ? false : tagFixed;
+        introThreshold = 0;
         if (typeof document !== 'undefined') {
             document.documentElement.classList.remove('has-tag-selector');
             if (resetTagFixed) document.documentElement.classList.remove('tag-fixed');
         }
+    }
+
+    function computeIsMobile() {
+        if (typeof window === 'undefined') return;
+        isMobile = (window.innerWidth || 0) <= 600;
     }
 
     function measureAnchor() {
@@ -60,15 +68,57 @@
         headerH = header ? header.offsetHeight : 0;
     }
 
+    function measureIntroThreshold() {
+        if (typeof document === 'undefined') return;
+        const introMarkers = Array.from(document.querySelectorAll('.scroll-bg-marker[data-intro="true"]'));
+        if (introMarkers.length) {
+            const last = introMarkers[Math.min(introMarkers.length, 2) - 1];
+            const rect = last.getBoundingClientRect();
+            introThreshold = rect.bottom + (window.scrollY || window.pageYOffset || 0);
+            return;
+        }
+        const nodes = Array.from(document.querySelectorAll('.intro-paragraph'));
+        if (!nodes.length) {
+            introThreshold = 0;
+            return;
+        }
+        const last = nodes[Math.min(nodes.length, 2) - 1];
+        if (!last) {
+            introThreshold = 0;
+            return;
+        }
+        const rect = last.getBoundingClientRect();
+        introThreshold = rect.bottom + (window.scrollY || window.pageYOffset || 0);
+    }
+
     function evaluateMenu() {
         const y = window.scrollY || window.pageYOffset || 0;
-        const threshold = anchorTop - headerH - 8;
-        const shouldFixTag = y >= anchorTop - headerH;
-        if (tagFixed !== shouldFixTag) {
-            tagFixed = shouldFixTag;
-            document.documentElement.classList.toggle('tag-fixed', tagFixed);
+        const threshold = (isHome && introThreshold > 0 ? introThreshold : anchorTop) - headerH - 8;
+        if (tagAnchor) {
+            const shouldFixTag = y >= anchorTop - headerH;
+            if (tagFixed !== shouldFixTag) {
+                tagFixed = shouldFixTag;
+                document.documentElement.classList.toggle('tag-fixed', tagFixed);
+            }
+        } else if (tagFixed) {
+            tagFixed = false;
+            document.documentElement.classList.remove('tag-fixed');
         }
         const shouldShow = y >= threshold;
+        if (isMobile) {
+            if (!isHome) {
+                if (!showMenu) {
+                    showMenu = true;
+                    requestAnimationFrame(updateHeaderVar);
+                }
+                return;
+            }
+            if (introThreshold > 0 && showMenu !== shouldShow) {
+                showMenu = shouldShow;
+                requestAnimationFrame(updateHeaderVar);
+            }
+            return;
+        }
         if (isHome) {
             if (showMenu !== shouldShow) {
                 showMenu = shouldShow;
@@ -87,11 +137,16 @@
     }
 
     function attachScrollWatcher() {
+        computeIsMobile();
         measureAnchor();
+        measureIntroThreshold();
         evaluateMenu();
+        if (scrollHandler) return;
         scrollHandler = () => requestAnimationFrame(evaluateMenu);
         resizeHandler = () => {
+            computeIsMobile();
             measureAnchor();
+            measureIntroThreshold();
             evaluateMenu();
         };
         window.addEventListener('scroll', scrollHandler, { passive: true });
@@ -105,16 +160,19 @@
         if (!tagAnchor) {
             tagMutation = new MutationObserver(() => {
                 tagAnchor = document.querySelector('.tag-selector-anchor');
+                measureIntroThreshold();
+                evaluateMenu();
                 if (tagAnchor) {
                     tagMutation.disconnect();
                     tagMutation = null;
                     document.documentElement.classList.add('has-tag-selector');
                     attachScrollWatcher();
-                }
-            });
-            const container = document.querySelector('.main-content');
-            if (container) tagMutation.observe(container, { childList: true, subtree: true });
-            return;
+            }
+        });
+        const container = document.querySelector('.main-content');
+        if (container) tagMutation.observe(container, { childList: true, subtree: true });
+        attachScrollWatcher();
+        return;
         }
         document.documentElement.classList.add('has-tag-selector');
         attachScrollWatcher();
@@ -123,6 +181,7 @@
             contentMutation = new MutationObserver(() => {
                 requestAnimationFrame(() => {
                     measureAnchor();
+                    measureIntroThreshold();
                     evaluateMenu();
                 });
             });
@@ -167,6 +226,7 @@
     }
 
     onMount(() => {
+        computeIsMobile();
         // Initial compute
         updateHeaderVar();
         // Subscribe to route changes
