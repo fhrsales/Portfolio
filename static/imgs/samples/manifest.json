@@ -1,5 +1,35 @@
 {
 	"files": [
+        {
+			"name": "sinal-amarelo.png",
+			"width": 898,
+			"height": 982
+		},
+        {
+			"name": "talibas.png",
+			"width": 898,
+			"height": 1579
+		},
+        {
+			"name": "papai-noel-existe.png",
+			"width": 898,
+			"height": 1579
+		},
+        {
+			"name": "gdf-atrasa-pagamentos.png",
+			"width": 898,
+			"height": 1579
+		},
+        {
+			"name": "leucemia.png",
+			"width": 898,
+			"height": 1579
+		},
+        {
+			"name": "brasil-da-silva.png",
+			"width": 898,
+			"height": 1579
+		},
 		{
 			"name": "13-03-2016.png",
 			"width": 898,
@@ -10,6 +40,11 @@
 			"width": 898,
 			"height": 1579
 		},
+        {
+			"name": "enfim-la.png",
+			"width": 898,
+			"height": 1579
+		},
 		{
 			"name": "21-bi-de-corte-no-orcamento.png",
 			"width": 898,
@@ -17,6 +52,11 @@
 		},
 		{
 			"name": "510-mortos-no-Rio.png",
+			"width": 898,
+			"height": 1579
+		},
+        {
+			"name": "houaiss.png",
 			"width": 898,
 			"height": 1579
 		},
@@ -34,6 +74,11 @@
 			"name": "A32.png",
 			"width": 898,
 			"height": 1579
+		},
+        {
+			"name": "pensar.png",
+			"width": 1794,
+			"height": 1029
 		},
 		{
 			"name": "A6-1.png",
@@ -228,6 +273,11 @@
 		{
 			"name": "Tornados-no-Brasil.png",
 			"width": 898,
+			"height": 1579
+		},
+        {
+			"name": "brasil-penta.png",
+			"width": 1794,
 			"height": 1579
 		},
 		{

@@ -107,6 +107,14 @@
 		return Number.isFinite(n) ? Math.max(200, Math.round(n * 1000)) : fallbackMs;
 	}
 
+	function parseBool(value, fallback = false) {
+		if (typeof value === 'boolean') return value;
+		if (typeof value === 'number') return value > 0;
+		const raw = String(value ?? '').trim().toLowerCase();
+		if (!raw) return fallback;
+		return /^(?:1|true|yes|sim|ligado|on)$/.test(raw);
+	}
+
 	// annotate blocks: mark whether they appear after a selector (so filtering only affects blocks after it)
 	$: annotatedBlocks = annotateBlocks(blockObjects);
 
@@ -402,9 +410,13 @@
 						{@const dir = (conf.pasta || conf.dir || '').trim()}
 						{@const size = (conf.tamanho || conf.size || '').trim()}
 						{@const intervalMs = conf.tempo ? Math.max(200, Math.round(Number(conf.tempo) * 1000)) : 3000}
+						{@const autoScroll = conf.auto !== undefined || conf.autoscroll !== undefined || conf.autoplay !== undefined
+							? parseBool(conf.auto ?? conf.autoscroll ?? conf.autoplay, true)
+							: true}
 						<AutoScrollGallery
 							dir={dir ? `imgs/${dir}` : 'imgs'}
 							intervalMs={intervalMs}
+							autoScroll={autoScroll}
 							height={(conf.altura || conf.height || '').trim()}
 							background={(conf.fundo || conf.bg || '').trim()}
 							size={size}

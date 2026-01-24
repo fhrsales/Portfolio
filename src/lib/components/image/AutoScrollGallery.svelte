@@ -8,6 +8,8 @@
   export let dir = '';
   // Interval between scroll steps (ms)
   export let intervalMs = 3000;
+  // Enable/disable auto-scroll
+  export let autoScroll = true;
   // Component height (CSS string). Example: '420px', '50vh'. If empty, height adapts to content.
   export let height = '';
   // Optional background color
@@ -28,6 +30,10 @@
   export let preloadMargin = 400;
   // Scroll amount per step: fraction of viewport width (0..1). 0.9 means leave a bit of previous/next visible.
   export let stepViewportFraction = 0.9;
+  // Respect original sizes (when manifest includes width/height)
+  export let respectSizes = true;
+  // Max height for the largest item, as vh (number)
+  export let maxHeightVh = 70;
   // Extra padding around PDF thumbnails (for newspaper page look)
   export let pdfPadding = '24px';
 
@@ -46,6 +52,8 @@
   /** @type {Array<{ url: string, type: 'image'|'pdf', loaded: boolean, width?: number, height?: number, previewIdx?: number, previewSrc?: string }>} */
   let items = [];
   let observer = null;
+  let sizeScale = 1;
+  let hasSizeData = false;
   // Prefer to render PDFs as image thumbnails (if available) instead of embedding a viewer
   export let pdfAsImage = true;
   const pdfPreviewExts = ['.png', '.jpg', '.webp', '.avif'];
@@ -76,6 +84,7 @@
       await loadManifest();
       await tick();
       setupObserver();
+      computeScale();
       start();
       // trigger initial lazy-load for items in view
       try { observer && observer.takeRecords && observer.takeRecords(); } catch {}
@@ -89,11 +98,15 @@
   onDestroy(() => {
     stop();
     if (observer) observer.disconnect();
+    if (typeof window !== 'undefined' && _resizeHandler) {
+      window.removeEventListener('resize', _resizeHandler);
+    }
   });
 
   async function loadManifest() {
     error = '';
     items = [];
+    hasSizeData = false;
     try {
       const res = await fetch(manifestUrl, { headers: { 'cache-control': 'no-cache' } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -143,6 +156,7 @@
         const type = ext === 'pdf' ? 'pdf' : 'image';
         return { url, type, loaded: false, width, height, previewIdx: -1, previewSrc: '' };
       });
+      hasSizeData = items.some((it) => it.width && it.height);
     } catch (e) {
       error = `Não foi possível carregar ${manifestUrl}. Crie um manifest.json nessa pasta.`;
     }
@@ -186,7 +200,7 @@
   }
 
   function start() {
-    if (timer || isPaused || !items.length) return;
+    if (!autoScroll || timer || isPaused || !items.length) return;
     timer = setInterval(step, Math.max(600, Number(intervalMs) || 3000));
   }
 
@@ -198,6 +212,7 @@
   }
 
   function togglePause() {
+    if (!autoScroll) return;
     isPaused = !isPaused;
     if (isPaused) stop();
     else start();
@@ -274,10 +289,44 @@
     }
   }
 
+  let _resizeHandler = null;
+  function computeScale() {
+    if (!respectSizes || !hasSizeData || typeof window === 'undefined') {
+      sizeScale = 1;
+      return;
+    }
+    const maxH = Math.max(
+      0,
+      ...items
+        .filter((it) => it.type === 'image' && it.height)
+        .map((it) => Number(it.height) || 0)
+    );
+    if (!maxH) {
+      sizeScale = 1;
+      return;
+    }
+    const vh = Number(maxHeightVh);
+    const target = Math.max(120, Math.round((Number.isFinite(vh) ? vh : 70) * window.innerHeight / 100));
+    sizeScale = Math.min(1, target / maxH);
+
+    if (!_resizeHandler) {
+      _resizeHandler = () => computeScale();
+      window.addEventListener('resize', _resizeHandler);
+    }
+  }
+
   function candidatesFor(it) {
     if (!it || it.type !== 'pdf') return [];
     const base = it.url.replace(/\.pdf(?:[#?].*)?$/i, '');
     return pdfPreviewExts.map((ext) => `${base}${ext}`);
+  }
+
+  function imageStyle(it) {
+    const size =
+      respectSizes && hasSizeData && it?.width && it?.height
+        ? `width:${Math.round(it.width * sizeScale)}px; height:${Math.round(it.height * sizeScale)}px;`
+        : '';
+    return size;
   }
 
   function onPreviewError(i) {
@@ -302,6 +351,7 @@
     class={`scroll-viewport ${size ? `size-${size}` : ''} ${classes || ''}`}
     class:dragging={isDragging}
     class:hasHeight={!!height}
+    class:respectSizes={respectSizes && hasSizeData}
     style={`gap:${gap}px; ${height ? `height:${height};` : ''} ${background ? `background:${background};` : ''} ${padding || paddingTop ? `padding-top:${paddingTop || padding};` : ''} ${padding || paddingBottom ? `padding-bottom:${paddingBottom || padding};` : ''}`}
     on:pointerdown={onPointerDown}
     on:pointermove={onPointerMove}
@@ -320,6 +370,7 @@
                 loading="lazy"
                 width={it.width || undefined}
                 height={it.height || undefined}
+                style={respectSizes && hasSizeData && it.width && it.height ? `width:${Math.round(it.width * sizeScale)}px; height:${Math.round(it.height * sizeScale)}px;` : ''}
                 draggable="false"
               />
             {:else}
@@ -353,15 +404,17 @@
     </div>
   </div>
 
-  <div class="controls">
-    <button type="button" class="icon-btn" on:click={togglePause} aria-label={isPaused ? 'Reproduzir' : 'Pausar'} title={isPaused ? 'Reproduzir' : 'Pausar'}>
-      {#if isPaused}
-        <PlayIcon size={18} />
-      {:else}
-        <PauseIcon size={18} />
-      {/if}
-    </button>
-  </div>
+  {#if autoScroll}
+    <div class="controls">
+      <button type="button" class="icon-btn" on:click={togglePause} aria-label={isPaused ? 'Reproduzir' : 'Pausar'} title={isPaused ? 'Reproduzir' : 'Pausar'}>
+        {#if isPaused}
+          <PlayIcon size={18} />
+        {:else}
+          <PauseIcon size={18} />
+        {/if}
+      </button>
+    </div>
+  {/if}
 
   {#if error}
     <p class="error">{error}</p>
@@ -416,6 +469,10 @@
     max-height: 65vh; /* fallback */
     object-fit: contain;
     display: block;
+  }
+  .scroll-viewport.respectSizes .card img {
+    max-height: none;
+    max-width: none;
   }
   @supports (height: 100svh) {
     .card img { max-height: 65svh; }
@@ -484,9 +541,23 @@
     right: 48px;
     bottom: 48px;
     z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 160ms ease, visibility 160ms ease;
+  }
+  .auto-scroll-gallery:hover .controls,
+  .auto-scroll-gallery:focus-within .controls {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+  @media (hover: none) {
+    .controls {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
   }
   .icon-btn {
     appearance: none;
