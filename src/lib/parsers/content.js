@@ -1,5 +1,13 @@
 import { parseImage } from './image.js';
 
+export function stripCommentLines(content) {
+	if (!content) return '';
+	return String(content)
+		.split(/\r?\n/)
+		.filter((line) => !String(line).trim().startsWith('//'))
+		.join('\n');
+}
+
 export function normalizeParsedToBlocks(usedParsed) {
 	const arr = [];
 	if (!usedParsed || usedParsed.erro) return arr;

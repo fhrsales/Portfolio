@@ -3,7 +3,7 @@
 	import ArchieRenderer from '$lib/components/ArchieRenderer.svelte';
 	import pages from '$lib/archiePages.json';
 	import imageMeta from '$lib/imageMeta.json';
-	import { normalizeParsedToBlocks, buildBlockObjects } from '$lib/parsers/content.js';
+	import { normalizeParsedToBlocks, buildBlockObjects, stripCommentLines } from '$lib/parsers/content.js';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { withBase } from '$lib/paths.js';
 	import { onMount } from 'svelte';
@@ -24,7 +24,7 @@
 			const raw = pages.index?.content || '';
 			const usedParsed = raw
 				? {
-						orderedContent: String(raw)
+						orderedContent: stripCommentLines(raw)
 							.split(/\n\n+/)
 							.map((s) => s.trim())
 							.filter(Boolean)

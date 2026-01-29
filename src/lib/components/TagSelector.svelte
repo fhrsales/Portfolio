@@ -1,5 +1,6 @@
 <script>
 	import { archiePages } from '$lib/stores';
+	import { stripCommentLines } from '$lib/parsers/content.js';
 	import { derived } from 'svelte/store';
     import { onDestroy } from 'svelte';
     import Button from '$lib/components/ui/Button.svelte';
@@ -19,7 +20,7 @@
 			let content = '';
 			if (item) content = item.content || '';
 			if (!content) continue;
-			const lines = String(content)
+			const lines = stripCommentLines(content)
 				.split(/\n+/)
 				.map((l) => l.trim())
 				.filter(Boolean);

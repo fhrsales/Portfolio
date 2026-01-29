@@ -33,7 +33,8 @@
 	import {
 		normalizeParsedToBlocks,
 		buildBlockObjects,
-		annotateBlocks
+		annotateBlocks,
+		stripCommentLines
 	} from '$lib/parsers/content.js';
 
 	export let parsed = undefined; // optional prop; if omitted the component derives it from stores
@@ -68,7 +69,7 @@
 		if (typeof raw === 'object' && raw !== null) raw = raw.content || '';
 
 		if (raw && typeof raw === 'string') {
-			const content = raw.trim();
+			const content = stripCommentLines(raw).trim();
 			if (content) {
 				const blocos = content
 					.split(/\n\n+/)
