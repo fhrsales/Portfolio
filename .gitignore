@@ -6,6 +6,7 @@ node_modules
 /.svelte-kit
 /build
 /sandbox
+/fhrsales.github.io
 
 # OS
 .DS_Store

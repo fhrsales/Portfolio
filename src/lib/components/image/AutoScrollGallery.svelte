@@ -53,6 +53,8 @@
   let items = [];
   let observer = null;
   let sizeScale = 1;
+  let maxImageHeight = 0;
+  let targetHeightPx = 0;
   let hasSizeData = false;
   let viewportWidth = 0;
   // Prefer to render PDFs as image thumbnails (if available) instead of embedding a viewer
@@ -306,12 +308,14 @@
         .filter((it) => it.type === 'image' && it.height)
         .map((it) => Number(it.height) || 0)
     );
+    maxImageHeight = maxH;
     if (!maxH) {
       sizeScale = 1;
       return;
     }
     const vh = Number(maxHeightVh);
     const target = Math.max(120, Math.round((Number.isFinite(vh) ? vh : 70) * window.innerHeight / 100));
+    targetHeightPx = target;
     sizeScale = Math.min(1, target / maxH);
 
     if (!_resizeHandler) {
@@ -343,6 +347,17 @@
   function scaledSize(it) {
     if (!it || it.type !== 'image' || height) return null;
     if (!respectSizes || !hasSizeData || !it.width || !it.height) return null;
+    if (isMobile() && it.width > it.height && targetHeightPx > 0) {
+      let h = Math.round(targetHeightPx);
+      let w = Math.round((it.width / it.height) * h);
+      const maxW = viewportWidth > 0 ? Math.round(viewportWidth * 0.92) : 0;
+      if (maxW > 0 && w > maxW) {
+        const fitScale = maxW / w;
+        w = Math.round(w * fitScale);
+        h = Math.round(h * fitScale);
+      }
+      return { w, h };
+    }
     let w = Math.round(it.width * sizeScale);
     let h = Math.round(it.height * sizeScale);
     if (isMobile() && viewportWidth > 0 && w > viewportWidth) {
@@ -473,6 +488,7 @@
     position: relative;
     display: block;
     cursor: grab;
+    margin: 0 auto;
   }
   .scroll-viewport.dragging {
     cursor: grabbing;
@@ -530,6 +546,10 @@
 
   /* Mobile: show a bit more context by reducing height */
   @media (max-width: 600px) {
+    .scroll-viewport.size-GG {
+      width: 92vw;
+      max-width: 92vw;
+    }
     .scroll-viewport:not(.hasHeight) .card img {
       max-height: 44vh; /* fallback */
     }
@@ -554,6 +574,7 @@
     }
     .scroll-viewport .card img { pointer-events: none; }
   }
+  /* Reduce double-page width only on mobile */
   .pdf-frame {
     height: 100%;
     width: min(80vw, 900px);
