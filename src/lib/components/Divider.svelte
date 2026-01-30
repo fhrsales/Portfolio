@@ -13,7 +13,7 @@
 		background: linear-gradient(
 			90deg,
 			transparent,
-			color-mix(in srgb, var(--color-dark) 35%, transparent),
+			color-mix(in srgb, var(--color-dark) 55%, transparent),
 			transparent
 		);
 	}
