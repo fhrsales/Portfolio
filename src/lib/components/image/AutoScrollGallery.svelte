@@ -302,6 +302,12 @@
       updateViewportWidth();
       return;
     }
+    if (isMobile()) {
+      sizeScale = 1;
+      targetHeightPx = 0;
+      updateViewportWidth();
+      return;
+    }
     const maxH = Math.max(
       0,
       ...items
@@ -549,12 +555,6 @@
     .scroll-viewport.size-GG {
       width: 92vw;
       max-width: 92vw;
-    }
-    .scroll-viewport:not(.hasHeight) .card img {
-      max-height: 44vh; /* fallback */
-    }
-    @supports (height: 100svh) {
-      .scroll-viewport:not(.hasHeight) .card img { max-height: 44svh; }
     }
     .scroll-viewport:not(.hasHeight) .card.fixed-size img {
       max-height: none;
