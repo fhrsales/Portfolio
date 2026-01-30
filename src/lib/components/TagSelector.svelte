@@ -87,10 +87,23 @@
     @media (max-width: 600px) {
         .tag-selector {
             gap: calc(var(--grid) * 0.35);
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            width: 100%;
+            max-width: 100%;
+            padding: 0 calc(var(--grid) * 2) calc(var(--grid) * 1) calc(var(--grid) * 2);
+        }
+        .tag-selector::-webkit-scrollbar {
+            display: none;
         }
         .tag-selector :global(.btn) {
             padding: 0.35rem 0.7rem;
             font-size: calc(var(--grid) * 0.9);
+            flex: 0 0 auto;
+            white-space: nowrap;
         }
     }
 	@media (min-width: 900px) {

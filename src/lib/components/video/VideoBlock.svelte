@@ -626,6 +626,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		opacity: 0;
+		transition: opacity 600ms ease;
+	}
+	.video-block.show {
+		opacity: 1;
 	}
 	.video-inner {
 		position: relative;

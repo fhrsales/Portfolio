@@ -37,12 +37,17 @@
 	// Extra padding around PDF thumbnails (for newspaper page look)
 	export let pdfPadding = '24px';
 
+	let rootEl; // component root
 	let containerEl; // scroll container (with overflow hidden)
 	let trackEl; // inner flex track
 	let timer = null;
 	let isPaused = false;
 	let hasFocus = true;
 	let error = '';
+	let isInView = false;
+	let hasLoaded = false;
+	let isLoading = false;
+	let hasShown = false;
 	let isDragging = false;
 	let dragStartX = 0;
 	let dragStartScroll = 0;
@@ -52,6 +57,7 @@
 	/** @type {Array<{ url: string, type: 'image'|'pdf', loaded: boolean, width?: number, height?: number, previewIdx?: number, previewSrc?: string }>} */
 	let items = [];
 	let observer = null;
+	let visibilityObserver = null;
 	let sizeScale = 1;
 	let maxImageHeight = 0;
 	let targetHeightPx = 0;
@@ -72,28 +78,61 @@
 
 	$: manifestUrl = normalizedDir ? resolve(`${normalizedDir}/manifest.json`) : '';
 
-	onMount(async () => {
+	async function ensureLoaded() {
+		if (hasLoaded || isLoading) return;
+		isLoading = true;
+		if (!normalizedDir) {
+			error = 'Defina a propriedade dir (ex.: "imgs/galeria").';
+			isLoading = false;
+			return;
+		}
+		await loadManifest();
+		await tick();
+		setupObserver();
+		computeScale();
+		updateViewportWidth();
+		if (hasFocus && isInView) start();
+		// trigger initial lazy-load for items in view
+		try {
+			observer && observer.takeRecords && observer.takeRecords();
+		} catch {}
+		hasLoaded = true;
+		isLoading = false;
+	}
+
+	onMount(() => {
 		// Pause when tab not visible
 		const onVis = () => {
 			hasFocus = document.visibilityState === 'visible';
 			if (!hasFocus) stop();
-			else start();
+			else if (isInView) start();
 		};
 		document.addEventListener('visibilitychange', onVis);
 
-		if (!normalizedDir) {
+		if (typeof window !== 'undefined' && rootEl) {
+			visibilityObserver = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) {
+							isInView = true;
+							hasShown = true;
+							ensureLoaded();
+							if (hasLoaded && hasFocus) start();
+						} else {
+							isInView = false;
+							stop();
+						}
+					}
+				},
+				{
+					root: null,
+					rootMargin: '200px',
+					threshold: 0.1
+				}
+			);
+			visibilityObserver.observe(rootEl);
+		} else if (!normalizedDir) {
 			error = 'Defina a propriedade dir (ex.: "imgs/galeria").';
-		} else {
-			await loadManifest();
-			await tick();
-			setupObserver();
-			computeScale();
-			updateViewportWidth();
-			start();
-			// trigger initial lazy-load for items in view
-			try {
-				observer && observer.takeRecords && observer.takeRecords();
-			} catch {}
 		}
 
 		return () => {
@@ -104,6 +143,7 @@
 	onDestroy(() => {
 		stop();
 		if (observer) observer.disconnect();
+		if (visibilityObserver) visibilityObserver.disconnect();
 		if (typeof window !== 'undefined' && _resizeHandler) {
 			window.removeEventListener('resize', _resizeHandler);
 		}
@@ -208,7 +248,7 @@
 	}
 
 	function start() {
-		if (!autoScroll || timer || isPaused || !items.length) return;
+		if (!autoScroll || timer || isPaused || !items.length || !isInView) return;
 		timer = setInterval(step, Math.max(600, Number(intervalMs) || 3000));
 	}
 
@@ -421,7 +461,7 @@
 	}
 </script>
 
-<div class="auto-scroll-gallery">
+<div class="auto-scroll-gallery" bind:this={rootEl} class:show={hasShown}>
 	<div
 		bind:this={containerEl}
 		class={`scroll-viewport ${size ? `size-${size}` : ''} ${classes || ''}`}
@@ -519,6 +559,11 @@
 	.auto-scroll-gallery {
 		width: 100%;
 		position: relative;
+		opacity: 0;
+		transition: opacity 600ms ease;
+	}
+	.auto-scroll-gallery.show {
+		opacity: 1;
 	}
 	.scroll-viewport {
 		width: 100%;

@@ -25,6 +25,12 @@
 	let hasFocus = true;
 	let naturalSizes = new Map();
 	let aspectRatio = '';
+	let rootEl;
+	let visibilityObserver = null;
+	let isInView = false;
+	let hasLoaded = false;
+	let isLoading = false;
+	let hasShown = false;
 
 	$: sizeClass =
 		size === 'PP'
@@ -52,19 +58,52 @@
 	$: safeInterval = Math.max(safeFade + 200, Number(intervalMs) || 3000);
 	$: aspectRatio = getAspectRatio(currentIdx) || getAspectRatio(0) || '';
 
-	onMount(async () => {
+	async function ensureLoaded() {
+		if (hasLoaded || isLoading) return;
+		isLoading = true;
+		if (!normalizedDir) {
+			error = 'Defina a propriedade dir (ex.: "imgs/galeria").';
+			isLoading = false;
+			return;
+		}
+		await loadManifest();
+		if (hasFocus && isInView) start();
+		hasLoaded = true;
+		isLoading = false;
+	}
+
+	onMount(() => {
 		const onVis = () => {
 			hasFocus = document.visibilityState === 'visible';
 			if (!hasFocus) stop();
-			else start();
+			else if (isInView) start();
 		};
 		document.addEventListener('visibilitychange', onVis);
 
-		if (!normalizedDir) {
+		if (typeof window !== 'undefined' && rootEl) {
+			visibilityObserver = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) {
+							isInView = true;
+							hasShown = true;
+							ensureLoaded();
+							if (hasLoaded && hasFocus) start();
+						} else {
+							isInView = false;
+							stop();
+						}
+					}
+				},
+				{
+					root: null,
+					rootMargin: '200px',
+					threshold: 0.1
+				}
+			);
+			visibilityObserver.observe(rootEl);
+		} else if (!normalizedDir) {
 			error = 'Defina a propriedade dir (ex.: "imgs/galeria").';
-		} else {
-			await loadManifest();
-			start();
 		}
 
 		return () => document.removeEventListener('visibilitychange', onVis);
@@ -72,6 +111,7 @@
 
 	onDestroy(() => {
 		stop();
+		if (visibilityObserver) visibilityObserver.disconnect();
 	});
 
 	async function loadManifest() {
@@ -142,7 +182,7 @@
 	}
 
 	function start() {
-		if (timer || !hasFocus || items.length < 2) return;
+		if (timer || !hasFocus || !isInView || items.length < 2) return;
 		timer = setInterval(() => {
 			currentIdx = (currentIdx + 1) % items.length;
 		}, safeInterval);
@@ -157,7 +197,9 @@
 </script>
 
 <div
+	bind:this={rootEl}
 	class={`fade-carousel ${sizeClass} ${classes || ''}`.trim()}
+	class:show={hasShown}
 	style={`--fade-ms:${safeFade}ms;${height ? `height:${height};` : ''}${
 		background ? `background:${background};` : ''
 	}`}
@@ -191,6 +233,11 @@
 	.fade-carousel {
 		width: calc(100% - (var(--grid) * 4));
 		margin: 0 auto calc(var(--grid) * 6) auto;
+		opacity: 0;
+		transition: opacity 600ms ease;
+	}
+	.fade-carousel.show {
+		opacity: 1;
 	}
 	.fade-carousel .frame {
 		position: relative;

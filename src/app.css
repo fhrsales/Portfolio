@@ -311,6 +311,26 @@ html:not(.is-scrolling) .tag-selector-anchor {
 	opacity: 1;
 	pointer-events: auto;
 }
+@media (max-width: 600px) {
+	/* Keep tag selector visible in flow on mobile */
+	.tag-selector-anchor {
+		position: sticky;
+		top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
+		height: auto;
+		overflow: visible;
+		pointer-events: auto;
+		opacity: 1;
+		z-index: 5;
+	}
+	html.tag-fixed .tag-selector-anchor {
+		position: sticky;
+		top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
+		left: auto;
+		right: auto;
+		height: auto;
+		overflow: visible;
+	}
+}
 
 /* 100vh hero wrapper to guarantee first scroll occupation */
 .intro-hero {
