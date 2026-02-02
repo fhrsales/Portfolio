@@ -2,6 +2,7 @@
 	--grid: 9px;
 	--font-primary: 'Fira Sans', sans-serif;
 	--vh: 1vh;
+	--header-h: 66px;
 
 	--color-primary: #32379d;
 	--color-secondary: #f4604a;
@@ -239,25 +240,16 @@ strong {
 /* Sticky anchor for tag selector */
 .tag-selector-anchor {
 	--tag-offset: 0px;
-	position: relative;
-	height: 0;
-	width: 100%;
-	overflow: hidden;
-	pointer-events: none;
-	opacity: 0;
-}
-html.tag-fixed .tag-selector-anchor {
-	position: fixed;
+	position: sticky;
 	top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
-	left: 0;
-	right: 0;
 	z-index: 5;
 	display: flex;
 	justify-content: center;
 	align-self: stretch;
+	height: auto;
+	width: 100%;
 	pointer-events: auto;
 	opacity: 1;
-	height: auto;
 	overflow: visible;
 }
 .tag-selector-anchor::before {
@@ -281,31 +273,19 @@ html.tag-fixed .tag-selector-anchor {
 	position: relative;
 	z-index: 1;
 }
-html.menu-hidden .tag-selector-anchor {
-	--tag-offset: 0px;
-}
 @media (min-width: 900px) {
 	.tag-selector-anchor {
 		--tag-offset: 0px;
 	}
-	html.menu-hidden .tag-selector-anchor {
-		--tag-offset: 0px;
-	}
 }
 
-/* Fade menu + tag selector while scrolling */
-.menu-bar,
+/* Fade tag selector while scrolling */
 .tag-selector-anchor {
 	transition: opacity 220ms ease;
 }
-html.is-scrolling .menu-bar:not(.hidden),
 html.is-scrolling .tag-selector-anchor {
 	opacity: 0;
 	pointer-events: none;
-}
-html:not(.is-scrolling) .menu-bar:not(.hidden) {
-	opacity: 1;
-	pointer-events: auto;
 }
 html:not(.is-scrolling) .tag-selector-anchor {
 	opacity: 1;
@@ -321,14 +301,6 @@ html:not(.is-scrolling) .tag-selector-anchor {
 		pointer-events: auto;
 		opacity: 1;
 		z-index: 5;
-	}
-	html.tag-fixed .tag-selector-anchor {
-		position: sticky;
-		top: calc(env(safe-area-inset-top, 0px) + var(--header-h, 0px) + var(--tag-offset));
-		left: auto;
-		right: auto;
-		height: auto;
-		overflow: visible;
 	}
 }
 

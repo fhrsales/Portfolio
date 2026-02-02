@@ -4,236 +4,13 @@
     import Footer from '$lib/components/footer/Footer.svelte';
     import { page } from '$app/stores';
     import { base } from '$app/paths';
-    import { get } from 'svelte/store';
     import { onMount } from 'svelte';
     let { children } = $props();
-    let showMenu = $state(true);
-    let isHome = $state(false);
-    let tagMutation;
-    let contentMutation;
-    let tagAnchor;
-    let scrollHandler;
-    let resizeHandler;
-    let menuLocked = false;
-    let anchorTop = 0;
-    let headerH = 0;
     let scrollFadeTimer;
     let scrollFadeHandler;
-    let tagFixed = false;
-    let introThreshold = 0;
-    let isMobile = $state(false);
-
-    function applyMenuState() {
-        if (typeof document === 'undefined') return;
-        document.documentElement.classList.toggle('menu-hidden', !showMenu);
-        if (!showMenu) {
-            document.documentElement.style.setProperty('--header-h', '0px');
-        } else {
-            requestAnimationFrame(updateHeaderVar);
-        }
-    }
-
-    function disconnectTagObserver(resetTagFixed = true) {
-        if (tagMutation) {
-            tagMutation.disconnect();
-            tagMutation = null;
-        }
-        if (contentMutation) {
-            contentMutation.disconnect();
-            contentMutation = null;
-        }
-        if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
-        if (resizeHandler) window.removeEventListener('resize', resizeHandler);
-        scrollHandler = null;
-        resizeHandler = null;
-        menuLocked = false;
-        tagFixed = resetTagFixed ? false : tagFixed;
-        introThreshold = 0;
-        if (typeof document !== 'undefined') {
-            document.documentElement.classList.remove('has-tag-selector');
-            if (resetTagFixed) document.documentElement.classList.remove('tag-fixed');
-        }
-    }
-
-    function computeIsMobile() {
-        if (typeof window === 'undefined') return;
-        isMobile = (window.innerWidth || 0) <= 600;
-    }
-
-    function measureAnchor() {
-        if (!tagAnchor) return;
-        const rect = tagAnchor.getBoundingClientRect();
-        anchorTop = rect.top + (window.scrollY || window.pageYOffset || 0);
-        const header = document.querySelector('.menu-bar');
-        headerH = header ? header.offsetHeight : 0;
-    }
-
-    function measureIntroThreshold() {
-        if (typeof document === 'undefined') return;
-        const introMarkers = Array.from(document.querySelectorAll('.scroll-bg-marker[data-intro="true"]'));
-        if (introMarkers.length) {
-            const last = introMarkers[Math.min(introMarkers.length, 2) - 1];
-            const rect = last.getBoundingClientRect();
-            introThreshold = rect.bottom + (window.scrollY || window.pageYOffset || 0);
-            return;
-        }
-        const nodes = Array.from(document.querySelectorAll('.intro-paragraph'));
-        if (!nodes.length) {
-            introThreshold = 0;
-            return;
-        }
-        const last = nodes[Math.min(nodes.length, 2) - 1];
-        if (!last) {
-            introThreshold = 0;
-            return;
-        }
-        const rect = last.getBoundingClientRect();
-        introThreshold = rect.bottom + (window.scrollY || window.pageYOffset || 0);
-    }
-
-    function evaluateMenu() {
-        const y = window.scrollY || window.pageYOffset || 0;
-        const threshold = (isHome && introThreshold > 0 ? introThreshold : anchorTop) - headerH - 8;
-        if (tagAnchor) {
-            const shouldFixTag = showMenu && y >= anchorTop - headerH;
-            if (tagFixed !== shouldFixTag) {
-                tagFixed = shouldFixTag;
-                document.documentElement.classList.toggle('tag-fixed', tagFixed);
-            }
-        } else if (tagFixed) {
-            tagFixed = false;
-            document.documentElement.classList.remove('tag-fixed');
-        }
-        const shouldShow = y >= threshold;
-        if (isMobile) {
-            if (!isHome) {
-                if (!showMenu) {
-                    showMenu = true;
-                    requestAnimationFrame(updateHeaderVar);
-                }
-                return;
-            }
-            if (introThreshold > 0 && showMenu !== shouldShow) {
-                showMenu = shouldShow;
-                requestAnimationFrame(updateHeaderVar);
-            }
-            return;
-        }
-        if (isHome) {
-            if (showMenu !== shouldShow) {
-                showMenu = shouldShow;
-                requestAnimationFrame(updateHeaderVar);
-            }
-        } else {
-            if (menuLocked) return;
-            if (showMenu !== shouldShow) {
-                showMenu = shouldShow;
-                if (shouldShow) {
-                    menuLocked = true;
-                    requestAnimationFrame(updateHeaderVar);
-                }
-            }
-        }
-    }
-
-    function attachScrollWatcher() {
-        computeIsMobile();
-        measureAnchor();
-        measureIntroThreshold();
-        evaluateMenu();
-        if (scrollHandler) return;
-        scrollHandler = () => requestAnimationFrame(evaluateMenu);
-        resizeHandler = () => {
-            computeIsMobile();
-            measureAnchor();
-            measureIntroThreshold();
-            evaluateMenu();
-        };
-        window.addEventListener('scroll', scrollHandler, { passive: true });
-        window.addEventListener('resize', resizeHandler);
-    }
-
-    function observeTagSelector() {
-        if (typeof window === 'undefined') return;
-        disconnectTagObserver();
-        tagAnchor = document.querySelector('.tag-selector-anchor');
-        if (!tagAnchor) {
-            tagMutation = new MutationObserver(() => {
-                tagAnchor = document.querySelector('.tag-selector-anchor');
-                measureIntroThreshold();
-                evaluateMenu();
-                if (tagAnchor) {
-                    tagMutation.disconnect();
-                    tagMutation = null;
-                    document.documentElement.classList.add('has-tag-selector');
-                    attachScrollWatcher();
-            }
-        });
-        const container = document.querySelector('.main-content');
-        if (container) tagMutation.observe(container, { childList: true, subtree: true });
-        attachScrollWatcher();
-        return;
-        }
-        document.documentElement.classList.add('has-tag-selector');
-        attachScrollWatcher();
-        const container = document.querySelector('.main-content');
-        if (container) {
-            contentMutation = new MutationObserver(() => {
-                requestAnimationFrame(() => {
-                    measureAnchor();
-                    measureIntroThreshold();
-                    evaluateMenu();
-                });
-            });
-            contentMutation.observe(container, { childList: true, subtree: true });
-        }
-    }
-
-    function updateHeaderVar() {
-        try {
-            const header = document.querySelector('.menu-bar');
-            // Use only the actual header height; exclude margins to avoid scroll jank
-            const h = header ? header.offsetHeight : 0;
-            document.documentElement.style.setProperty('--header-h', `${h}px`);
-        } catch {
-            /* ignore */
-        }
-    }
-
-    $effect(() => {
-        applyMenuState();
-    });
-
-    // Initial path-based setup (runs in SSR too)
-    const initial = get(page);
-    const homePath = `${base || ''}/`;
-    const initialIsHome = initial?.url?.pathname === homePath;
-    isHome = initialIsHome;
-    showMenu = initialIsHome ? false : true;
-
-    function handleRouteChange(v) {
-        const nowHome = v?.url?.pathname === homePath;
-        isHome = nowHome;
-        disconnectTagObserver();
-        if (isHome) {
-            showMenu = false;
-            menuLocked = false;
-            observeTagSelector();
-        } else {
-            showMenu = true;
-            if (typeof window !== 'undefined') requestAnimationFrame(updateHeaderVar);
-        }
-    }
 
     onMount(() => {
-        computeIsMobile();
-        // Initial compute
-        updateHeaderVar();
-        // Subscribe to route changes
-        const unsubscribe = page.subscribe((v) => handleRouteChange(v));
-        // Run once for client side to configure watchers
-        handleRouteChange(get(page));
-        // Fade menu/tag selector while scrolling
+        // Fade tag selector while scrolling
         scrollFadeHandler = () => {
             document.documentElement.classList.add('is-scrolling');
             if (scrollFadeTimer) clearTimeout(scrollFadeTimer);
@@ -243,8 +20,6 @@
         };
         window.addEventListener('scroll', scrollFadeHandler, { passive: true });
         return () => {
-            unsubscribe();
-            disconnectTagObserver();
             if (scrollFadeHandler) window.removeEventListener('scroll', scrollFadeHandler);
             if (scrollFadeTimer) clearTimeout(scrollFadeTimer);
         };
@@ -252,13 +27,13 @@
 </script>
 
 {#if !$page.url.pathname?.startsWith('/admin')}
-	<Menu hidden={!showMenu} fadeIn={isHome && showMenu} />
+	<Menu />
 {/if}
 {#if $page.url.pathname?.startsWith('/admin')}
 	{@render children?.()}
 
 {:else}
-	<main class="main-content" class:home-initial={isHome && !showMenu} class:is-home={isHome}>
+	<main class="main-content" class:is-home={$page.url.pathname === `${base || ''}/`}>
 		{@render children?.()}
 	</main>
 {/if}
