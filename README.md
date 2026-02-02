@@ -201,7 +201,3 @@ Cada chave representa um slug de página. Exemplo simplificado:
 ---
 
 Qualquer dúvida sobre expansão ou ajuste estrutural, abra uma issue ou siga iterando no componente `ArchieRenderer`.
-
-
-## 📌 TODO
-- Cada exemplo do portifolio deve ter um conteúdo que demonstre robusta e efetiva metodologia para pesquisa, inspiração, processo de design, storytelling, resolução de problema e execução final
