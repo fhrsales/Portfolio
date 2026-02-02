@@ -308,40 +308,45 @@
 		const isMobileView = typeof window !== 'undefined' ? (window.innerWidth || 0) <= 600 : false;
 		if (isMobileView && trackEl && trackEl.children && trackEl.children.length) {
 			const cards = Array.from(trackEl.children);
+			const firstEl = cards[0];
 			const currentCenter = (containerEl.scrollLeft || 0) + vw / 2;
 			const lastEl = cards[cards.length - 1];
 			const lastCenter =
 				lastEl ? (lastEl.offsetLeft || 0) + (lastEl.offsetWidth || 0) / 2 : 0;
+			const targetForCenter = (center) =>
+				Math.min(maxScroll, Math.max(0, Math.round(center - vw / 2)));
 			// If we are at/near the last card, wrap to the beginning
 			if (lastCenter && currentCenter >= lastCenter - 1) {
 				try {
-					containerEl.scrollTo({ left: 0, behavior: 'smooth' });
+					firstEl?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 				} catch {
-					containerEl.scrollLeft = 0;
+					const firstCenter =
+						firstEl ? (firstEl.offsetLeft || 0) + (firstEl.offsetWidth || 0) / 2 : 0;
+					containerEl.scrollLeft = targetForCenter(firstCenter);
 				}
 				return;
 			}
 			// Find next card center strictly after current center
-			let targetLeft = 0;
-			let found = false;
+			let targetEl = null;
 			for (const el of cards) {
 				const left = el.offsetLeft || 0;
 				const width = el.offsetWidth || 0;
 				const center = left + width / 2;
 				if (center > currentCenter + 1) {
-					targetLeft = Math.min(maxScroll, Math.max(0, Math.round(center - vw / 2)));
-					found = true;
+					targetEl = el;
 					break;
 				}
 			}
-			if (!found) {
+			if (!targetEl) {
 				// wrap to beginning
-				targetLeft = 0;
+				targetEl = firstEl;
 			}
 			try {
-				containerEl.scrollTo({ left: targetLeft, behavior: 'smooth' });
+				targetEl?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 			} catch {
-				containerEl.scrollLeft = targetLeft;
+				const fallbackCenter =
+					targetEl ? (targetEl.offsetLeft || 0) + (targetEl.offsetWidth || 0) / 2 : 0;
+				containerEl.scrollLeft = targetForCenter(fallbackCenter);
 			}
 			return;
 		}
@@ -708,9 +713,15 @@
 			scroll-snap-type: x mandatory;
 			-webkit-overflow-scrolling: touch;
 			scrollbar-width: none; /* Firefox */
+			scroll-padding-left: 50vw;
+			scroll-padding-right: 50vw;
 		}
 		.scroll-viewport::-webkit-scrollbar {
 			display: none;
+		}
+		.scroll-track {
+			padding-left: 50vw;
+			padding-right: 50vw;
 		}
 		.scroll-viewport .card {
 			scroll-snap-align: center;
