@@ -35,6 +35,7 @@ src/lib/archiePages.json    Cópia usada em runtime (gerada no build)
 src/lib/components/         Componentes (ImageBlock, VideoBlock, TagSelector, etc.)
 src/lib/stores              Store `archiePages` (não exibido aqui mas referenciado)
 src/routes/                 Páginas + admin/editor
+scripts/                    Utilitários (ver scripts/README.md)
 ```
 
 ## 🧱 Sintaxe de Conteúdo
