@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Replace with your actual sitemap URL if you have one
+# Sitemap: https://your-domain.com/sitemap.xml
+
+# Optional host directive recognized by some crawlers
+Host: https://fhrsales.github.io/Portfolio/
