@@ -46,11 +46,12 @@
 	const fadeOut = { duration: 160 };
 
 	let introH2Observer;
+	let introH2Watch;
 
-	onMount(() => {
+	function setupIntroH2Observer() {
 		if (typeof document === 'undefined') return;
 		const introH2 = document.querySelector('.intro-h2');
-		if (!introH2) return;
+		if (!introH2) return false;
 
 		const root = document.documentElement;
 		root.classList.add('has-intro-h2');
@@ -76,10 +77,31 @@
 			{ root: null, threshold: 0 }
 		);
 		introH2Observer.observe(introH2);
+		return true;
+	}
+
+	onMount(() => {
+		if (setupIntroH2Observer()) return;
+		if (typeof document === 'undefined') return;
+
+		const start = Date.now();
+		introH2Watch = new MutationObserver(() => {
+			if (setupIntroH2Observer()) {
+				introH2Watch.disconnect();
+				introH2Watch = null;
+				return;
+			}
+			if (Date.now() - start > 8000) {
+				introH2Watch.disconnect();
+				introH2Watch = null;
+			}
+		});
+		introH2Watch.observe(document.body, { childList: true, subtree: true });
 	});
 
 	onDestroy(() => {
 		if (introH2Observer) introH2Observer.disconnect();
+		if (introH2Watch) introH2Watch.disconnect();
 		if (typeof document !== 'undefined') {
 			const root = document.documentElement;
 			root.classList.remove('has-intro-h2');
