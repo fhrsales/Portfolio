@@ -168,6 +168,17 @@
 		padding-top: env(safe-area-inset-top, 0px);
 		z-index: 1000;
 		/* margin-bottom: calc(var(--grid) * 5); */
+		opacity: 1;
+		transition: opacity 360ms ease;
+	}
+
+	:global(html.has-intro-h2:not(.intro-h2-exited)) .menu-bar {
+		opacity: 0;
+		pointer-events: none;
+	}
+	:global(html.has-intro-h2.intro-h2-exited) .menu-bar {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	/* optional fade-in on mount (home only) */

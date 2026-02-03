@@ -68,7 +68,17 @@
         margin: calc(var(--grid) * 1) auto calc(var(--grid) * 3) auto;
         width: calc(100% - (var(--grid) * 4));
         max-width: calc(var(--grid) * 70);
+        opacity: 1;
+        transition: opacity 360ms ease;
     }
+	:global(html.has-intro-h2:not(.intro-h2-exited)) .tag-selector {
+		opacity: 0;
+		pointer-events: none;
+	}
+	:global(html.has-intro-h2.intro-h2-exited) .tag-selector {
+		opacity: 1;
+		pointer-events: auto;
+	}
     /* Style underlying .btn from Button component */
     .tag-selector :global(.btn) {
         text-transform: uppercase;

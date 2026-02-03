@@ -25,6 +25,7 @@
 	import { page } from '$app/stores';
 	import { derived } from 'svelte/store';
 	import { fade } from 'svelte/transition';
+	import { onMount, onDestroy } from 'svelte';
 	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
 	import { parseVideo as parseVideoHelper } from '$lib/parsers/video.js';
 	import { withBase } from '$lib/paths.js';
@@ -43,6 +44,48 @@
 	let localSelectedTag = '';
 	const fadeIn = { duration: 220 };
 	const fadeOut = { duration: 160 };
+
+	let introH2Observer;
+
+	onMount(() => {
+		if (typeof document === 'undefined') return;
+		const introH2 = document.querySelector('.intro-h2');
+		if (!introH2) return;
+
+		const root = document.documentElement;
+		root.classList.add('has-intro-h2');
+		root.classList.remove('intro-h2-exited');
+
+		const rect = introH2.getBoundingClientRect();
+		if (rect.bottom <= 0) {
+			root.classList.add('intro-h2-exited');
+			return;
+		}
+
+		let hasBeenInView = false;
+		introH2Observer = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						hasBeenInView = true;
+					} else if (hasBeenInView && entry.boundingClientRect.top < 0) {
+						root.classList.add('intro-h2-exited');
+					}
+				}
+			},
+			{ root: null, threshold: 0 }
+		);
+		introH2Observer.observe(introH2);
+	});
+
+	onDestroy(() => {
+		if (introH2Observer) introH2Observer.disconnect();
+		if (typeof document !== 'undefined') {
+			const root = document.documentElement;
+			root.classList.remove('has-intro-h2');
+			root.classList.remove('intro-h2-exited');
+		}
+	});
 	const noFade = { duration: 0 };
 	let enableFilterFade = false;
 	let _lastFilter = '';
