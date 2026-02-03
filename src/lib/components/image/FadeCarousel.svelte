@@ -118,7 +118,7 @@
 		error = '';
 		items = [];
 		try {
-			const res = await fetch(manifestUrl, { headers: { 'cache-control': 'no-cache' } });
+			const res = await fetch(manifestUrl);
 			if (!res.ok) throw new Error(`HTTP ${res.status}`);
 			const data = await res.json();
 			const rawList = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
@@ -214,7 +214,8 @@
 					alt={item.name || 'carousel image'}
 					class:active={idx === currentIdx}
 					style={`z-index:${idx === currentIdx ? 2 : 1};`}
-					loading="eager"
+					loading={idx === currentIdx ? 'eager' : 'lazy'}
+					fetchpriority={idx === currentIdx ? 'high' : 'auto'}
 					decoding="async"
 					on:load={(e) => {
 						const w = e.currentTarget?.naturalWidth || 0;
