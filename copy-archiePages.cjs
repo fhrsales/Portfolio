@@ -1,6 +1,6 @@
 // Builds the runtime content file from static/archiePages.json.
-// This branch applies a portfolio-positioning layer at build time so the source
-// content remains intact and the experiment is easy to review/revert.
+// The application branch keeps the source portfolio intact and applies the
+// application-specific narrative at build time.
 const fs = require('fs');
 const path = require('path');
 
@@ -12,7 +12,6 @@ if (!fs.existsSync(src)) {
 	console.error('static/archiePages.json não encontrado!');
 	process.exit(1);
 }
-
 if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
 
 const pages = JSON.parse(fs.readFileSync(src, 'utf8'));
@@ -50,12 +49,12 @@ replace(
 );
 replace(
 	"<bullet texto='The Impact' cor='var(--color-success)' /> The project generated an estimated <strong>R$7 million increase in EBITDA</strong> (2022) through operational optimization and fueled a new advertising strategy. It proved that design decisions are business decisions.",
-	"<bullet texto='Impact' cor='var(--color-success)' /> The redesign supported operational optimization and a new advertising strategy, with an estimated <strong>R$7 million increase in EBITDA</strong> (2022). It is the clearest example in my career that design decisions can also be business decisions."
+	"<bullet texto='Impact' cor='var(--color-success)' /> The redesign supported operational optimization and a new advertising strategy, with an estimated <strong>R$7 million increase in EBITDA</strong> (2022). It is the clearest example in my career that design decisions can also be business decisions.\n\n<a class='sublinks' href='/estadao'>Read the full design case study →</a>"
 );
 replace('h4: ATBL Enterprise App ', 'h4: ATBL — Turning Enterprise Complexity into a Usable Product');
 replace(
 	"While <em>Estadão</em> shows my capacity for scale, <em><a href=\"https://www.atbl.com.br/loja\">ATBL</a></em> demonstrates my hands-on engineering skills. I engineered a digital ecosystem to eliminate manual workflows, replacing spreadsheets with a high-performance PWA.\n\n<bullet texto='Tech Stack' cor='var(--color-secondary)' /> Svelte, Node.js API integration with Sankhya ERP.\n\n<bullet texto='Result' cor='var(--color-success)' /> By placing stock control, sales orders, and dashboards in the employees' pockets, the company saw a <strong>12.5% revenue increase</strong> through improved efficiency.",
-	"<em><a href=\"https://www.atbl.com.br/loja\">ATBL</a></em> operates in a technical B2B environment where product specifications, stock, pricing, tax rules, customer agreements, and ERP workflows all affect a seemingly simple task: getting the right product and completing an order.\n\n<bullet texto='The Problem' cor='var(--color-secondary)' /> Critical commercial workflows depended on spreadsheets, manual quotations, repeated data entry, and fragmented access to stock and order information.\n\n<bullet texto='Product Approach' cor='var(--color-secondary)' /> I turned those operational rules into a digital product: a PWA that exposes the information employees need while keeping ERP complexity behind the interface. Stock control, sales orders, and dashboards became accessible from the same experience.\n\n<bullet texto='From Design to Production' cor='var(--color-secondary)' /> I remained hands-on through implementation, using Svelte and Node.js with Sankhya ERP integration. Engineering was part of the design process: the interface had to respect real inventory, pricing, and business rules rather than demonstrate an idealized flow.\n\n<bullet texto='Result' cor='var(--color-success)' /> The company recorded a <strong>12.5% revenue increase</strong> alongside the operational changes enabled by the product."
+	"<em><a href=\"https://www.atbl.com.br/loja\">ATBL</a></em> operates in a technical B2B environment where product specifications, stock, pricing, tax rules, customer agreements, and ERP workflows all affect a seemingly simple task: getting the right product and completing an order.\n\n<bullet texto='The Problem' cor='var(--color-secondary)' /> Critical commercial workflows depended on spreadsheets, manual quotations, repeated data entry, and fragmented access to stock and order information.\n\n<bullet texto='Product Approach' cor='var(--color-secondary)' /> I turned those operational rules into a digital product: a PWA that exposes the information employees need while keeping ERP complexity behind the interface. Stock control, sales orders, and dashboards became accessible from the same experience.\n\n<bullet texto='From Design to Production' cor='var(--color-secondary)' /> I remained hands-on through implementation, using Svelte and Node.js with Sankhya ERP integration. Engineering was part of the design process: the interface had to respect real inventory, pricing, and business rules rather than demonstrate an idealized flow.\n\n<bullet texto='Result' cor='var(--color-success)' /> The company recorded a <strong>12.5% revenue increase</strong> alongside the operational changes enabled by the product.\n\n<a class='sublinks' href='/atbl'>Read the full product design case study →</a>"
 );
 replace('h4: Ask to fab.IA: Talk to your Data', 'h4: fab.IA — Making Enterprise Data Conversational');
 replace(
@@ -74,12 +73,93 @@ replace(
 
 if (pages.index) pages.index.content = home;
 
-if (pages.about?.content) {
-	pages.about.content = pages.about.content
-		.replace('h1: From Newsroom Leadership to Digital Engineering', 'h1: From Visual Systems to Product Leadership')
-		.replace('<strong>The Pivot to Tech.</strong> Since 2010, I have codified that experience into digital products.', '<strong>Extending design into technology.</strong> Since 2010, I have expanded that experience into digital products and software engineering.')
-		.replace('I don\'t just "manage" transformation; I build it.', 'I lead transformation while staying close enough to the work to design, prototype, and build it.');
-}
+pages.estadao = {
+	content: `imagem: germanico.png, G
 
-fs.writeFileSync(dest, `${JSON.stringify(pages, null, 2)}\n`, 'utf8');
-console.log('Built src/lib/archiePages.json with design-leadership positioning');
+h1: Estadão — Designing a System at Scale
+
+A redesign of a newspaper is easy to mistake for a graphic-design exercise. At Estadão, the real challenge was systemic: change a daily information product with a long-established identity while balancing readers, editorial priorities, industrial production, advertising, digital workflows, and business performance.
+
+h3: The problem was larger than the page
+
+The product had to modernize without becoming unfamiliar. Any visual decision affected multiple parts of the organization: how journalists structured stories, how editors made hierarchy visible, how pages moved through production, how advertising inventory worked, and how readers navigated a dense daily product.
+
+The design question therefore became: <strong>how do you change the system without losing the trust encoded in the existing product?</strong>
+
+h3: My role
+
+I led the redesign strategy at the intersection of art direction, information architecture, editorial leadership, production constraints, and commercial viability. My responsibility was not simply to define a visual style. It was to create rules that a large multidisciplinary organization could use every day.
+
+That meant working as a design leader while remaining close to the craft: hierarchy, typography, grids, modules, information density, visual storytelling, and the components needed to make the system coherent.
+
+h3: From pages to a design system
+
+A newspaper is a high-frequency interface. Every edition brings different content, but readers still need to understand the product immediately. The solution therefore depended on reusable principles rather than one-off compositions.
+
+The redesign established a system for hierarchy, typography, modular layouts, visual language, and recurring editorial patterns. The same systems thinking extended into interactive and multimedia components as the newsroom became increasingly digital.
+
+<a class='sublinks' href='https://fhrsales.github.io/design-system-estadao/' target='_blank'>Explore the redesign and design system →</a><br><a class='sublinks' href='/manual' target='_blank'>Explore interactive & multimedia UI components →</a>
+
+h3: Design as an organizational decision
+
+The work connected editorial quality with operational and commercial decisions. The redesign supported production optimization and a new advertising strategy. The business case associated with the project estimated a <strong>R$7 million increase in EBITDA in 2022</strong>.
+
+<a class='sublinks' href='/pdfs/estadao_ca.pdf' target='_blank'>Read the strategic business case presented for board approval →</a><br><a class='sublinks' href='/pdfs/estadao_comercial.pdf' target='_blank'>See the advertising and monetization strategy →</a>
+
+h3: What this project taught me
+
+The most durable lesson was that design leadership is not about controlling every output. It is about creating a system strong enough for many people to make good decisions inside it.
+
+That principle now shapes how I approach software products as well: understand the real constraints, make the rules coherent, give teams reusable building blocks, and keep complexity away from the person using the product.
+
+<a class='sublinks' href='/'>← Back to selected work</a>`,
+	showInMenu: false,
+	menuLabel: 'Estadão Case Study'
+};
+
+pages.atbl = {
+	content: `imagem: atbl-app.png, G
+
+h1: ATBL — Turning Enterprise Complexity into a Usable Product
+
+ATBL operates in industrial distribution for Oil & Gas, Offshore, and Maritime customers. What looks like a straightforward commercial flow sits on top of product specifications, stock, customer-specific pricing, tax rules, approvals, ERP processes, technical documentation, and sales relationships.
+
+The product challenge was not to put an ERP on a smaller screen. It was to decide <strong>which complexity users actually need to see — and which complexity the system should absorb for them.</strong>
+
+h3: The legacy experience
+
+Commercial work depended heavily on manual quotations, repeated communication, fragmented stock visibility, spreadsheets, and repeated data entry. Those processes consumed time and created opportunities for error precisely where technical accuracy matters most.
+
+The broader digital strategy followed the same diagnosis: industrial buyers need autonomy, but technical B2B purchasing cannot be reduced to a generic marketplace flow. Specifications, traceability, homologation, availability, contractual pricing, and trust all remain part of the experience.
+
+h3: Product principles
+
+<bullet texto='Expose decisions, not ERP structure' cor='var(--color-secondary)' /> Users should see the stock, order, customer, and performance information needed to act — not the database and process complexity behind it.
+
+<bullet texto='Respect real business rules' cor='var(--color-secondary)' /> Pricing, inventory, tax logic, customer agreements, and order status must come from operational systems rather than a simplified mock workflow.
+
+<bullet texto='Reduce repeated work' cor='var(--color-secondary)' /> Information already known by the ERP should not have to be manually reconstructed across spreadsheets, messages, and order entry.
+
+<bullet texto='Keep expert people on expert problems' cor='var(--color-secondary)' /> Digital self-service should handle routine access to information while technical salespeople remain focused on engineering solutions, relationships, and complex negotiations.
+
+h3: The product
+
+I designed and built a PWA that brings stock control, sales orders, and business dashboards into a coherent mobile experience integrated with Sankhya ERP. In parallel, the customer-facing digital ecosystem connects catalogue information with real stock, pricing, tax, and customer-specific commercial conditions.
+
+This is where my design and engineering practices converge. I can test a product decision against the actual system that must support it, then remain hands-on through implementation rather than handing an idealized interface to another discipline.
+
+h3: Designing for technical B2B
+
+Industrial products are often selected through rigid specifications. The experience therefore has to make dense technical information usable: filters, datasheets, homologations, availability, and commercial context need to help the buyer reach a confident decision without hiding information that matters.
+
+The same principle applies internally. A dashboard is useful only when it helps someone decide; an order screen is useful only when its state reflects the real operational workflow.
+
+h3: From interface to operating model
+
+The digital ecosystem connects real-time price tables, state tax rules, stock, customer agreements, and ERP order flow. Approved orders can move into the operational process without recreating information manually. The goal is not automation for its own sake; it is a more coherent relationship between customer experience and company operations.
+
+The company recorded a <strong>12.5% revenue increase</strong> alongside the operational changes enabled by the product. I treat that figure as business context rather than claiming that interface design alone caused the growth.
+
+h3: What I bring from this work
+
+ATBL is a useful example of how
