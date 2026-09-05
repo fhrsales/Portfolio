@@ -14,11 +14,14 @@ replace("<bullet texto='The Impact' cor='var(--color-success)' /> The project ge
 replace('h4: ATBL Enterprise App ','h4: 02 — ATBL: Turning Enterprise Complexity into a Usable Product');
 replace("While <em>Estadão</em> shows my capacity for scale, <em><a href=\"https://www.atbl.com.br/loja\">ATBL</a></em> demonstrates my hands-on engineering skills. I engineered a digital ecosystem to eliminate manual workflows, replacing spreadsheets with a high-performance PWA.\n\n<bullet texto='Tech Stack' cor='var(--color-secondary)' /> Svelte, Node.js API integration with Sankhya ERP.\n\n<bullet texto='Result' cor='var(--color-success)' /> By placing stock control, sales orders, and dashboards in the employees' pockets, the company saw a <strong>12.5% revenue increase</strong> through improved efficiency.","A technical B2B environment where specifications, inventory, customer pricing, taxes, approvals, and ERP workflows sit behind everyday commercial decisions.\n\n<bullet texto='Product + Engineering' cor='var(--color-secondary)' /> I designed and built digital products that expose what people need to decide while keeping operational complexity behind the interface.\n\n<a class='sublinks' href='/atbl'>Read the full product design case study →</a>");
 replace('h4: Ask to fab.IA: Talk to your Data','h4: 04 — fab.IA: Making Enterprise Data Conversational');
+
+// Remove the original Blue archive block BEFORE adding the promoted Blue case.
+// Doing this afterwards caused the regex to start at the new Blue carousel and delete everything through the old Blue block.
+home=home.replace(/\{divisor\}\n\n\{carrossel\}\n  pasta: blue[\s\S]*?h4: Blue: Tablet R&D for Agência Estado[\s\S]*?(?=\n\{divisor\})/,'');
+
 const fabMarker="{.bloco}\n{video}\n  nome: fabia.mov";
 const blueCase=`{divisor}\n\n{carrossel}\n  pasta: blue\n  tempo: 6s\n  fade: 1.5s\n  tamanho: M\n  classes: shadow-1\n  tags: Product Design, UX/UI, Interaction Design\n{}\n\nh4: 03 — Blue: Designing for a New Interaction Model\n\nIn 2010, as tablets were becoming a new consumer platform, we explored how financial news could move beyond the desktop metaphor. The question was not how to shrink a website onto a tablet, but how information should behave when the primary input becomes touch.\n\n<bullet texto='Interaction' cor='var(--color-secondary)' /> Gesture-based navigation and card-like information structures made a continuous financial-news stream browsable by touch.\n\n<bullet texto='Product Thinking' cor='var(--color-secondary)' /> Blue was an R&D prototype for learning what a new device category changed about reading, navigation, hierarchy, and information density.\n\n<a class='sublinks' href='/blue-case'>Read the interaction design case →</a>\n\n`;
 if(home.includes(fabMarker))home=home.replace(fabMarker,blueCase+fabMarker);
-// Remove the original Blue block later in the archive so Blue appears only once on the homepage.
-home=home.replace(/\{divisor\}\n\n\{carrossel\}\n  pasta: blue[\s\S]*?h4: Blue: Tablet R&D for Agência Estado[\s\S]*?(?=\n\{divisor\})/,'');
 replace('h4: Visual Journalism & Awards','h3: Selected Visual Craft & Information Design\n\nh4: Visual Journalism & Awards');
 if(pages.index)pages.index.content=home;
 
