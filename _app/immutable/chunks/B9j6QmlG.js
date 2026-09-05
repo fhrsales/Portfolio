@@ -1,0 +1,1 @@
+import{b as l,h as d,d as m}from"./DWMLugUo.js";import{a as h}from"./BoHa5EKI.js";function b(a,t,r,n,u){var f,i;if(d&&m(),(f=t.$$host)!=null&&f.$$shadowRoot){const o=l("slot");h(a,o);return}var e=(i=t.$$slots)==null?void 0:i[r],s=!1;e===!0&&(e=t.children,s=!0),e===void 0||e(a,s?()=>n:n)}export{b as s};
