@@ -26,6 +26,20 @@ home = home.replace(
   '{divisor}\n\n'
 );
 
+// Hard fallback for ImageBlock's legacy mobile behavior: guarantee that the inferred
+// "-m" asset physically exists in the static folder. This avoids any runtime 404 on
+// mobile even if a component path bypasses nome_mobile for any reason.
+const blueDir = path.join(__dirname, '..', 'static', 'imgs', 'blue');
+const blueDesktop = path.join(blueDir, 'tela02.png');
+const blueMobile = path.join(blueDir, 'tela02-m.png');
+if (fs.existsSync(blueDesktop)) {
+  fs.copyFileSync(blueDesktop, blueMobile);
+  console.log('Created Blue mobile fallback asset: tela02-m.png');
+} else {
+  console.error('Blue source asset missing:', blueDesktop);
+  process.exit(1);
+}
+
 if (pages.index) pages.index.content = home;
 fs.writeFileSync(file, `${JSON.stringify(pages, null, 2)}\n`, 'utf8');
 console.log('Restored Blue native image preview with explicit mobile source');
