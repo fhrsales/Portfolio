@@ -250,7 +250,7 @@
 						bind:selected={localSelectedTag}
 						tags={obj.selectorConfig && Array.isArray(obj.selectorConfig)
 							? obj.selectorConfig
-							: undefined}
+							: [...new Set(annotatedBlocks.flatMap((block) => block.tags || []))].sort()}
 					/>
 				</div>
 			{/key}
