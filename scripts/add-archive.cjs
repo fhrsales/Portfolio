@@ -50,7 +50,29 @@ h3: Tapuiassauro — From evidence to understanding
 
 The reconstruction was not illustration added after the reporting. It turned fragments, measurements, and scientific inference into something readers could understand.
 
-{tapuiScrolly}
+{scrollerVideo}
+ video: tapui-scrolly.mp4
+ tamanho: GG
+ guia: nao
+ preload: auto
+ altura: 420vh
+ fit: contain
+ {.passo}
+  posicao: 0.14
+  texto: <strong>A few fragments are evidence.<br>Not an image.</strong>
+  classe:
+ {}
+ {.passo}
+  posicao: 0.50
+  texto: <strong>Design connects what science knows<br>with what people can understand.</strong>
+  classe:
+ {}
+ {.passo}
+  posicao: 0.84
+  texto: <strong>The reconstruction becomes<br>a hypothesis you can see.</strong>
+  classe:
+ {}
+{}
 
 {imagem}
   nome: tapuiassauro.png
