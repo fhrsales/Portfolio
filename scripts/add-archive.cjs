@@ -55,22 +55,22 @@ The reconstruction was not illustration added after the reporting. It turned fra
  tamanho: GG
  guia: nao
  preload: auto
- altura: 420vh
- fit: contain
+ altura: 360vh
+ fit: cover
  {.passo}
   posicao: 0.14
   texto: <strong>A few fragments are evidence.<br>Not an image.</strong>
-  classe:
+  classe: destaque
  {}
  {.passo}
   posicao: 0.50
   texto: <strong>Design connects what science knows<br>with what people can understand.</strong>
-  classe:
+  classe: destaque
  {}
  {.passo}
   posicao: 0.84
   texto: <strong>The reconstruction becomes<br>a hypothesis you can see.</strong>
-  classe:
+  classe: destaque
  {}
 {}
 
