@@ -1,8 +1,9 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { editorSave } from './src/lib/server/editor.js';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), editorSave()],
 	test: {
 		projects: [
 			{

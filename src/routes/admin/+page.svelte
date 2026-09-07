@@ -14,6 +14,7 @@
 	let content = '';
 	let page = 'index';
 	let error = '';
+	let originalPage;
 	let showInMenu = true;
 	let menuLabel = '';
 	// let buildResult = '';
@@ -107,6 +108,15 @@
 		}
 	}
 	onMount(() => {
+		try {
+			const saved = JSON.parse(sessionStorage.getItem('editorSaved') || 'null');
+			sessionStorage.removeItem('editorSaved');
+			if (saved && Date.now() - saved.at < 10000 && $archiePages[saved.page]) {
+				page = saved.page;
+				loadContent();
+				error = 'Salvo no arquivo do projeto.';
+			}
+		} catch {}
 		// next frame to avoid flash
 		if (typeof requestAnimationFrame === 'function') {
 			requestAnimationFrame(() => (_fadeIn = true));
@@ -140,10 +150,23 @@
 	async function saveContent() {
 		try {
 			ArchieML.load(content); // Valida o formato
-			archiePages.update((pages) => {
-				pages[page] = { content, showInMenu, menuLabel };
-				return pages;
-			});
+			const data = { content, showInMenu, menuLabel };
+			if (import.meta.env.DEV) {
+				const response = await fetch('/__editor/save', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ page, data, original: originalPage })
+				});
+				const result = await response.json();
+				if (!response.ok) throw new Error(result.error);
+				originalPage = result.data;
+				try { sessionStorage.setItem('editorSaved', JSON.stringify({ page, at: Date.now() })); } catch {}
+			}
+			archiePages.update((pages) => ({ ...pages, [page]: { ...pages[page], ...data } }));
+			if (import.meta.env.DEV) {
+				error = 'Salvo no arquivo do projeto.';
+				return true;
+			}
 			const blob = new Blob([JSON.stringify(get(archiePages), null, 2) + '\n'], {
 				type: 'application/json'
 			});
@@ -156,7 +179,7 @@
 			error = 'JSON exportado. Substitua src/lib/archiePages.json para publicar as alterações.';
 			return true;
 		} catch (e) {
-			error = 'Erro no formato ArchieML: ' + e;
+			error = 'Não foi possível salvar: ' + e.message;
 			return false;
 		}
 	}
@@ -164,6 +187,7 @@
 	function loadContent() {
 		const pages = get(archiePages);
 		const data = pages[page];
+		originalPage = data === undefined ? undefined : structuredClone(data);
 		if (typeof data === 'object' && data !== null) {
 			content = data.content || '';
 			showInMenu = data.showInMenu !== false; // default true
@@ -264,6 +288,7 @@
 									return pages;
 								});
 								loadContent();
+								originalPage = undefined;
 								e.target.blur();
 							}
 						}}
@@ -278,6 +303,7 @@
 									return pages;
 								});
 								loadContent();
+								originalPage = undefined;
 							}
 						}}
 					/>
@@ -351,7 +377,7 @@
 						on:click={clearFormatting}>⌫</IconButton
 					>
 				</Toolbar>
-				<Button variant="primary" handleClick={saveContent} value="Exportar JSON" newValue="Exportado!" />
+				<Button variant="primary" handleClick={saveContent} value={import.meta.env.DEV ? "Salvar" : "Salvar arquivo"} newValue="Salvo!" />
 				{#if page !== '__nova__'}
 					<Button variant="primary" handleClick={openDeleteModal} value="Apagar página" />
 				{/if}
@@ -424,6 +450,12 @@
 		gap: calc(var(--grid) * 1);
 		align-items: center;
 		justify-content: flex-end;
+		flex-wrap: wrap;
+		position: sticky;
+		bottom: 0;
+		background: var(--color-light);
+		padding-block: 12px;
+		z-index: 2;
 	}
 
 	.brand {
