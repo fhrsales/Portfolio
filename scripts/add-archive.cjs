@@ -46,6 +46,12 @@ Data visualization turned into utility: an interactive map helping drivers ident
 
 {divisor}
 
+h3: Tapuiassauro — From evidence to understanding
+
+The reconstruction was not illustration added after the reporting. It turned fragments, measurements, and scientific inference into something readers could understand.
+
+{tapuiScrolly}
+
 {imagem}
   nome: tapuiassauro.png
   tamanho: M
