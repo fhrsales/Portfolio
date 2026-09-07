@@ -512,7 +512,7 @@
   }
   .story-intro > div { width: 100%; }
   .immersive .scroller-video { margin: 0; max-width: none; }
-  .immersive .scroller-video__sticky { height: 100svh; background: var(--story-bg); }
+  .immersive .scroller-video__sticky { height: 100vh; height: 100dvh; background: var(--story-bg); }
   .immersive .scroller-video__stage { background: var(--story-bg); }
   @media (prefers-reduced-motion: reduce) {
     .scroller-video__stage, .scroller-video__overlay { transition: none; }
