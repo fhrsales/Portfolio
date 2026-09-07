@@ -1,0 +1,2061 @@
+{
+  "sourceRoot": "sandbox/Coisas antigas",
+  "note": "Originals retained. PDF pages rendered as PNG; PSD composites exported unchanged. Existing gallery order retained, followed by the old collection. HTML previews, navigation graphics, applications and software manuals are excluded.",
+  "files": [
+    {
+      "name": "cb-1999-a10412.png",
+      "width": 949,
+      "height": 1579,
+      "source": "1999/A10412.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-1999-a11206.png",
+      "width": 941,
+      "height": 1579,
+      "source": "1999/A11206.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-1999-a12708.png",
+      "width": 949,
+      "height": 1579,
+      "source": "1999/A12708.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-a01-0512.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/A01-0512.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-a01-0812.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/A01-0812.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-a01-1304.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/A01-1304.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-a01-1309.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/A01-1309.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-a01-1310.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/A01-1310.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-a1-2107.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/A1-2107.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-d01-0207.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/D01-0207.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-s01-1809.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/S01-1809.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2000-s01-2512.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2000/S01-2512.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-0102.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-0102.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-0504.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-0504.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-0604.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-0604.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-0610.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-0610.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-0702.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-0702.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-1108.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-1108.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-1411.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-1411.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-1909.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-1909.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-1910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-1910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-2002.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-2002.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a01-2806.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A01-2806.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a10-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A10-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a11-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/A11-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-a1213-12.png",
+      "width": 1579,
+      "height": 1494,
+      "source": "2001/A1213-12.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-d01-0912.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/D01-0912.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-d25-1803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/D25-1803.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-d26-1803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/D26-1803.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-d27-1803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/D27-1803.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2001-s01-1604.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2001/S01-1604.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-0203.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-0203.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-0409.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-0409.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-0908.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-0908.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-1201.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-1201.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-1206.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-1206.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-1306.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-1306.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-a01-1403.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/A01-1403.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-est1-01.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/EST1-01.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-est45-01.png",
+      "width": 1579,
+      "height": 1494,
+      "source": "2002/EST45-01.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-est8-01.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/EST8-01.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-s01-1507.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/S01-1507.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-2002-s01-2810.png",
+      "width": 835,
+      "height": 1579,
+      "source": "2002/S01-2810.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-coisas-da-vida-brasilia.png",
+      "width": 1579,
+      "height": 1495,
+      "source": "Correio Braziliense/Coisas da Vida/brasilia.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-coisas-da-vida-c1-2004.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Coisas da Vida/c1-2004.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-guia-carne-tenra.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Guia/Carne tenra.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-guia-g1-3003.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Guia/G1-3003.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-guia-g1-1104.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Guia/g1-1104.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-guia-g1-2612.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Guia/g1-2612.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p01.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p02.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 2
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p03.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 3
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p04.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 4
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p05.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 5
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p06.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 6
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p07.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 7
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p08.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 8
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p09.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 9
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p10.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 10
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p11.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 11
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 12
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 13
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 14
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p15.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 15
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p16.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 16
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p17.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 17
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p18.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 18
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p19.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 19
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p20.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 20
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p21.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 21
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p22.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 22
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p23.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 23
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p24.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 24
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p25.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 25
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p26.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 26
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p27.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 27
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p28.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 28
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p29.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 29
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p30.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 30
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-antigo-p31.png",
+      "width": 1579,
+      "height": 1116,
+      "source": "Correio Braziliense/Portifolio antigo.PDF",
+      "page": 31
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p01.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p02.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 2
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p03.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 3
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p04.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 4
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 5
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 6
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p07.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 7
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p08.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 8
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p09.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 9
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 10
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p11.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 11
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 12
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p13.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 13
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 14
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p15.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 15
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p16.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 16
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p17.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 17
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p18.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 18
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p19.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 19
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p20.png",
+      "width": 1117,
+      "height": 1579,
+      "source": "Correio Braziliense/Portifolio do Correio.PDF",
+      "page": 20
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz01.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz01.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz02.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz02.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz03.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz03.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz10.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz10.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-a14-0512.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/a14-0512.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-a15-0512.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/a15-0512.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-200312.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/d-200312.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-210312.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/d-210312.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-220312.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/d-220312.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-s140412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/s140412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-s150412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Candelaria/s150412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-china-superpotencia.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/China - Superpotencia.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-crianca-0-aos-3-anos-a6-0812.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Crianca 0 aos 3 anos/a6-0812.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-dicionario-houaiss.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Dicionario Houaiss.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a18-2411.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Escandalo da Previdencia/a18-2411.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a6-2311.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Escandalo da Previdencia/a6-2311.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a7-2311.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Escandalo da Previdencia/a7-2311.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola1.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Escola publica/escola1.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola2.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Escola publica/escola2.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-a14-2003.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/a14-2003.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-a14-2103.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/a14-2103.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-a15-2103.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/a15-2103.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-a24-2203.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/a24-2203.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-d25-1803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/d25-1803.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-d26-1803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/d26-1803.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-d27-1803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/d27-1803.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-s10-1903.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/s10-1903.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-febem-s11-1903.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Febem/s11-1903.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-india-terra-de-genios.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/India - terra de gênios.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d1-2412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Jesus/d1-2412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d12412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Jesus/d12412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d62412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Jesus/d62412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d72412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Jesus/d72412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d82412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Jesus/d82412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d92412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Jesus/d92412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-napster.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Napster.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-orcamento.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Orcamento.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a6-3011.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Semana do Trauma/a6-3011.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a7-3011.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/Semana do Trauma/a7-3011.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-a15-1605.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Primeiro Caderno/a15-1605.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-a67-1604.png",
+      "width": 1579,
+      "height": 1495,
+      "source": "Correio Braziliense/Primeiro Caderno/a67-1604.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-suplementos-pensar-1-12.png",
+      "width": 1579,
+      "height": 835,
+      "source": "Correio Braziliense/Suplementos/Pensar 1-12.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-suplementos-pensar-6-7.png",
+      "width": 1579,
+      "height": 835,
+      "source": "Correio Braziliense/Suplementos/Pensar 6-7.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-suplementos-et1-2412.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/Suplementos/et1-2412.pdf",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-0503.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-0503.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-0603.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-0603.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-0703.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-0703.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-0803.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-0803.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-0903.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-0903.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-1303.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-1303.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-1304.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-1304.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a01-1604.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A01-1604.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a03-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A03-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a03b1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A03B1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a05-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A05-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a06-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A06-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a07-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A07-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a08-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A08-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a14-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A14-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a15-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A15-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a17-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A17-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a18-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A18-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a19-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A19-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a20-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A20-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a21-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A21-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a22-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A22-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a23-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A23-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a24-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A24-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a25-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A25-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-a26-1209.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/A26-1209.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-d01-0303.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/D01-0303.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s01-0403.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S01-0403.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s01-1103.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S01-1103.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s01-1504.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S01-1504.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s01-2910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S01-2910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s012910b.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S012910B.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s06-2910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S06-2910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s07-2910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S07-2910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s10-2910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S10-2910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s11-2910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S11-2910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s12-2910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S12-2910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s14-1910.png",
+      "width": 835,
+      "height": 1579,
+      "source": "Correio Braziliense/pdfs noblat/S14-1910.PDF",
+      "page": 1
+    },
+    {
+      "name": "cb-snd-11-de-setembro.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/11 de setembro.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-20-anos-idade-da-morte.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/20 anos idade da morte.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-4-3-2-1.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/4,3,2,1.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-41anos.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/41anos.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-acm.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/ACM.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-ai5.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/AI5.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-aperto-no-contribuinte.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Aperto no contribuinte.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-basta.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Basta.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-direitos-de-quem.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Direitos de quem?.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-estatutos-de-papel.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Estatutos de papel.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-fichas.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Fichas.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-forca.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Força.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-gdf-emprega-parentes.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/GDF emprega parentes.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-guga.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Guga.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-jk.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/JK.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-jogo-da-mentira.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Jogo da mentira.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-papai-noel-existe.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Papai Noel existe.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-penta.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Penta.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-quem-se-deu-bem.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/Quem se deu bem.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-a-bola-e-das-mulheres.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/a bola é das mulheres.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-a-mais-bela.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/a mais bela.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-acabou.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/acabou.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-africa.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/africa.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-agora-e-com-a-justica.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/agora e com a justica.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-alta-tensao.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/alta tensao.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-amazonia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/amazonia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-armacoes-ilimitada.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/armacoes ilimitada.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-as-mortes-de-iara.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/as mortes de iara.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-batalha-da-previdencia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/batalha da previdencia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-bebe-que-nasceu.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/bebe que nasceu.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-blablabla.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/blablabla.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-bolsa-de-sp.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/bolsa de SP.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-brasilia-roda-mais-devagar.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/brasilia roda mais devagar.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-brasiliense-corre-demais.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/brasiliense corre demais.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-candelaria.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/candelaria.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-cartas.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/cartas.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-censura.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/censura.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-como-o-governo-reage.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/como o governo reage.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-copa-gloria.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/copa-gloria.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-copa-ideograma.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/copa-ideograma.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-copa-muro.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/copa-muro.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-copa-vamos-a-luta.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/copa-vamos a luta.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-copa-viva-o-povo-brasileiro.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/copa-viva o povo brasileiro.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-cordel-de-rede.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/cordel de rede.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-correio-da-galera.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/correio da galera.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-correio.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/correio.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-crime-e-castigo.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/crime e castigo.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-de-bem-com-o-prazer.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/de bem com o prazer.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-de-branco-pela-paz.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/de branco pela paz.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-de-volta-ao-mercado.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/de volta ao mercado.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-dia-das-criancas.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/dia das criancas.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-dia-de-colera.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/dia de colera.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-dicionario-houaiss.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/dicionario houaiss.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-dinheiro-para-o-social.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/dinheiro para o social.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-e-tudo.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/e-tudo.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-eles-vivem-no-ceu.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/eles vivem no ceu.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-emprego.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/emprego.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-enfim-a-gloria.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/enfim, a gloria.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-esfericos-e-geometricos.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/esfericos e geometricos.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-est01.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/est01.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-est02.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/est02.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-estrutural.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/estrutural.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-faca-como-eles.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/faca como eles.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-fim01.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/fim01.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-fogo-destroi.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/fogo destroi.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-gabarito.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/gabarito.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-guerra-suja-na-telefonia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/guerra suja na telefonia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-guia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/guia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-hierarquia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/hierarquia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-imagens-da-anarquia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/imagens da anarquia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-india.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/india.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-inesquecivel.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/inesquecivel.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-lewinsky.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/lewinsky.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-lula-la.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/lula, lá.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-magreza.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/magreza.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-merla.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/merla.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-negocio-estranho.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/negocio estranho.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-no-banco-dos-reus.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/no banco dos reus.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-o-ano-mais-longo.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/o ano mais longo.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-o-caminho-da-volta.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/o caminho da volta.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-o-correio-errou.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/o correio errou.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-o-jogo-de-itamar.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/o jogo de itamar.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-o-mundo-aos-seus-pes.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/o mundo aos seus pes.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-o-tamanho-da-duvida.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/o tamanho da duvida.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-onde-mora-a-inteligencia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/onde mora a inteligencia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-orfaos.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/orfaos.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-os-alvos.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/os alvos.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-os-selvagens-venceram.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/os selvagens venceram.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-passei.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/passei.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-paz.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/paz.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-pensar01.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/pensar01.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-piaui.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/piaui.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-proteja-a-sua-casa.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/proteja a sua casa.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-raio-de-ala.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/raio de ala.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-reage-brasilia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/reage brasilia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-refugiados.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/refugiados.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-ronco.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/ronco.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-sem-direito-a-voz.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/sem direito a voz.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-sobreviventes.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/sobreviventes.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-sofrimento-e-gloria.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/sofrimento e gloria.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-somalia.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/somalia.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-supermalan.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/supermalan.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-tumtum.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/tumtum.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-tv.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/tv.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-venezuela.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/venezuela.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-x-vida.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/x-Vida.psd",
+      "page": null
+    },
+    {
+      "name": "cb-snd-yokohama.png",
+      "width": 1280,
+      "height": 854,
+      "source": "CB SND/PSDs/yokohama.psd",
+      "page": null
+    }
+  ],
+  "duplicates": [
+    {
+      "source": "Correio Braziliense/Primeiro Caderno/Crianca 0 aos 3 anos/a7-0812.pdf",
+      "page": 1,
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-crianca-0-aos-3-anos-a6-0812.png"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "CB SND/iView MediaPro 1.5/Manuals/QuickStart_Eng.PDF",
+      "reason": "Software documentation"
+    },
+    {
+      "source": "CB SND/iView MediaPro 1.5/Purchase Information/Fax or Postal Mail.pdf",
+      "reason": "Software documentation"
+    },
+    {
+      "source": "Correio Braziliense/light1.pdf",
+      "reason": "Software documentation"
+    },
+    {
+      "source": "Correio Braziliense/light2.pdf",
+      "reason": "Software documentation"
+    }
+  ]
+}

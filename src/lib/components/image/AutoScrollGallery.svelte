@@ -578,6 +578,14 @@
 		cursor: grab;
 		margin: 0 auto;
 	}
+	.scroll-viewport.newspaper-paper {
+		border-block: 1px solid #c9c0ae;
+		background-image: repeating-linear-gradient(0deg, transparent 0 3px, #86724a08 3px 4px);
+	}
+	.newspaper-paper .card {
+		background: #fffdf6;
+		box-shadow: 0 2px 3px #34291c26, 0 12px 28px #34291c29;
+	}
 	.scroll-viewport.dragging {
 		cursor: grabbing;
 		user-select: none;
