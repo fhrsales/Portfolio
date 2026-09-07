@@ -3,14 +3,14 @@
 ## Project Structure & Module Organization
 
 - `src/` – SvelteKit app code. Key areas: `routes/` (pages like `+page.svelte`, server files, admin UI), `lib/components/` (PascalCase Svelte components), `lib/*.js` (stores and utilities).
-- `static/` – public assets and `archiePages.json` (source of content). Copied at build.
+- `static/` – versioned public assets. `src/lib/archiePages.json` is the only content source.
 - `build/` – generated output (do not edit manually).
 - Config: `svelte.config.js`, `vite.config.js`, `eslint.config.js`, `.prettierrc`.
 
 ## Build, Test, and Development Commands
 
 - `npm run dev` – start local dev server (Vite + SvelteKit).
-- `npm run build` – copies `static/archiePages.json` to `src/lib/archiePages.json` then builds.
+- `npm run build` – builds the tracked sources without rewriting content, components, or assets.
 - `npm run preview` – serve the production build (opens `http://localhost:4173/Portfolio/`).
 - `npm run lint` – Prettier check + ESLint.
 - `npm run format` – format code with Prettier.
@@ -37,6 +37,6 @@
 
 ## Security & Configuration Tips
 
-- Ensure `static/archiePages.json` exists; build relies on it (`copy-archiePages.cjs`).
+- Edit `src/lib/archiePages.json` directly, including Archive. Commit media and image metadata; never generate them during build/deploy.
 - Production uses `adapter-static` with `base` set when `NODE_ENV=production`; verify links under `/Portfolio` in preview.
 - Do not edit `build/` or `.svelte-kit/` by hand; never commit secrets.

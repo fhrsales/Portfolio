@@ -73,3 +73,5 @@ Quick reference for utility scripts in `scripts/`.
   scripts/video-diagnose-json.sh path/to/video.mp4 [output.json]
   ```
   If output is omitted, writes `<video>.diagnose.json` next to the file.
+
+Todos os utilitários de geração são manuais e não fazem parte de dev/build/deploy. Faça commit dos assets e metadados resultantes antes de publicar. O conteúdo é editado exclusivamente em `src/lib/archiePages.json`.

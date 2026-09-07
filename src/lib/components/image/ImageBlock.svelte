@@ -223,10 +223,13 @@
 		if (typeof window !== 'undefined') {
 			const mobile = window.matchMedia('(max-width: 600px)').matches;
 			isMobile = mobile;
-			if (mobile && src) {
-				const dotIndex = src.lastIndexOf('.');
-				if (dotIndex !== -1) {
-					return `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`;
+			if (mobile) {
+				if (nome_mobile) return nome_mobile;
+				if (src) {
+					const dotIndex = src.lastIndexOf('.');
+					if (dotIndex !== -1) {
+						return `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`;
+					}
 				}
 			}
 		}

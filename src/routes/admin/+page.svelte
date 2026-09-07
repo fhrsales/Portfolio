@@ -144,25 +144,17 @@
 				pages[page] = { content, showInMenu, menuLabel };
 				return pages;
 			});
-			// Salva no JSON via API em dev
-			if (import.meta.env.DEV) {
-				const res = await fetch('/api/archiePages', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify(get(archiePages))
-				});
-				if (res.ok) {
-					error = 'Conteúdo salvo no arquivo archiePages.json!';
-					await archiePages.reload(); // <-- força reload do JSON atualizado
-					return true;
-				} else {
-					error = 'Erro ao salvar no arquivo: ' + (await res.text());
-					return false;
-				}
-			} else {
-				error = 'Conteúdo salvo localmente!';
-				return true;
-			}
+			const blob = new Blob([JSON.stringify(get(archiePages), null, 2) + '\n'], {
+				type: 'application/json'
+			});
+			const url = URL.createObjectURL(blob);
+			const link = document.createElement('a');
+			link.href = url;
+			link.download = 'archiePages.json';
+			link.click();
+			setTimeout(() => URL.revokeObjectURL(url), 1000);
+			error = 'JSON exportado. Substitua src/lib/archiePages.json para publicar as alterações.';
+			return true;
 		} catch (e) {
 			error = 'Erro no formato ArchieML: ' + e;
 			return false;
@@ -359,11 +351,11 @@
 						on:click={clearFormatting}>⌫</IconButton
 					>
 				</Toolbar>
-				<Button variant="primary" handleClick={saveContent} value="Salvar" newValue="Salvo!" />
+				<Button variant="primary" handleClick={saveContent} value="Exportar JSON" newValue="Exportado!" />
 				{#if page !== '__nova__'}
 					<Button variant="primary" handleClick={openDeleteModal} value="Apagar página" />
 				{/if}
-				<!-- <span style="color:#b00;margin-left:0.5rem;">{error}</span> -->
+				<span role="status">{error}</span>
 				<a href={resolve('/')} class="button">Sair</a>
 			</div>
 		</div>

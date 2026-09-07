@@ -20,20 +20,17 @@ jobs:
         with:
           node-version: 20
 
-      - name: Clean npm cache and lockfile (workaround Rollup bug)
-        run: rm -rf node_modules package-lock.json
+      - name: Install locked dependencies
+        run: npm ci
 
-      - name: Install dependencies (workaround Rollup bug)
-        run: npm install --legacy-peer-deps
-
-      - name: Install sharp for image optimization
-        run: npm install sharp --no-save
-
-      - name: Generate WebP/AVIF images
-        run: node scripts/optimize-images.cjs
+      - name: Test
+        run: npm run test:unit -- --run
 
       - name: Build static site
         run: npm run build
+
+      - name: Verify build leaves the repository unchanged
+        run: test -z "$(git status --porcelain)"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

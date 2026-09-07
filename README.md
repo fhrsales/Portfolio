@@ -10,7 +10,7 @@ Motor de páginas com conteúdo estruturado + blocos customizados de mídia (ima
 
 ## ✨ Visão Geral
 
-Este projeto implementa um renderer de conteúdo baseado em um arquivo consolidado (`static/archiePages.json`) contendo páginas em formato ArchieML / texto estruturado. O componente central `ArchieRenderer.svelte` interpreta blocos, resolve mídia, injeta seletor de tags e aplica filtros somente nos blocos posteriores ao seletor.
+Este projeto implementa um renderer de conteúdo baseado em um arquivo consolidado (`src/lib/archiePages.json`) contendo páginas em formato ArchieML / texto estruturado. O componente central `ArchieRenderer.svelte` interpreta blocos, resolve mídia, injeta seletor de tags e aplica filtros somente nos blocos posteriores ao seletor.
 
 Principais recursos:
 
@@ -21,17 +21,16 @@ Principais recursos:
 - `TagSelector` inline: só filtra blocos após seu aparecimento
 - Fallback acessível: trilha `<track kind="captions">` sempre presente (placeholder) evitando warnings
 - Animações suaves de fade e atraso decorativo pós-carregamento de imagens
-- Editor administrativo (rota `/admin/editor/`) para alterar conteúdo (usa cópia do JSON na fase de build)
-- Build step custom: script `copy-archiePages.cjs` garante que o JSON em `static/` seja copiado para `src/lib/` antes do bundle
+- Editor administrativo (`/admin`) exporta rascunhos em JSON, sem gravar arquivos do repositório.
+- Dev e build importam diretamente o mesmo JSON versionado, incluindo Archive.
 
 ## 🗂 Estrutura Essencial
 
 ```
-copy-archiePages.cjs        Script pré-build
 package.json                Scripts e deps
 vite.config.js              Config Vite + SvelteKit
-static/archiePages.json     Fonte principal de conteúdo (origem)
-src/lib/archiePages.json    Cópia usada em runtime (gerada no build)
+src/lib/archiePages.json     Fonte única de conteúdo versionada
+static/videos/              Vídeos reais versionados, incluindo tapui-scrolly.mp4
 src/lib/components/         Componentes (ImageBlock, VideoBlock, TagSelector, etc.)
 src/lib/stores              Store `archiePages` (não exibido aqui mas referenciado)
 src/routes/                 Páginas + admin/editor
@@ -131,20 +130,33 @@ Scripts:
 
 ```
 npm run dev        # Desenvolvimento (Vite + SvelteKit)
-npm run build      # Executa copy-archiePages.cjs e depois build Vite
+npm run build      # Compila os arquivos versionados, sem mutações
 npm run preview    # Servir build gerado
 npm run format     # Prettier
 npm run lint       # Prettier check + ESLint
 npm test:unit      # Vitest
 ```
 
-Passo especial: `copy-archiePages.cjs` copia `static/archiePages.json` para `src/lib/archiePages.json` garantindo que importações estáticas funcionem no bundle.
+O build apenas compila com Vite e garante o fallback em `build/`. Não copia ou reescreve conteúdo, componentes, metadados ou mídia. O deploy usa `npm ci`, respeitando o lockfile, e verifica que a instalação, os testes e o build não alteram o repositório.
+
+Para reproduzir o GitHub (o reset descarta alterações locais em arquivos rastreados):
+
+```bash
+git fetch origin
+git reset --hard origin/main
+npm install
+npm run dev
+```
+
+Abra `http://localhost:5173/` ou `/archive` (confira a porta informada pelo Vite). No preview/deploy, o mesmo conteúdo fica em `/Portfolio/` e `/Portfolio/archive`.
+
+O vídeo `static/videos/tapui-scrolly.mp4` é um MP4 versionado; não existe etapa de geração ou decode. Utilitários de mídia em `scripts/` são manuais: execute-os apenas ao editar assets e faça commit dos resultados, incluindo `src/lib/imageMeta.json`.
 
 ## ➕ Adicionando Conteúdo
 
-1. Edite `static/archiePages.json` (ou use o editor admin se implementado com persistência)
+1. Edite `src/lib/archiePages.json` (ou substitua pelo JSON exportado no editor)
 2. Use blocos conforme sintaxe acima
-3. Rode `npm run build` ou `npm run dev` (o script de cópia roda somente no build – para dev você pode importar diretamente do `static/` ou replicar o script num hook se desejar)
+3. Versione o JSON e os assets; rode `npm run dev` ou `npm run build`. Ambos leem a mesma fonte.
 
 ## 🗃 Estrutura do JSON
 
@@ -171,16 +183,12 @@ Cada chave representa um slug de página. Exemplo simplificado:
 
 ### CI (GitHub Actions)
 
-- Este repositório inclui um workflow `tests.yml` que roda em `push`/`pull_request`:
-  - Instala dependências com `npm ci`.
-  - Roda `npm run lint`.
-  - Roda `npm run test:server` e `npm run test:client`.
-  - Ajuste a versão de Node no YAML conforme necessário.
+- `deploy.yml` instala com `npm ci`, executa os testes e o build e exige árvore limpa antes de publicar no GitHub Pages.
 
 ## 🚀 Deploy
 
 - O build atual usa Vite + plugin SvelteKit. Ajuste `svelte.config.js` (se existente) para trocar/adicionar adapter (ex: `adapter-static` ou `adapter-node`).
-- Verifique se `static/` está incluído no artefato (necessário para origem do JSON).
+- O conteúdo é incluído no bundle; os assets versionados de `static/` são copiados para o artefato.
 
 ## 🐛 Troubleshooting
 
@@ -193,7 +201,6 @@ Cada chave representa um slug de página. Exemplo simplificado:
 
 ## 📌 Próximos Passos Possíveis
 
-- Implementar armazenamento real no editor (persistir alterações no JSON)
 - Substituir trilha de captions placeholder por arquivos `.vtt`
 - Otimizar geração de thumbnails de vídeo
 - Cache inteligente (Service Worker) para imagens comuns
