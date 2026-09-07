@@ -1,1844 +1,6165 @@
 {
   "files": [
     {
-      "name": "001-sinal-amarelo.png",
-      "width": 736,
-      "height": 894
-    },
-    {
-      "name": "002-bis.png",
-      "width": 338,
-      "height": 411
-    },
-    {
-      "name": "003-domingo-negro.png",
-      "width": 337,
-      "height": 409
-    },
-    {
-      "name": "004-buraco-rubro-negro.png",
-      "width": 340,
-      "height": 413
-    },
-    {
-      "name": "010-taca-a-vista.png",
-      "width": 445,
-      "height": 781
-    },
-    {
-      "name": "011-programado-para-vencer.png",
-      "width": 444,
-      "height": 779
-    },
-    {
-      "name": "012-com-os-pes-no-chao.png",
-      "width": 443,
-      "height": 780
-    },
-    {
-      "name": "013-fla-acerta-compra-de-tuta.png",
-      "width": 441,
-      "height": 777
-    },
-    {
-      "name": "200-pensar.png",
-      "width": 1718,
-      "height": 894
-    },
-    {
-      "name": "201-talibas-ficam-com-bin-laden.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "202-enfim-la.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "203-gdf-atrasa-pagamentos.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "230-brasil-penta.png",
-      "width": 1794,
-      "height": 1579
-    },
-    {
-      "name": "400-entre-aspas.png",
-      "width": 1794,
-      "height": 1579
-    },
-    {
-      "name": "401-510-mortos-no-rio.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "430-alias-era-da-vertigem.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "431-alias-partiu.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "432-alias-tarzan-robo.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "1964.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "402-21-bi-de-corte-no-orcamento.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "403-13-03-2016.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "A-delacao-de-Delcidio.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "A20-1.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "A32.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "A6-1.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Arena-Corinthians.png",
-      "width": 1786,
-      "height": 1559
-    },
-    {
-      "name": "Arquivos-secretos.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Arsenais-EUA-e-Russia.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Atentado-em-Paris.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Biomassa.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "BombaH.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "CaboSubmarino.png",
-      "width": 865,
-      "height": 1490
-    },
-    {
-      "name": "Caminhos-ate-a-final.png",
-      "width": 1796,
-      "height": 1579
-    },
-    {
-      "name": "Chinesao-2016.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Eleicoes-2010-Dilma-e-Serra.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "EleicoesMapaDasDiferencas.png",
-      "width": 1757,
-      "height": 1579
-    },
-    {
-      "name": "Entrevista-Cuca.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Francisco-de-A-a-Z.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "GreciaCrise.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "HQs.png",
-      "width": 881,
-      "height": 1494
-    },
-    {
-      "name": "LavaJato1Ano.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Legado01.png",
-      "width": 1770,
-      "height": 1495
-    },
-    {
-      "name": "Legado02.png",
-      "width": 1727,
-      "height": 1486
-    },
-    {
-      "name": "Morre-Niemeyer.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Museu-do-Lingua-Portuguesa.png",
-      "width": 850,
-      "height": 1489
-    },
-    {
-      "name": "Neymar-decisivo.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Olimpiadas-astros-no-Rio.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Paladar-Bibimbap.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Paladar-Negroni.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Paladar-Oveva.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Paladar-poe-um-ovo-em-cima.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Pan2015.png",
-      "width": 1778,
-      "height": 1515
-    },
-    {
-      "name": "Plano-Diretor-SP.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "PlataformaPetrobrasExplode.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Revolucao-no-Egito.png",
-      "width": 1797,
-      "height": 1582
-    },
-    {
-      "name": "Sucesso-mineiros-do-Chile.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Tocha-Olimpica.png",
-      "width": 1765,
-      "height": 1498
-    },
-    {
-      "name": "Tornados-no-Brasil.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "Um-desastre-nos-moldes-de-50.png",
-      "width": 1794,
-      "height": 1579
-    },
-    {
-      "name": "Virada-Cultural-violenta.png",
-      "width": 1797,
-      "height": 1582
-    },
-    {
-      "name": "avioes-robo.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "bola_de_ouro.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "brasil-da-silva.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "cinco-decadas-de-homiciodio-em-SP.png",
-      "width": 1791,
-      "height": 1518
-    },
-    {
-      "name": "dia-de-protestos.png",
-      "width": 1797,
-      "height": 1582
-    },
-    {
-      "name": "disputa-de-craques.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "donadon.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "eleicoes-2010-segundo-turno.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "houaiss.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "internet-a-areas-remotas.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "legado-olimpico.png",
-      "width": 1797,
-      "height": 1582
-    },
-    {
-      "name": "leucemia.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "perfil-Dilma-e-Serra.png",
-      "width": 1797,
-      "height": 1582
-    },
-    {
-      "name": "sangue-politico.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "talibas.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "tetracampea.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "tsunami1.png",
-      "width": 898,
-      "height": 1579
-    },
-    {
-      "name": "tsunami2.png",
-      "width": 1797,
-      "height": 1582
-    },
-    {
-      "name": "cb-1999-a10412.png",
-      "width": 949,
-      "height": 1579
-    },
-    {
-      "name": "cb-1999-a11206.png",
-      "width": 941,
-      "height": 1579
-    },
-    {
-      "name": "cb-1999-a12708.png",
-      "width": 949,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-a01-0512.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-a01-0812.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-a01-1304.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-a01-1309.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-a01-1310.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-a1-2107.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-d01-0207.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-s01-1809.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2000-s01-2512.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-0102.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-0504.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-0604.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-0610.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-0702.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-1108.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-1209.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-1411.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-1909.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-1910.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-2002.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a01-2806.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a10-1209.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a11-1209.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-a1213-12.png",
-      "width": 1579,
-      "height": 1494
-    },
-    {
-      "name": "cb-2001-d01-0912.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-d25-1803.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-d26-1803.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-d27-1803.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2001-s01-1604.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-0203.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-0409.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-0908.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-1201.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-1206.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-1306.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-a01-1403.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-est1-01.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-est45-01.png",
-      "width": 1579,
-      "height": 1494
-    },
-    {
-      "name": "cb-2002-est8-01.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-s01-1507.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-2002-s01-2810.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-coisas-da-vida-brasilia.png",
-      "width": 1579,
-      "height": 1495
-    },
-    {
-      "name": "cb-correio-braziliense-coisas-da-vida-c1-2004.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-guia-carne-tenra.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-guia-g1-3003.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-guia-g1-1104.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-guia-g1-2612.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
+      "id": "128-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p01.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        72,
+        116,
+        686,
+        876
+      ]
     },
     {
+      "id": "129-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p02.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        74,
+        112,
+        1420,
+        880
+      ]
     },
     {
+      "id": "130-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p03.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "130-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p03.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "131-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p04.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "131-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p04.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "132-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p05.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "132-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p05.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "133-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p06.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "133-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p06.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "134-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p07.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "134-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p07.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "135-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p08.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "135-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p08.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "136-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p09.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        110,
+        1418,
+        882
+      ]
     },
     {
+      "id": "137-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p10.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        110,
+        1418,
+        882
+      ]
     },
     {
+      "id": "138-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p11.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        72,
+        116,
+        686,
+        876
+      ]
     },
     {
+      "id": "139-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        142,
+        60,
+        570,
+        964
+      ]
     },
     {
+      "id": "139-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
+      "publication": "o-dia",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        842,
+        60,
+        566,
+        964
+      ]
+    },
+    {
+      "id": "140-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        144,
+        60,
+        572,
+        964
+      ]
     },
     {
+      "id": "140-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
+      "publication": "o-dia",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        842,
+        60,
+        568,
+        964
+      ]
+    },
+    {
+      "id": "141-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        142,
+        60,
+        568,
+        964
+      ]
     },
     {
+      "id": "141-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
+      "publication": "o-dia",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        840,
+        60,
+        568,
+        966
+      ]
+    },
+    {
+      "id": "142-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p15.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "142-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p15.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "143-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p16.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "143-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p16.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "144-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p17.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "144-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p17.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "145-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p18.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "145-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p18.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "146-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p19.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        110,
+        1418,
+        882
+      ]
     },
     {
+      "id": "147-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p20.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "147-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p20.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "148-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p21.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "148-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p21.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "149-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p22.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "149-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p22.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "150-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p23.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "150-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p23.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "151-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p24.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        110,
+        1418,
+        882
+      ]
     },
     {
+      "id": "152-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p25.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "152-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p25.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "153-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p26.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        136,
+        66,
+        570,
+        964
+      ]
     },
     {
+      "id": "154-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p27.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        208,
+        66,
+        1122,
+        964
+      ]
     },
     {
+      "id": "155-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p28.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        110,
+        1418,
+        882
+      ]
     },
     {
+      "id": "156-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p29.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        72,
+        110,
+        1420,
+        882
+      ]
     },
     {
+      "id": "157-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p30.png",
-      "width": 1579,
-      "height": 1116
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        112,
+        684,
+        880
+      ]
     },
     {
+      "id": "157-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p30.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "158-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p31.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "158-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p31.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        816,
+        112,
+        684,
+        880
+      ]
+    },
+    {
+      "id": "10-0",
+      "name": "202-enfim-la.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "12-0",
+      "name": "230-brasil-penta.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1794,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1794,
+        1579
+      ]
+    },
+    {
+      "id": "78-0",
+      "name": "cb-1999-a10412.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 949,
+      "sourceHeight": 1579,
+      "crop": [
+        30,
+        45,
+        889,
+        1489
+      ]
+    },
+    {
+      "id": "79-0",
+      "name": "cb-1999-a11206.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 941,
+      "sourceHeight": 1579,
+      "crop": [
+        30,
+        51,
+        881,
+        1476
+      ]
+    },
+    {
+      "id": "80-0",
+      "name": "cb-1999-a12708.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 949,
+      "sourceHeight": 1579,
+      "crop": [
+        30,
+        45,
+        889,
+        1489
+      ]
+    },
+    {
+      "id": "81-0",
+      "name": "cb-2000-a01-0512.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "82-0",
+      "name": "cb-2000-a01-0812.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "83-0",
+      "name": "cb-2000-a01-1304.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "84-0",
+      "name": "cb-2000-a01-1309.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "85-0",
+      "name": "cb-2000-a01-1310.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "86-0",
+      "name": "cb-2000-a1-2107.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "87-0",
+      "name": "cb-2000-d01-0207.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "88-0",
+      "name": "cb-2000-s01-1809.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "89-0",
+      "name": "cb-2000-s01-2512.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "90-0",
+      "name": "cb-2001-a01-0102.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "91-0",
+      "name": "cb-2001-a01-0504.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "92-0",
+      "name": "cb-2001-a01-0604.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "93-0",
+      "name": "cb-2001-a01-0610.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "94-0",
+      "name": "cb-2001-a01-0702.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "95-0",
+      "name": "cb-2001-a01-1108.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "96-0",
+      "name": "cb-2001-a01-1209.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "97-0",
+      "name": "cb-2001-a01-1411.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "98-0",
+      "name": "cb-2001-a01-1909.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "99-0",
+      "name": "cb-2001-a01-1910.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "100-0",
+      "name": "cb-2001-a01-2002.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "101-0",
+      "name": "cb-2001-a01-2806.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "102-0",
+      "name": "cb-2001-a10-1209.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "103-0",
+      "name": "cb-2001-a11-1209.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "104-0",
+      "name": "cb-2001-a1213-12.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1494,
+      "crop": [
+        12,
+        53,
+        1555,
+        1388
+      ]
+    },
+    {
+      "id": "105-0",
+      "name": "cb-2001-d01-0912.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "109-0",
+      "name": "cb-2001-s01-1604.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "110-0",
+      "name": "cb-2002-a01-0203.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "111-0",
+      "name": "cb-2002-a01-0409.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "112-0",
+      "name": "cb-2002-a01-0908.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "113-0",
+      "name": "cb-2002-a01-1201.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "114-0",
+      "name": "cb-2002-a01-1206.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "115-0",
+      "name": "cb-2002-a01-1306.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "116-0",
+      "name": "cb-2002-a01-1403.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "117-0",
+      "name": "cb-2002-est1-01.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
+    },
+    {
+      "id": "118-0",
+      "name": "cb-2002-est45-01.png",
+      "publication": "correio",
+      "format": "standard-double",
       "width": 1579,
-      "height": 1116
+      "height": 1794,
+      "sourceWidth": 1579,
+      "sourceHeight": 1494,
+      "crop": [
+        12,
+        53,
+        1555,
+        1388
+      ],
+      "rotation": 90
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p01.png",
-      "width": 1117,
-      "height": 1579
+      "id": "119-0",
+      "name": "cb-2002-est8-01.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p02.png",
-      "width": 1117,
-      "height": 1579
+      "id": "120-0",
+      "name": "cb-2002-s01-1507.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p03.png",
-      "width": 1117,
-      "height": 1579
+      "id": "121-0",
+      "name": "cb-2002-s01-2810.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p04.png",
-      "width": 1117,
-      "height": 1579
+      "id": "122-0",
+      "name": "cb-correio-braziliense-coisas-da-vida-brasilia.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1495,
+      "crop": [
+        12,
+        54,
+        1555,
+        1388
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
-      "width": 1117,
-      "height": 1579
+      "id": "123-0",
+      "name": "cb-correio-braziliense-coisas-da-vida-c1-2004.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
-      "width": 1117,
-      "height": 1579
+      "id": "124-0",
+      "name": "cb-correio-braziliense-guia-carne-tenra.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p07.png",
-      "width": 1117,
-      "height": 1579
+      "id": "125-0",
+      "name": "cb-correio-braziliense-guia-g1-3003.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p08.png",
-      "width": 1117,
-      "height": 1579
+      "id": "126-0",
+      "name": "cb-correio-braziliense-guia-g1-1104.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p09.png",
-      "width": 1117,
-      "height": 1579
+      "id": "127-0",
+      "name": "cb-correio-braziliense-guia-g1-2612.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p11.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p13.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p15.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p16.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p17.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p18.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p19.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p20.png",
-      "width": 1117,
-      "height": 1579
-    },
-    {
+      "id": "179-0",
       "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz01.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "180-0",
       "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz02.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "181-0",
       "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz03.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "182-0",
       "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz10.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "183-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-a14-0512.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "184-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-a15-0512.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "185-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-200312.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "186-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-210312.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "187-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-220312.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "188-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-s140412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "189-0",
       "name": "cb-correio-braziliense-primeiro-caderno-candelaria-s150412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "190-0",
       "name": "cb-correio-braziliense-primeiro-caderno-china-superpotencia.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "191-0",
       "name": "cb-correio-braziliense-primeiro-caderno-crianca-0-aos-3-anos-a6-0812.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "192-0",
       "name": "cb-correio-braziliense-primeiro-caderno-dicionario-houaiss.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "193-0",
       "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a18-2411.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "194-0",
       "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a6-2311.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "195-0",
       "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a7-2311.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "196-0",
       "name": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola1.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "197-0",
       "name": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola2.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "198-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-a14-2003.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "199-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-a14-2103.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "200-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-a15-2103.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "201-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-a24-2203.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "202-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-d25-1803.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "203-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-d26-1803.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "204-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-d27-1803.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "205-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-s10-1903.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "206-0",
       "name": "cb-correio-braziliense-primeiro-caderno-febem-s11-1903.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "207-0",
       "name": "cb-correio-braziliense-primeiro-caderno-india-terra-de-genios.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "208-0",
       "name": "cb-correio-braziliense-primeiro-caderno-jesus-d1-2412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d12412.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
+      "id": "210-0",
       "name": "cb-correio-braziliense-primeiro-caderno-jesus-d62412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "211-0",
       "name": "cb-correio-braziliense-primeiro-caderno-jesus-d72412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "212-0",
       "name": "cb-correio-braziliense-primeiro-caderno-jesus-d82412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "213-0",
       "name": "cb-correio-braziliense-primeiro-caderno-jesus-d92412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "214-0",
       "name": "cb-correio-braziliense-primeiro-caderno-napster.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "215-0",
       "name": "cb-correio-braziliense-primeiro-caderno-orcamento.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "216-0",
       "name": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a6-3011.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "217-0",
       "name": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a7-3011.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "218-0",
       "name": "cb-correio-braziliense-primeiro-caderno-a15-1605.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "219-0",
       "name": "cb-correio-braziliense-primeiro-caderno-a67-1604.png",
-      "width": 1579,
-      "height": 1495
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1495,
+      "crop": [
+        12,
+        54,
+        1555,
+        1388
+      ]
     },
     {
+      "id": "220-0",
       "name": "cb-correio-braziliense-suplementos-pensar-1-12.png",
-      "width": 1579,
-      "height": 835
+      "publication": "correio",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 835,
+      "crop": [
+        65,
+        20,
+        1440,
+        795
+      ]
     },
     {
+      "id": "221-0",
       "name": "cb-correio-braziliense-suplementos-pensar-6-7.png",
-      "width": 1579,
-      "height": 835
+      "publication": "correio",
+      "format": "tabloid-double",
+      "width": 1718,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 835,
+      "crop": [
+        65,
+        20,
+        1440,
+        795
+      ]
     },
     {
+      "id": "222-0",
       "name": "cb-correio-braziliense-suplementos-et1-2412.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ]
     },
     {
+      "id": "223-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-0503.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "224-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-0603.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "225-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-0703.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "226-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-0803.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "227-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-0903.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "228-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-1303.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "229-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-1304.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "230-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a01-1604.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "231-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a03-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "232-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a03b1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "233-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a05-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "234-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a06-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "235-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a07-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "236-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a08-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "237-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a14-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "238-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a15-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "239-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a17-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "240-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a18-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "241-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a19-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "242-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a20-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "243-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a21-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "244-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a22-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "245-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a23-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "246-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a24-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "247-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a25-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "248-0",
       "name": "cb-correio-braziliense-pdfs-noblat-a26-1209.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "249-0",
       "name": "cb-correio-braziliense-pdfs-noblat-d01-0303.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "250-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s01-0403.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "251-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s01-1103.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "252-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s01-1504.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "253-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s01-2910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s012910b.png",
-      "width": 835,
-      "height": 1579
-    },
-    {
+      "id": "255-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s06-2910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "256-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s07-2910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "257-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s10-2910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "258-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s11-2910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "259-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s12-2910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
+      "id": "260-0",
       "name": "cb-correio-braziliense-pdfs-noblat-s14-1910.png",
-      "width": 835,
-      "height": 1579
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ]
     },
     {
-      "name": "cb-snd-11-de-setembro.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "262-0",
       "name": "cb-snd-20-anos-idade-da-morte.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "263-0",
       "name": "cb-snd-4-3-2-1.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "264-0",
       "name": "cb-snd-41anos.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "265-0",
       "name": "cb-snd-acm.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        674,
+        18,
+        224,
+        388
+      ]
     },
     {
+      "id": "265-1",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        948,
+        18,
+        222,
+        388
+      ]
+    },
+    {
+      "id": "265-2",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        120,
+        20,
+        224,
+        388
+      ]
+    },
+    {
+      "id": "265-3",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        404,
+        20,
+        224,
+        388
+      ]
+    },
+    {
+      "id": "265-4",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        118,
+        422,
+        224,
+        390
+      ]
+    },
+    {
+      "id": "265-5",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        402,
+        422,
+        224,
+        390
+      ]
+    },
+    {
+      "id": "265-6",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        676,
+        422,
+        222,
+        388
+      ]
+    },
+    {
+      "id": "265-7",
+      "name": "cb-snd-acm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        948,
+        422,
+        222,
+        386
+      ]
+    },
+    {
+      "id": "266-0",
       "name": "cb-snd-ai5.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        466,
+        760
+      ]
     },
     {
+      "id": "266-1",
+      "name": "cb-snd-ai5.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        466,
+        760
+      ]
+    },
+    {
+      "id": "267-0",
       "name": "cb-snd-aperto-no-contribuinte.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "268-0",
       "name": "cb-snd-basta.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "269-0",
       "name": "cb-snd-direitos-de-quem.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "270-0",
       "name": "cb-snd-estatutos-de-papel.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
-      "name": "cb-snd-fichas.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "272-0",
       "name": "cb-snd-forca.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "273-0",
       "name": "cb-snd-gdf-emprega-parentes.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "274-0",
       "name": "cb-snd-guga.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "275-0",
       "name": "cb-snd-jk.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        476,
+        20,
+        224,
+        388
+      ]
     },
     {
+      "id": "275-1",
+      "name": "cb-snd-jk.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        794,
+        20,
+        222,
+        388
+      ]
+    },
+    {
+      "id": "275-2",
+      "name": "cb-snd-jk.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        22,
+        222,
+        388
+      ]
+    },
+    {
+      "id": "275-3",
+      "name": "cb-snd-jk.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        276,
+        424,
+        224,
+        390
+      ]
+    },
+    {
+      "id": "275-4",
+      "name": "cb-snd-jk.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        594,
+        424,
+        222,
+        388
+      ]
+    },
+    {
+      "id": "275-5",
+      "name": "cb-snd-jk.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        912,
+        424,
+        222,
+        386
+      ]
+    },
+    {
+      "id": "276-0",
       "name": "cb-snd-jogo-da-mentira.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
-      "name": "cb-snd-papai-noel-existe.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "278-0",
       "name": "cb-snd-penta.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "279-0",
       "name": "cb-snd-quem-se-deu-bem.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "280-0",
       "name": "cb-snd-a-bola-e-das-mulheres.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "281-0",
       "name": "cb-snd-a-mais-bela.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        76,
+        436,
+        656
+      ]
     },
     {
+      "id": "282-0",
       "name": "cb-snd-acabou.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
-      "name": "cb-snd-africa.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "284-0",
       "name": "cb-snd-agora-e-com-a-justica.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        46,
+        82,
+        372,
+        652
+      ]
     },
     {
+      "id": "284-2",
+      "name": "cb-snd-agora-e-com-a-justica.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        866,
+        82,
+        374,
+        652
+      ]
+    },
+    {
+      "id": "285-0",
       "name": "cb-snd-alta-tensao.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        438,
+        760
+      ]
     },
     {
-      "name": "cb-snd-amazonia.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "287-0",
       "name": "cb-snd-armacoes-ilimitada.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        184,
+        30,
+        856,
+        760
+      ]
     },
     {
+      "id": "288-0",
       "name": "cb-snd-as-mortes-de-iara.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "289-0",
       "name": "cb-snd-batalha-da-previdencia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "290-0",
       "name": "cb-snd-bebe-que-nasceu.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "291-0",
       "name": "cb-snd-blablabla.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "292-0",
       "name": "cb-snd-bolsa-de-sp.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "293-0",
       "name": "cb-snd-brasilia-roda-mais-devagar.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "294-0",
       "name": "cb-snd-brasiliense-corre-demais.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
-      "name": "cb-snd-candelaria.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "296-0",
       "name": "cb-snd-cartas.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "297-0",
       "name": "cb-snd-censura.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        78,
+        30,
+        438,
+        760
+      ]
     },
     {
+      "id": "297-1",
+      "name": "cb-snd-censura.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        580,
+        160,
+        290,
+        506
+      ]
+    },
+    {
+      "id": "297-2",
+      "name": "cb-snd-censura.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        928,
+        160,
+        290,
+        506
+      ]
+    },
+    {
+      "id": "298-0",
       "name": "cb-snd-como-o-governo-reage.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "299-0",
       "name": "cb-snd-copa-gloria.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "300-0",
       "name": "cb-snd-copa-ideograma.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "301-0",
       "name": "cb-snd-copa-muro.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "302-0",
       "name": "cb-snd-copa-vamos-a-luta.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "303-0",
       "name": "cb-snd-copa-viva-o-povo-brasileiro.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "304-0",
       "name": "cb-snd-cordel-de-rede.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "305-0",
       "name": "cb-snd-correio-da-galera.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        362,
+        72,
+        538,
+        674
+      ]
     },
     {
-      "name": "cb-snd-correio.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "307-0",
       "name": "cb-snd-crime-e-castigo.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        184,
+        30,
+        856,
+        760
+      ]
     },
     {
+      "id": "308-0",
       "name": "cb-snd-de-bem-com-o-prazer.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "309-0",
       "name": "cb-snd-de-branco-pela-paz.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "310-0",
       "name": "cb-snd-de-volta-ao-mercado.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "311-0",
       "name": "cb-snd-dia-das-criancas.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "312-0",
       "name": "cb-snd-dia-de-colera.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
-      "name": "cb-snd-dicionario-houaiss.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "314-0",
       "name": "cb-snd-dinheiro-para-o-social.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "315-0",
       "name": "cb-snd-e-tudo.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "316-0",
       "name": "cb-snd-eles-vivem-no-ceu.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "317-0",
       "name": "cb-snd-emprego.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "318-0",
       "name": "cb-snd-enfim-a-gloria.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "319-0",
       "name": "cb-snd-esfericos-e-geometricos.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        184,
+        30,
+        856,
+        760
+      ]
     },
     {
+      "id": "320-0",
       "name": "cb-snd-est01.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ]
     },
     {
+      "id": "321-0",
       "name": "cb-snd-est02.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ]
     },
     {
-      "name": "cb-snd-estrutural.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "323-0",
       "name": "cb-snd-faca-como-eles.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "324-0",
       "name": "cb-snd-fim01.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        73,
+        590,
+        671
+      ]
     },
     {
+      "id": "325-0",
       "name": "cb-snd-fogo-destroi.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "326-0",
       "name": "cb-snd-gabarito.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ]
     },
     {
+      "id": "327-0",
       "name": "cb-snd-guerra-suja-na-telefonia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "328-0",
       "name": "cb-snd-guia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "329-0",
       "name": "cb-snd-hierarquia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "330-1",
       "name": "cb-snd-imagens-da-anarquia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        472,
+        204,
+        240,
+        418
+      ]
     },
     {
-      "name": "cb-snd-india.png",
-      "width": 1280,
-      "height": 854
+      "id": "330-2",
+      "name": "cb-snd-imagens-da-anarquia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        742,
+        204,
+        240,
+        418
+      ]
     },
     {
+      "id": "330-3",
+      "name": "cb-snd-imagens-da-anarquia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        1008,
+        204,
+        240,
+        418
+      ]
+    },
+    {
+      "id": "332-0",
       "name": "cb-snd-inesquecivel.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "333-0",
       "name": "cb-snd-lewinsky.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "334-0",
       "name": "cb-snd-lula-la.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "335-0",
       "name": "cb-snd-magreza.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "336-0",
       "name": "cb-snd-merla.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        438,
+        760
+      ]
     },
     {
+      "id": "336-1",
+      "name": "cb-snd-merla.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        438,
+        760
+      ]
+    },
+    {
+      "id": "337-0",
       "name": "cb-snd-negocio-estranho.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "338-0",
       "name": "cb-snd-no-banco-dos-reus.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        348,
+        72,
+        560,
+        674
+      ]
     },
     {
+      "id": "339-0",
       "name": "cb-snd-o-ano-mais-longo.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "340-0",
       "name": "cb-snd-o-caminho-da-volta.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "341-0",
       "name": "cb-snd-o-correio-errou.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "342-0",
       "name": "cb-snd-o-jogo-de-itamar.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "343-0",
       "name": "cb-snd-o-mundo-aos-seus-pes.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "344-0",
       "name": "cb-snd-o-tamanho-da-duvida.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "345-0",
       "name": "cb-snd-onde-mora-a-inteligencia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "346-0",
       "name": "cb-snd-orfaos.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        438,
+        760
+      ]
     },
     {
+      "id": "346-1",
+      "name": "cb-snd-orfaos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        438,
+        760
+      ]
+    },
+    {
+      "id": "347-0",
       "name": "cb-snd-os-alvos.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
-      "name": "cb-snd-os-selvagens-venceram.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
-      "name": "cb-snd-passei.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "350-0",
       "name": "cb-snd-paz.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "351-0",
       "name": "cb-snd-pensar01.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ]
     },
     {
+      "id": "352-0",
       "name": "cb-snd-piaui.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
-      "name": "cb-snd-proteja-a-sua-casa.png",
-      "width": 1280,
-      "height": 854
-    },
-    {
+      "id": "354-0",
       "name": "cb-snd-raio-de-ala.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "355-0",
       "name": "cb-snd-reage-brasilia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "356-0",
       "name": "cb-snd-refugiados.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "357-0",
       "name": "cb-snd-ronco.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "358-0",
       "name": "cb-snd-sem-direito-a-voz.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "359-0",
       "name": "cb-snd-sobreviventes.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "360-0",
       "name": "cb-snd-sofrimento-e-gloria.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "361-0",
       "name": "cb-snd-somalia.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        466,
+        760
+      ]
     },
     {
+      "id": "361-1",
+      "name": "cb-snd-somalia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        466,
+        760
+      ]
+    },
+    {
+      "id": "362-0",
       "name": "cb-snd-supermalan.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ]
     },
     {
+      "id": "363-0",
       "name": "cb-snd-tumtum.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "364-0",
       "name": "cb-snd-tv.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ]
     },
     {
+      "id": "365-0",
       "name": "cb-snd-venezuela.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ]
     },
     {
+      "id": "366-0",
       "name": "cb-snd-x-vida.png",
-      "width": 1280,
-      "height": 854
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        740
+      ]
     },
     {
-      "name": "cb-snd-yokohama.png",
-      "width": 1280,
-      "height": 854
+      "id": "161-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p03.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        651,
+        217,
+        325,
+        542
+      ]
+    },
+    {
+      "id": "161-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p03.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        652,
+        813,
+        320,
+        542
+      ]
+    },
+    {
+      "id": "162-4",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p04.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        587,
+        130,
+        372,
+        636
+      ]
+    },
+    {
+      "id": "163-1",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        148,
+        818,
+        370,
+        634
+      ]
+    },
+    {
+      "id": "163-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        148,
+        131,
+        371,
+        634
+      ]
+    },
+    {
+      "id": "163-4",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        590,
+        120,
+        370,
+        633
+      ]
+    },
+    {
+      "id": "164-1",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        591,
+        815,
+        373,
+        634
+      ]
+    },
+    {
+      "id": "164-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        158,
+        129,
+        372,
+        637
+      ]
+    },
+    {
+      "id": "164-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        591,
+        128,
+        372,
+        637
+      ]
+    },
+    {
+      "id": "164-4",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        158,
+        817,
+        374,
+        638
+      ]
+    },
+    {
+      "id": "165-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p07.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        154,
+        131,
+        372,
+        637
+      ]
+    },
+    {
+      "id": "166-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p08.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        103,
+        213,
+        433,
+        513
+      ]
+    },
+    {
+      "id": "166-4",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p08.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 736,
+      "height": 894,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        573,
+        210,
+        435,
+        517
+      ]
+    },
+    {
+      "id": "167-1",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p09.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        587,
+        817,
+        371,
+        641
+      ]
+    },
+    {
+      "id": "168-1",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        132,
+        403,
+        456,
+        774
+      ]
+    },
+    {
+      "id": "168-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        651,
+        214,
+        326,
+        555
+      ]
+    },
+    {
+      "id": "168-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        652,
+        809,
+        314,
+        534
+      ]
+    },
+    {
+      "id": "170-1",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        132,
+        403,
+        455,
+        771
+      ]
+    },
+    {
+      "id": "170-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        651,
+        214,
+        324,
+        555
+      ]
+    },
+    {
+      "id": "170-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        652,
+        818,
+        314,
+        536
+      ]
+    },
+    {
+      "id": "171-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p13.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        154,
+        135,
+        371,
+        645
+      ]
+    },
+    {
+      "id": "172-1",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        579,
+        822,
+        370,
+        638
+      ]
+    },
+    {
+      "id": "172-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        150,
+        822,
+        370,
+        634
+      ]
+    },
+    {
+      "id": "172-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        150,
+        137,
+        371,
+        633
+      ]
+    },
+    {
+      "id": "172-4",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        579,
+        135,
+        371,
+        635
+      ]
+    },
+    {
+      "id": "173-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p15.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        154,
+        135,
+        371,
+        637
+      ]
+    },
+    {
+      "id": "174-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p16.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        160,
+        829,
+        370,
+        633
+      ]
+    },
+    {
+      "id": "176-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p18.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        659,
+        201,
+        325,
+        558
+      ]
+    },
+    {
+      "id": "177-2",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p19.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        655,
+        201,
+        325,
+        548
+      ]
+    },
+    {
+      "id": "177-3",
+      "name": "cb-correio-braziliense-portifolio-do-correio-p19.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        660,
+        804,
+        313,
+        531
+      ]
+    },
+    {
+      "id": "13-0",
+      "name": "400-entre-aspas.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1794,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1794,
+        1579
+      ]
+    },
+    {
+      "id": "14-0",
+      "name": "401-510-mortos-no-rio.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "15-0",
+      "name": "430-alias-era-da-vertigem.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "16-0",
+      "name": "431-alias-partiu.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "17-0",
+      "name": "432-alias-tarzan-robo.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "18-0",
+      "name": "1964.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "19-0",
+      "name": "402-21-bi-de-corte-no-orcamento.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "20-0",
+      "name": "403-13-03-2016.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "21-0",
+      "name": "A-delacao-de-Delcidio.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "22-0",
+      "name": "A20-1.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "23-0",
+      "name": "A32.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "24-0",
+      "name": "A6-1.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "25-0",
+      "name": "Arena-Corinthians.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1786,
+      "sourceHeight": 1559,
+      "crop": [
+        0,
+        0,
+        1786,
+        1559
+      ]
+    },
+    {
+      "id": "26-0",
+      "name": "Arquivos-secretos.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "27-0",
+      "name": "Arsenais-EUA-e-Russia.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "28-0",
+      "name": "Atentado-em-Paris.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "29-0",
+      "name": "Biomassa.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "30-0",
+      "name": "BombaH.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "31-0",
+      "name": "CaboSubmarino.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 865,
+      "sourceHeight": 1490,
+      "crop": [
+        0,
+        0,
+        865,
+        1490
+      ]
+    },
+    {
+      "id": "32-0",
+      "name": "Caminhos-ate-a-final.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1796,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1796,
+        1579
+      ]
+    },
+    {
+      "id": "33-0",
+      "name": "Chinesao-2016.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "34-0",
+      "name": "Eleicoes-2010-Dilma-e-Serra.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "35-0",
+      "name": "EleicoesMapaDasDiferencas.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1757,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1757,
+        1579
+      ]
+    },
+    {
+      "id": "36-0",
+      "name": "Entrevista-Cuca.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "37-0",
+      "name": "Francisco-de-A-a-Z.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "38-0",
+      "name": "GreciaCrise.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "39-0",
+      "name": "HQs.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 881,
+      "sourceHeight": 1494,
+      "crop": [
+        0,
+        0,
+        881,
+        1494
+      ]
+    },
+    {
+      "id": "40-0",
+      "name": "LavaJato1Ano.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "41-0",
+      "name": "Legado01.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1770,
+      "sourceHeight": 1495,
+      "crop": [
+        0,
+        0,
+        1770,
+        1495
+      ]
+    },
+    {
+      "id": "42-0",
+      "name": "Legado02.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1727,
+      "sourceHeight": 1486,
+      "crop": [
+        0,
+        0,
+        1727,
+        1486
+      ]
+    },
+    {
+      "id": "43-0",
+      "name": "Morre-Niemeyer.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "44-0",
+      "name": "Museu-do-Lingua-Portuguesa.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 850,
+      "sourceHeight": 1489,
+      "crop": [
+        0,
+        0,
+        850,
+        1489
+      ]
+    },
+    {
+      "id": "45-0",
+      "name": "Neymar-decisivo.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "46-0",
+      "name": "Olimpiadas-astros-no-Rio.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "47-0",
+      "name": "Paladar-Bibimbap.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "48-0",
+      "name": "Paladar-Negroni.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "49-0",
+      "name": "Paladar-Oveva.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "50-0",
+      "name": "Paladar-poe-um-ovo-em-cima.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "51-0",
+      "name": "Pan2015.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1778,
+      "sourceHeight": 1515,
+      "crop": [
+        0,
+        0,
+        1778,
+        1515
+      ]
+    },
+    {
+      "id": "52-0",
+      "name": "Plano-Diretor-SP.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "53-0",
+      "name": "PlataformaPetrobrasExplode.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "54-0",
+      "name": "Revolucao-no-Egito.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ]
+    },
+    {
+      "id": "55-0",
+      "name": "Sucesso-mineiros-do-Chile.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "56-0",
+      "name": "Tocha-Olimpica.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1765,
+      "sourceHeight": 1498,
+      "crop": [
+        0,
+        0,
+        1765,
+        1498
+      ]
+    },
+    {
+      "id": "57-0",
+      "name": "Tornados-no-Brasil.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "58-0",
+      "name": "Um-desastre-nos-moldes-de-50.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1794,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1794,
+        1579
+      ]
+    },
+    {
+      "id": "59-0",
+      "name": "Virada-Cultural-violenta.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ]
+    },
+    {
+      "id": "60-0",
+      "name": "avioes-robo.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "61-0",
+      "name": "bola_de_ouro.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "63-0",
+      "name": "cinco-decadas-de-homiciodio-em-SP.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1791,
+      "sourceHeight": 1518,
+      "crop": [
+        0,
+        0,
+        1791,
+        1518
+      ]
+    },
+    {
+      "id": "64-0",
+      "name": "dia-de-protestos.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ]
+    },
+    {
+      "id": "65-0",
+      "name": "disputa-de-craques.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "66-0",
+      "name": "donadon.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "67-0",
+      "name": "eleicoes-2010-segundo-turno.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "69-0",
+      "name": "internet-a-areas-remotas.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "70-0",
+      "name": "legado-olimpico.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ]
+    },
+    {
+      "id": "72-0",
+      "name": "perfil-Dilma-e-Serra.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ]
+    },
+    {
+      "id": "73-0",
+      "name": "sangue-politico.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "75-0",
+      "name": "tetracampea.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "76-0",
+      "name": "tsunami1.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ]
+    },
+    {
+      "id": "77-0",
+      "name": "tsunami2.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ]
     }
   ]
 }

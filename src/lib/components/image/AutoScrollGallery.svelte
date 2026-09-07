@@ -1,11 +1,13 @@
 <script>
 	import { onMount, onDestroy, tick } from 'svelte';
 	import { resolve } from '$app/paths';
+	import { galleryCrop } from './galleryCrop.js';
 	import PlayIcon from '$lib/components/icons/Play.svelte';
 	import PauseIcon from '$lib/components/icons/Pause.svelte';
 
 	// Directory under static (e.g., 'imgs/galeria1' or '/imgs/galeria1')
 	export let dir = '';
+	export let publication = '';
 	// Interval between scroll steps (ms)
 	export let intervalMs = 3000;
 	// Enable/disable auto-scroll
@@ -162,13 +164,14 @@
 			const rawList = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
 			const list = rawList
 				.map((entry) => (typeof entry === 'string' ? { name: entry } : entry))
-				.filter((entry) => entry && entry.name);
+				.filter((entry) => entry && entry.name && (!publication || entry.publication === publication));
 			if (!list.length) {
 				error = 'manifest.json vazio. Gere a lista de arquivos.';
 				return;
 			}
 			const allowed = list
 				.map((entry) => ({
+					...entry,
 					name: String(entry.name),
 					width: Number(entry.width) || defaultWidth || 0,
 					height: Number(entry.height) || defaultHeight || 0
@@ -178,7 +181,7 @@
 					const extMatch = entry.name.match(/\.([a-z0-9]+)$/i);
 					const ext = (extMatch ? extMatch[1] : '').toLowerCase();
 					const base = ext ? entry.name.slice(0, -(ext.length + 1)) : entry.name;
-					return { name: entry.name, base, ext, width: entry.width, height: entry.height };
+					return { ...entry, base: entry.id || base, ext };
 				});
 
 			// Prefer a single entry per base name; priority by extension (png first)
@@ -198,11 +201,12 @@
 			}
 
 			const chosen = Array.from(byBase.values());
-			items = chosen.map(({ name, ext, width, height }) => {
+			items = chosen.map((entry) => {
+				const { name, ext, width, height } = entry;
 				const enc = encodeURIComponent(name);
 				const url = resolve(`${normalizedDir}/${enc}`);
 				const type = ext === 'pdf' ? 'pdf' : 'image';
-				return { url, type, loaded: false, width, height, previewIdx: -1, previewSrc: '' };
+				return { ...entry, url, type, loaded: false, width, height, previewIdx: -1, previewSrc: '' };
 			});
 			hasSizeData = items.some((it) => it.width && it.height);
 		} catch (e) {
@@ -406,7 +410,7 @@
 			Math.round(((Number.isFinite(vh) ? vh : 70) * window.innerHeight) / 100)
 		);
 		targetHeightPx = target;
-		sizeScale = Math.min(1, target / maxH);
+		sizeScale = Math.min(1, target / (publication ? 1579 : maxH));
 
 		if (!_resizeHandler) {
 			_resizeHandler = () => computeScale();
@@ -434,12 +438,14 @@
 		return pdfPreviewExts.map((ext) => `${base}${ext}`);
 	}
 
-  function scaledSize(it) {
+  function scaledSize(it, scale, viewport) {
     if (!it || it.type !== 'image' || height) return null;
     if (!respectSizes || !hasSizeData || !it.width || !it.height) return null;
-    const mobileScale = isMobile() ? 0.62 : 1;
-    let w = Math.round(it.width * sizeScale * mobileScale);
-    let h = Math.round(it.height * sizeScale * mobileScale);
+    const mobileScale = isMobile()
+      ? publication ? Math.min(0.62, (viewport - 32) / (1794 * scale)) : 0.62
+      : 1;
+    let w = Math.round(it.width * scale * mobileScale);
+    let h = Math.round(it.height * scale * mobileScale);
     return { w, h };
   }
 
@@ -482,7 +488,7 @@
 	>
 		<div bind:this={trackEl} class="scroll-track" style={`gap:${gap}px`}>
 			{#each items as it, i (i)}
-				{@const size = scaledSize(it)}
+				{@const size = scaledSize(it, sizeScale, viewportWidth)}
 				<div
 					class={`card ${shadow ? 'shadow-1' : ''} ${size ? 'fixed-size' : ''}`}
 					data-index={i}
@@ -490,6 +496,12 @@
 				>
 					{#if it.type === 'image'}
 						{#if it.loaded}
+							{#if it.crop}
+								{@const crop = galleryCrop(it)}
+								<div class="crop-frame" style={crop.frame}>
+									<img src={it.url} alt={`${publication} — ${it.name.replace(/\.[^.]+$/, '')}`} loading="lazy" style={crop.image} draggable="false" />
+								</div>
+							{:else}
 							<img
 								src={it.url}
 								alt={`Imagem ${i + 1}`}
@@ -499,6 +511,7 @@
 								style={imageStyle(it, size)}
 								draggable="false"
 							/>
+							{/if}
 						{:else}
 							<div class="placeholder" aria-hidden="true"></div>
 						{/if}
@@ -578,14 +591,6 @@
 		cursor: grab;
 		margin: 0 auto;
 	}
-	.scroll-viewport.newspaper-paper {
-		border-block: 1px solid #c9c0ae;
-		background-image: repeating-linear-gradient(0deg, transparent 0 3px, #86724a08 3px 4px);
-	}
-	.newspaper-paper .card {
-		background: #fffdf6;
-		box-shadow: 0 2px 3px #34291c26, 0 12px 28px #34291c29;
-	}
 	.scroll-viewport.dragging {
 		cursor: grabbing;
 		user-select: none;
@@ -611,7 +616,15 @@
 		align-items: center;
 		will-change: transform;
 	}
+	.crop-frame {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		overflow: hidden;
+	}
 	.card {
+		position: relative;
+		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -721,15 +734,13 @@
 			scroll-snap-type: x mandatory;
 			-webkit-overflow-scrolling: touch;
 			scrollbar-width: none; /* Firefox */
-			scroll-padding-left: 50vw;
-			scroll-padding-right: 50vw;
+			scroll-padding-inline: 16px;
 		}
 		.scroll-viewport::-webkit-scrollbar {
 			display: none;
 		}
 		.scroll-track {
-			padding-left: 50vw;
-			padding-right: 50vw;
+			padding-inline: 16px;
 		}
 		.scroll-viewport .card {
 			scroll-snap-align: center;
