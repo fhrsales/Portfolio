@@ -495,7 +495,7 @@
 					data-index={i}
 					style={`${height ? `height:${height};` : ''}${size ? `width:${size.w}px; height:${size.h}px;` : ''}`}
 				>
-					{#if it.publication}
+					{#if it.publication && it.publication !== items[i - 1]?.publication}
 						<span class="publication-label">{publicationNames[it.publication] || it.publication}</span>
 					{/if}
 					{#if it.type === 'image'}
@@ -624,10 +624,13 @@
 		position: absolute;
 		top: calc(100% + 10px);
 		left: 0;
-		font-size: 12px;
-		line-height: 1.3;
+		font-family: var(--font-primary);
+		font-size: calc(var(--grid) * 2.2);
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		line-height: 1.35;
 		white-space: nowrap;
-		color: var(--color-primary);
+		color: var(--color-dark);
 	}
 	.crop-frame {
 		position: absolute;
