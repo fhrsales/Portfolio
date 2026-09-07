@@ -273,102 +273,6 @@
       ]
     },
     {
-      "id": "139-1",
-      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
-      "publication": "o-dia",
-      "format": "standard",
-      "width": 898,
-      "height": 1579,
-      "sourceWidth": 1579,
-      "sourceHeight": 1116,
-      "crop": [
-        142,
-        60,
-        570,
-        964
-      ]
-    },
-    {
-      "id": "139-2",
-      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
-      "publication": "o-dia",
-      "format": "standard",
-      "width": 898,
-      "height": 1579,
-      "sourceWidth": 1579,
-      "sourceHeight": 1116,
-      "crop": [
-        842,
-        60,
-        566,
-        964
-      ]
-    },
-    {
-      "id": "140-1",
-      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
-      "publication": "o-dia",
-      "format": "standard",
-      "width": 898,
-      "height": 1579,
-      "sourceWidth": 1579,
-      "sourceHeight": 1116,
-      "crop": [
-        144,
-        60,
-        572,
-        964
-      ]
-    },
-    {
-      "id": "140-2",
-      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
-      "publication": "o-dia",
-      "format": "standard",
-      "width": 898,
-      "height": 1579,
-      "sourceWidth": 1579,
-      "sourceHeight": 1116,
-      "crop": [
-        842,
-        60,
-        568,
-        964
-      ]
-    },
-    {
-      "id": "141-1",
-      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
-      "publication": "o-dia",
-      "format": "standard",
-      "width": 898,
-      "height": 1579,
-      "sourceWidth": 1579,
-      "sourceHeight": 1116,
-      "crop": [
-        142,
-        60,
-        568,
-        964
-      ]
-    },
-    {
-      "id": "141-2",
-      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
-      "publication": "o-dia",
-      "format": "standard",
-      "width": 898,
-      "height": 1579,
-      "sourceWidth": 1579,
-      "sourceHeight": 1116,
-      "crop": [
-        840,
-        60,
-        568,
-        966
-      ]
-    },
-    {
       "id": "142-1",
       "name": "cb-correio-braziliense-portifolio-antigo-p15.png",
       "publication": "o-dia",
@@ -814,6 +718,102 @@
         112,
         684,
         880
+      ]
+    },
+    {
+      "id": "139-1",
+      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        142,
+        60,
+        570,
+        964
+      ]
+    },
+    {
+      "id": "139-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        842,
+        60,
+        566,
+        964
+      ]
+    },
+    {
+      "id": "140-1",
+      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        144,
+        60,
+        572,
+        964
+      ]
+    },
+    {
+      "id": "140-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        842,
+        60,
+        568,
+        964
+      ]
+    },
+    {
+      "id": "141-1",
+      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        142,
+        60,
+        568,
+        964
+      ]
+    },
+    {
+      "id": "141-2",
+      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 898,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        840,
+        60,
+        568,
+        966
       ]
     },
     {

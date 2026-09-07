@@ -9,7 +9,7 @@ it('keeps publication pages, crops and physical formats valid without changing o
 	expect(new Set(files.map(f => `${f.name}:${f.crop.join(',')}`)).size).toBe(files.length);
 	for (const file of files) {
 		expect(existsSync(`static/imgs/samples/${file.name}`)).toBe(true);
-		expect(['o-dia', 'correio', 'estadao', 'diario-de-noticias']).toContain(file.publication);
+		expect(['o-dia', 'o-globo', 'correio', 'estadao', 'diario-de-noticias']).toContain(file.publication);
 		const dimensions = [...formats[file.format]];
 		if (file.rotation === 90) dimensions.reverse();
 		expect([file.width, file.height]).toEqual(dimensions);

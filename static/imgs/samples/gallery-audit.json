@@ -1,5 +1,5 @@
 {
-  "note": "Display-only crop rectangles preserve the original files and typography. Logical dimensions follow formats.txt regardless of raster resolution. Portfolio boards are excluded as whole slides; their unique newspaper pages remain as separate crop entries. Duplicate standalone and board pages were compared visually. O Dia pages are identified by their mastheads even when stored in the old Correio folder. No identifiable Diario de Noticias pages were found in the supplied collection.",
+  "note": "Display-only crop rectangles preserve the original files and typography. Logical dimensions follow formats.txt regardless of raster resolution. Portfolio boards are excluded as whole slides; their unique newspaper pages remain as separate crop entries. Duplicate standalone and board pages were compared visually. O Dia pages are identified by their mastheads even when stored in the old Correio folder. No identifiable Diario de Noticias pages were found in the supplied collection. The six sports pages from old portfolio pages 12–14 belong to O Globo, as identified by their printed running headers. All publications share one continuous gallery.",
   "excluded": [
     {
       "name": "001-sinal-amarelo.png",

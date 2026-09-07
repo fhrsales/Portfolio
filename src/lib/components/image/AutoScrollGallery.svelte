@@ -7,7 +7,8 @@
 
 	// Directory under static (e.g., 'imgs/galeria1' or '/imgs/galeria1')
 	export let dir = '';
-	export let publication = '';
+	const publicationNames = { 'o-dia': 'O Dia', 'o-globo': 'O Globo', correio: 'Correio Braziliense', 'diario-de-noticias': 'Diário de Notícias', estadao: 'Estadão' };
+	$: hasPaperFormats = items.some(item => item.format);
 	// Interval between scroll steps (ms)
 	export let intervalMs = 3000;
 	// Enable/disable auto-scroll
@@ -164,7 +165,7 @@
 			const rawList = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
 			const list = rawList
 				.map((entry) => (typeof entry === 'string' ? { name: entry } : entry))
-				.filter((entry) => entry && entry.name && (!publication || entry.publication === publication));
+				.filter((entry) => entry && entry.name);
 			if (!list.length) {
 				error = 'manifest.json vazio. Gere a lista de arquivos.';
 				return;
@@ -410,7 +411,7 @@
 			Math.round(((Number.isFinite(vh) ? vh : 70) * window.innerHeight) / 100)
 		);
 		targetHeightPx = target;
-		sizeScale = Math.min(1, target / (publication ? 1579 : maxH));
+		sizeScale = Math.min(1, target / (hasPaperFormats ? 1579 : maxH));
 
 		if (!_resizeHandler) {
 			_resizeHandler = () => computeScale();
@@ -442,7 +443,7 @@
     if (!it || it.type !== 'image' || height) return null;
     if (!respectSizes || !hasSizeData || !it.width || !it.height) return null;
     const mobileScale = isMobile()
-      ? publication ? Math.min(0.62, (viewport - 32) / (1794 * scale)) : 0.62
+      ? hasPaperFormats ? Math.min(0.62, (viewport - 32) / (1794 * scale)) : 0.62
       : 1;
     let w = Math.round(it.width * scale * mobileScale);
     let h = Math.round(it.height * scale * mobileScale);
@@ -494,12 +495,15 @@
 					data-index={i}
 					style={`${height ? `height:${height};` : ''}${size ? `width:${size.w}px; height:${size.h}px;` : ''}`}
 				>
+					{#if it.publication}
+						<span class="publication-label">{publicationNames[it.publication] || it.publication}</span>
+					{/if}
 					{#if it.type === 'image'}
 						{#if it.loaded}
 							{#if it.crop}
 								{@const crop = galleryCrop(it)}
 								<div class="crop-frame" style={crop.frame}>
-									<img src={it.url} alt={`${publication} — ${it.name.replace(/\.[^.]+$/, '')}`} loading="lazy" style={crop.image} draggable="false" />
+									<img src={it.url} alt={`${publicationNames[it.publication] || it.publication} — ${it.name.replace(/\.[^.]+$/, '')}`} loading="lazy" style={crop.image} draggable="false" />
 								</div>
 							{:else}
 							<img
@@ -615,6 +619,15 @@
 		display: inline-flex;
 		align-items: center;
 		will-change: transform;
+	}
+	.publication-label {
+		position: absolute;
+		top: calc(100% + 10px);
+		left: 0;
+		font-size: 12px;
+		line-height: 1.3;
+		white-space: nowrap;
+		color: var(--color-primary);
 	}
 	.crop-frame {
 		position: absolute;

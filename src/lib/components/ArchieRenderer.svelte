@@ -482,7 +482,6 @@
 							? parseBool(conf.auto ?? conf.autoscroll ?? conf.autoplay, true)
 							: true}
 						<AutoScrollGallery
-							publication={conf.publicacao || ''}
 							dir={dir ? `imgs/${dir}` : 'imgs'}
 							intervalMs={intervalMs}
 							autoScroll={autoScroll}
