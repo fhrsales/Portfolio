@@ -21,7 +21,7 @@ Principais recursos:
 - `TagSelector` inline: só filtra blocos após seu aparecimento
 - Fallback acessível: trilha `<track kind="captions">` sempre presente (placeholder) evitando warnings
 - Animações suaves de fade e atraso decorativo pós-carregamento de imagens
-- Editor administrativo (`/admin`): no desenvolvimento local, Salvar grava a página em `src/lib/archiePages.json`; no site estático, Salvar arquivo baixa o JSON para aplicação manual. O build não modifica conteúdo.
+- Editor administrativo (`/admin`), disponível apenas no desenvolvimento local: Salvar grava a página em `src/lib/archiePages.json`. O build não modifica conteúdo.
 - Dev e build importam diretamente o mesmo JSON versionado, incluindo Archive.
 
 ## 🗂 Estrutura Essencial
