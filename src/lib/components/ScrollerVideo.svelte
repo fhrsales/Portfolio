@@ -1,5 +1,7 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
+  import H3 from './heading/H3.svelte';
+  import Text from './text/Text.svelte';
 
   // Props
   export let src = '';
@@ -51,6 +53,8 @@
   $: void travelVh;
   $: void speedVh;
 
+  let storyEl;
+  let backdropOpacity = 0;
   let containerEl; // tall wrapper
   let stickyEl; // viewport-sized sticky area
   let videoEl; // video element
@@ -105,6 +109,14 @@
   let target = 0;
   function loop() {
     _raf = requestAnimationFrame(loop);
+    if (introTitle && storyEl) {
+      const rect = storyEl.getBoundingClientRect();
+      const viewport = window.innerHeight || 1;
+      backdropOpacity = Math.min(
+        clamp01((viewport - rect.top) / (viewport * 0.75)),
+        clamp01(rect.bottom / viewport)
+      );
+    }
     target = externalProgress != null ? clamp01(externalProgress) : computeProgress();
     // detect direction (up when target decreases)
     dirUp = target < _lastTarget - 0.0005 ? true : target > _lastTarget + 0.0005 ? false : dirUp;
@@ -411,13 +423,13 @@
   $: guideTicks = Array.from({ length: 11 }, (_, i) => ({ ratio: i / 10 }));
 </script>
 
-<div class="scroller-story" class:immersive={!!introTitle}>
+<div class="scroller-story" class:immersive={!!introTitle} bind:this={storyEl}>
 {#if introTitle}
-  <div class="story-fade" aria-hidden="true"></div>
+  <div class="story-backdrop" aria-hidden="true" style:opacity={backdropOpacity}></div>
   <header class="story-intro">
     <div>
-      <h3>{introTitle}</h3>
-      <p>{introText}</p>
+      <H3 value={introTitle} />
+      <Text value={{ body: introText }} />
     </div>
   </header>
 {/if}
@@ -480,38 +492,25 @@
     width: 100vw;
     position: relative;
     z-index: 1001;
-    background: var(--story-bg);
     color: #f5f5f5;
     font-family: var(--font-primary);
   }
-  .story-fade {
-    height: 50svh;
-    background: linear-gradient(to bottom, var(--body-bg, #f5f5f5), var(--story-bg));
+  .story-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--story-bg);
+    pointer-events: none;
   }
   .story-intro {
+    --color-dark: #f5f5f5;
     min-height: 100svh;
     display: grid;
     place-items: center;
     box-sizing: border-box;
-    padding: 80px 24px;
-    background: var(--story-bg);
+    padding: 80px 0;
   }
-  .story-intro > div { max-width: 720px; }
-  .story-intro h3 {
-    color: inherit;
-    font-size: clamp(32px, 4vw, 60px);
-    line-height: 1.08;
-    letter-spacing: -0.035em;
-    margin: 0 0 28px;
-    max-width: none;
-  }
-  .story-intro p {
-    color: #c4c4c4;
-    font-size: clamp(18px, 2vw, 24px);
-    line-height: 1.55;
-    margin: 0;
-    max-width: 620px;
-  }
+  .story-intro > div { width: 100%; }
   .immersive .scroller-video { margin: 0; max-width: none; }
   .immersive .scroller-video__sticky { height: 100svh; background: var(--story-bg); }
   .immersive .scroller-video__stage { background: var(--story-bg); }
@@ -644,13 +643,9 @@
     opacity: 0.92;
   }
   .overlay-text.destaque {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: color-mix(in srgb, #000 38%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-primary, #fff) 25%, transparent);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    backdrop-filter: saturate(120%) blur(2px);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95),
+      0 0 20px rgba(0, 0, 0, 0.85),
+      0 0 40px rgba(0, 0, 0, 0.65);
   }
   /* Remove keyframes; transitions handle the entrance */
 </style>
