@@ -14,6 +14,7 @@
 	import ImageBlock from '$lib/components/image/ImageBlock.svelte';
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
+	import ImageText from '$lib/components/ImageText.svelte';
 	import AutoScrollGallery from '$lib/components/image/AutoScrollGallery.svelte';
 	import FadeCarousel from '$lib/components/image/FadeCarousel.svelte';
     import ScrollBg from '$lib/components/ScrollBg.svelte';
@@ -220,15 +221,6 @@
 	}
 
 
-	function sameTags(a, b) {
-		if (!Array.isArray(a) || !Array.isArray(b)) return false;
-		if (a.length !== b.length) return false;
-		const setA = new Set(a.map((t) => String(t).toLowerCase()));
-		for (const t of b) {
-			if (!setA.has(String(t).toLowerCase())) return false;
-		}
-		return true;
-	}
 
 	// mark the first image on the page as priority (helps LCP)
 	let _firstImageMarked = false;
@@ -465,11 +457,6 @@
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
-							{#if obj.tags && obj.tags.length}
-								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
-									<InlineTags tags={obj.tags} />
-								{/if}
-							{/if}
 						{/await}
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.slider}
@@ -535,13 +522,11 @@
 								radius={vid.radius || vid.borda}
 								tags={vid.tags}
 							/>
-							{#if obj.tags && obj.tags.length}
-								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
-									<InlineTags tags={obj.tags} />
-								{/if}
-							{/if}
 						{/await}
 					{/key}
+				{:else if typeof bloco === 'object' && bloco.imagemTexto}
+					{@const conf = bloco.imagemTexto}
+					<ImageText src={withBase(`/imgs/${conf.imagem}`, base)} alt={conf.alt || conf.titulo || ''} title={conf.titulo || ''} text={conf.texto || ''} tags={obj.tags || []} imageRight={conf.lado === 'direita'} classes={conf.classes || ''} />
 				{:else if typeof bloco === 'object' && bloco.scrollerVideo}
 					{#key i}
 						{@const conf = bloco.scrollerVideo}
@@ -577,6 +562,8 @@
 							showGuide={guide}
 							height={height}
 							objectFit={conf.fit || conf.objectfit || 'cover'}
+							stageRatio={conf.proporcao || ''}
+							pin={conf.fixar !== 'nao'}
 							ease={conf.ease !== undefined ? Number(conf.ease) : undefined}
 							offsetTop={conf.top ? Number(conf.top) : 0}
 							vhPerSecond={conf.vhpersecond ? Number(conf.vhpersecond) : conf.vhps ? Number(conf.vhps) : undefined}
@@ -625,11 +612,6 @@
 								sources={img.sources}
 								priority={nextImagePriority()}
 							/>
-							{#if obj.tags && obj.tags.length}
-								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
-									<InlineTags tags={obj.tags} />
-								{/if}
-							{/if}
 						{/await}
 					{/key}
 				{:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
@@ -654,11 +636,6 @@
 								radius={vid.radius}
 								tags={vid.tags}
 							/>
-							{#if obj.tags && obj.tags.length}
-								{#if !annotatedBlocks[i + 1] || !sameTags(obj.tags, annotatedBlocks[i + 1].tags)}
-									<InlineTags tags={obj.tags} />
-								{/if}
-							{/if}
 						{/await}
 					{/key}
 				{:else}
@@ -671,6 +648,9 @@
 									: ['']
 						}}
 					/>
+				{/if}
+				{#if obj.footerTags?.length}
+					<InlineTags tags={obj.footerTags} />
 				{/if}
 				</div>
 				{/if}

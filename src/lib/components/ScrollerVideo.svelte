@@ -26,6 +26,7 @@
   export let pxPerFrame = 0; // pixels of scroll per frame (e.g., 3-6)
   // sticky offset (top), usually 0
   export let offsetTop = 0;
+  export let stageRatio = '';
   // fit: 'cover' | 'contain'
   export let objectFit = 'cover';
   // If provided, easing factor for scrubbing (0..1); when omitted, scrub is immediate
@@ -100,6 +101,10 @@
     const rect = containerEl.getBoundingClientRect();
     viewH = stickyEl?.clientHeight || window.innerHeight || 0;
     containerHeightPx = rect.height;
+    if (!pin) {
+      const viewport = window.innerHeight || 1;
+      return clamp01((viewport - rect.top) / (viewport + rect.height));
+    }
     const total = Math.max(0, rect.height - viewH);
     const advanced = clamp01(total === 0 ? 0 : Math.min(total, -rect.top) / total);
     return advanced;
@@ -360,6 +365,7 @@
   })();
 
   $: appliedHeight = (() => {
+    if (!pin) return 'auto';
     if (height && String(height).trim()) return String(height).trim();
     if (computedPxHeight > 0) return `${computedPxHeight}px`;
     if (autoHeight && duration) return `${Math.max(150, Math.round(duration * vhPerSecond))}vh`;
@@ -437,6 +443,8 @@
   <div
     class="scroller-video__sticky"
     bind:this={stickyEl}
+    style:height={stageRatio ? 'auto' : undefined}
+    style:aspect-ratio={stageRatio || undefined}
     style={pin ? `position: sticky; top: ${offsetTop}px;` : ''}
   >
   <div class="scroller-video__stage" class:visible={hasAppeared}>
@@ -488,7 +496,7 @@
 <style>
   .scroller-story { width: 100%; }
   .scroller-story.immersive {
-    --story-bg: #101010;
+    --story-bg: #000;
     width: 100vw;
     position: relative;
     z-index: 1001;
@@ -504,16 +512,19 @@
   }
   .story-intro {
     --color-dark: #f5f5f5;
-    min-height: 100svh;
+    background: var(--story-bg);
     display: grid;
     place-items: center;
     box-sizing: border-box;
-    padding: 80px 0;
+    padding: 64px 0 24px;
   }
   .story-intro > div { width: 100%; }
-  .immersive .scroller-video { margin: 0; max-width: none; }
+  .scroller-story.immersive .scroller-video { margin: 0; max-width: none; }
   .immersive .scroller-video__sticky { height: 100vh; height: 100dvh; background: var(--story-bg); }
   .immersive .scroller-video__stage { background: var(--story-bg); }
+  .immersive .scroller-video__stage > video {
+    mask-image: linear-gradient(to bottom, transparent, #000 80px);
+  }
   @media (prefers-reduced-motion: reduce) {
     .scroller-video__stage, .scroller-video__overlay { transition: none; }
   }
@@ -646,6 +657,22 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95),
       0 0 20px rgba(0, 0, 0, 0.85),
       0 0 40px rgba(0, 0, 0, 0.65);
+  }
+  .scroller-video__overlay > .overlay-text.tapui-copy {
+    max-width: 620px;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+  .tapui-copy :global(strong) { font-weight: 600; }
+  .tapui-copy :global(span) {
+    display: block;
+    max-width: 520px;
+    margin: 14px auto 0;
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    font-weight: 400;
   }
   /* Remove keyframes; transitions handle the entrance */
 </style>

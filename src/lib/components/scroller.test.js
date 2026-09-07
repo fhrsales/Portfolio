@@ -16,3 +16,16 @@ it('keeps the Archive introduction and viewport-filling video in one immersive s
 	expect(body).toContain('object-fit:cover');
 	expect(render(ScrollerVideo).body).not.toContain('<header');
 });
+
+
+it('keeps the ATBL scroll video in the normal page flow without a tall spacer', () => {
+ const blocks = buildBlockObjects(pages.index.content.split(/\n\n+/));
+ const conf = blocks.find((block) => block.raw?.scrollerVideo).raw.scrollerVideo;
+ expect(conf.fixar).toBe('nao');
+ const { body } = render(ScrollerVideo, { props: {
+  pin: conf.fixar !== 'nao', stageRatio: conf.proporcao, size: conf.tamanho
+ } });
+ expect(body).toContain('height:auto');
+ expect(body).toContain('aspect-ratio: 16 / 9');
+ expect(body).not.toContain('position: sticky');
+});

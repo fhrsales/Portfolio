@@ -29,3 +29,20 @@ describe('content parsers', () => {
 		expect(ann[2].isAfterSelector).toBe(true);
 	});
 });
+
+
+it('places credits after the description and links without crossing into another project', () => {
+ const media = { raw: { nome: 'a.png' }, tags: ['design'] };
+ const input = [media, { raw: 'h3: Project' }, { raw: 'Description' },
+  { raw: "<a href='/project'>View the project →</a>" }, { raw: '{divisor}' },
+  { raw: { nome: 'b.png' }, tags: ['code'] }, { raw: 'h3: Other' }, { raw: 'Other description' }];
+ const result = annotateBlocks(input);
+ expect(result[0].footerTags).toBeUndefined();
+ expect(result[3].footerTags).toEqual(['design']);
+ expect(result[1].tags).toEqual(['design']);
+ expect(result[4].tags).toBeUndefined();
+ expect(result[7].footerTags).toEqual(['code']);
+ expect(input[1].tags).toBeUndefined();
+ const ownFooter = annotateBlocks([{ raw: { imagemTexto: {} }, tags: ['design'] }]);
+ expect(ownFooter[0].footerTags).toBeUndefined();
+});

@@ -238,6 +238,20 @@ export function buildBlockObjects(blocks) {
     const raw = blocks[i];
     const trimmed = String(raw).trim().replace(/^\ufeff/, '');
 
+    // Image and copy form one filterable editorial block.
+    if (/^\{imagemTexto\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const tags = (fields.tags || '').split(',').map((tag) => tag.trim().toLowerCase()).filter(Boolean);
+      objs.push({ raw: { imagemTexto: fields }, tags });
+      continue;
+    }
+
     // {cronologia} multi-line
     if (/^\{cronologia\}[\s\S]*\{\}$/i.test(trimmed)) {
       const lines = String(raw)
@@ -1078,7 +1092,7 @@ export function buildBlockObjects(blocks) {
 			if (!value || typeof value !== 'object') return false;
 			if (value.video) return true;
 			if (value.nome || (value.imagem && value.imagem.nome)) return true;
-			if (value.slider || value.carrossel || value.scrollerVideo) return true;
+			if (value.slider || value.carrossel || value.scrollerVideo || value.imagemTexto) return true;
 			return false;
 		}
 
@@ -1146,6 +1160,29 @@ export function annotateBlocks(blockObjects) {
 		const o = { ...blockObjects[i], isAfterSelector: seenSelector };
 		arr.push(o);
 		if (blockObjects[i].selector) seenSelector = true;
+	}
+	// Keep each media item, its description and links together; show credits once at the end.
+	for (let i = 0; i < arr.length; i++) {
+		const source = blockObjects[i];
+		const raw = source.raw;
+		if (!source.tags?.length || source.selector) continue;
+		if (raw?.bloco || raw?.imagemTexto) continue; // These components render their own footer.
+		if (typeof raw === 'string' && !/^(imagem|video):/i.test(raw.trim())) continue;
+		let end = i;
+		let headingSeen = false;
+		for (let j = i + 1; j < arr.length; j++) {
+			const next = arr[j];
+			if (next.selector || typeof next.raw !== 'string') break;
+			const text = next.raw.trim();
+			if (/^(?:\{|<divisor\b|h[12]:|imagem:|video:|pdf:|embedWrapper:|titulo:)/i.test(text)) break;
+			if (/^h[3-5]:/i.test(text)) {
+				if (headingSeen) break;
+				headingSeen = true;
+			}
+			next.tags = [...new Set([...(next.tags || []), ...source.tags])];
+			end = j;
+		}
+		arr[end].footerTags = source.tags;
 	}
 	return arr;
 }

@@ -346,6 +346,17 @@
 					}
 				}}
 			></textarea>
+			<details>
+				<summary>Imagem à esquerda e texto à direita</summary>
+				<p>No celular, a imagem aparece acima do texto. Use &lt;br&gt;&lt;br&gt; para separar parágrafos no campo texto. Adicione <code>lado: direita</code> para colocar a imagem à direita no desktop.</p>
+				<pre>{`{imagemTexto}
+  imagem: favela_amazonia.png
+  alt: Descrição da imagem
+  titulo: Título do projeto
+  texto: Texto do projeto.<br><br>Outro parágrafo.
+  tags: Editorial Design, Storytelling
+{}`}</pre>
+			</details>
 			<div class="saveContent-container">
 				<Toolbar align="end" ariaLabel="Ferramentas do editor">
 					<IconButton title="Negrito (Ctrl/Cmd+B)" ariaLabel="Negrito" on:click={makeBold}
