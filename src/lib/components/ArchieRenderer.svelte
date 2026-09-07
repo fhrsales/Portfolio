@@ -567,6 +567,8 @@
 									: [conf.texto]
 								: []}
 						<ScrollerVideo
+							introTitle={conf['intro-title'] || ''}
+							introText={conf['intro-text'] || ''}
 							src={withBase(`/videos/${file}`, base)}
 							srcMobile={fileMobile ? withBase(`/videos/${fileMobile}`, base) : ''}
 							srcDesktop={fileDesktop ? withBase(`/videos/${fileDesktop}`, base) : ''}

@@ -3,6 +3,8 @@
 
   // Props
   export let src = '';
+  export let introTitle = '';
+  export let introText = '';
   export let srcMobile = '';
   export let srcDesktop = '';
   // texts: [{ at: 0.2, text: '...', class: 'classe1' }]
@@ -92,7 +94,7 @@
   function computeProgress() {
     if (!containerEl) return 0;
     const rect = containerEl.getBoundingClientRect();
-    viewH = window.innerHeight || document.documentElement.clientHeight || 0;
+    viewH = stickyEl?.clientHeight || window.innerHeight || 0;
     containerHeightPx = rect.height;
     const total = Math.max(0, rect.height - viewH);
     const advanced = clamp01(total === 0 ? 0 : Math.min(total, -rect.top) / total);
@@ -409,6 +411,16 @@
   $: guideTicks = Array.from({ length: 11 }, (_, i) => ({ ratio: i / 10 }));
 </script>
 
+<div class="scroller-story" class:immersive={!!introTitle}>
+{#if introTitle}
+  <div class="story-fade" aria-hidden="true"></div>
+  <header class="story-intro">
+    <div>
+      <h3>{introTitle}</h3>
+      <p>{introText}</p>
+    </div>
+  </header>
+{/if}
 <section class={`scroller-video ${sizeClass}`} bind:this={containerEl} style={`height:${appliedHeight};`}>
   <div
     class="scroller-video__sticky"
@@ -419,6 +431,7 @@
       <video
         bind:this={videoEl}
         src={shouldLoad ? (chosenSrc || src || undefined) : undefined}
+        aria-label={introTitle || 'Scroll-controlled video'}
         playsinline
         muted
         preload={shouldLoad ? preloadMode : 'none'}
@@ -458,8 +471,54 @@
     </div>
   </div>
 </section>
+</div>
 
 <style>
+  .scroller-story { width: 100%; }
+  .scroller-story.immersive {
+    --story-bg: #101010;
+    width: 100vw;
+    position: relative;
+    z-index: 1001;
+    background: var(--story-bg);
+    color: #f5f5f5;
+    font-family: var(--font-primary);
+  }
+  .story-fade {
+    height: 50svh;
+    background: linear-gradient(to bottom, var(--body-bg, #f5f5f5), var(--story-bg));
+  }
+  .story-intro {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    padding: 80px 24px;
+    background: var(--story-bg);
+  }
+  .story-intro > div { max-width: 720px; }
+  .story-intro h3 {
+    color: inherit;
+    font-size: clamp(32px, 4vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    margin: 0 0 28px;
+    max-width: none;
+  }
+  .story-intro p {
+    color: #c4c4c4;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 620px;
+  }
+  .immersive .scroller-video { margin: 0; max-width: none; }
+  .immersive .scroller-video__sticky { height: 100svh; background: var(--story-bg); }
+  .immersive .scroller-video__stage { background: var(--story-bg); }
+  @media (prefers-reduced-motion: reduce) {
+    .scroller-video__stage, .scroller-video__overlay { transition: none; }
+  }
+
   .scroller-video {
     width: 100%;
     position: relative;
