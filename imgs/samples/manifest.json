@@ -1,0 +1,6863 @@
+{
+  "files": [
+    {
+      "id": "128-1",
+      "name": "o-dia-001-o-barato-sai-caro.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 698.3087557603686,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        120,
+        678,
+        868
+      ],
+      "label": "O barato sai caro"
+    },
+    {
+      "id": "129-1",
+      "name": "o-dia-002-os-nossos-herois.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1447.6238532110092,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        78,
+        116,
+        1412,
+        872
+      ],
+      "label": "Os nossos heróis",
+      "hidden": true
+    },
+    {
+      "id": "130-1",
+      "name": "o-dia-003-sede-de-vinganca-campeonato-estadual-1906-a-1999.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Sede de vingança"
+    },
+    {
+      "id": "130-2",
+      "name": "o-dia-003-sede-de-vinganca-campeonato-estadual-1906-a-1999.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Campeonato estadual 1906 a 1999",
+      "hidden": true
+    },
+    {
+      "id": "131-1",
+      "name": "o-dia-004-que-perfeicao-recordista-dentro-e-fora-da-piscina.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Que perfeição",
+      "hidden": true
+    },
+    {
+      "id": "131-2",
+      "name": "o-dia-004-que-perfeicao-recordista-dentro-e-fora-da-piscina.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Recordista dentro e fora da piscina",
+      "hidden": true
+    },
+    {
+      "id": "132-1",
+      "name": "o-dia-005-ame-o-ou-deixe-o-nos-bracos-da-torcida.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Ame-o ou deixe-o",
+      "hidden": true
+    },
+    {
+      "id": "132-2",
+      "name": "o-dia-005-ame-o-ou-deixe-o-nos-bracos-da-torcida.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Nos braços da torcida",
+      "hidden": true
+    },
+    {
+      "id": "133-1",
+      "name": "o-dia-006-contra-o-mundo-a-patria-de-raquete.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Contra o mundo",
+      "hidden": true
+    },
+    {
+      "id": "133-2",
+      "name": "o-dia-006-contra-o-mundo-a-patria-de-raquete.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "A pátria de raquete"
+    },
+    {
+      "id": "134-1",
+      "name": "o-dia-007-a-vida-e-bela-e-o-vento-levou-1-2-3-e-ja.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "A vida é bela e o vento levou",
+      "hidden": true
+    },
+    {
+      "id": "134-2",
+      "name": "o-dia-007-a-vida-e-bela-e-o-vento-levou-1-2-3-e-ja.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "1 2 3 e já",
+      "hidden": true
+    },
+    {
+      "id": "135-1",
+      "name": "o-dia-008-segurem-os-homens-domingo-negro.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Segurem os homens",
+      "hidden": true
+    },
+    {
+      "id": "135-2",
+      "name": "o-dia-008-segurem-os-homens-domingo-negro.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Domingo negro"
+    },
+    {
+      "id": "136-1",
+      "name": "o-dia-009-raca-brasil.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1442.2654462242563,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        114,
+        1410,
+        874
+      ],
+      "label": "Raça Brasil",
+      "hidden": true
+    },
+    {
+      "id": "137-1",
+      "name": "o-dia-010-poderosas.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1442.2654462242563,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        114,
+        1410,
+        874
+      ],
+      "label": "Poderosas"
+    },
+    {
+      "id": "138-1",
+      "name": "o-dia-011-sabado-quente.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 698.3087557603686,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        120,
+        678,
+        868
+      ],
+      "label": "Sábado quente",
+      "hidden": true
+    },
+    {
+      "id": "142-1",
+      "name": "o-dia-012-cheio-de-municao-a-hora-do-pesadelo.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Cheio de munição",
+      "hidden": true
+    },
+    {
+      "id": "142-2",
+      "name": "o-dia-012-cheio-de-municao-a-hora-do-pesadelo.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "A hora do pesadelo",
+      "hidden": true
+    },
+    {
+      "id": "143-1",
+      "name": "o-dia-013-quanto-mais-melhor-o-primeiro-de-uma-serie.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Quanto mais melhor",
+      "hidden": true
+    },
+    {
+      "id": "143-2",
+      "name": "o-dia-013-quanto-mais-melhor-o-primeiro-de-uma-serie.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "O primeiro de uma série",
+      "hidden": true
+    },
+    {
+      "id": "144-1",
+      "name": "o-dia-014-bem-afinados-o-maraca-vai-tremer.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Bem afinados"
+    },
+    {
+      "id": "144-2",
+      "name": "o-dia-014-bem-afinados-o-maraca-vai-tremer.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "O Maraca vai tremer"
+    },
+    {
+      "id": "145-1",
+      "name": "o-dia-015-athirson-2-botafogo-1-ataque-1000-edicao-especial.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Athirson 2 Botafogo 1",
+      "hidden": true
+    },
+    {
+      "id": "145-2",
+      "name": "o-dia-015-athirson-2-botafogo-1-ataque-1000-edicao-especial.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Ataque 1000 edição especial",
+      "hidden": true
+    },
+    {
+      "id": "146-1",
+      "name": "o-dia-016-mil-capas-ataque.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1442.2654462242563,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        114,
+        1410,
+        874
+      ],
+      "label": "Mil capas Ataque"
+    },
+    {
+      "id": "147-1",
+      "name": "o-dia-017-imagens-nota-1000-primeira-pagina-imagens-nota-1000-segunda-pagina.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Imagens nota 1000 primeira página",
+      "hidden": true
+    },
+    {
+      "id": "147-2",
+      "name": "o-dia-017-imagens-nota-1000-primeira-pagina-imagens-nota-1000-segunda-pagina.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Imagens nota 1000 segunda página",
+      "hidden": true
+    },
+    {
+      "id": "148-1",
+      "name": "o-dia-018-os-numeros-dia-de-festa.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Os números",
+      "hidden": true
+    },
+    {
+      "id": "148-2",
+      "name": "o-dia-018-os-numeros-dia-de-festa.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Dia de festa",
+      "hidden": true
+    },
+    {
+      "id": "149-1",
+      "name": "o-dia-019-bis-domingo-legal.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Bis"
+    },
+    {
+      "id": "149-2",
+      "name": "o-dia-019-bis-domingo-legal.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Domingo legal",
+      "hidden": true
+    },
+    {
+      "id": "150-1",
+      "name": "o-dia-020-maracana-50-anos-maracana-e-o-maior.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Maracanã 50 anos"
+    },
+    {
+      "id": "150-2",
+      "name": "o-dia-020-maracana-50-anos-maracana-e-o-maior.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Maracanã é o maior",
+      "hidden": true
+    },
+    {
+      "id": "151-1",
+      "name": "o-dia-021-maracana-historia-dos-uniformes.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1442.2654462242563,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        114,
+        1410,
+        874
+      ],
+      "label": "Maracanã história dos uniformes"
+    },
+    {
+      "id": "152-1",
+      "name": "o-dia-022-3-e-taca-que-selecao-e-esta.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "3 é taça",
+      "hidden": true
+    },
+    {
+      "id": "152-2",
+      "name": "o-dia-022-3-e-taca-que-selecao-e-esta.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Que seleção é esta",
+      "hidden": true
+    },
+    {
+      "id": "153-1",
+      "name": "o-dia-023-basta-brasil.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 525.5523012552301,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        140,
+        70,
+        562,
+        956
+      ],
+      "label": "Basta Brasil",
+      "hidden": true
+    },
+    {
+      "id": "154-1",
+      "name": "o-dia-024-o-dia-em-que-o-rio-pediu-paz.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1041.753138075314,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        212,
+        70,
+        1114,
+        956
+      ],
+      "label": "O dia em que o Rio pediu paz",
+      "hidden": true
+    },
+    {
+      "id": "155-1",
+      "name": "o-dia-025-as-sementes-floresceram.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1442.2654462242563,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        80,
+        114,
+        1410,
+        874
+      ],
+      "label": "As sementes floresceram"
+    },
+    {
+      "id": "156-1",
+      "name": "o-dia-026-revezar-e-preciso.png",
+      "publication": "o-dia",
+      "format": "tabloid-double",
+      "width": 1444.3112128146452,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        76,
+        114,
+        1412,
+        874
+      ],
+      "label": "Revezar é preciso",
+      "hidden": true
+    },
+    {
+      "id": "157-1",
+      "name": "o-dia-027-cara-feia-futebol-bonito-to-vazando-to-chegando.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        82,
+        116,
+        676,
+        872
+      ],
+      "label": "Cara feia futebol bonito",
+      "hidden": true
+    },
+    {
+      "id": "157-2",
+      "name": "o-dia-027-cara-feia-futebol-bonito-to-vazando-to-chegando.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Tô vazando tô chegando",
+      "hidden": true
+    },
+    {
+      "id": "158-1",
+      "name": "o-dia-028-sinal-amarelo-buraco-rubro-negro.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        84,
+        116,
+        676,
+        872
+      ],
+      "label": "Sinal amarelo"
+    },
+    {
+      "id": "158-2",
+      "name": "o-dia-028-sinal-amarelo-buraco-rubro-negro.png",
+      "publication": "o-dia",
+      "format": "tabloid",
+      "width": 693.0550458715596,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        820,
+        116,
+        676,
+        872
+      ],
+      "label": "Buraco rubro negro"
+    },
+    {
+      "id": "139-1",
+      "name": "o-globo-001-atletas-00-milenio.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 928.2405857740584,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        146,
+        64,
+        562,
+        956
+      ],
+      "label": "atletas 00 milenio"
+    },
+    {
+      "id": "139-2",
+      "name": "o-globo-001-atletas-00-milenio.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 921.6338912133891,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        846,
+        64,
+        558,
+        956
+      ],
+      "label": "atletas 00 milenio"
+    },
+    {
+      "id": "140-1",
+      "name": "o-globo-002-tacaavista.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 931.5439330543934,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        148,
+        64,
+        564,
+        956
+      ],
+      "label": "tacaavista"
+    },
+    {
+      "id": "140-2",
+      "name": "o-globo-002-tacaavista.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 924.9372384937238,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        846,
+        64,
+        560,
+        956
+      ],
+      "label": "tacaavista",
+      "hidden": true
+    },
+    {
+      "id": "141-1",
+      "name": "o-globo-003-tecnica-do-flu-veta-zetti.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 924.9372384937238,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        146,
+        64,
+        560,
+        956
+      ],
+      "label": "tecnica do flu veta zetti"
+    },
+    {
+      "id": "141-2",
+      "name": "o-globo-003-tecnica-do-flu-veta-zetti.png",
+      "publication": "o-globo",
+      "format": "standard",
+      "width": 923.0062630480166,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1116,
+      "crop": [
+        844,
+        64,
+        560,
+        958
+      ],
+      "label": "tecnica do flu veta zetti",
+      "hidden": true
+    },
+    {
+      "id": "87-0",
+      "name": "correio-braziliense-012-tao-bela.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "tao bela",
+      "date": "2000-07-02",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "363-0",
+      "name": "correio-braziliense-219-tumtumtum.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "tumtumtum",
+      "hidden": true,
+      "date": "2000-07-16",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "352-0",
+      "name": "correio-braziliense-209-lugares.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "lugares",
+      "hidden": true,
+      "date": "2000-07-19",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "86-0",
+      "name": "correio-braziliense-011-em-1999-renda-caiu-7-1.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "em 1999 renda caiu 7 1",
+      "hidden": true,
+      "date": "2000-07-21",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "316-0",
+      "name": "correio-braziliense-177-0-azul-de-quem-vive-com-os-es-wa.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "0 azul de quem vive com os es wa",
+      "date": "2000-07-31",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "84-0",
+      "name": "correio-braziliense-009-imagens-da-anarquia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "imagens da anarquia",
+      "date": "2000-09-13",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "88-0",
+      "name": "correio-braziliense-013-fujimori-adeus.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "fujimori adeus",
+      "date": "2000-09-18",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "85-0",
+      "name": "correio-braziliense-010-2000-a01-1310.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "2000 a01 1310",
+      "hidden": true,
+      "date": "2000-10-13",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "194-0",
+      "name": "correio-braziliense-065-afraudeder-7-bilhoes.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "afraudeder 7 bilhoes",
+      "hidden": true,
+      "date": "2000-11-23",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "195-0",
+      "name": "correio-braziliense-066-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a7-2311.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno escandalo da previdencia a7 2311",
+      "hidden": true,
+      "date": "2000-11-23",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "193-0",
+      "name": "correio-braziliense-064-da-favela.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "da favela",
+      "hidden": true,
+      "date": "2000-11-24",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "328-0",
+      "name": "correio-braziliense-188-snd-guia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd guia",
+      "date": "2000-12-02",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "185-0",
+      "name": "correio-braziliense-056-correio-braziliense-primeiro-caderno-candelaria-d-200312.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno candelaria d 200312",
+      "hidden": true,
+      "date": "2000-12-03",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "188-0",
+      "name": "correio-braziliense-059-correio-braziliense-primeiro-caderno-candelaria-s140412.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno candelaria s140412",
+      "hidden": true,
+      "date": "2000-12-04",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "82-0",
+      "name": "correio-braziliense-007-gdf-atrasa-pagamento-de-salarios.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "gdf atrasa pagamento de salarios",
+      "date": "2000-12-08",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "191-0",
+      "name": "correio-braziliense-062-como-surgea-violencia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "como surgea violencia",
+      "hidden": true,
+      "date": "2000-12-08",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "208-0",
+      "name": "correio-braziliense-079-correio-braziliense-primeiro-caderno-jesus-d1-2412.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno jesus d1 2412",
+      "hidden": true,
+      "date": "2000-12-24",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "210-0",
+      "name": "correio-braziliense-080-o-divino-desconhecido.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "o divino desconhecido",
+      "hidden": true,
+      "date": "2000-12-24",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "211-0",
+      "name": "correio-braziliense-081-jesus-cristo.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "jesus cristo",
+      "hidden": true,
+      "date": "2000-12-24",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "89-0",
+      "name": "correio-braziliense-014-federaise.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "federaise",
+      "date": "2000-12-25",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "127-0",
+      "name": "correio-braziliense-049-correio-braziliense-guia-g1-2612.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense guia g1 2612",
+      "hidden": true,
+      "date": "2000-12-26",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "222-0",
+      "name": "correio-braziliense-092-correio-braziliense-suplementos-et1-2412.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense suplementos et1 2412",
+      "hidden": true,
+      "date": "2000-12-26",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "207-0",
+      "name": "correio-braziliense-078-popiuagao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "popiuagao",
+      "date": "2001-01-26",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "124-0",
+      "name": "correio-braziliense-046-compream.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "compream",
+      "date": "2001-01-31",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "94-0",
+      "name": "correio-braziliense-019-um-carro-roubado-por-hora.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "um carro roubado por hora",
+      "hidden": true,
+      "date": "2001-02-07",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "214-0",
+      "name": "correio-braziliense-084-corram-as-maquinas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "corram as maquinas",
+      "date": "2001-03-03",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "92-0",
+      "name": "correio-braziliense-017-para-intervencao-no-df.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "para intervencao no df",
+      "hidden": true,
+      "date": "2001-04-06",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "126-0",
+      "name": "correio-braziliense-048-13-campero-de.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "13 campero de",
+      "date": "2001-04-11",
+      "dateSource": "ocr",
+      "hidden": true
+    },
+    {
+      "id": "109-0",
+      "name": "correio-braziliense-031-transito.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "transito",
+      "date": "2001-04-16",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "101-0",
+      "name": "correio-braziliense-026-justica-quebra-0-sigilo.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "justica quebra 0 sigilo",
+      "date": "2001-06-28",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "95-0",
+      "name": "correio-braziliense-020-quase-80-mil-favelados.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "quase 80 mil favelados",
+      "date": "2001-08-11",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "96-0",
+      "name": "correio-braziliense-021-lonores-costa-rasa.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "lonores costa rasa",
+      "date": "2001-09-12",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "98-0",
+      "name": "correio-braziliense-023-talibas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "talibas",
+      "date": "2001-09-19",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "93-0",
+      "name": "correio-braziliense-018-paquistao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "paquistao",
+      "hidden": true,
+      "date": "2001-10-06",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "99-0",
+      "name": "correio-braziliense-024-2001-a01-1910.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "2001 a01 1910",
+      "date": "2001-10-19",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "344-0",
+      "name": "correio-braziliense-203-0-tamanho.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "0 tamanho",
+      "date": "2001-10-27",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "253-0",
+      "name": "correio-braziliense-123-correio-braziliense-pdfs-noblat-s01-2910.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "correio braziliense pdfs noblat s01 2910",
+      "hidden": true,
+      "date": "2001-10-29",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "110-0",
+      "name": "correio-braziliense-032-hemorragica-em-brasilia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "hemorragica em brasilia",
+      "hidden": true,
+      "date": "2002-03-02",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "249-0",
+      "name": "correio-braziliense-119-pflna-oposicao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "pflna oposicao",
+      "hidden": true,
+      "date": "2002-03-03",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "250-0",
+      "name": "correio-braziliense-120-paciente-de-dengue.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "paciente de dengue",
+      "hidden": true,
+      "date": "2002-03-04",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "224-0",
+      "name": "correio-braziliense-094-roseana-tira-0.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "roseana tira 0",
+      "date": "2002-03-06",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "225-0",
+      "name": "correio-braziliense-095-par-gaan-toque-ios.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "par gaan toque ios",
+      "hidden": true,
+      "date": "2002-03-07",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "226-0",
+      "name": "correio-braziliense-096-pfl-romper-com-fhc.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "pfl romper com fhc",
+      "hidden": true,
+      "date": "2002-03-08",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "227-0",
+      "name": "correio-braziliense-097-hemorragica.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "hemorragica",
+      "hidden": true,
+      "date": "2002-03-09",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "229-0",
+      "name": "correio-braziliense-099-novo-presidente-da-venezuela-fecha.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "novo presidente da venezuela fecha",
+      "hidden": true,
+      "date": "2002-04-13",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "252-0",
+      "name": "correio-braziliense-122-venceu-a.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "venceu a",
+      "date": "2002-04-15",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "230-0",
+      "name": "correio-braziliense-100-estados.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "estados",
+      "hidden": true,
+      "date": "2002-04-16",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "114-0",
+      "name": "correio-braziliense-036-sucessao-e-0-humor-do-dolar.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "sucessao e 0 humor do dolar",
+      "date": "2002-06-12",
+      "dateSource": "ocr",
+      "group": "copas"
+    },
+    {
+      "id": "115-0",
+      "name": "correio-braziliense-037-brasil-saca-us-5-2-bilhoes.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "brasil saca us 5 2 bilhoes",
+      "date": "2002-06-13",
+      "dateSource": "ocr",
+      "group": "copas"
+    },
+    {
+      "id": "12-0",
+      "name": "correio-braziliense-002-brasil-penta.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1794,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1794,
+        1579
+      ],
+      "label": "brasil penta",
+      "group": "copas"
+    },
+    {
+      "id": "278-0",
+      "name": "correio-braziliense-144-braziliens.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "braziliens",
+      "group": "copas"
+    },
+    {
+      "id": "299-0",
+      "name": "correio-braziliense-162-snd-copa-gloria.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd copa gloria",
+      "group": "copas"
+    },
+    {
+      "id": "300-0",
+      "name": "correio-braziliense-163-a-alemanha-nos-espera.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "a alemanha nos espera",
+      "group": "copas"
+    },
+    {
+      "id": "301-0",
+      "name": "correio-braziliense-164-caiu-pela.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "caiu pela",
+      "group": "copas"
+    },
+    {
+      "id": "302-0",
+      "name": "correio-braziliense-165-snd-copa-vamos-a-luta.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd copa vamos a luta",
+      "hidden": true,
+      "group": "copas"
+    },
+    {
+      "id": "303-0",
+      "name": "correio-braziliense-166-snd-copa-viva-o-povo-brasileiro.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd copa viva o povo brasileiro",
+      "group": "copas"
+    },
+    {
+      "id": "304-0",
+      "name": "correio-braziliense-167-snd-cordel-de-rede.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd cordel de rede",
+      "group": "copas"
+    },
+    {
+      "id": "310-0",
+      "name": "correio-braziliense-172-de-volta-ao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "de volta ao",
+      "hidden": true,
+      "date": "2002-06-20",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "120-0",
+      "name": "correio-braziliense-042-contra-roseana-ate-aqui.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "contra roseana ate aqui",
+      "hidden": true,
+      "date": "2002-07-15",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "112-0",
+      "name": "correio-braziliense-034-pt-obriga-benedita-a-afastar.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "pt obriga benedita a afastar",
+      "date": "2002-08-09",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "10-0",
+      "name": "correio-braziliense-001-enfim-la.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "enfim la",
+      "date": "2002-10-07",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "121-0",
+      "name": "correio-braziliense-043-brasil-da-silva.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "brasil da silva",
+      "hidden": true,
+      "date": "2002-10-28",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "78-0",
+      "name": "correio-braziliense-003-julgamento-sumario.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 942.7340496977838,
+      "height": 1579,
+      "sourceWidth": 949,
+      "sourceHeight": 1579,
+      "crop": [
+        30,
+        45,
+        889,
+        1489
+      ],
+      "label": "julgamento sumario",
+      "hidden": true
+    },
+    {
+      "id": "79-0",
+      "name": "correio-braziliense-004-selvageria.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 942.4789972899729,
+      "height": 1579,
+      "sourceWidth": 941,
+      "sourceHeight": 1579,
+      "crop": [
+        30,
+        51,
+        881,
+        1476
+      ],
+      "label": "selvageria",
+      "hidden": true
+    },
+    {
+      "id": "80-0",
+      "name": "correio-braziliense-005-sinal-de-alerta.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 942.7340496977838,
+      "height": 1579,
+      "sourceWidth": 949,
+      "sourceHeight": 1579,
+      "crop": [
+        30,
+        45,
+        889,
+        1489
+      ],
+      "label": "sinal de alerta",
+      "hidden": true
+    },
+    {
+      "id": "81-0",
+      "name": "correio-braziliense-006-leucemia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "leucemia",
+      "hidden": true
+    },
+    {
+      "id": "83-0",
+      "name": "correio-braziliense-008-2000-a01-1304.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "2000 a01 1304"
+    },
+    {
+      "id": "90-0",
+      "name": "correio-braziliense-015-salario-antecipado.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "salario antecipado",
+      "hidden": true
+    },
+    {
+      "id": "91-0",
+      "name": "correio-braziliense-016-jomens-pequeninos-e-magricelas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "jomens pequeninos e magricelas"
+    },
+    {
+      "id": "97-0",
+      "name": "correio-braziliense-022-greve-no-servico-publico.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "greve no servico publico"
+    },
+    {
+      "id": "100-0",
+      "name": "correio-braziliense-025-rebeliao-de-presos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "rebeliao de presos",
+      "hidden": true
+    },
+    {
+      "id": "102-0",
+      "name": "correio-braziliense-027-nova-york-sitiada.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "nova york sitiada"
+    },
+    {
+      "id": "103-0",
+      "name": "correio-braziliense-028-seja-apenas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "seja apenas",
+      "hidden": true
+    },
+    {
+      "id": "104-0",
+      "name": "correio-braziliense-029-apocalipse-em-manhattan.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1768.9805475504322,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1494,
+      "crop": [
+        12,
+        53,
+        1555,
+        1388
+      ],
+      "label": "apocalipse em manhattan"
+    },
+    {
+      "id": "105-0",
+      "name": "correio-braziliense-030-os-selvagens-venceram.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "os selvagens venceram"
+    },
+    {
+      "id": "111-0",
+      "name": "correio-braziliense-033-risco-de-recessao-nos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "risco de recessao nos"
+    },
+    {
+      "id": "113-0",
+      "name": "correio-braziliense-035-argentinos-reagem-a-confisco.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "argentinos reagem a confisco"
+    },
+    {
+      "id": "116-0",
+      "name": "correio-braziliense-038-investigar-espionagem-politica.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "investigar espionagem politica"
+    },
+    {
+      "id": "117-0",
+      "name": "correio-braziliense-039-estrutural.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "estrutural"
+    },
+    {
+      "id": "118-0",
+      "name": "correio-braziliense-040-se-essa.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1601.3324758842446,
+      "height": 1794,
+      "sourceWidth": 1579,
+      "sourceHeight": 1494,
+      "crop": [
+        12,
+        53,
+        1555,
+        1388
+      ],
+      "rotation": 90,
+      "label": "se essa",
+      "hidden": true
+    },
+    {
+      "id": "119-0",
+      "name": "correio-braziliense-041-i-2-1-155-0-0-0-624-1080-97-9-1-3-1-155-1-0-0-624-1080-97-9-1-4-1-155-1-1-0-624-1080-97-9-1-5-1-155.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "i 2 1 155 0 0 0 624 1080 97 9 1 3 1 155 1 0 0 624 1080 97 9 1 4 1 155 1 1 0 624 1080 97 9 1 5 1 155",
+      "hidden": true
+    },
+    {
+      "id": "122-0",
+      "name": "correio-braziliense-044-livro-com-fotos.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1768.9805475504322,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1495,
+      "crop": [
+        12,
+        54,
+        1555,
+        1388
+      ],
+      "label": "livro com fotos",
+      "hidden": true
+    },
+    {
+      "id": "123-0",
+      "name": "correio-braziliense-045-singnimo-de-sedugao-0-batom-vermelho.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "singnimo de sedugao 0 batom vermelho",
+      "hidden": true
+    },
+    {
+      "id": "125-0",
+      "name": "correio-braziliense-047-0-metro.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "0 metro",
+      "hidden": true
+    },
+    {
+      "id": "179-0",
+      "name": "correio-braziliense-050-pelas-aguas-da-solidao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "pelas aguas da solidao"
+    },
+    {
+      "id": "180-0",
+      "name": "correio-braziliense-051-como-foio-percurso-da-expedicao-ajuricaba.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "como foio percurso da expedicao ajuricaba",
+      "hidden": true
+    },
+    {
+      "id": "181-0",
+      "name": "correio-braziliense-052-heo-me-no.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "heo me no"
+    },
+    {
+      "id": "182-0",
+      "name": "correio-braziliense-053-quem-omnis-pods.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "quem omnis pods"
+    },
+    {
+      "id": "183-0",
+      "name": "correio-braziliense-054-eastantae.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "eastantae"
+    },
+    {
+      "id": "184-0",
+      "name": "correio-braziliense-055-s-presos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "s presos",
+      "hidden": true
+    },
+    {
+      "id": "186-0",
+      "name": "correio-braziliense-057-correio-braziliense-primeiro-caderno-candelaria-d-210312.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno candelaria d 210312",
+      "hidden": true
+    },
+    {
+      "id": "187-0",
+      "name": "correio-braziliense-058-correio-braziliense-primeiro-caderno-candelaria-d-220312.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno candelaria d 220312",
+      "hidden": true
+    },
+    {
+      "id": "189-0",
+      "name": "correio-braziliense-060-correio-braziliense-primeiro-caderno-candelaria-s150412.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno candelaria s150412",
+      "hidden": true
+    },
+    {
+      "id": "190-0",
+      "name": "correio-braziliense-061-superpotencia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "superpotencia",
+      "hidden": true
+    },
+    {
+      "id": "192-0",
+      "name": "correio-braziliense-063-vocabulos-na.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "vocabulos na"
+    },
+    {
+      "id": "196-0",
+      "name": "correio-braziliense-067-q-de-quem.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "q de quem",
+      "hidden": true
+    },
+    {
+      "id": "197-0",
+      "name": "correio-braziliense-068-correio-braziliense-primeiro-caderno-escola-publica-escola2.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno escola publica escola2",
+      "hidden": true
+    },
+    {
+      "id": "198-0",
+      "name": "correio-braziliense-069-adolescencia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "adolescencia",
+      "hidden": true
+    },
+    {
+      "id": "199-0",
+      "name": "correio-braziliense-070-tatuagens.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "tatuagens"
+    },
+    {
+      "id": "200-0",
+      "name": "correio-braziliense-071-no-me-ore.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "no me ore"
+    },
+    {
+      "id": "201-0",
+      "name": "correio-braziliense-072-meninas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "meninas",
+      "hidden": true
+    },
+    {
+      "id": "202-0",
+      "name": "correio-braziliense-073-escola-do-crime.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "escola do crime"
+    },
+    {
+      "id": "203-0",
+      "name": "correio-braziliense-074-bandidinhos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "bandidinhos",
+      "hidden": true
+    },
+    {
+      "id": "204-0",
+      "name": "correio-braziliense-075-687-2-034.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "687 2 034",
+      "hidden": true
+    },
+    {
+      "id": "205-0",
+      "name": "correio-braziliense-076-correio-braziliense-primeiro-caderno-febem-s10-1903.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "correio braziliense primeiro caderno febem s10 1903",
+      "hidden": true
+    },
+    {
+      "id": "206-0",
+      "name": "correio-braziliense-077-1-648-3-5km.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "1 648 3 5km",
+      "hidden": true
+    },
+    {
+      "id": "212-0",
+      "name": "correio-braziliense-082-afinal-ele-e.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "afinal ele e",
+      "hidden": true
+    },
+    {
+      "id": "213-0",
+      "name": "correio-braziliense-083-superstar.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "superstar",
+      "hidden": true
+    },
+    {
+      "id": "215-0",
+      "name": "correio-braziliense-085-orcamen.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "orcamen",
+      "hidden": true
+    },
+    {
+      "id": "216-0",
+      "name": "correio-braziliense-086-uase-uma-guerra-civil.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "uase uma guerra civil",
+      "hidden": true
+    },
+    {
+      "id": "217-0",
+      "name": "correio-braziliense-087-capital-sangrenta.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "capital sangrenta",
+      "hidden": true
+    },
+    {
+      "id": "218-0",
+      "name": "correio-braziliense-088-cassacao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 874.5893587994543,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        12,
+        57,
+        812,
+        1466
+      ],
+      "label": "cassacao",
+      "hidden": true
+    },
+    {
+      "id": "219-0",
+      "name": "correio-braziliense-089-nocidio.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1768.9805475504322,
+      "height": 1579,
+      "sourceWidth": 1579,
+      "sourceHeight": 1495,
+      "crop": [
+        12,
+        54,
+        1555,
+        1388
+      ],
+      "label": "nocidio",
+      "hidden": true
+    },
+    {
+      "id": "220-0",
+      "name": "correio-braziliense-090-aenciclo.png",
+      "publication": "correio",
+      "format": "tabloid-double",
+      "width": 1619.3207547169811,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 835,
+      "crop": [
+        65,
+        20,
+        1440,
+        795
+      ],
+      "label": "aenciclo"
+    },
+    {
+      "id": "221-0",
+      "name": "correio-braziliense-091-correio-braziliense-suplementos-pensar-6-7.png",
+      "publication": "correio",
+      "format": "tabloid-double",
+      "width": 1619.3207547169811,
+      "height": 894,
+      "sourceWidth": 1579,
+      "sourceHeight": 835,
+      "crop": [
+        65,
+        20,
+        1440,
+        795
+      ],
+      "label": "correio braziliense suplementos pensar 6 7",
+      "hidden": true
+    },
+    {
+      "id": "223-0",
+      "name": "correio-braziliense-093-fhc-quer-o-pfl-onde.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "fhc quer o pfl onde",
+      "hidden": true
+    },
+    {
+      "id": "228-0",
+      "name": "correio-braziliense-098-de-roseana.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "de roseana",
+      "hidden": true
+    },
+    {
+      "id": "231-0",
+      "name": "correio-braziliense-101-a-reagao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "a reagao",
+      "hidden": true
+    },
+    {
+      "id": "232-0",
+      "name": "correio-braziliense-102-explosao-assusta-asa-norte.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "explosao assusta asa norte",
+      "hidden": true
+    },
+    {
+      "id": "233-0",
+      "name": "correio-braziliense-103-tee-gue-de-cen-de.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "tee gue de cen de"
+    },
+    {
+      "id": "234-0",
+      "name": "correio-braziliense-104-ataque-aos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "ataque aos",
+      "hidden": true
+    },
+    {
+      "id": "235-0",
+      "name": "correio-braziliense-105-estados-unido.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "estados unido",
+      "hidden": true
+    },
+    {
+      "id": "236-0",
+      "name": "correio-braziliense-106-sob-risco.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "sob risco",
+      "hidden": true
+    },
+    {
+      "id": "237-0",
+      "name": "correio-braziliense-107-sem-defesa.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "sem defesa",
+      "hidden": true
+    },
+    {
+      "id": "238-0",
+      "name": "correio-braziliense-108-de-joelhos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "de joelhos",
+      "hidden": true
+    },
+    {
+      "id": "239-0",
+      "name": "correio-braziliense-109-na-europa.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "na europa",
+      "hidden": true
+    },
+    {
+      "id": "240-0",
+      "name": "correio-braziliense-110-o-suspeito.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "o suspeito",
+      "hidden": true
+    },
+    {
+      "id": "241-0",
+      "name": "correio-braziliense-111-os-inimigos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "os inimigos",
+      "hidden": true
+    },
+    {
+      "id": "242-0",
+      "name": "correio-braziliense-112-a-incerteza.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "a incerteza",
+      "hidden": true
+    },
+    {
+      "id": "243-0",
+      "name": "correio-braziliense-113-a-recessao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "a recessao",
+      "hidden": true
+    },
+    {
+      "id": "244-0",
+      "name": "correio-braziliense-114-em-alerta.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "em alerta",
+      "hidden": true
+    },
+    {
+      "id": "245-0",
+      "name": "correio-braziliense-115-de-sua-2.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "de sua 2",
+      "hidden": true
+    },
+    {
+      "id": "246-0",
+      "name": "correio-braziliense-116-os-brasilienses.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "os brasilienses",
+      "hidden": true
+    },
+    {
+      "id": "247-0",
+      "name": "correio-braziliense-117-anossa-angustia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "anossa angustia",
+      "hidden": true
+    },
+    {
+      "id": "248-0",
+      "name": "correio-braziliense-118-a-premonicao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "a premonicao",
+      "hidden": true
+    },
+    {
+      "id": "251-0",
+      "name": "correio-braziliense-121-dinheiro-apreendido-era.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "dinheiro apreendido era",
+      "hidden": true
+    },
+    {
+      "id": "255-0",
+      "name": "correio-braziliense-124-mais-civis-morrem.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "mais civis morrem",
+      "hidden": true
+    },
+    {
+      "id": "256-0",
+      "name": "correio-braziliense-125-chacina-na-missa.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "chacina na missa",
+      "hidden": true
+    },
+    {
+      "id": "257-0",
+      "name": "correio-braziliense-126-as-ameacas-do-mula.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "as ameacas do mula",
+      "hidden": true
+    },
+    {
+      "id": "258-0",
+      "name": "correio-braziliense-127-funeral-simbolico.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "funeral simbolico",
+      "hidden": true
+    },
+    {
+      "id": "259-0",
+      "name": "correio-braziliense-128-ao-lado-do-inimigo.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "ao lado do inimigo",
+      "hidden": true
+    },
+    {
+      "id": "260-0",
+      "name": "correio-braziliense-129-a-retirada-de-belem.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 875.0695296523517,
+      "height": 1579,
+      "sourceWidth": 835,
+      "sourceHeight": 1579,
+      "crop": [
+        11,
+        56,
+        813,
+        1467
+      ],
+      "label": "a retirada de belem",
+      "hidden": true
+    },
+    {
+      "id": "262-0",
+      "name": "correio-braziliense-130-bancos-divergem-sobre-0-futuro-do-brasil.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "bancos divergem sobre 0 futuro do brasil"
+    },
+    {
+      "id": "263-0",
+      "name": "correio-braziliense-131-tecnologia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "tecnologia",
+      "hidden": true
+    },
+    {
+      "id": "264-0",
+      "name": "correio-braziliense-132-snd-41anos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd 41anos"
+    },
+    {
+      "id": "265-0",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 911.5876288659794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        674,
+        18,
+        224,
+        388
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-1",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 903.4484536082474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        948,
+        18,
+        222,
+        388
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-2",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 911.5876288659794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        120,
+        20,
+        224,
+        388
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-3",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 911.5876288659794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        404,
+        20,
+        224,
+        388
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-4",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 906.9128205128204,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        118,
+        422,
+        224,
+        390
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-5",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 906.9128205128204,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        402,
+        422,
+        224,
+        390
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-6",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 903.4484536082474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        676,
+        422,
+        222,
+        388
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "265-7",
+      "name": "correio-braziliense-133-verdade.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 908.1295336787565,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        948,
+        422,
+        222,
+        386
+      ],
+      "label": "verdade",
+      "hidden": true
+    },
+    {
+      "id": "266-0",
+      "name": "correio-braziliense-134-nunca-mais.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 968.1763157894737,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        466,
+        760
+      ],
+      "label": "nunca mais"
+    },
+    {
+      "id": "266-1",
+      "name": "correio-braziliense-134-nunca-mais.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 968.1763157894737,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        466,
+        760
+      ],
+      "label": "nunca mais",
+      "hidden": true
+    },
+    {
+      "id": "267-0",
+      "name": "correio-braziliense-135-aperto-no-contrib.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "aperto no contrib",
+      "hidden": true
+    },
+    {
+      "id": "268-0",
+      "name": "correio-braziliense-136-alberto-de-souza-nao-identifica.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "alberto de souza nao identifica",
+      "hidden": true
+    },
+    {
+      "id": "269-0",
+      "name": "correio-braziliense-137-direitos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "direitos",
+      "hidden": true
+    },
+    {
+      "id": "270-0",
+      "name": "correio-braziliense-138-estatuto-de-papel.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "estatuto de papel"
+    },
+    {
+      "id": "272-0",
+      "name": "correio-braziliense-139-orreio-braziliens.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "orreio braziliens",
+      "hidden": true
+    },
+    {
+      "id": "273-0",
+      "name": "correio-braziliense-140-snd-gdf-emprega-parentes.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd gdf emprega parentes"
+    },
+    {
+      "id": "274-0",
+      "name": "correio-braziliense-141-x-tudotm.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "x tudotm",
+      "hidden": true
+    },
+    {
+      "id": "275-0",
+      "name": "correio-braziliense-142-juscelino.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 911.5876288659794,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        476,
+        20,
+        224,
+        388
+      ],
+      "label": "juscelino",
+      "hidden": true
+    },
+    {
+      "id": "275-1",
+      "name": "correio-braziliense-142-juscelino.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 903.4484536082474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        794,
+        20,
+        222,
+        388
+      ],
+      "label": "juscelino",
+      "hidden": true
+    },
+    {
+      "id": "275-2",
+      "name": "correio-braziliense-142-juscelino.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 903.4484536082474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        22,
+        222,
+        388
+      ],
+      "label": "juscelino",
+      "hidden": true
+    },
+    {
+      "id": "275-3",
+      "name": "correio-braziliense-142-juscelino.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 906.9128205128204,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        276,
+        424,
+        224,
+        390
+      ],
+      "label": "juscelino",
+      "hidden": true
+    },
+    {
+      "id": "275-4",
+      "name": "correio-braziliense-142-juscelino.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 903.4484536082474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        594,
+        424,
+        222,
+        388
+      ],
+      "label": "juscelino",
+      "hidden": true
+    },
+    {
+      "id": "275-5",
+      "name": "correio-braziliense-142-juscelino.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 908.1295336787565,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        912,
+        424,
+        222,
+        386
+      ],
+      "label": "juscelino",
+      "hidden": true
+    },
+    {
+      "id": "276-0",
+      "name": "correio-braziliense-143-o-joco-da-mentira.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "o joco da mentira",
+      "hidden": true
+    },
+    {
+      "id": "279-0",
+      "name": "correio-braziliense-145-quem-se-bem.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "quem se bem"
+    },
+    {
+      "id": "280-0",
+      "name": "correio-braziliense-146-cade-05-remedios-mais-baratos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "cade 05 remedios mais baratos",
+      "hidden": true
+    },
+    {
+      "id": "281-0",
+      "name": "correio-braziliense-147-snd-a-mais-bela.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 1049.4573170731708,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        76,
+        436,
+        656
+      ],
+      "label": "snd a mais bela",
+      "hidden": true
+    },
+    {
+      "id": "282-0",
+      "name": "correio-braziliense-148-snd-acabou.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd acabou",
+      "hidden": true
+    },
+    {
+      "id": "284-0",
+      "name": "correio-braziliense-149-agorae-ecomaljustica.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 900.9018404907976,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        46,
+        82,
+        372,
+        652
+      ],
+      "label": "agorae ecomaljustica",
+      "hidden": true
+    },
+    {
+      "id": "284-2",
+      "name": "correio-braziliense-149-agorae-ecomaljustica.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.7453987730062,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        866,
+        82,
+        374,
+        652
+      ],
+      "label": "agorae ecomaljustica",
+      "hidden": true
+    },
+    {
+      "id": "285-0",
+      "name": "correio-braziliense-150-ta-tensao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 910.0026315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        438,
+        760
+      ],
+      "label": "ta tensao",
+      "hidden": true
+    },
+    {
+      "id": "287-0",
+      "name": "correio-braziliense-151-fashion-7.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1778.4526315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        184,
+        30,
+        856,
+        760
+      ],
+      "label": "fashion 7",
+      "hidden": true
+    },
+    {
+      "id": "288-0",
+      "name": "correio-braziliense-152-sy-2-1-4-0-0-0-318-243-7-18-1-3-1-4-1-0-0-318-243-7-18-1-4-1-4-1-1-0-318-243-7-18-1-5-1-4-1-1-1-318.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "sy 2 1 4 0 0 0 318 243 7 18 1 3 1 4 1 0 0 318 243 7 18 1 4 1 4 1 1 0 318 243 7 18 1 5 1 4 1 1 1 318",
+      "hidden": true
+    },
+    {
+      "id": "289-0",
+      "name": "correio-braziliense-153-a-da-previdencia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "a da previdencia",
+      "hidden": true
+    },
+    {
+      "id": "290-0",
+      "name": "correio-braziliense-154-lalau-quer-se-entregar-a-policia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "lalau quer se entregar a policia",
+      "hidden": true
+    },
+    {
+      "id": "291-0",
+      "name": "correio-braziliense-155-blablabla.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "blablabla"
+    },
+    {
+      "id": "292-0",
+      "name": "correio-braziliense-156-snd-bolsa-de-sp.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "snd bolsa de sp",
+      "hidden": true
+    },
+    {
+      "id": "293-0",
+      "name": "correio-braziliense-157-brasilia-roda-mais-devagar.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "brasilia roda mais devagar",
+      "hidden": true
+    },
+    {
+      "id": "294-0",
+      "name": "correio-braziliense-158-brasiliense-corre-demais-ww.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "brasiliense corre demais ww",
+      "hidden": true
+    },
+    {
+      "id": "296-0",
+      "name": "correio-braziliense-159-snd-cartas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "snd cartas",
+      "hidden": true
+    },
+    {
+      "id": "297-0",
+      "name": "correio-braziliense-160-e-proibido-proibir.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 910.0026315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        78,
+        30,
+        438,
+        760
+      ],
+      "label": "e proibido proibir",
+      "hidden": true
+    },
+    {
+      "id": "297-1",
+      "name": "correio-braziliense-160-e-proibido-proibir.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 904.9604743083004,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        580,
+        160,
+        290,
+        506
+      ],
+      "label": "e proibido proibir",
+      "hidden": true
+    },
+    {
+      "id": "297-2",
+      "name": "correio-braziliense-160-e-proibido-proibir.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 904.9604743083004,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        928,
+        160,
+        290,
+        506
+      ],
+      "label": "e proibido proibir",
+      "hidden": true
+    },
+    {
+      "id": "298-0",
+      "name": "correio-braziliense-161-as-imagens-da-anarquia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "as imagens da anarquia",
+      "hidden": true
+    },
+    {
+      "id": "305-0",
+      "name": "correio-braziliense-168-snd-correio-da-galera.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 713.6083086053412,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        362,
+        72,
+        538,
+        674
+      ],
+      "label": "snd correio da galera"
+    },
+    {
+      "id": "307-0",
+      "name": "correio-braziliense-169-crime-e-castigo.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1778.4526315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        184,
+        30,
+        856,
+        760
+      ],
+      "label": "crime e castigo",
+      "hidden": true
+    },
+    {
+      "id": "308-0",
+      "name": "correio-braziliense-170-snd-de-bem-com-o-prazer.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd de bem com o prazer"
+    },
+    {
+      "id": "309-0",
+      "name": "correio-braziliense-171-dei-branco-pela-paz.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "dei branco pela paz",
+      "hidden": true
+    },
+    {
+      "id": "311-0",
+      "name": "correio-braziliense-173-snd-dia-das-criancas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "snd dia das criancas",
+      "hidden": true
+    },
+    {
+      "id": "312-0",
+      "name": "correio-braziliense-174-piratas-ja.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "piratas ja",
+      "hidden": true
+    },
+    {
+      "id": "314-0",
+      "name": "correio-braziliense-175-dinheiro-para-o-social.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "dinheiro para o social",
+      "hidden": true
+    },
+    {
+      "id": "315-0",
+      "name": "correio-braziliense-176-enganacao.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "enganacao",
+      "hidden": true
+    },
+    {
+      "id": "317-0",
+      "name": "correio-braziliense-178-quais-as-suas-chances.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "quais as suas chances",
+      "hidden": true
+    },
+    {
+      "id": "318-0",
+      "name": "correio-braziliense-179-agloria.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "agloria"
+    },
+    {
+      "id": "319-0",
+      "name": "correio-braziliense-180-snd-esfericos-e-geometricos.png",
+      "publication": "correio",
+      "format": "standard-double",
+      "width": 1778.4526315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        184,
+        30,
+        856,
+        760
+      ],
+      "label": "snd esfericos e geometricos",
+      "hidden": true
+    },
+    {
+      "id": "320-0",
+      "name": "correio-braziliense-181-de-politico.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 779.9287833827893,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ],
+      "label": "de politico",
+      "hidden": true
+    },
+    {
+      "id": "321-0",
+      "name": "correio-braziliense-182-candisvaldo.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 779.9287833827893,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ],
+      "label": "candisvaldo",
+      "hidden": true
+    },
+    {
+      "id": "323-0",
+      "name": "correio-braziliense-183-fasa-como-eles.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "fasa como eles",
+      "hidden": true
+    },
+    {
+      "id": "324-0",
+      "name": "correio-braziliense-184-dia-des.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 786.080476900149,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        73,
+        590,
+        671
+      ],
+      "label": "dia des",
+      "hidden": true
+    },
+    {
+      "id": "325-0",
+      "name": "correio-braziliense-185-par-aser-federal.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "par aser federal",
+      "hidden": true
+    },
+    {
+      "id": "326-0",
+      "name": "correio-braziliense-186-bem-vindo-a-uxb.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 779.9287833827893,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ],
+      "label": "bem vindo a uxb",
+      "hidden": true
+    },
+    {
+      "id": "327-0",
+      "name": "correio-braziliense-187-celular.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "celular",
+      "hidden": true
+    },
+    {
+      "id": "329-0",
+      "name": "correio-braziliense-189-governo-libera.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "governo libera",
+      "hidden": true
+    },
+    {
+      "id": "330-1",
+      "name": "correio-braziliense-190-policia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 906.6028708133971,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        472,
+        204,
+        240,
+        418
+      ],
+      "label": "policia",
+      "hidden": true
+    },
+    {
+      "id": "330-2",
+      "name": "correio-braziliense-190-policia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 906.6028708133971,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        742,
+        204,
+        240,
+        418
+      ],
+      "label": "policia",
+      "hidden": true
+    },
+    {
+      "id": "330-3",
+      "name": "correio-braziliense-190-policia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 906.6028708133971,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        1008,
+        204,
+        240,
+        418
+      ],
+      "label": "policia",
+      "hidden": true
+    },
+    {
+      "id": "332-0",
+      "name": "correio-braziliense-191-snd-inesquecivel.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd inesquecivel"
+    },
+    {
+      "id": "333-0",
+      "name": "correio-braziliense-192-lewinsky-x-clinton.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "lewinsky x clinton",
+      "hidden": true
+    },
+    {
+      "id": "334-0",
+      "name": "correio-braziliense-193-lula-la.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "lula la"
+    },
+    {
+      "id": "335-0",
+      "name": "correio-braziliense-194-snd-magreza.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "snd magreza",
+      "hidden": true
+    },
+    {
+      "id": "336-0",
+      "name": "correio-braziliense-195-mt-destruidas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 910.0026315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        438,
+        760
+      ],
+      "label": "mt destruidas",
+      "hidden": true
+    },
+    {
+      "id": "336-1",
+      "name": "correio-braziliense-195-mt-destruidas.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 910.0026315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        438,
+        760
+      ],
+      "label": "mt destruidas",
+      "hidden": true
+    },
+    {
+      "id": "337-0",
+      "name": "correio-braziliense-196-nesecio.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "nesecio",
+      "hidden": true
+    },
+    {
+      "id": "338-0",
+      "name": "correio-braziliense-197-dos-reus.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 742.7893175074184,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        348,
+        72,
+        560,
+        674
+      ],
+      "label": "dos reus"
+    },
+    {
+      "id": "339-0",
+      "name": "correio-braziliense-198-oano-mais-longo.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "oano mais longo"
+    },
+    {
+      "id": "340-0",
+      "name": "correio-braziliense-199-snd-o-caminho-da-volta.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd o caminho da volta",
+      "hidden": true
+    },
+    {
+      "id": "341-0",
+      "name": "correio-braziliense-200-snd-o-correio-errou.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd o correio errou",
+      "hidden": true
+    },
+    {
+      "id": "342-0",
+      "name": "correio-braziliense-201-de-ttamar.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "de ttamar",
+      "hidden": true
+    },
+    {
+      "id": "343-0",
+      "name": "correio-braziliense-202-au-gares.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "au gares"
+    },
+    {
+      "id": "345-0",
+      "name": "correio-braziliense-204-inteligencia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "inteligencia",
+      "hidden": true
+    },
+    {
+      "id": "346-0",
+      "name": "correio-braziliense-205-snd-orfaos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 910.0026315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        438,
+        760
+      ],
+      "label": "snd orfaos"
+    },
+    {
+      "id": "346-1",
+      "name": "correio-braziliense-205-snd-orfaos.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 910.0026315789474,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        438,
+        760
+      ],
+      "label": "snd orfaos",
+      "hidden": true
+    },
+    {
+      "id": "347-0",
+      "name": "correio-braziliense-206-tragedia-americana-9.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "tragedia americana 9",
+      "hidden": true
+    },
+    {
+      "id": "350-0",
+      "name": "correio-braziliense-207-db-aida-de.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "db aida de",
+      "hidden": true
+    },
+    {
+      "id": "351-0",
+      "name": "correio-braziliense-208-balanca-e.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 779.9287833827893,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ],
+      "label": "balanca e"
+    },
+    {
+      "id": "354-0",
+      "name": "correio-braziliense-210-4-5-mil-km.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "4 5 mil km"
+    },
+    {
+      "id": "355-0",
+      "name": "correio-braziliense-211-atropeladas-na.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "atropeladas na",
+      "hidden": true
+    },
+    {
+      "id": "356-0",
+      "name": "correio-braziliense-212-0s-refugiados-do-brasil.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "0s refugiados do brasil",
+      "hidden": true
+    },
+    {
+      "id": "357-0",
+      "name": "correio-braziliense-213-orme-0-do.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "orme 0 do",
+      "hidden": true
+    },
+    {
+      "id": "358-0",
+      "name": "correio-braziliense-214-snd-sem-direito-a-voz.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "snd sem direito a voz",
+      "hidden": true
+    },
+    {
+      "id": "359-0",
+      "name": "correio-braziliense-215-0s-sobreviventes.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "0s sobreviventes",
+      "hidden": true
+    },
+    {
+      "id": "360-0",
+      "name": "correio-braziliense-216-snd-sofrimento-e-gloria.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "snd sofrimento e gloria"
+    },
+    {
+      "id": "361-0",
+      "name": "correio-braziliense-217-somalia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 968.1763157894737,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        160,
+        30,
+        466,
+        760
+      ],
+      "label": "somalia",
+      "hidden": true
+    },
+    {
+      "id": "361-1",
+      "name": "correio-braziliense-217-somalia.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 968.1763157894737,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        650,
+        30,
+        466,
+        760
+      ],
+      "label": "somalia",
+      "hidden": true
+    },
+    {
+      "id": "362-0",
+      "name": "correio-braziliense-218-tiros-e-sangue-no-laco-sul.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 951.5552631578947,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        760
+      ],
+      "label": "tiros e sangue no laco sul",
+      "hidden": true
+    },
+    {
+      "id": "364-0",
+      "name": "correio-braziliense-220-snd-tv.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 779.9287833827893,
+      "height": 894,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        340,
+        72,
+        588,
+        674
+      ],
+      "label": "snd tv",
+      "hidden": true
+    },
+    {
+      "id": "365-0",
+      "name": "correio-braziliense-221-nezuela.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 905.8473684210527,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        412,
+        30,
+        436,
+        760
+      ],
+      "label": "nezuela",
+      "hidden": true
+    },
+    {
+      "id": "366-0",
+      "name": "correio-braziliense-222-snd-x-vida.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 977.272972972973,
+      "height": 1579,
+      "sourceWidth": 1280,
+      "sourceHeight": 854,
+      "crop": [
+        398,
+        30,
+        458,
+        740
+      ],
+      "label": "snd x vida"
+    },
+    {
+      "id": "161-2",
+      "name": "correio-braziliense-223-ha-41-pessors-neste-caderno.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 946.8173431734317,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        651,
+        217,
+        325,
+        542
+      ],
+      "label": "ha 41 pessors neste caderno",
+      "hidden": true
+    },
+    {
+      "id": "161-3",
+      "name": "correio-braziliense-223-ha-41-pessors-neste-caderno.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 932.2509225092251,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        652,
+        813,
+        320,
+        542
+      ],
+      "label": "ha 41 pessors neste caderno",
+      "hidden": true
+    },
+    {
+      "id": "162-4",
+      "name": "correio-braziliense-224-correio-braziliense-portifolio-do-correio-p04.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 923.566037735849,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        587,
+        130,
+        372,
+        636
+      ],
+      "label": "correio braziliense portifolio do correio p04"
+    },
+    {
+      "id": "163-1",
+      "name": "correio-braziliense-225-bush-decreta-ofim.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 921.4984227129338,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        148,
+        818,
+        370,
+        634
+      ],
+      "label": "bush decreta ofim",
+      "hidden": true
+    },
+    {
+      "id": "163-3",
+      "name": "correio-braziliense-225-bush-decreta-ofim.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 923.9889589905363,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        148,
+        131,
+        371,
+        634
+      ],
+      "label": "bush decreta ofim"
+    },
+    {
+      "id": "163-4",
+      "name": "correio-braziliense-225-bush-decreta-ofim.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 922.954186413902,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        590,
+        120,
+        370,
+        633
+      ],
+      "label": "bush decreta ofim"
+    },
+    {
+      "id": "164-1",
+      "name": "correio-braziliense-226-capital-afega-sofre.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 928.9700315457413,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        591,
+        815,
+        373,
+        634
+      ],
+      "label": "capital afega sofre",
+      "hidden": true
+    },
+    {
+      "id": "164-2",
+      "name": "correio-braziliense-226-capital-afega-sofre.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 922.1161695447411,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        158,
+        129,
+        372,
+        637
+      ],
+      "label": "capital afega sofre"
+    },
+    {
+      "id": "164-3",
+      "name": "correio-braziliense-226-capital-afega-sofre.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 922.1161695447411,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        591,
+        128,
+        372,
+        637
+      ],
+      "label": "capital afega sofre",
+      "hidden": true
+    },
+    {
+      "id": "164-4",
+      "name": "correio-braziliense-226-capital-afega-sofre.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 925.6206896551723,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        158,
+        817,
+        374,
+        638
+      ],
+      "label": "capital afega sofre",
+      "hidden": true
+    },
+    {
+      "id": "165-2",
+      "name": "correio-braziliense-227-um-clique-no-passado.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 922.1161695447411,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        154,
+        131,
+        372,
+        637
+      ],
+      "label": "um clique no passado",
+      "hidden": true
+    },
+    {
+      "id": "166-3",
+      "name": "correio-braziliense-228-i-show-te.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 754.5847953216374,
+      "height": 894,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        103,
+        213,
+        433,
+        513
+      ],
+      "label": "i show te",
+      "hidden": true
+    },
+    {
+      "id": "166-4",
+      "name": "correio-braziliense-228-i-show-te.png",
+      "publication": "correio",
+      "format": "tabloid",
+      "width": 752.2050290135396,
+      "height": 894,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        573,
+        210,
+        435,
+        517
+      ],
+      "label": "i show te"
+    },
+    {
+      "id": "167-1",
+      "name": "correio-braziliense-229-ca-as-bs.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 913.8985959438378,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        587,
+        817,
+        371,
+        641
+      ],
+      "label": "ca as bs",
+      "hidden": true
+    },
+    {
+      "id": "168-1",
+      "name": "correio-braziliense-230-esta-pior.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 930.2635658914729,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        132,
+        403,
+        456,
+        774
+      ],
+      "label": "esta pior",
+      "hidden": true
+    },
+    {
+      "id": "168-2",
+      "name": "correio-braziliense-230-esta-pior.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 927.4846846846847,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        651,
+        214,
+        326,
+        555
+      ],
+      "label": "esta pior",
+      "hidden": true
+    },
+    {
+      "id": "168-3",
+      "name": "correio-braziliense-230-esta-pior.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 928.4756554307116,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        652,
+        809,
+        314,
+        534
+      ],
+      "label": "esta pior",
+      "hidden": true
+    },
+    {
+      "id": "170-1",
+      "name": "correio-braziliense-231-10-amos-depois.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 931.8352788586252,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        132,
+        403,
+        455,
+        771
+      ],
+      "label": "10 amos depois",
+      "hidden": true
+    },
+    {
+      "id": "170-2",
+      "name": "correio-braziliense-231-10-amos-depois.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 921.7945945945946,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        651,
+        214,
+        324,
+        555
+      ],
+      "label": "10 amos depois",
+      "hidden": true
+    },
+    {
+      "id": "170-3",
+      "name": "correio-braziliense-231-10-amos-depois.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 925.0111940298507,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        652,
+        818,
+        314,
+        536
+      ],
+      "label": "10 amos depois",
+      "hidden": true
+    },
+    {
+      "id": "171-2",
+      "name": "correio-braziliense-232-correio-braziliense-portifolio-do-correio-p13.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 908.2310077519379,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        154,
+        135,
+        371,
+        645
+      ],
+      "label": "correio braziliense portifolio do correio p13",
+      "hidden": true
+    },
+    {
+      "id": "172-1",
+      "name": "correio-braziliense-233-argentina-no.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 915.7210031347963,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        579,
+        822,
+        370,
+        638
+      ],
+      "label": "argentina no",
+      "hidden": true
+    },
+    {
+      "id": "172-2",
+      "name": "correio-braziliense-233-argentina-no.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 921.4984227129338,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        150,
+        822,
+        370,
+        634
+      ],
+      "label": "argentina no",
+      "hidden": true
+    },
+    {
+      "id": "172-3",
+      "name": "correio-braziliense-233-argentina-no.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 925.4486571879937,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        150,
+        137,
+        371,
+        633
+      ],
+      "label": "argentina no",
+      "hidden": true
+    },
+    {
+      "id": "172-4",
+      "name": "correio-braziliense-233-argentina-no.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 922.5338582677166,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        579,
+        135,
+        371,
+        635
+      ],
+      "label": "argentina no",
+      "hidden": true
+    },
+    {
+      "id": "173-2",
+      "name": "correio-braziliense-234-cesi0-137-continua.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 919.6373626373627,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        154,
+        135,
+        371,
+        637
+      ],
+      "label": "cesi0 137 continua",
+      "hidden": true
+    },
+    {
+      "id": "174-2",
+      "name": "correio-braziliense-235-do-mercado-financeiro.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 922.954186413902,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        160,
+        829,
+        370,
+        633
+      ],
+      "label": "do mercado financeiro",
+      "hidden": true
+    },
+    {
+      "id": "176-2",
+      "name": "correio-braziliense-236-correio-braziliense-portifolio-do-correio-p18.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 919.668458781362,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        659,
+        201,
+        325,
+        558
+      ],
+      "label": "correio braziliense portifolio do correio p18",
+      "hidden": true
+    },
+    {
+      "id": "177-2",
+      "name": "correio-braziliense-237-correio-braziliense-portifolio-do-correio-p19.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 936.4507299270074,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        655,
+        201,
+        325,
+        548
+      ],
+      "label": "correio braziliense portifolio do correio p19",
+      "hidden": true
+    },
+    {
+      "id": "177-3",
+      "name": "correio-braziliense-237-correio-braziliense-portifolio-do-correio-p19.png",
+      "publication": "correio",
+      "format": "standard",
+      "width": 930.7476459510359,
+      "height": 1579,
+      "sourceWidth": 1117,
+      "sourceHeight": 1579,
+      "crop": [
+        660,
+        804,
+        313,
+        531
+      ],
+      "label": "correio braziliense portifolio do correio p19",
+      "hidden": true
+    },
+    {
+      "id": "27-0",
+      "name": "estadao-015-arsenais-eua-e-russia.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "arsenais eua e russia",
+      "date": "2010-04-09",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "34-0",
+      "name": "estadao-022-eleicoes-2010-dilma-e-serra.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "eleicoes 2010 dilma e serra",
+      "date": "2010-10-31",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "24-0",
+      "name": "estadao-012-a6-1.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "a6 1",
+      "date": "2010-11-02",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "14-0",
+      "name": "estadao-002-510-mortos-no-rio.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "510 mortos no rio",
+      "date": "2012-01-16",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "43-0",
+      "name": "estadao-031-morre-niemeyer.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "morre niemeyer",
+      "date": "2012-12-06",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "36-0",
+      "name": "estadao-024-entrevista-cuca.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "entrevista cuca",
+      "date": "2013-04-22",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "59-0",
+      "name": "estadao-047-virada-cultural-violenta.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1793.5922882427305,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ],
+      "label": "virada cultural violenta",
+      "date": "2013-05-20",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "37-0",
+      "name": "estadao-025-francisco-de-a-a-z.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "francisco de a a z",
+      "date": "2013-07-21",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "26-0",
+      "name": "estadao-014-arquivos-secretos.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "arquivos secretos",
+      "date": "2013-08-11",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "13-0",
+      "name": "estadao-001-entre-aspas.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1794,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1794,
+        1579
+      ],
+      "label": "entre aspas",
+      "date": "2014-07-13",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "75-0",
+      "name": "estadao-059-tetracampea.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "tetracampea",
+      "date": "2014-07-14",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "61-0",
+      "name": "estadao-049-bola-de-ouro.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "bola de ouro",
+      "date": "2015-01-12",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "51-0",
+      "name": "estadao-039-pan2015.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1853.1102310231024,
+      "height": 1579,
+      "sourceWidth": 1778,
+      "sourceHeight": 1515,
+      "crop": [
+        0,
+        0,
+        1778,
+        1515
+      ],
+      "label": "pan2015",
+      "date": "2015-07-05",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "46-0",
+      "name": "estadao-034-olimpiadas-astros-no-rio.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "olimpiadas astros no rio",
+      "date": "2015-09-29",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "70-0",
+      "name": "estadao-056-legado-olimpico.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1793.5922882427305,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ],
+      "label": "legado olimpico",
+      "date": "2015-10-28",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "28-0",
+      "name": "estadao-016-atentado-em-paris.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "atentado em paris",
+      "date": "2015-11-16",
+      "dateSource": "ocr"
+    },
+    {
+      "id": "15-0",
+      "name": "estadao-003-alias-era-da-vertigem.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "alias era da vertigem"
+    },
+    {
+      "id": "16-0",
+      "name": "estadao-004-alias-partiu.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "alias partiu"
+    },
+    {
+      "id": "17-0",
+      "name": "estadao-005-alias-tarzan-robo.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "alias tarzan robo"
+    },
+    {
+      "id": "18-0",
+      "name": "estadao-006-1964.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "1964"
+    },
+    {
+      "id": "19-0",
+      "name": "estadao-007-21-bi-de-corte-no-orcamento.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "21 bi de corte no orcamento"
+    },
+    {
+      "id": "20-0",
+      "name": "estadao-008-13-03-2016.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "13 03 2016"
+    },
+    {
+      "id": "21-0",
+      "name": "estadao-009-a-delacao-de-delcidio.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "a delacao de delcidio"
+    },
+    {
+      "id": "22-0",
+      "name": "estadao-010-a20-1.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "a20 1"
+    },
+    {
+      "id": "23-0",
+      "name": "estadao-011-a32.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "a32"
+    },
+    {
+      "id": "25-0",
+      "name": "estadao-013-arena-corinthians.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1808.912123155869,
+      "height": 1579,
+      "sourceWidth": 1786,
+      "sourceHeight": 1559,
+      "crop": [
+        0,
+        0,
+        1786,
+        1559
+      ],
+      "label": "arena corinthians"
+    },
+    {
+      "id": "29-0",
+      "name": "estadao-017-biomassa.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "biomassa"
+    },
+    {
+      "id": "30-0",
+      "name": "estadao-018-bombah.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "bombah"
+    },
+    {
+      "id": "31-0",
+      "name": "estadao-019-cabosubmarino.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 916.6677852348993,
+      "height": 1579,
+      "sourceWidth": 865,
+      "sourceHeight": 1490,
+      "crop": [
+        0,
+        0,
+        865,
+        1490
+      ],
+      "label": "cabosubmarino"
+    },
+    {
+      "id": "32-0",
+      "name": "estadao-020-caminhos-ate-a-final.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1796.0000000000002,
+      "height": 1579,
+      "sourceWidth": 1796,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1796,
+        1579
+      ],
+      "label": "caminhos ate a final"
+    },
+    {
+      "id": "33-0",
+      "name": "estadao-021-chinesao-2016.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "chinesao 2016"
+    },
+    {
+      "id": "35-0",
+      "name": "estadao-023-eleicoesmapadasdiferencas.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1757,
+      "height": 1579,
+      "sourceWidth": 1757,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1757,
+        1579
+      ],
+      "label": "eleicoesmapadasdiferencas"
+    },
+    {
+      "id": "38-0",
+      "name": "estadao-026-greciacrise.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "greciacrise"
+    },
+    {
+      "id": "39-0",
+      "name": "estadao-027-hqs.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 931.123828647925,
+      "height": 1579,
+      "sourceWidth": 881,
+      "sourceHeight": 1494,
+      "crop": [
+        0,
+        0,
+        881,
+        1494
+      ],
+      "label": "hqs"
+    },
+    {
+      "id": "40-0",
+      "name": "estadao-028-lavajato1ano.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "lavajato1ano"
+    },
+    {
+      "id": "41-0",
+      "name": "estadao-029-legado01.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1869.4515050167226,
+      "height": 1579,
+      "sourceWidth": 1770,
+      "sourceHeight": 1495,
+      "crop": [
+        0,
+        0,
+        1770,
+        1495
+      ],
+      "label": "legado01"
+    },
+    {
+      "id": "42-0",
+      "name": "estadao-030-legado02.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1835.0827725437416,
+      "height": 1579,
+      "sourceWidth": 1727,
+      "sourceHeight": 1486,
+      "crop": [
+        0,
+        0,
+        1727,
+        1486
+      ],
+      "label": "legado02"
+    },
+    {
+      "id": "44-0",
+      "name": "estadao-032-museu-do-lingua-portuguesa.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 901.3767629281397,
+      "height": 1579,
+      "sourceWidth": 850,
+      "sourceHeight": 1489,
+      "crop": [
+        0,
+        0,
+        850,
+        1489
+      ],
+      "label": "museu do lingua portuguesa"
+    },
+    {
+      "id": "45-0",
+      "name": "estadao-033-neymar-decisivo.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "neymar decisivo"
+    },
+    {
+      "id": "52-0",
+      "name": "estadao-040-plano-diretor-sp.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "plano diretor sp"
+    },
+    {
+      "id": "53-0",
+      "name": "estadao-041-plataformapetrobrasexplode.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "plataformapetrobrasexplode"
+    },
+    {
+      "id": "54-0",
+      "name": "estadao-042-revolucao-no-egito.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1793.5922882427305,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ],
+      "label": "revolucao no egito"
+    },
+    {
+      "id": "55-0",
+      "name": "estadao-043-sucesso-mineiros-do-chile.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "sucesso mineiros do chile"
+    },
+    {
+      "id": "56-0",
+      "name": "estadao-044-tocha-olimpica.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1860.4372496662215,
+      "height": 1579,
+      "sourceWidth": 1765,
+      "sourceHeight": 1498,
+      "crop": [
+        0,
+        0,
+        1765,
+        1498
+      ],
+      "label": "tocha olimpica"
+    },
+    {
+      "id": "57-0",
+      "name": "estadao-045-tornados-no-brasil.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "tornados no brasil"
+    },
+    {
+      "id": "58-0",
+      "name": "estadao-046-um-desastre-nos-moldes-de-50.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1794,
+      "height": 1579,
+      "sourceWidth": 1794,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        1794,
+        1579
+      ],
+      "label": "um desastre nos moldes de 50"
+    },
+    {
+      "id": "60-0",
+      "name": "estadao-048-avioes-robo.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "avioes robo"
+    },
+    {
+      "id": "63-0",
+      "name": "estadao-050-cinco-decadas-de-homiciodio-em-sp.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1862.9703557312255,
+      "height": 1579,
+      "sourceWidth": 1791,
+      "sourceHeight": 1518,
+      "crop": [
+        0,
+        0,
+        1791,
+        1518
+      ],
+      "label": "cinco decadas de homiciodio em sp"
+    },
+    {
+      "id": "64-0",
+      "name": "estadao-051-dia-de-protestos.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1793.5922882427305,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ],
+      "label": "dia de protestos"
+    },
+    {
+      "id": "65-0",
+      "name": "estadao-052-disputa-de-craques.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "disputa de craques"
+    },
+    {
+      "id": "66-0",
+      "name": "estadao-053-donadon.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "donadon"
+    },
+    {
+      "id": "67-0",
+      "name": "estadao-054-eleicoes-2010-segundo-turno.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "eleicoes 2010 segundo turno"
+    },
+    {
+      "id": "69-0",
+      "name": "estadao-055-internet-a-areas-remotas.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "internet a areas remotas"
+    },
+    {
+      "id": "72-0",
+      "name": "estadao-057-perfil-dilma-e-serra.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1793.5922882427305,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ],
+      "label": "perfil dilma e serra"
+    },
+    {
+      "id": "73-0",
+      "name": "estadao-058-sangue-politico.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "sangue politico"
+    },
+    {
+      "id": "76-0",
+      "name": "estadao-060-tsunami1.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "tsunami1"
+    },
+    {
+      "id": "77-0",
+      "name": "estadao-061-tsunami2.png",
+      "publication": "estadao",
+      "format": "standard-double",
+      "width": 1793.5922882427305,
+      "height": 1579,
+      "sourceWidth": 1797,
+      "sourceHeight": 1582,
+      "crop": [
+        0,
+        0,
+        1797,
+        1582
+      ],
+      "label": "tsunami2"
+    }
+  ]
+}
