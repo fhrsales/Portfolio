@@ -1,12 +1,14 @@
 <script>
 	import ImageBlock from './image/ImageBlock.svelte';
 	import H3 from './heading/H3.svelte';
+	import Eyebrow from './heading/Eyebrow.svelte';
 	import Text from './text/Text.svelte';
 	import InlineTags from './InlineTags.svelte';
 
 	export let src = '';
 	export let alt = '';
 	export let title = '';
+	export let eyebrow = '';
 	export let text = '';
 	export let tags = [];
 	export let imageRight = false;
@@ -16,6 +18,7 @@
 <section class="image-text" class:image-right={imageRight}>
 	<div class="visual"><ImageBlock {src} {alt} {classes} size="GG" /></div>
 	<div class="copy">
+		{#if eyebrow}<Eyebrow value={eyebrow} />{/if}
 		<H3 value={title} />
 		<Text value={{ body: text }} />
 		{#if tags.length}

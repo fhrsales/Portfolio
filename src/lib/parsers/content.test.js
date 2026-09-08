@@ -46,3 +46,18 @@ it('places credits after the description and links without crossing into another
  const ownFooter = annotateBlocks([{ raw: { imagemTexto: {} }, tags: ['design'] }]);
  expect(ownFooter[0].footerTags).toBeUndefined();
 });
+
+ it('parses an editable eyebrow inside a content block', () => {
+  const result = buildBlockObjects(['{bloco}\nchapeu: Blue\nh4: New interaction\n{}']);
+  expect(result[0].raw.bloco.items).toEqual([
+   { type: 'eyebrow', text: 'Blue' },
+   { type: 'heading', level: 4, text: 'New interaction' }
+  ]);
+ });
+
+ it('accepts an eyebrow and heading on consecutive lines outside a block', () => {
+  for (const separator of ['\n', '\r\n']) {
+   const result = buildBlockObjects([`chapeu: ATBL${separator}h4: Product title`]);
+   expect(result.map(item => item.raw)).toEqual(['chapeu: ATBL', 'h4: Product title']);
+  }
+ });

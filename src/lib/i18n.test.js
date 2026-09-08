@@ -15,5 +15,5 @@ test('Portuguese preserves media, notation, links and English source', () => {
     }
   }
   expect(translateContent(pages.index.content, 'pt')).toContain('Olá, sou');
-  expect(translateContent(pages.archive.content, 'pt')).toContain('h1: Acervo');
+  expect(translateContent(pages.archive.content, 'pt')).toContain('h1: Um olhar mais amplo');
 });

@@ -1,4 +1,5 @@
 <script>
+	import Eyebrow from '$lib/components/heading/Eyebrow.svelte';
 	import Title from '$lib/components/heading/Title.svelte';
 	import H1 from '$lib/components/heading/H1.svelte';
 	import H2 from '$lib/components/heading/H2.svelte';
@@ -251,6 +252,8 @@
 					<H1 value={blocoStr.replace(/^h1:\s*/i, '')} />
 				{:else if blocoStr.match(/^h2:\s*(.+)$/i)}
 					<H2 value={blocoStr.replace(/^h2:\s*/i, '')} />
+				{:else if blocoStr.match(/^chapeu:\s*(.+)$/i)}
+					<Eyebrow value={blocoStr.replace(/^chapeu:\s*/i, '')} />
 				{:else if blocoStr.match(/^h3:\s*(.+)$/i)}
 					<H3 value={blocoStr.replace(/^h3:\s*/i, '')} />
 				{:else if blocoStr.match(/^h4:\s*(.+)$/i)}
@@ -378,6 +381,8 @@
 												.filter(Boolean)
 										}}
 									/>
+								{:else if item.type === 'eyebrow'}
+									<Eyebrow value={item.text} />
 								{:else if item.type === 'heading'}
 									{#if item.level === 1}
 										<H1 value={item.text || ''} />
@@ -515,7 +520,7 @@
 					{/key}
 				{:else if typeof bloco === 'object' && bloco.imagemTexto}
 					{@const conf = bloco.imagemTexto}
-					<ImageText src={withBase(`/imgs/${conf.imagem}`, base)} alt={conf.alt || conf.titulo || ''} title={conf.titulo || ''} text={conf.texto || ''} tags={obj.tags || []} imageRight={conf.lado === 'direita'} classes={conf.classes || ''} />
+					<ImageText src={withBase(`/imgs/${conf.imagem}`, base)} alt={conf.alt || conf.titulo || ''} title={conf.titulo || ''} eyebrow={conf.chapeu || ''} text={conf.texto || ''} tags={obj.tags || []} imageRight={conf.lado === 'direita'} classes={conf.classes || ''} />
 				{:else if typeof bloco === 'object' && bloco.scrollerVideo}
 					{#key i}
 						{@const conf = bloco.scrollerVideo}

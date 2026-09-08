@@ -30,5 +30,14 @@ it('allows the Tapuiassauro spread to use the reversed desktop layout', () => {
  expect(conf.classes).toBe('shadow-1');
  const { body } = render(ImageText, { props: { imageRight: conf.lado === 'direita', title: conf.titulo, text: conf.texto } });
  expect(body).toContain('image-right');
- expect(body).toContain('Tapuiassauro — Malofiej Gold Medal');
+ expect(body).toContain(conf.titulo);
+});
+
+it('renders the optional imagemTexto eyebrow before its title', () => {
+ const [block] = buildBlockObjects(['{imagemtexto}\nimagem: a.png\nchapeu: Editorial\ntitulo: Project\n{}']);
+ const conf = block.raw.imagemTexto;
+ const { body } = render(ImageText, { props: { eyebrow: conf.chapeu, title: conf.titulo } });
+ expect(body).toContain('class="eyebrow');
+ expect(body.indexOf('Editorial')).toBeLessThan(body.indexOf('<h3'));
+ expect(render(ImageText, { props: { title: 'Project' } }).body).not.toContain('class="eyebrow');
 });

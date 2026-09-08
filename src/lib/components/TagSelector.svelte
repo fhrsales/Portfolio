@@ -119,7 +119,7 @@
     }
 	@media (min-width: 900px) {
 		.tag-selector {
-			max-width: 875px;
+			max-width: 600px;
 		}
 	}
 </style>

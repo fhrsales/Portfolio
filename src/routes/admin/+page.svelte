@@ -347,11 +347,19 @@
 				}}
 			></textarea>
 			<details>
+				<summary>Chapéu antes do título</summary>
+				<pre>{`chapeu: Blue
+
+h4: Designing for a New Interaction Model`}</pre>
+				<p>Escreva o chapéu antes do título, com ou sem linha em branco entre eles. O chapéu usa a cor primária do tema.</p>
+			</details>
+			<details>
 				<summary>Imagem à esquerda e texto à direita</summary>
 				<p>No celular, a imagem aparece acima do texto. Use &lt;br&gt;&lt;br&gt; para separar parágrafos no campo texto. Adicione <code>lado: direita</code> para colocar a imagem à direita no desktop.</p>
 				<pre>{`{imagemTexto}
   imagem: favela_amazonia.png
   alt: Descrição da imagem
+  chapeu: Nome do projeto
   titulo: Título do projeto
   texto: Texto do projeto.<br><br>Outro parágrafo.
   tags: Editorial Design, Storytelling

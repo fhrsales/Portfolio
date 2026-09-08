@@ -27,6 +27,11 @@ export function normalizeParsedToBlocks(usedParsed) {
 	// Build array of block descriptors from freeform blocks array
 export function buildBlockObjects(blocks) {
 	if (!blocks || !blocks.length) return [];
+	blocks = blocks.flatMap((block) =>
+		typeof block === 'string' && /^chapeu:[^\r\n]+\r?\n/i.test(block.trim())
+			? block.split(/\r?\n(?=\s*h[1-5]:)/i)
+			: [block]
+	);
 	const objs = [];
 	function parseBlocoInner(inner) {
 		const bloco = { items: [], tags: [] };
@@ -35,6 +40,15 @@ export function buildBlockObjects(blocks) {
 			const rawLine = inner[k];
 			const line = String(rawLine).trim().replace(/^\ufeff/, '');
 			if (/^\{\.?bloco\}$/i.test(line)) continue;
+			const eyebrowMatch = line.match(/^chapeu:\s*(.+)$/i);
+			if (eyebrowMatch) {
+				if (textLines.length) {
+					bloco.items.push({ type: 'text', text: textLines.join('\n') });
+					textLines = [];
+				}
+				bloco.items.push({ type: 'eyebrow', text: eyebrowMatch[1].trim() });
+				continue;
+			}
 			const headingMatch = line.match(/^h([1-5]):\s*(.+)$/i);
 			if (headingMatch) {
 				if (textLines.length) {
@@ -1074,7 +1088,7 @@ export function buildBlockObjects(blocks) {
 		function isTextParagraphString(value) {
 			const s = String(value || '').trim();
 			if (!s) return false;
-			if (/^h[1-5]:\s*/i.test(s)) return false;
+			if (/^(?:h[1-5]|chapeu):\s*/i.test(s)) return false;
 			if (/^<divisor\b/i.test(s)) return false;
 			if (/^\{divisor\}$/i.test(s)) return false;
 			if (/^<tagSelector\b/i.test(s) || /^tagSelector(?:\s*:\s*)?/i.test(s)) return false;
