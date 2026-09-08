@@ -1447,7 +1447,8 @@
       ],
       "label": "13 campero de",
       "date": "2001-04-11",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "109-0",
