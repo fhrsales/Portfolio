@@ -3,6 +3,8 @@
 	import { page } from '$app/stores';
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { language, translateLabel } from '$lib/i18n';
+	import LanguageSwitch from './LanguageSwitch.svelte';
     export let fadeIn = false;
     export let hidden = false;
     let open = false;
@@ -100,6 +102,7 @@
 					</svg>
 				{/if}
 			</button>
+            <LanguageSwitch />
 		</div>
 		{#if pages.length || import.meta.env.DEV}
 			<ul class="desktop-menu">
@@ -108,7 +111,7 @@
 						class:active={current === p ||
 							(p === 'index' && (current === '' || current === 'index'))}
 					>
-						<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
+						<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{translateLabel(menuLabels[p], $language)}</a>
 					</li>
 				{/each}
 				<li class="theme-item">
@@ -129,6 +132,7 @@
 							</svg>
 						{/if}
 					</button>
+                    <LanguageSwitch />
 				</li>
 				{#if import.meta.env.DEV}
 					<li class="admin-link">
@@ -137,6 +141,7 @@
 				{/if}
 			</ul>
 		{/if}
+
 	</div>
 	{#if pages.length || import.meta.env.DEV}
 		<ul class:open class="mobile-menu">
@@ -144,7 +149,7 @@
 				<li
 					class:active={current === p || (p === 'index' && (current === '' || current === 'index'))}
 				>
-					<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{menuLabels[p]}</a>
+					<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{translateLabel(menuLabels[p], $language)}</a>
 				</li>
 			{/each}
 			{#if import.meta.env.DEV}
@@ -157,6 +162,10 @@
 </nav>
 
 <style>
+    @media (max-width: 700px) {
+        .logo-img { max-width: 130px; object-fit: contain; }
+    }
+
 	.menu-bar {
 		width: 100vw;
 		background: var(--glass-1);
@@ -440,6 +449,9 @@
 		}
 		.menu-actions {
 			display: inline-flex;
+            position: static;
+            transform: none;
+            order: 3;
 		}
 		.theme-toggle-mobile {
 			position: relative;

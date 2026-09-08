@@ -1,6 +1,9 @@
+<script>
+ import { language } from '$lib/i18n';
+</script>
 <footer>
 	<div class="contacts">
-		Need a partner who speaks both design and code? Let’s talk and bring your digital product to life! <br/> <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
+		{$language === 'pt' ? 'Precisa de um parceiro que entenda de design e código? Vamos conversar e dar vida ao seu produto digital!' : 'Need a partner who speaks both design and code? Let’s talk and bring your digital product to life!'} <br/> <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
 			>fabio.sales@me.com</a>
 		|
 		<a
@@ -16,7 +19,7 @@
             rel="noopener">GitHub</a>
 	</div>
 	<div class="copyright">© {new Date().getFullYear()} Fabio Sales</div>
-	<div class="rights">All rights reserved</div>
+	<div class="rights">{$language === 'pt' ? 'Todos os direitos reservados' : 'All rights reserved'}</div>
 </footer>
 
 <style>

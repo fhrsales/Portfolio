@@ -1,14 +1,15 @@
 <script>
+	import { language, translateLabel } from '$lib/i18n';
 	export let label = 'What I did:';
 	export let tags = [];
 </script>
 
 {#if tags && tags.length}
 	<div class="inline-tags">
-		<div class="inline-tags__label">{label}</div>
+		<div class="inline-tags__label">{translateLabel(label, $language)}</div>
 		<div class="inline-tags__chips">
 			{#each tags as t (t)}
-				<span class="chip">{t}</span>
+				<span class="chip">{translateLabel(t, $language)}</span>
 			{/each}
 		</div>
 	</div>

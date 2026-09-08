@@ -12,7 +12,9 @@ it('keeps publication pages, crops and physical formats valid without changing o
 		expect(['o-dia', 'o-globo', 'correio', 'estadao', 'diario-de-noticias']).toContain(file.publication);
 		const dimensions = [...formats[file.format]];
 		if (file.rotation === 90) dimensions.reverse();
-		expect([file.width, file.height]).toEqual(dimensions);
+		expect(file.height).toBe(dimensions[1]);
+		const ratio = file.rotation === 90 ? file.crop[3] / file.crop[2] : file.crop[2] / file.crop[3];
+		expect(file.width / file.height).toBeCloseTo(ratio, 8);
 		const [x, y, w, h] = file.crop;
 		expect(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= file.sourceWidth && y + h <= file.sourceHeight).toBe(true);
 		expect(galleryCrop(file).image).not.toMatch(/NaN|Infinity/);

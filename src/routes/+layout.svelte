@@ -5,6 +5,13 @@
     import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
+    import { language } from '$lib/i18n';
+    onMount(() => {
+        language.set('en');
+        return language.subscribe(value => {
+            document.documentElement.lang = value === 'pt' ? 'pt-BR' : 'en';
+        });
+    });
     let { children } = $props();
     let scrollFadeTimer;
     let scrollFadeHandler;
@@ -34,7 +41,9 @@
 
 {:else}
 	<main class="main-content" class:is-home={$page.url.pathname === `${base || ''}/`}>
-		{@render children?.()}
+		{#key $language}
+			{@render children?.()}
+		{/key}
 	</main>
 {/if}
 {#if !$page.url.pathname?.startsWith('/admin')}

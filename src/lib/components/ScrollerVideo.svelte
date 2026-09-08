@@ -103,10 +103,13 @@
     containerHeightPx = rect.height;
     if (!pin) {
       const viewport = window.innerHeight || 1;
-      return clamp01((viewport - rect.top) / (viewport + rect.height));
+      // Finish in the visible area, before the video passes behind the header.
+      const start = viewport * 0.85;
+      const end = Math.max(offsetTop, viewport * 0.25);
+      return clamp01((start - rect.top) / Math.max(1, start - end));
     }
     const total = Math.max(0, rect.height - viewH);
-    const advanced = clamp01(total === 0 ? 0 : Math.min(total, -rect.top) / total);
+    const advanced = clamp01(total === 0 ? 0 : Math.min(total, offsetTop - rect.top) / total);
     return advanced;
   }
 
@@ -444,6 +447,7 @@
     class="scroller-video__sticky"
     bind:this={stickyEl}
     style:height={stageRatio ? 'auto' : undefined}
+    style:max-width={pin && stageRatio ? `calc((100dvh - ${offsetTop}px - 16px) * (${stageRatio}))` : undefined}
     style:aspect-ratio={stageRatio || undefined}
     style={pin ? `position: sticky; top: ${offsetTop}px;` : ''}
   >
@@ -539,6 +543,7 @@
   .scroller-video.scroller-g { max-width: 860px; margin: calc(var(--grid) * 4) auto; }
   .scroller-video.scroller-gg { margin: calc(var(--grid) * 4) auto; }
   .scroller-video__sticky {
+    margin-inline: auto;
     height: 100vh;
     width: 100%;
   }

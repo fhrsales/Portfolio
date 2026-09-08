@@ -23,6 +23,7 @@
 	import InlineTags from '$lib/components/InlineTags.svelte';
 
 	import { archiePages } from '$lib/stores';
+	import { language, translateContent } from '$lib/i18n';
 	import { page } from '$app/stores';
 	import { derived } from 'svelte/store';
 	import { fade } from 'svelte/transition';
@@ -46,7 +47,7 @@
 	const fadeIn = { duration: 220 };
 	const fadeOut = { duration: 160 };
 
-	let introH2Observer;
+	let introH2Cleanup;
 	let introH2Watch;
 
 	function setupIntroH2Observer() {
@@ -56,28 +57,16 @@
 
 		const root = document.documentElement;
 		root.classList.add('has-intro-h2');
-		root.classList.remove('intro-h2-exited');
-
-		const rect = introH2.getBoundingClientRect();
-		if (rect.bottom <= 0) {
-			root.classList.add('intro-h2-exited');
-			return;
-		}
-
-		let hasBeenInView = false;
-		introH2Observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						hasBeenInView = true;
-					} else if (hasBeenInView && entry.boundingClientRect.top < 0) {
-						root.classList.add('intro-h2-exited');
-					}
-				}
-			},
-			{ root: null, threshold: 0 }
-		);
-		introH2Observer.observe(introH2);
+		const updateMenu = () => {
+			root.classList.toggle('intro-h2-exited', introH2.getBoundingClientRect().bottom <= 0);
+		};
+		updateMenu();
+		window.addEventListener('scroll', updateMenu, { passive: true });
+		window.addEventListener('resize', updateMenu);
+		introH2Cleanup = () => {
+			window.removeEventListener('scroll', updateMenu);
+			window.removeEventListener('resize', updateMenu);
+		};
 		return true;
 	}
 
@@ -101,7 +90,7 @@
 	});
 
 	onDestroy(() => {
-		if (introH2Observer) introH2Observer.disconnect();
+		if (introH2Cleanup) introH2Cleanup();
 		if (introH2Watch) introH2Watch.disconnect();
 		if (typeof document !== 'undefined') {
 			const root = document.documentElement;
@@ -126,7 +115,7 @@
 	});
 
 	// derive parsed from archiePages + currentPage when parsed prop not provided
-	const internalParsed = derived([archiePages, currentPage], ([$archiePages, $currentPage]) => {
+	const internalParsed = derived([archiePages, currentPage, language], ([$archiePages, $currentPage, $language]) => {
 		if (!$archiePages || !$currentPage) return { erro: 'Store não carregado' };
 		if (!$archiePages[$currentPage])
 			return { erro: `Página '${$currentPage}' não encontrada no store` };
@@ -135,7 +124,7 @@
 		if (typeof raw === 'object' && raw !== null) raw = raw.content || '';
 
 		if (raw && typeof raw === 'string') {
-			const content = stripCommentLines(raw).trim();
+			const content = stripCommentLines(translateContent(raw, $language)).trim();
 			if (content) {
 				const blocos = content
 					.split(/\n\n+/)
@@ -670,6 +659,30 @@
 		width: 100%;
 		display: block;
 	}
+	.content-block.paladar-pages {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		column-gap: clamp(8px, 2vw, 24px);
+		max-width: 1200px;
+		width: calc(100% - var(--grid) * 4);
+		margin: 40px auto;
+		align-items: start;
+	}
+	.paladar-pages :global(figure.image-block) {
+		width: 100%;
+		max-width: none;
+		margin: 0 0 24px;
+		box-sizing: border-box;
+		border: clamp(3px, 0.5vw, 6px) solid white;
+		background: #fff;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	}
+	.paladar-pages :global(.image-inner) {
+		clip-path: inset(0 2.5% 3% 2.5%);
+	}
+	.paladar-pages :global(h3),
+	.paladar-pages :global(p),
+	.paladar-pages :global(.inline-tags) { grid-column: 1 / -1; }
 	.content-block.is-flex {
 		display: flex;
 		flex-wrap: wrap;

@@ -49,6 +49,7 @@
 	let error = '';
 	let isInView = false;
 	let hasLoaded = false;
+	let manifestSnapshot = '';
 	let isLoading = false;
 	let hasShown = false;
 	let isDragging = false;
@@ -81,15 +82,18 @@
 
 	$: manifestUrl = normalizedDir ? resolve(`${normalizedDir}/manifest.json`) : '';
 
-	async function ensureLoaded() {
-		if (hasLoaded || isLoading) return;
+	async function ensureLoaded(refresh = false) {
+		if ((hasLoaded && !refresh) || isLoading) return;
 		isLoading = true;
 		if (!normalizedDir) {
 			error = 'Defina a propriedade dir (ex.: "imgs/galeria").';
 			isLoading = false;
 			return;
 		}
-		await loadManifest();
+		if (await loadManifest() === false) {
+			isLoading = false;
+			return;
+		}
 		await tick();
 		setupObserver();
 		computeScale();
@@ -104,11 +108,16 @@
 	}
 
 	onMount(() => {
+		const refreshSelection = () => { if (hasLoaded) ensureLoaded(true); };
+		window.addEventListener('focus', refreshSelection);
 		// Pause when tab not visible
 		const onVis = () => {
 			hasFocus = document.visibilityState === 'visible';
 			if (!hasFocus) stop();
-			else if (isInView) start();
+			else {
+				refreshSelection();
+				if (isInView) start();
+			}
 		};
 		document.addEventListener('visibilitychange', onVis);
 
@@ -140,6 +149,7 @@
 
 		return () => {
 			document.removeEventListener('visibilitychange', onVis);
+			window.removeEventListener('focus', refreshSelection);
 		};
 	});
 
@@ -154,20 +164,23 @@
 
 	async function loadManifest() {
 		error = '';
-		items = [];
-		hasSizeData = false;
 		try {
-			const res = await fetch(manifestUrl, { headers: { 'cache-control': 'no-cache' } });
+			const res = await fetch(manifestUrl, { cache: 'no-store' });
 			if (!res.ok) throw new Error(`HTTP ${res.status}`);
 			const data = await res.json();
+			const snapshot = JSON.stringify(data);
+			if (snapshot === manifestSnapshot) return false;
+			manifestSnapshot = snapshot;
+			items = [];
+			hasSizeData = false;
 			const defaultWidth = Number(data?.defaultWidth ?? data?.width) || 0;
 			const defaultHeight = Number(data?.defaultHeight ?? data?.height) || 0;
 			const rawList = Array.isArray(data) ? data : Array.isArray(data.files) ? data.files : [];
 			const list = rawList
 				.map((entry) => (typeof entry === 'string' ? { name: entry } : entry))
-				.filter((entry) => entry && entry.name);
+				.filter((entry) => entry && entry.name && entry.hidden !== true);
 			if (!list.length) {
-				error = 'manifest.json vazio. Gere a lista de arquivos.';
+				error = rawList.length ? '' : 'manifest.json vazio. Gere a lista de arquivos.';
 				return;
 			}
 			const allowed = list
@@ -492,6 +505,7 @@
 				{@const size = scaledSize(it, sizeScale, viewportWidth)}
 				<div
 					class={`card ${shadow ? 'shadow-1' : ''} ${size ? 'fixed-size' : ''}`}
+					class:paper-page={!!it.format}
 					data-index={i}
 					style={`${height ? `height:${height};` : ''}${size ? `width:${size.w}px; height:${size.h}px;` : ''}`}
 				>
@@ -646,6 +660,10 @@
 		justify-content: center;
 		height: auto;
 		background: #fff;
+	}
+	.card.paper-page {
+		box-sizing: content-box;
+		border: clamp(6px, 0.6vw, 10px) solid #fff;
 	}
 	/* add soft elevation on the card itself; corner shadows handled by global .shadow-1 */
 	.card.shadow-1 {

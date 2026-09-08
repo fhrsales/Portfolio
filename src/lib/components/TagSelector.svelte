@@ -1,4 +1,5 @@
 <script>
+	import { language, translateLabel } from '$lib/i18n';
 	import { archiePages } from '$lib/stores';
 	import { stripCommentLines } from '$lib/parsers/content.js';
 	import { derived } from 'svelte/store';
@@ -50,10 +51,10 @@
 </script>
 
 <div class="tag-selector">
-	<Button on:click={() => (selected = '')} active={selected === ''}>All</Button>
+	<Button on:click={() => (selected = '')} active={selected === ''}>{translateLabel('All', $language)}</Button>
 	{#if visibleTags && visibleTags.length}
 		{#each visibleTags as t (t)}
-			<Button on:click={() => toggle(t)} active={selected === t}>{t}</Button>
+			<Button on:click={() => toggle(t)} active={selected === t}>{translateLabel(t, $language)}</Button>
 		{/each}
 	{/if}
 </div>

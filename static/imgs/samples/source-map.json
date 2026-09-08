@@ -3,200 +3,228 @@
   "note": "Originals retained. PDF pages rendered as PNG; PSD composites exported unchanged. Existing gallery order retained, followed by the old collection. HTML previews, navigation graphics, applications and software manuals are excluded.",
   "files": [
     {
-      "name": "cb-1999-a10412.png",
+      "name": "correio-braziliense-003-julgamento-sumario.png",
       "width": 949,
       "height": 1579,
       "source": "1999/A10412.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-1999-a10412.png"
     },
     {
-      "name": "cb-1999-a11206.png",
+      "name": "correio-braziliense-004-selvageria.png",
       "width": 941,
       "height": 1579,
       "source": "1999/A11206.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-1999-a11206.png"
     },
     {
-      "name": "cb-1999-a12708.png",
+      "name": "correio-braziliense-005-sinal-de-alerta.png",
       "width": 949,
       "height": 1579,
       "source": "1999/A12708.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-1999-a12708.png"
     },
     {
-      "name": "cb-2000-a01-0512.png",
+      "name": "correio-braziliense-006-leucemia.png",
       "width": 835,
       "height": 1579,
       "source": "2000/A01-0512.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-a01-0512.png"
     },
     {
-      "name": "cb-2000-a01-0812.png",
+      "name": "correio-braziliense-007-gdf-atrasa-pagamento-de-salarios.png",
       "width": 835,
       "height": 1579,
       "source": "2000/A01-0812.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-a01-0812.png"
     },
     {
-      "name": "cb-2000-a01-1304.png",
+      "name": "correio-braziliense-008-2000-a01-1304.png",
       "width": 835,
       "height": 1579,
       "source": "2000/A01-1304.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-a01-1304.png"
     },
     {
-      "name": "cb-2000-a01-1309.png",
+      "name": "correio-braziliense-009-imagens-da-anarquia.png",
       "width": 835,
       "height": 1579,
       "source": "2000/A01-1309.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-a01-1309.png"
     },
     {
-      "name": "cb-2000-a01-1310.png",
+      "name": "correio-braziliense-010-2000-a01-1310.png",
       "width": 835,
       "height": 1579,
       "source": "2000/A01-1310.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-a01-1310.png"
     },
     {
-      "name": "cb-2000-a1-2107.png",
+      "name": "correio-braziliense-011-em-1999-renda-caiu-7-1.png",
       "width": 835,
       "height": 1579,
       "source": "2000/A1-2107.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-a1-2107.png"
     },
     {
-      "name": "cb-2000-d01-0207.png",
+      "name": "correio-braziliense-012-tao-bela.png",
       "width": 835,
       "height": 1579,
       "source": "2000/D01-0207.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-d01-0207.png"
     },
     {
-      "name": "cb-2000-s01-1809.png",
+      "name": "correio-braziliense-013-fujimori-adeus.png",
       "width": 835,
       "height": 1579,
       "source": "2000/S01-1809.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-s01-1809.png"
     },
     {
-      "name": "cb-2000-s01-2512.png",
+      "name": "correio-braziliense-014-federaise.png",
       "width": 835,
       "height": 1579,
       "source": "2000/S01-2512.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2000-s01-2512.png"
     },
     {
-      "name": "cb-2001-a01-0102.png",
+      "name": "correio-braziliense-015-salario-antecipado.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-0102.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-0102.png"
     },
     {
-      "name": "cb-2001-a01-0504.png",
+      "name": "correio-braziliense-016-jomens-pequeninos-e-magricelas.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-0504.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-0504.png"
     },
     {
-      "name": "cb-2001-a01-0604.png",
+      "name": "correio-braziliense-017-para-intervencao-no-df.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-0604.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-0604.png"
     },
     {
-      "name": "cb-2001-a01-0610.png",
+      "name": "correio-braziliense-018-paquistao.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-0610.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-0610.png"
     },
     {
-      "name": "cb-2001-a01-0702.png",
+      "name": "correio-braziliense-019-um-carro-roubado-por-hora.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-0702.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-0702.png"
     },
     {
-      "name": "cb-2001-a01-1108.png",
+      "name": "correio-braziliense-020-quase-80-mil-favelados.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-1108.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-1108.png"
     },
     {
-      "name": "cb-2001-a01-1209.png",
+      "name": "correio-braziliense-021-lonores-costa-rasa.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-1209.png"
     },
     {
-      "name": "cb-2001-a01-1411.png",
+      "name": "correio-braziliense-022-greve-no-servico-publico.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-1411.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-1411.png"
     },
     {
-      "name": "cb-2001-a01-1909.png",
+      "name": "correio-braziliense-023-talibas.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-1909.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-1909.png"
     },
     {
-      "name": "cb-2001-a01-1910.png",
+      "name": "correio-braziliense-024-2001-a01-1910.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-1910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-1910.png"
     },
     {
-      "name": "cb-2001-a01-2002.png",
+      "name": "correio-braziliense-025-rebeliao-de-presos.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-2002.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-2002.png"
     },
     {
-      "name": "cb-2001-a01-2806.png",
+      "name": "correio-braziliense-026-justica-quebra-0-sigilo.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A01-2806.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a01-2806.png"
     },
     {
-      "name": "cb-2001-a10-1209.png",
+      "name": "correio-braziliense-027-nova-york-sitiada.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A10-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a10-1209.png"
     },
     {
-      "name": "cb-2001-a11-1209.png",
+      "name": "correio-braziliense-028-seja-apenas.png",
       "width": 835,
       "height": 1579,
       "source": "2001/A11-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a11-1209.png"
     },
     {
-      "name": "cb-2001-a1213-12.png",
+      "name": "correio-braziliense-029-apocalipse-em-manhattan.png",
       "width": 1579,
       "height": 1494,
       "source": "2001/A1213-12.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-a1213-12.png"
     },
     {
-      "name": "cb-2001-d01-0912.png",
+      "name": "correio-braziliense-030-os-selvagens-venceram.png",
       "width": 835,
       "height": 1579,
       "source": "2001/D01-0912.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-d01-0912.png"
     },
     {
       "name": "cb-2001-d25-1803.png",
@@ -220,354 +248,404 @@
       "page": 1
     },
     {
-      "name": "cb-2001-s01-1604.png",
+      "name": "correio-braziliense-031-transito.png",
       "width": 835,
       "height": 1579,
       "source": "2001/S01-1604.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2001-s01-1604.png"
     },
     {
-      "name": "cb-2002-a01-0203.png",
+      "name": "correio-braziliense-032-hemorragica-em-brasilia.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-0203.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-0203.png"
     },
     {
-      "name": "cb-2002-a01-0409.png",
+      "name": "correio-braziliense-033-risco-de-recessao-nos.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-0409.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-0409.png"
     },
     {
-      "name": "cb-2002-a01-0908.png",
+      "name": "correio-braziliense-034-pt-obriga-benedita-a-afastar.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-0908.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-0908.png"
     },
     {
-      "name": "cb-2002-a01-1201.png",
+      "name": "correio-braziliense-035-argentinos-reagem-a-confisco.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-1201.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-1201.png"
     },
     {
-      "name": "cb-2002-a01-1206.png",
+      "name": "correio-braziliense-036-sucessao-e-0-humor-do-dolar.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-1206.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-1206.png"
     },
     {
-      "name": "cb-2002-a01-1306.png",
+      "name": "correio-braziliense-037-brasil-saca-us-5-2-bilhoes.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-1306.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-1306.png"
     },
     {
-      "name": "cb-2002-a01-1403.png",
+      "name": "correio-braziliense-038-investigar-espionagem-politica.png",
       "width": 835,
       "height": 1579,
       "source": "2002/A01-1403.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-a01-1403.png"
     },
     {
-      "name": "cb-2002-est1-01.png",
+      "name": "correio-braziliense-039-estrutural.png",
       "width": 835,
       "height": 1579,
       "source": "2002/EST1-01.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-est1-01.png"
     },
     {
-      "name": "cb-2002-est45-01.png",
+      "name": "correio-braziliense-040-se-essa.png",
       "width": 1579,
       "height": 1494,
       "source": "2002/EST45-01.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-est45-01.png"
     },
     {
-      "name": "cb-2002-est8-01.png",
+      "name": "correio-braziliense-041-i-2-1-155-0-0-0-624-1080-97-9-1-3-1-155-1-0-0-624-1080-97-9-1-4-1-155-1-1-0-624-1080-97-9-1-5-1-155.png",
       "width": 835,
       "height": 1579,
       "source": "2002/EST8-01.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-est8-01.png"
     },
     {
-      "name": "cb-2002-s01-1507.png",
+      "name": "correio-braziliense-042-contra-roseana-ate-aqui.png",
       "width": 835,
       "height": 1579,
       "source": "2002/S01-1507.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-s01-1507.png"
     },
     {
-      "name": "cb-2002-s01-2810.png",
+      "name": "correio-braziliense-043-brasil-da-silva.png",
       "width": 835,
       "height": 1579,
       "source": "2002/S01-2810.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-2002-s01-2810.png"
     },
     {
-      "name": "cb-correio-braziliense-coisas-da-vida-brasilia.png",
+      "name": "correio-braziliense-044-livro-com-fotos.png",
       "width": 1579,
       "height": 1495,
       "source": "Correio Braziliense/Coisas da Vida/brasilia.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-coisas-da-vida-brasilia.png"
     },
     {
-      "name": "cb-correio-braziliense-coisas-da-vida-c1-2004.png",
+      "name": "correio-braziliense-045-singnimo-de-sedugao-0-batom-vermelho.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Coisas da Vida/c1-2004.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-coisas-da-vida-c1-2004.png"
     },
     {
-      "name": "cb-correio-braziliense-guia-carne-tenra.png",
+      "name": "correio-braziliense-046-compream.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Guia/Carne tenra.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-guia-carne-tenra.png"
     },
     {
-      "name": "cb-correio-braziliense-guia-g1-3003.png",
+      "name": "correio-braziliense-047-0-metro.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Guia/G1-3003.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-guia-g1-3003.png"
     },
     {
-      "name": "cb-correio-braziliense-guia-g1-1104.png",
+      "name": "correio-braziliense-048-13-campero-de.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Guia/g1-1104.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-guia-g1-1104.png"
     },
     {
-      "name": "cb-correio-braziliense-guia-g1-2612.png",
+      "name": "correio-braziliense-049-correio-braziliense-guia-g1-2612.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Guia/g1-2612.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-guia-g1-2612.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p01.png",
+      "name": "o-dia-001-o-barato-sai-caro.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p01.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p02.png",
+      "name": "o-dia-002-os-nossos-herois.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 2
+      "page": 2,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p02.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p03.png",
+      "name": "o-dia-003-sede-de-vinganca-campeonato-estadual-1906-a-1999.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 3
+      "page": 3,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p03.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p04.png",
+      "name": "o-dia-004-que-perfeicao-recordista-dentro-e-fora-da-piscina.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 4
+      "page": 4,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p04.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p05.png",
+      "name": "o-dia-005-ame-o-ou-deixe-o-nos-bracos-da-torcida.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 5
+      "page": 5,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p05.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p06.png",
+      "name": "o-dia-006-contra-o-mundo-a-patria-de-raquete.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 6
+      "page": 6,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p06.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p07.png",
+      "name": "o-dia-007-a-vida-e-bela-e-o-vento-levou-1-2-3-e-ja.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 7
+      "page": 7,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p07.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p08.png",
+      "name": "o-dia-008-segurem-os-homens-domingo-negro.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 8
+      "page": 8,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p08.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p09.png",
+      "name": "o-dia-009-raca-brasil.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 9
+      "page": 9,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p09.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p10.png",
+      "name": "o-dia-010-poderosas.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 10
+      "page": 10,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p10.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p11.png",
+      "name": "o-dia-011-sabado-quente.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 11
+      "page": 11,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p11.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p12.png",
+      "name": "o-globo-001-atletas-00-milenio.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 12
+      "page": 12,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p12.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p13.png",
+      "name": "o-globo-002-tacaavista.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 13
+      "page": 13,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p13.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p14.png",
+      "name": "o-globo-003-tecnica-do-flu-veta-zetti.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 14
+      "page": 14,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p14.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p15.png",
+      "name": "o-dia-012-cheio-de-municao-a-hora-do-pesadelo.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 15
+      "page": 15,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p15.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p16.png",
+      "name": "o-dia-013-quanto-mais-melhor-o-primeiro-de-uma-serie.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 16
+      "page": 16,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p16.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p17.png",
+      "name": "o-dia-014-bem-afinados-o-maraca-vai-tremer.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 17
+      "page": 17,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p17.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p18.png",
+      "name": "o-dia-015-athirson-2-botafogo-1-ataque-1000-edicao-especial.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 18
+      "page": 18,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p18.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p19.png",
+      "name": "o-dia-016-mil-capas-ataque.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 19
+      "page": 19,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p19.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p20.png",
+      "name": "o-dia-017-imagens-nota-1000-primeira-pagina-imagens-nota-1000-segunda-pagina.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 20
+      "page": 20,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p20.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p21.png",
+      "name": "o-dia-018-os-numeros-dia-de-festa.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 21
+      "page": 21,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p21.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p22.png",
+      "name": "o-dia-019-bis-domingo-legal.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 22
+      "page": 22,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p22.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p23.png",
+      "name": "o-dia-020-maracana-50-anos-maracana-e-o-maior.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 23
+      "page": 23,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p23.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p24.png",
+      "name": "o-dia-021-maracana-historia-dos-uniformes.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 24
+      "page": 24,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p24.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p25.png",
+      "name": "o-dia-022-3-e-taca-que-selecao-e-esta.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 25
+      "page": 25,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p25.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p26.png",
+      "name": "o-dia-023-basta-brasil.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 26
+      "page": 26,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p26.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p27.png",
+      "name": "o-dia-024-o-dia-em-que-o-rio-pediu-paz.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 27
+      "page": 27,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p27.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p28.png",
+      "name": "o-dia-025-as-sementes-floresceram.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 28
+      "page": 28,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p28.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p29.png",
+      "name": "o-dia-026-revezar-e-preciso.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 29
+      "page": 29,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p29.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p30.png",
+      "name": "o-dia-027-cara-feia-futebol-bonito-to-vazando-to-chegando.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 30
+      "page": 30,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p30.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-antigo-p31.png",
+      "name": "o-dia-028-sinal-amarelo-buraco-rubro-negro.png",
       "width": 1579,
       "height": 1116,
       "source": "Correio Braziliense/Portifolio antigo.PDF",
-      "page": 31
+      "page": 31,
+      "previousName": "cb-correio-braziliense-portifolio-antigo-p31.png"
     },
     {
       "name": "cb-correio-braziliense-portifolio-do-correio-p01.png",
@@ -584,60 +662,68 @@
       "page": 2
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p03.png",
+      "name": "correio-braziliense-223-ha-41-pessors-neste-caderno.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 3
+      "page": 3,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p03.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p04.png",
+      "name": "correio-braziliense-224-correio-braziliense-portifolio-do-correio-p04.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 4
+      "page": 4,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p04.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
+      "name": "correio-braziliense-225-bush-decreta-ofim.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 5
+      "page": 5,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p05.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "name": "correio-braziliense-226-capital-afega-sofre.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 6
+      "page": 6,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p06.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p07.png",
+      "name": "correio-braziliense-227-um-clique-no-passado.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 7
+      "page": 7,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p07.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p08.png",
+      "name": "correio-braziliense-228-i-show-te.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 8
+      "page": 8,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p08.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p09.png",
+      "name": "correio-braziliense-229-ca-as-bs.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 9
+      "page": 9,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p09.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
+      "name": "correio-braziliense-230-esta-pior.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 10
+      "page": 10,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p10.png"
     },
     {
       "name": "cb-correio-braziliense-portifolio-do-correio-p11.png",
@@ -647,39 +733,44 @@
       "page": 11
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
+      "name": "correio-braziliense-231-10-amos-depois.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 12
+      "page": 12,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p12.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p13.png",
+      "name": "correio-braziliense-232-correio-braziliense-portifolio-do-correio-p13.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 13
+      "page": 13,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p13.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "name": "correio-braziliense-233-argentina-no.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 14
+      "page": 14,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p14.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p15.png",
+      "name": "correio-braziliense-234-cesi0-137-continua.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 15
+      "page": 15,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p15.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p16.png",
+      "name": "correio-braziliense-235-do-mercado-financeiro.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 16
+      "page": 16,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p16.png"
     },
     {
       "name": "cb-correio-braziliense-portifolio-do-correio-p17.png",
@@ -689,18 +780,20 @@
       "page": 17
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p18.png",
+      "name": "correio-braziliense-236-correio-braziliense-portifolio-do-correio-p18.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 18
+      "page": 18,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p18.png"
     },
     {
-      "name": "cb-correio-braziliense-portifolio-do-correio-p19.png",
+      "name": "correio-braziliense-237-correio-braziliense-portifolio-do-correio-p19.png",
       "width": 1117,
       "height": 1579,
       "source": "Correio Braziliense/Portifolio do Correio.PDF",
-      "page": 19
+      "page": 19,
+      "previousName": "cb-correio-braziliense-portifolio-do-correio-p19.png"
     },
     {
       "name": "cb-correio-braziliense-portifolio-do-correio-p20.png",
@@ -710,214 +803,244 @@
       "page": 20
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz01.png",
+      "name": "correio-braziliense-050-pelas-aguas-da-solidao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz01.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-amazonia-amz01.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz02.png",
+      "name": "correio-braziliense-051-como-foio-percurso-da-expedicao-ajuricaba.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz02.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-amazonia-amz02.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz03.png",
+      "name": "correio-braziliense-052-heo-me-no.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz03.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-amazonia-amz03.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-amazonia-amz10.png",
+      "name": "correio-braziliense-053-quem-omnis-pods.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Amazonia/amz10.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-amazonia-amz10.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-a14-0512.png",
+      "name": "correio-braziliense-054-eastantae.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/a14-0512.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-a14-0512.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-a15-0512.png",
+      "name": "correio-braziliense-055-s-presos.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/a15-0512.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-a15-0512.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-200312.png",
+      "name": "correio-braziliense-056-correio-braziliense-primeiro-caderno-candelaria-d-200312.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/d-200312.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-d-200312.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-210312.png",
+      "name": "correio-braziliense-057-correio-braziliense-primeiro-caderno-candelaria-d-210312.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/d-210312.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-d-210312.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-d-220312.png",
+      "name": "correio-braziliense-058-correio-braziliense-primeiro-caderno-candelaria-d-220312.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/d-220312.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-d-220312.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-s140412.png",
+      "name": "correio-braziliense-059-correio-braziliense-primeiro-caderno-candelaria-s140412.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/s140412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-s140412.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-candelaria-s150412.png",
+      "name": "correio-braziliense-060-correio-braziliense-primeiro-caderno-candelaria-s150412.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Candelaria/s150412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-candelaria-s150412.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-china-superpotencia.png",
+      "name": "correio-braziliense-061-superpotencia.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/China - Superpotencia.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-china-superpotencia.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-crianca-0-aos-3-anos-a6-0812.png",
+      "name": "correio-braziliense-062-como-surgea-violencia.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Crianca 0 aos 3 anos/a6-0812.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-crianca-0-aos-3-anos-a6-0812.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-dicionario-houaiss.png",
+      "name": "correio-braziliense-063-vocabulos-na.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Dicionario Houaiss.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-dicionario-houaiss.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a18-2411.png",
+      "name": "correio-braziliense-064-da-favela.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Escandalo da Previdencia/a18-2411.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a18-2411.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a6-2311.png",
+      "name": "correio-braziliense-065-afraudeder-7-bilhoes.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Escandalo da Previdencia/a6-2311.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a6-2311.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a7-2311.png",
+      "name": "correio-braziliense-066-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a7-2311.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Escandalo da Previdencia/a7-2311.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-escandalo-da-previdencia-a7-2311.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola1.png",
+      "name": "correio-braziliense-067-q-de-quem.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Escola publica/escola1.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola1.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola2.png",
+      "name": "correio-braziliense-068-correio-braziliense-primeiro-caderno-escola-publica-escola2.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Escola publica/escola2.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-escola-publica-escola2.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-a14-2003.png",
+      "name": "correio-braziliense-069-adolescencia.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/a14-2003.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-a14-2003.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-a14-2103.png",
+      "name": "correio-braziliense-070-tatuagens.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/a14-2103.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-a14-2103.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-a15-2103.png",
+      "name": "correio-braziliense-071-no-me-ore.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/a15-2103.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-a15-2103.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-a24-2203.png",
+      "name": "correio-braziliense-072-meninas.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/a24-2203.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-a24-2203.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-d25-1803.png",
+      "name": "correio-braziliense-073-escola-do-crime.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/d25-1803.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-d25-1803.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-d26-1803.png",
+      "name": "correio-braziliense-074-bandidinhos.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/d26-1803.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-d26-1803.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-d27-1803.png",
+      "name": "correio-braziliense-075-687-2-034.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/d27-1803.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-d27-1803.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-s10-1903.png",
+      "name": "correio-braziliense-076-correio-braziliense-primeiro-caderno-febem-s10-1903.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/s10-1903.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-s10-1903.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-febem-s11-1903.png",
+      "name": "correio-braziliense-077-1-648-3-5km.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Febem/s11-1903.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-febem-s11-1903.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-india-terra-de-genios.png",
+      "name": "correio-braziliense-078-popiuagao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/India - terra de gênios.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-india-terra-de-genios.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d1-2412.png",
+      "name": "correio-braziliense-079-correio-braziliense-primeiro-caderno-jesus-d1-2412.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Jesus/d1-2412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-jesus-d1-2412.png"
     },
     {
       "name": "cb-correio-braziliense-primeiro-caderno-jesus-d12412.png",
@@ -927,312 +1050,356 @@
       "page": 1
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d62412.png",
+      "name": "correio-braziliense-080-o-divino-desconhecido.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Jesus/d62412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-jesus-d62412.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d72412.png",
+      "name": "correio-braziliense-081-jesus-cristo.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Jesus/d72412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-jesus-d72412.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d82412.png",
+      "name": "correio-braziliense-082-afinal-ele-e.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Jesus/d82412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-jesus-d82412.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d92412.png",
+      "name": "correio-braziliense-083-superstar.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Jesus/d92412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-jesus-d92412.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-napster.png",
+      "name": "correio-braziliense-084-corram-as-maquinas.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Napster.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-napster.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-orcamento.png",
+      "name": "correio-braziliense-085-orcamen.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Orcamento.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-orcamento.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a6-3011.png",
+      "name": "correio-braziliense-086-uase-uma-guerra-civil.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Semana do Trauma/a6-3011.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a6-3011.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a7-3011.png",
+      "name": "correio-braziliense-087-capital-sangrenta.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/Semana do Trauma/a7-3011.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-semana-do-trauma-a7-3011.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-a15-1605.png",
+      "name": "correio-braziliense-088-cassacao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Primeiro Caderno/a15-1605.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-a15-1605.png"
     },
     {
-      "name": "cb-correio-braziliense-primeiro-caderno-a67-1604.png",
+      "name": "correio-braziliense-089-nocidio.png",
       "width": 1579,
       "height": 1495,
       "source": "Correio Braziliense/Primeiro Caderno/a67-1604.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-primeiro-caderno-a67-1604.png"
     },
     {
-      "name": "cb-correio-braziliense-suplementos-pensar-1-12.png",
+      "name": "correio-braziliense-090-aenciclo.png",
       "width": 1579,
       "height": 835,
       "source": "Correio Braziliense/Suplementos/Pensar 1-12.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-suplementos-pensar-1-12.png"
     },
     {
-      "name": "cb-correio-braziliense-suplementos-pensar-6-7.png",
+      "name": "correio-braziliense-091-correio-braziliense-suplementos-pensar-6-7.png",
       "width": 1579,
       "height": 835,
       "source": "Correio Braziliense/Suplementos/Pensar 6-7.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-suplementos-pensar-6-7.png"
     },
     {
-      "name": "cb-correio-braziliense-suplementos-et1-2412.png",
+      "name": "correio-braziliense-092-correio-braziliense-suplementos-et1-2412.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/Suplementos/et1-2412.pdf",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-suplementos-et1-2412.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-0503.png",
+      "name": "correio-braziliense-093-fhc-quer-o-pfl-onde.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-0503.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-0503.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-0603.png",
+      "name": "correio-braziliense-094-roseana-tira-0.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-0603.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-0603.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-0703.png",
+      "name": "correio-braziliense-095-par-gaan-toque-ios.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-0703.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-0703.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-0803.png",
+      "name": "correio-braziliense-096-pfl-romper-com-fhc.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-0803.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-0803.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-0903.png",
+      "name": "correio-braziliense-097-hemorragica.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-0903.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-0903.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-1303.png",
+      "name": "correio-braziliense-098-de-roseana.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-1303.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-1303.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-1304.png",
+      "name": "correio-braziliense-099-novo-presidente-da-venezuela-fecha.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-1304.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-1304.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a01-1604.png",
+      "name": "correio-braziliense-100-estados.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A01-1604.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a01-1604.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a03-1209.png",
+      "name": "correio-braziliense-101-a-reagao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A03-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a03-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a03b1209.png",
+      "name": "correio-braziliense-102-explosao-assusta-asa-norte.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A03B1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a03b1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a05-1209.png",
+      "name": "correio-braziliense-103-tee-gue-de-cen-de.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A05-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a05-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a06-1209.png",
+      "name": "correio-braziliense-104-ataque-aos.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A06-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a06-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a07-1209.png",
+      "name": "correio-braziliense-105-estados-unido.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A07-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a07-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a08-1209.png",
+      "name": "correio-braziliense-106-sob-risco.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A08-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a08-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a14-1209.png",
+      "name": "correio-braziliense-107-sem-defesa.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A14-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a14-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a15-1209.png",
+      "name": "correio-braziliense-108-de-joelhos.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A15-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a15-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a17-1209.png",
+      "name": "correio-braziliense-109-na-europa.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A17-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a17-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a18-1209.png",
+      "name": "correio-braziliense-110-o-suspeito.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A18-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a18-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a19-1209.png",
+      "name": "correio-braziliense-111-os-inimigos.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A19-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a19-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a20-1209.png",
+      "name": "correio-braziliense-112-a-incerteza.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A20-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a20-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a21-1209.png",
+      "name": "correio-braziliense-113-a-recessao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A21-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a21-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a22-1209.png",
+      "name": "correio-braziliense-114-em-alerta.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A22-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a22-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a23-1209.png",
+      "name": "correio-braziliense-115-de-sua-2.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A23-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a23-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a24-1209.png",
+      "name": "correio-braziliense-116-os-brasilienses.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A24-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a24-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a25-1209.png",
+      "name": "correio-braziliense-117-anossa-angustia.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A25-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a25-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-a26-1209.png",
+      "name": "correio-braziliense-118-a-premonicao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/A26-1209.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-a26-1209.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-d01-0303.png",
+      "name": "correio-braziliense-119-pflna-oposicao.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/D01-0303.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-d01-0303.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s01-0403.png",
+      "name": "correio-braziliense-120-paciente-de-dengue.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S01-0403.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s01-0403.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s01-1103.png",
+      "name": "correio-braziliense-121-dinheiro-apreendido-era.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S01-1103.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s01-1103.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s01-1504.png",
+      "name": "correio-braziliense-122-venceu-a.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S01-1504.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s01-1504.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s01-2910.png",
+      "name": "correio-braziliense-123-correio-braziliense-pdfs-noblat-s01-2910.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S01-2910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s01-2910.png"
     },
     {
       "name": "cb-correio-braziliense-pdfs-noblat-s012910b.png",
@@ -1242,46 +1409,52 @@
       "page": 1
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s06-2910.png",
+      "name": "correio-braziliense-124-mais-civis-morrem.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S06-2910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s06-2910.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s07-2910.png",
+      "name": "correio-braziliense-125-chacina-na-missa.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S07-2910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s07-2910.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s10-2910.png",
+      "name": "correio-braziliense-126-as-ameacas-do-mula.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S10-2910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s10-2910.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s11-2910.png",
+      "name": "correio-braziliense-127-funeral-simbolico.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S11-2910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s11-2910.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s12-2910.png",
+      "name": "correio-braziliense-128-ao-lado-do-inimigo.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S12-2910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s12-2910.png"
     },
     {
-      "name": "cb-correio-braziliense-pdfs-noblat-s14-1910.png",
+      "name": "correio-braziliense-129-a-retirada-de-belem.png",
       "width": 835,
       "height": 1579,
       "source": "Correio Braziliense/pdfs noblat/S14-1910.PDF",
-      "page": 1
+      "page": 1,
+      "previousName": "cb-correio-braziliense-pdfs-noblat-s14-1910.png"
     },
     {
       "name": "cb-snd-11-de-setembro.png",
@@ -1291,67 +1464,76 @@
       "page": null
     },
     {
-      "name": "cb-snd-20-anos-idade-da-morte.png",
+      "name": "correio-braziliense-130-bancos-divergem-sobre-0-futuro-do-brasil.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/20 anos idade da morte.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-20-anos-idade-da-morte.png"
     },
     {
-      "name": "cb-snd-4-3-2-1.png",
+      "name": "correio-braziliense-131-tecnologia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/4,3,2,1.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-4-3-2-1.png"
     },
     {
-      "name": "cb-snd-41anos.png",
+      "name": "correio-braziliense-132-snd-41anos.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/41anos.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-41anos.png"
     },
     {
-      "name": "cb-snd-acm.png",
+      "name": "correio-braziliense-133-verdade.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/ACM.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-acm.png"
     },
     {
-      "name": "cb-snd-ai5.png",
+      "name": "correio-braziliense-134-nunca-mais.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/AI5.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-ai5.png"
     },
     {
-      "name": "cb-snd-aperto-no-contribuinte.png",
+      "name": "correio-braziliense-135-aperto-no-contrib.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Aperto no contribuinte.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-aperto-no-contribuinte.png"
     },
     {
-      "name": "cb-snd-basta.png",
+      "name": "correio-braziliense-136-alberto-de-souza-nao-identifica.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Basta.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-basta.png"
     },
     {
-      "name": "cb-snd-direitos-de-quem.png",
+      "name": "correio-braziliense-137-direitos.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Direitos de quem?.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-direitos-de-quem.png"
     },
     {
-      "name": "cb-snd-estatutos-de-papel.png",
+      "name": "correio-braziliense-138-estatuto-de-papel.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Estatutos de papel.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-estatutos-de-papel.png"
     },
     {
       "name": "cb-snd-fichas.png",
@@ -1361,39 +1543,44 @@
       "page": null
     },
     {
-      "name": "cb-snd-forca.png",
+      "name": "correio-braziliense-139-orreio-braziliens.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Força.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-forca.png"
     },
     {
-      "name": "cb-snd-gdf-emprega-parentes.png",
+      "name": "correio-braziliense-140-snd-gdf-emprega-parentes.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/GDF emprega parentes.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-gdf-emprega-parentes.png"
     },
     {
-      "name": "cb-snd-guga.png",
+      "name": "correio-braziliense-141-x-tudotm.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Guga.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-guga.png"
     },
     {
-      "name": "cb-snd-jk.png",
+      "name": "correio-braziliense-142-juscelino.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/JK.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-jk.png"
     },
     {
-      "name": "cb-snd-jogo-da-mentira.png",
+      "name": "correio-braziliense-143-o-joco-da-mentira.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Jogo da mentira.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-jogo-da-mentira.png"
     },
     {
       "name": "cb-snd-papai-noel-existe.png",
@@ -1403,39 +1590,44 @@
       "page": null
     },
     {
-      "name": "cb-snd-penta.png",
+      "name": "correio-braziliense-144-braziliens.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Penta.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-penta.png"
     },
     {
-      "name": "cb-snd-quem-se-deu-bem.png",
+      "name": "correio-braziliense-145-quem-se-bem.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/Quem se deu bem.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-quem-se-deu-bem.png"
     },
     {
-      "name": "cb-snd-a-bola-e-das-mulheres.png",
+      "name": "correio-braziliense-146-cade-05-remedios-mais-baratos.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/a bola é das mulheres.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-a-bola-e-das-mulheres.png"
     },
     {
-      "name": "cb-snd-a-mais-bela.png",
+      "name": "correio-braziliense-147-snd-a-mais-bela.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/a mais bela.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-a-mais-bela.png"
     },
     {
-      "name": "cb-snd-acabou.png",
+      "name": "correio-braziliense-148-snd-acabou.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/acabou.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-acabou.png"
     },
     {
       "name": "cb-snd-africa.png",
@@ -1445,18 +1637,20 @@
       "page": null
     },
     {
-      "name": "cb-snd-agora-e-com-a-justica.png",
+      "name": "correio-braziliense-149-agorae-ecomaljustica.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/agora e com a justica.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-agora-e-com-a-justica.png"
     },
     {
-      "name": "cb-snd-alta-tensao.png",
+      "name": "correio-braziliense-150-ta-tensao.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/alta tensao.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-alta-tensao.png"
     },
     {
       "name": "cb-snd-amazonia.png",
@@ -1466,60 +1660,68 @@
       "page": null
     },
     {
-      "name": "cb-snd-armacoes-ilimitada.png",
+      "name": "correio-braziliense-151-fashion-7.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/armacoes ilimitada.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-armacoes-ilimitada.png"
     },
     {
-      "name": "cb-snd-as-mortes-de-iara.png",
+      "name": "correio-braziliense-152-sy-2-1-4-0-0-0-318-243-7-18-1-3-1-4-1-0-0-318-243-7-18-1-4-1-4-1-1-0-318-243-7-18-1-5-1-4-1-1-1-318.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/as mortes de iara.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-as-mortes-de-iara.png"
     },
     {
-      "name": "cb-snd-batalha-da-previdencia.png",
+      "name": "correio-braziliense-153-a-da-previdencia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/batalha da previdencia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-batalha-da-previdencia.png"
     },
     {
-      "name": "cb-snd-bebe-que-nasceu.png",
+      "name": "correio-braziliense-154-lalau-quer-se-entregar-a-policia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/bebe que nasceu.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-bebe-que-nasceu.png"
     },
     {
-      "name": "cb-snd-blablabla.png",
+      "name": "correio-braziliense-155-blablabla.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/blablabla.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-blablabla.png"
     },
     {
-      "name": "cb-snd-bolsa-de-sp.png",
+      "name": "correio-braziliense-156-snd-bolsa-de-sp.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/bolsa de SP.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-bolsa-de-sp.png"
     },
     {
-      "name": "cb-snd-brasilia-roda-mais-devagar.png",
+      "name": "correio-braziliense-157-brasilia-roda-mais-devagar.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/brasilia roda mais devagar.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-brasilia-roda-mais-devagar.png"
     },
     {
-      "name": "cb-snd-brasiliense-corre-demais.png",
+      "name": "correio-braziliense-158-brasiliense-corre-demais-ww.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/brasiliense corre demais.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-brasiliense-corre-demais.png"
     },
     {
       "name": "cb-snd-candelaria.png",
@@ -1529,74 +1731,84 @@
       "page": null
     },
     {
-      "name": "cb-snd-cartas.png",
+      "name": "correio-braziliense-159-snd-cartas.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/cartas.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-cartas.png"
     },
     {
-      "name": "cb-snd-censura.png",
+      "name": "correio-braziliense-160-e-proibido-proibir.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/censura.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-censura.png"
     },
     {
-      "name": "cb-snd-como-o-governo-reage.png",
+      "name": "correio-braziliense-161-as-imagens-da-anarquia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/como o governo reage.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-como-o-governo-reage.png"
     },
     {
-      "name": "cb-snd-copa-gloria.png",
+      "name": "correio-braziliense-162-snd-copa-gloria.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/copa-gloria.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-copa-gloria.png"
     },
     {
-      "name": "cb-snd-copa-ideograma.png",
+      "name": "correio-braziliense-163-a-alemanha-nos-espera.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/copa-ideograma.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-copa-ideograma.png"
     },
     {
-      "name": "cb-snd-copa-muro.png",
+      "name": "correio-braziliense-164-caiu-pela.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/copa-muro.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-copa-muro.png"
     },
     {
-      "name": "cb-snd-copa-vamos-a-luta.png",
+      "name": "correio-braziliense-165-snd-copa-vamos-a-luta.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/copa-vamos a luta.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-copa-vamos-a-luta.png"
     },
     {
-      "name": "cb-snd-copa-viva-o-povo-brasileiro.png",
+      "name": "correio-braziliense-166-snd-copa-viva-o-povo-brasileiro.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/copa-viva o povo brasileiro.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-copa-viva-o-povo-brasileiro.png"
     },
     {
-      "name": "cb-snd-cordel-de-rede.png",
+      "name": "correio-braziliense-167-snd-cordel-de-rede.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/cordel de rede.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-cordel-de-rede.png"
     },
     {
-      "name": "cb-snd-correio-da-galera.png",
+      "name": "correio-braziliense-168-snd-correio-da-galera.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/correio da galera.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-correio-da-galera.png"
     },
     {
       "name": "cb-snd-correio.png",
@@ -1606,46 +1818,52 @@
       "page": null
     },
     {
-      "name": "cb-snd-crime-e-castigo.png",
+      "name": "correio-braziliense-169-crime-e-castigo.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/crime e castigo.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-crime-e-castigo.png"
     },
     {
-      "name": "cb-snd-de-bem-com-o-prazer.png",
+      "name": "correio-braziliense-170-snd-de-bem-com-o-prazer.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/de bem com o prazer.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-de-bem-com-o-prazer.png"
     },
     {
-      "name": "cb-snd-de-branco-pela-paz.png",
+      "name": "correio-braziliense-171-dei-branco-pela-paz.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/de branco pela paz.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-de-branco-pela-paz.png"
     },
     {
-      "name": "cb-snd-de-volta-ao-mercado.png",
+      "name": "correio-braziliense-172-de-volta-ao.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/de volta ao mercado.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-de-volta-ao-mercado.png"
     },
     {
-      "name": "cb-snd-dia-das-criancas.png",
+      "name": "correio-braziliense-173-snd-dia-das-criancas.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/dia das criancas.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-dia-das-criancas.png"
     },
     {
-      "name": "cb-snd-dia-de-colera.png",
+      "name": "correio-braziliense-174-piratas-ja.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/dia de colera.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-dia-de-colera.png"
     },
     {
       "name": "cb-snd-dicionario-houaiss.png",
@@ -1655,60 +1873,68 @@
       "page": null
     },
     {
-      "name": "cb-snd-dinheiro-para-o-social.png",
+      "name": "correio-braziliense-175-dinheiro-para-o-social.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/dinheiro para o social.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-dinheiro-para-o-social.png"
     },
     {
-      "name": "cb-snd-e-tudo.png",
+      "name": "correio-braziliense-176-enganacao.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/e-tudo.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-e-tudo.png"
     },
     {
-      "name": "cb-snd-eles-vivem-no-ceu.png",
+      "name": "correio-braziliense-177-0-azul-de-quem-vive-com-os-es-wa.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/eles vivem no ceu.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-eles-vivem-no-ceu.png"
     },
     {
-      "name": "cb-snd-emprego.png",
+      "name": "correio-braziliense-178-quais-as-suas-chances.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/emprego.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-emprego.png"
     },
     {
-      "name": "cb-snd-enfim-a-gloria.png",
+      "name": "correio-braziliense-179-agloria.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/enfim, a gloria.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-enfim-a-gloria.png"
     },
     {
-      "name": "cb-snd-esfericos-e-geometricos.png",
+      "name": "correio-braziliense-180-snd-esfericos-e-geometricos.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/esfericos e geometricos.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-esfericos-e-geometricos.png"
     },
     {
-      "name": "cb-snd-est01.png",
+      "name": "correio-braziliense-181-de-politico.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/est01.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-est01.png"
     },
     {
-      "name": "cb-snd-est02.png",
+      "name": "correio-braziliense-182-candisvaldo.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/est02.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-est02.png"
     },
     {
       "name": "cb-snd-estrutural.png",
@@ -1718,60 +1944,68 @@
       "page": null
     },
     {
-      "name": "cb-snd-faca-como-eles.png",
+      "name": "correio-braziliense-183-fasa-como-eles.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/faca como eles.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-faca-como-eles.png"
     },
     {
-      "name": "cb-snd-fim01.png",
+      "name": "correio-braziliense-184-dia-des.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/fim01.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-fim01.png"
     },
     {
-      "name": "cb-snd-fogo-destroi.png",
+      "name": "correio-braziliense-185-par-aser-federal.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/fogo destroi.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-fogo-destroi.png"
     },
     {
-      "name": "cb-snd-gabarito.png",
+      "name": "correio-braziliense-186-bem-vindo-a-uxb.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/gabarito.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-gabarito.png"
     },
     {
-      "name": "cb-snd-guerra-suja-na-telefonia.png",
+      "name": "correio-braziliense-187-celular.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/guerra suja na telefonia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-guerra-suja-na-telefonia.png"
     },
     {
-      "name": "cb-snd-guia.png",
+      "name": "correio-braziliense-188-snd-guia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/guia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-guia.png"
     },
     {
-      "name": "cb-snd-hierarquia.png",
+      "name": "correio-braziliense-189-governo-libera.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/hierarquia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-hierarquia.png"
     },
     {
-      "name": "cb-snd-imagens-da-anarquia.png",
+      "name": "correio-braziliense-190-policia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/imagens da anarquia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-imagens-da-anarquia.png"
     },
     {
       "name": "cb-snd-india.png",
@@ -1781,116 +2015,132 @@
       "page": null
     },
     {
-      "name": "cb-snd-inesquecivel.png",
+      "name": "correio-braziliense-191-snd-inesquecivel.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/inesquecivel.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-inesquecivel.png"
     },
     {
-      "name": "cb-snd-lewinsky.png",
+      "name": "correio-braziliense-192-lewinsky-x-clinton.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/lewinsky.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-lewinsky.png"
     },
     {
-      "name": "cb-snd-lula-la.png",
+      "name": "correio-braziliense-193-lula-la.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/lula, lá.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-lula-la.png"
     },
     {
-      "name": "cb-snd-magreza.png",
+      "name": "correio-braziliense-194-snd-magreza.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/magreza.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-magreza.png"
     },
     {
-      "name": "cb-snd-merla.png",
+      "name": "correio-braziliense-195-mt-destruidas.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/merla.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-merla.png"
     },
     {
-      "name": "cb-snd-negocio-estranho.png",
+      "name": "correio-braziliense-196-nesecio.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/negocio estranho.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-negocio-estranho.png"
     },
     {
-      "name": "cb-snd-no-banco-dos-reus.png",
+      "name": "correio-braziliense-197-dos-reus.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/no banco dos reus.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-no-banco-dos-reus.png"
     },
     {
-      "name": "cb-snd-o-ano-mais-longo.png",
+      "name": "correio-braziliense-198-oano-mais-longo.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/o ano mais longo.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-o-ano-mais-longo.png"
     },
     {
-      "name": "cb-snd-o-caminho-da-volta.png",
+      "name": "correio-braziliense-199-snd-o-caminho-da-volta.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/o caminho da volta.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-o-caminho-da-volta.png"
     },
     {
-      "name": "cb-snd-o-correio-errou.png",
+      "name": "correio-braziliense-200-snd-o-correio-errou.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/o correio errou.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-o-correio-errou.png"
     },
     {
-      "name": "cb-snd-o-jogo-de-itamar.png",
+      "name": "correio-braziliense-201-de-ttamar.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/o jogo de itamar.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-o-jogo-de-itamar.png"
     },
     {
-      "name": "cb-snd-o-mundo-aos-seus-pes.png",
+      "name": "correio-braziliense-202-au-gares.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/o mundo aos seus pes.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-o-mundo-aos-seus-pes.png"
     },
     {
-      "name": "cb-snd-o-tamanho-da-duvida.png",
+      "name": "correio-braziliense-203-0-tamanho.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/o tamanho da duvida.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-o-tamanho-da-duvida.png"
     },
     {
-      "name": "cb-snd-onde-mora-a-inteligencia.png",
+      "name": "correio-braziliense-204-inteligencia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/onde mora a inteligencia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-onde-mora-a-inteligencia.png"
     },
     {
-      "name": "cb-snd-orfaos.png",
+      "name": "correio-braziliense-205-snd-orfaos.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/orfaos.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-orfaos.png"
     },
     {
-      "name": "cb-snd-os-alvos.png",
+      "name": "correio-braziliense-206-tragedia-americana-9.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/os alvos.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-os-alvos.png"
     },
     {
       "name": "cb-snd-os-selvagens-venceram.png",
@@ -1907,25 +2157,28 @@
       "page": null
     },
     {
-      "name": "cb-snd-paz.png",
+      "name": "correio-braziliense-207-db-aida-de.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/paz.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-paz.png"
     },
     {
-      "name": "cb-snd-pensar01.png",
+      "name": "correio-braziliense-208-balanca-e.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/pensar01.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-pensar01.png"
     },
     {
-      "name": "cb-snd-piaui.png",
+      "name": "correio-braziliense-209-lugares.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/piaui.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-piaui.png"
     },
     {
       "name": "cb-snd-proteja-a-sua-casa.png",
@@ -1935,95 +2188,108 @@
       "page": null
     },
     {
-      "name": "cb-snd-raio-de-ala.png",
+      "name": "correio-braziliense-210-4-5-mil-km.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/raio de ala.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-raio-de-ala.png"
     },
     {
-      "name": "cb-snd-reage-brasilia.png",
+      "name": "correio-braziliense-211-atropeladas-na.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/reage brasilia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-reage-brasilia.png"
     },
     {
-      "name": "cb-snd-refugiados.png",
+      "name": "correio-braziliense-212-0s-refugiados-do-brasil.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/refugiados.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-refugiados.png"
     },
     {
-      "name": "cb-snd-ronco.png",
+      "name": "correio-braziliense-213-orme-0-do.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/ronco.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-ronco.png"
     },
     {
-      "name": "cb-snd-sem-direito-a-voz.png",
+      "name": "correio-braziliense-214-snd-sem-direito-a-voz.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/sem direito a voz.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-sem-direito-a-voz.png"
     },
     {
-      "name": "cb-snd-sobreviventes.png",
+      "name": "correio-braziliense-215-0s-sobreviventes.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/sobreviventes.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-sobreviventes.png"
     },
     {
-      "name": "cb-snd-sofrimento-e-gloria.png",
+      "name": "correio-braziliense-216-snd-sofrimento-e-gloria.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/sofrimento e gloria.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-sofrimento-e-gloria.png"
     },
     {
-      "name": "cb-snd-somalia.png",
+      "name": "correio-braziliense-217-somalia.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/somalia.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-somalia.png"
     },
     {
-      "name": "cb-snd-supermalan.png",
+      "name": "correio-braziliense-218-tiros-e-sangue-no-laco-sul.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/supermalan.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-supermalan.png"
     },
     {
-      "name": "cb-snd-tumtum.png",
+      "name": "correio-braziliense-219-tumtumtum.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/tumtum.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-tumtum.png"
     },
     {
-      "name": "cb-snd-tv.png",
+      "name": "correio-braziliense-220-snd-tv.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/tv.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-tv.png"
     },
     {
-      "name": "cb-snd-venezuela.png",
+      "name": "correio-braziliense-221-nezuela.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/venezuela.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-venezuela.png"
     },
     {
-      "name": "cb-snd-x-vida.png",
+      "name": "correio-braziliense-222-snd-x-vida.png",
       "width": 1280,
       "height": 854,
       "source": "CB SND/PSDs/x-Vida.psd",
-      "page": null
+      "page": null,
+      "previousName": "cb-snd-x-vida.png"
     },
     {
       "name": "cb-snd-yokohama.png",

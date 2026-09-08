@@ -155,16 +155,15 @@
 				wordCounterByLine.set(lineIdx, pos + 1);
 				w.style.transitionDelay = `${lineIdx * 360 + pos * 90}ms`;
 			}
-			const revealOnce = () => {
-				if (el.dataset.introAnimated === '1') return;
-				el.dataset.introAnimated = '1';
-				el.classList.add('reveal');
-			};
+			const reveal = () => el.classList.add('reveal');
 			const r = el.getBoundingClientRect();
-			if (r.top < window.innerHeight * 0.65 && r.bottom > window.innerHeight * 0.15) requestAnimationFrame(() => requestAnimationFrame(revealOnce));
+			if (r.top < window.innerHeight * 0.65 && r.bottom > window.innerHeight * 0.15) requestAnimationFrame(() => requestAnimationFrame(reveal));
 			if (!el._introObserver && 'IntersectionObserver' in window) {
 				const io = new IntersectionObserver((entries) => {
-					for (const e of entries) if (e.isIntersecting && e.intersectionRatio > 0.35) revealOnce();
+					for (const e of entries) {
+						if (!e.isIntersecting) el.classList.remove('reveal');
+						else if (e.intersectionRatio > 0.35) reveal();
+					}
 				}, { threshold: [0, 0.2, 0.35, 0.6, 0.8] });
 				io.observe(el);
 				el._introObserver = io;
