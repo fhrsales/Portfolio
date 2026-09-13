@@ -1,0 +1,4 @@
+// Tablóide         736x894
+// Tablóide Duplo   1718x894
+// Standard         898x1579
+// Standard Duplo   1794x1579
