@@ -7,20 +7,14 @@
 	import LanguageSwitch from './LanguageSwitch.svelte';
 	const signatureSrc = resolve('/imgs/fabio_sales.svg');
 	let isDark = false;
-	let pages = [];
-	let menuLabels = {};
 	let current = '';
 
-	onMount(() => {
-		const unsubscribe = archiePages.subscribe((val) => {
-			const filtered = Object.entries(val).filter(([, v]) =>
-				typeof v === 'object' ? v.showInMenu !== false : true
-			);
-			pages = filtered.map(([k]) => k);
-			menuLabels = Object.fromEntries(filtered.map(([k, v]) => [k, v.menuLabel || k]));
-		});
-		return unsubscribe;
-	});
+	// Derived straight from the store, so the links are already in the server-rendered page.
+	$: menuEntries = Object.entries($archiePages).filter(([, v]) =>
+		typeof v === 'object' ? v.showInMenu !== false : true
+	);
+	$: pages = menuEntries.map(([k]) => k);
+	$: menuLabels = Object.fromEntries(menuEntries.map(([k, v]) => [k, v.menuLabel || k]));
 	// From the route, not the URL: the published site lives under a base path.
 	$: current = $page.params.slug ?? ($page.route.id || '').slice(1);
 	$: isHome = $page.route.id === '/';
@@ -57,13 +51,12 @@
 			<a
 				style={`--i:${i}`}
 				href={p === 'index' ? resolve('/') : resolve(`/${p}`)}
-				aria-current={current === p || (p === 'index' && isHome)
-					? 'page'
-					: undefined}>{translateLabel(menuLabels[p], $language)}</a
+				aria-current={current === p || (p === 'index' && isHome) ? 'page' : undefined}
+				>{translateLabel(menuLabels[p], $language)}</a
 			>
 		{/each}
 		{#if import.meta.env.DEV}
-			<a style={`--i:${pages.length}`} href={resolve('/admin')}>Admin</a>
+			<a style={`--i:${pages.length}`} href={resolve('/admin')}>Editor</a>
 		{/if}
 	</nav>
 	<div class="prefs" style={`--i:${pages.length + 1}`}>

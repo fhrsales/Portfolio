@@ -1,4 +1,5 @@
 <script>
+	import imageMeta from '$lib/imageMeta.json';
 	/* eslint-disable svelte/no-reactive-literals, svelte/no-immutable-reactive-statements, svelte/no-reactive-reassign, svelte/infinite-reactive-loop */
 	import { onMount, onDestroy } from 'svelte';
 
@@ -118,8 +119,15 @@
 		});
 	}
 
+	// A very wide strip (a timeline, a row of screens) is unreadable squeezed into a phone's width.
+	// There it keeps a readable height and scrolls sideways instead, unless a phone-shaped
+	// version of the file exists.
+	const metaKey = (u) => String(u || '').split('/imgs/')[1] || '';
+	$: mobileMeta = imageMeta[metaKey(nome_mobile || withMobileSuffix(src))];
+	$: panorama = numericRatio >= 2.5 && (!mobileMeta || mobileMeta.ratio >= 2.5);
+
 	// Derive mobile candidate: explicit prop or inferred from src using -m suffix
-	$: mobileCandidate = nome_mobile || (src ? withMobileSuffix(src) : '');
+	$: mobileCandidate = panorama ? '' : nome_mobile || (src ? withMobileSuffix(src) : '');
 
 	// Build srcset for avif/webp using mobileCandidate when available
 	$: computedSizes = sizes || (mobileCandidate ? defaultSizesForSize(size) : undefined);
@@ -217,13 +225,19 @@
 		}
 	}
 	$: appliedClasses = showVisuals ? [shadowClass, effectiveClasses].filter(Boolean).join(' ') : '';
+	// Classes that change the layout apply at once; the visual ones above wait for the fade,
+	// otherwise the figure is laid out one way and then jumps to another.
+	$: layoutClasses = effectiveClasses
+		.split(/\s+/)
+		.filter((name) => name === 'legenda-lado')
+		.join(' ');
 	// removed fade transition imports to disable fade-in effect
 
 	function getResponsiveSrcSync() {
 		if (typeof window !== 'undefined') {
 			const mobile = window.matchMedia('(max-width: 600px)').matches;
 			isMobile = mobile;
-			if (mobile) {
+			if (mobile && !panorama) {
 				if (nome_mobile) return nome_mobile;
 				if (src) {
 					const dotIndex = src.lastIndexOf('.');
@@ -402,8 +416,9 @@
 
 <figure
 	bind:this={wrapperEl}
-	class={`image-block image-block-wrapper ${sizeClass} ${appliedClasses}`}
+	class={`image-block image-block-wrapper ${sizeClass} ${layoutClasses} ${appliedClasses}`}
 	class:show
+	class:panorama
 >
 	<div
 		class="image-inner"
@@ -581,6 +596,24 @@
 	}
 
 	@media (max-width: 600px) {
+		.image-block.panorama .image-inner {
+			overflow-x: auto;
+			scrollbar-width: none;
+			/* a first look at the strip, cut at the right edge so it reads as something to swipe */
+			padding-left: calc(var(--grid) * 2);
+		}
+		.image-block.panorama .image-inner::-webkit-scrollbar {
+			display: none;
+		}
+		.image-block.panorama img {
+			height: min(60vh, 320px);
+			width: auto !important;
+			max-width: none !important;
+			margin: 0;
+		}
+		.image-block.panorama figcaption {
+			padding: 0 calc(var(--grid) * 2);
+		}
 		.image-block-wrapper.img-pp,
 		.image-block-wrapper.img-p,
 		.image-block-wrapper.img-m,

@@ -2,8 +2,8 @@
  import { language } from '$lib/i18n';
 </script>
         <div class="language-switch" role="group" aria-label="Idioma / Language">
-            <button type="button" lang="pt-BR" aria-label="Português" aria-pressed={$language === 'pt'} on:click={() => language.set('pt')}>PT</button>
-            <button type="button" lang="en" aria-label="English" aria-pressed={$language === 'en'} on:click={() => language.set('en')}>EN</button>
+            <button type="button" lang="pt-BR" aria-label="PT, Português" aria-pressed={$language === 'pt'} on:click={() => language.set('pt')}>PT</button>
+            <button type="button" lang="en" aria-label="EN, English" aria-pressed={$language === 'en'} on:click={() => language.set('en')}>EN</button>
         </div>
 <style>
     .language-switch { display: flex; gap: 4px; margin-left: 4px; flex-shrink: 0; }

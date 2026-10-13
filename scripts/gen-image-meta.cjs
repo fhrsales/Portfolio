@@ -35,27 +35,34 @@ async function main() {
 	const imgsDir = path.resolve('static', 'imgs');
 	const outFile = path.resolve('src', 'lib', 'imageMeta.json');
 	const map = {};
-	const files = new Set();
-	let entries = [];
-	try {
-		entries = await fsp.readdir(imgsDir, { withFileTypes: true });
-	} catch (e) {
-		console.error('gen-image-meta: cannot read', imgsDir, e && e.message);
-		process.exit(0);
+	const exts = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
+	// Top-level files keep their bare name as the key; files in subfolders are keyed "folder/name".
+	async function listImages(dir, prefix) {
+		let entries = [];
+		try {
+			entries = await fsp.readdir(dir, { withFileTypes: true });
+		} catch (e) {
+			if (!prefix) {
+				console.error('gen-image-meta: cannot read', dir, e && e.message);
+				process.exit(0);
+			}
+			return [];
+		}
+		const found = [];
+		for (const ent of entries) {
+			// the samples have their own manifest, with sizes, in static/imgs/samples
+			if (ent.isDirectory() && !(prefix === '' && ent.name === 'samples')) {
+				found.push(...(await listImages(path.join(dir, ent.name), `${prefix}${ent.name}/`)));
+			} else if (ent.isFile() && exts.includes(path.extname(ent.name).toLowerCase())) {
+				found.push({ key: `${prefix}${ent.name}`, file: path.join(dir, ent.name) });
+			}
+		}
+		return found;
 	}
-	for (const ent of entries) {
-		if (!ent.isFile()) continue;
-		const file = path.join(imgsDir, ent.name);
-		const ext = path.extname(file).toLowerCase();
-		if (!['.jpg', '.jpeg', '.png', '.webp', '.avif'].includes(ext)) continue;
-		files.add(ent.name);
-	}
-	for (const ent of entries) {
-		if (!ent.isFile()) continue;
-		const file = path.join(imgsDir, ent.name);
-		const ext = path.extname(file).toLowerCase();
-		if (!['.jpg', '.jpeg', '.png', '.webp', '.avif'].includes(ext)) continue;
-		const base = path.basename(ent.name, ext);
+	const images = await listImages(imgsDir, '');
+	const files = new Set(images.map((image) => image.key));
+	for (const { key, file } of images) {
+		const base = key.slice(0, -path.extname(key).length);
 		const hasAvif = files.has(`${base}.avif`);
 		const hasWebp = files.has(`${base}.webp`);
 		try {
@@ -71,7 +78,7 @@ async function main() {
 				h = meta.height || 0;
 			}
 			const ratio = w && h ? Number((w / h).toFixed(6)) : 0;
-			map[ent.name] = { width: w, height: h, ratio, avif: hasAvif, webp: hasWebp };
+			map[key] = { width: w, height: h, ratio, avif: hasAvif, webp: hasWebp };
 		} catch {
 			// ignore individual failures
 		}

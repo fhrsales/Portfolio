@@ -1,4 +1,5 @@
 <script>
+	import { reveal } from '$lib/reveal';
 	// Two lines of work that meet in one result: each lane is a column of steps, and both
 	// feed the steps listed in `end`. left / right / end: [{ name, text }]
 	export let title = '';
@@ -10,7 +11,7 @@
 	export let note = '';
 </script>
 
-<figure class="pipeline">
+<figure class="pipeline" use:reveal>
 	{#if title}<h3>{title}</h3>{/if}
 	<div class="lanes">
 		{#each [[leftLabel, left], [rightLabel, right]] as [label, steps], lane (lane)}
@@ -182,6 +183,32 @@
 				animation-range: entry 20% entry 100%;
 			}
 		}
+	}
+	/* without a scroll timeline: the steps arrive once, in order, on arrival (see $lib/reveal.js) */
+	:global(html.reveal-fallback) .lane li,
+	:global(html.reveal-fallback) .end li,
+	:global(html.reveal-fallback) .join {
+		opacity: 0;
+		transition:
+			opacity 500ms ease,
+			transform 500ms ease;
+		transition-delay: calc(var(--i, 0) * 140ms);
+	}
+	:global(html.reveal-fallback) .lane li,
+	:global(html.reveal-fallback) .end li {
+		transform: translateY(-14px);
+	}
+	:global(html.reveal-fallback) .join {
+		transition-delay: 450ms;
+	}
+	:global(html.reveal-fallback) .end li {
+		transition-delay: 700ms;
+	}
+	:global(html.reveal-fallback) .pipeline:global(.revealed) .lane li,
+	:global(html.reveal-fallback) .pipeline:global(.revealed) .end li,
+	:global(html.reveal-fallback) .pipeline:global(.revealed) .join {
+		opacity: 1;
+		transform: none;
 	}
 	@keyframes step-in {
 		from {

@@ -7,6 +7,8 @@
 	export let value = '';
 	// exposed so the page can focus it and move the selection
 	export let textarea = undefined;
+	// { start, end }: the lines of the block open in the inspector, shown as a band
+	export let active = null;
 
 	const dispatch = createEventDispatcher();
 	let mirror;
@@ -21,7 +23,7 @@
 </script>
 
 <div class="code-editor">
-	<pre class="mirror" aria-hidden="true" bind:this={mirror}>{@html highlight(value)}</pre>
+	<pre class="mirror" aria-hidden="true" bind:this={mirror}>{@html highlight(value, active)}</pre>
 	<textarea
 		bind:this={textarea}
 		bind:value
@@ -95,6 +97,12 @@
 		color: var(--color-primary);
 		background: color-mix(in srgb, var(--color-primary) 10%, transparent);
 		border-radius: 3px;
+	}
+	.mirror :global(.ln-active) {
+		margin: 0 calc(var(--grid) * -2);
+		padding: 0 calc(var(--grid) * 2);
+		background: color-mix(in srgb, var(--color-primary) 7%, transparent);
+		box-shadow: inset 3px 0 0 var(--color-primary);
 	}
 	.mirror :global(.tk-key) {
 		color: color-mix(in srgb, var(--color-dark) 58%, transparent);

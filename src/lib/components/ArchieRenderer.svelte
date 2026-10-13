@@ -13,6 +13,8 @@
 	import PdfViewer from '$lib/components/image/PdfViewer.svelte';
 	import Ai2Html from '$lib/components/image/Ai2Html.svelte';
 	import ImageBlock from '$lib/components/image/ImageBlock.svelte';
+	import BeforeAfter from '$lib/components/BeforeAfter.svelte';
+	import GuidedTour from '$lib/components/GuidedTour.svelte';
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
 	import ImageText from '$lib/components/ImageText.svelte';
@@ -566,13 +568,17 @@
 							{@const conf = bloco.faixa}
 							<WorkStrip
 								duration={Number(conf.tempo) || 80}
-								items={conf.itens.map((item) => ({
-									src: withBase(
-										`/imgs/${conf.pasta ? `${conf.pasta.trim()}/` : ''}${item.nome}`,
-										base
-									),
-									alt: item.texto
-								}))}
+								items={conf.itens.map((item) => {
+									const file = `${conf.pasta ? `${conf.pasta.trim()}/` : ''}${item.nome}`;
+									// known sizes let the strip reserve each image's width before it loads
+									const meta = imageMeta[file];
+									return {
+										src: withBase(`/imgs/${file}`, base),
+										alt: item.texto,
+										width: meta?.width,
+										height: meta?.height
+									};
+								})}
 							/>
 						{:else if typeof bloco === 'object' && bloco.numeros}
 							<Figures items={bloco.numeros.itens} note={bloco.numeros.nota} />
@@ -618,6 +624,7 @@
 									period: item.periodo,
 									text: item.texto,
 									src: item.imagem ? withBase(`/imgs/${item.imagem}`, base) : '',
+									ratio: imageMeta[item.imagem]?.ratio,
 									caption: item.legenda,
 									paper: item.papel,
 									mark: item.marca
@@ -640,6 +647,30 @@
 								alt={conf.alt || ''}
 								caption={conf.legenda || ''}
 								height={(conf.altura || '').trim()}
+							/>
+						{:else if typeof bloco === 'object' && bloco.antesdepois}
+							{@const conf = bloco.antesdepois}
+							<BeforeAfter
+								before={withBase(`/imgs/${(conf.antes || '').trim()}`, base)}
+								after={withBase(`/imgs/${(conf.depois || '').trim()}`, base)}
+								labelBefore={conf.rotulo_antes || ''}
+								labelAfter={conf.rotulo_depois || ''}
+								alt={conf.alt || ''}
+								caption={conf.legenda || ''}
+								ratio={imageMeta[(conf.depois || '').trim()]?.ratio || 0}
+								size={(conf.tamanho || 'G').trim().toUpperCase()}
+							/>
+						{:else if typeof bloco === 'object' && bloco.visita}
+							{@const conf = bloco.visita}
+							<GuidedTour
+								src={withBase(`/imgs/${(conf.nome || '').trim()}`, base)}
+								alt={conf.alt || ''}
+								caption={conf.legenda || ''}
+								ratio={imageMeta[(conf.nome || '').trim()]?.ratio || 0}
+								steps={conf.itens.map((item) => {
+									const [x, y, zoom] = item.nome.split(/\s+/).map(Number);
+									return { x, y, zoom, text: item.texto };
+								})}
 							/>
 						{:else if typeof bloco === 'object' && bloco.lista}
 							{@const conf = bloco.lista}
@@ -877,6 +908,13 @@
 	.paladar-pages :global(p),
 	.paladar-pages :global(.inline-tags) {
 		grid-column: 1 / -1;
+	}
+	/* four pages across a phone are thumbnails nobody can read: two across there */
+	@media (max-width: 600px) {
+		.content-block.paladar-pages {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: calc(var(--grid) * 2);
+		}
 	}
 	/* `fundo:` on a group: the page takes that colour while the middle of the group is on screen */
 	.content-block.has-page-bg {

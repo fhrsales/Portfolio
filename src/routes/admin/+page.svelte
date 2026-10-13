@@ -12,7 +12,7 @@
 	import BlockInspector from '$lib/components/editor/BlockInspector.svelte';
 	import PagePreview from '$lib/components/editor/PagePreview.svelte';
 	import {
-		INSERTABLE,
+		INSERT_GROUPS,
 		lint,
 		blockAt,
 		setField,
@@ -49,15 +49,15 @@
 		}
 	}
 	$: colsWide = [
-		panels.side && '232px',
+		panels.side && '208px',
 		'minmax(0, 1fr)',
-		panels.block && '288px',
-		panels.preview && 'minmax(320px, 400px)'
+		panels.block && '248px',
+		panels.preview && 'minmax(320px, 380px)'
 	]
 		.filter(Boolean)
 		.join(' ');
 	$: colsMid = [
-		panels.side && '212px',
+		panels.side && '200px',
 		'minmax(0, 1fr)',
 		(panels.block || panels.preview) && 'minmax(300px, 360px)'
 	]
@@ -71,6 +71,34 @@
 		_initialized = true;
 		if (!page) page = 'index';
 		loadContent();
+	}
+
+	// The page list in three groups: what the site's menu shows, what other pages link to,
+	// and what nothing points at yet.
+	function groupPages(pages) {
+		const names = Object.keys(pages);
+		const text = names
+			.map((name) => (typeof pages[name] === 'object' ? pages[name]?.content : pages[name]) || '')
+			.join('\n');
+		const inMenu = (name) => typeof pages[name] !== 'object' || pages[name]?.showInMenu !== false;
+		const linked = (name) => new RegExp(`href=['"]/${name}['"/#?]`).test(text);
+		return [
+			['No menu', names.filter(inMenu)],
+			['Casos', names.filter((name) => !inMenu(name) && linked(name))],
+			['Rascunhos', names.filter((name) => !inMenu(name) && !linked(name))]
+		].filter(([, list]) => list.length);
+	}
+	$: pageGroups = groupPages($archiePages);
+
+	let insertOpen = false;
+	let insertMenu;
+	function onWindowClick(e) {
+		if (insertOpen && insertMenu && !insertMenu.contains(e.target)) insertOpen = false;
+	}
+	function onWindowKeydown(e) {
+		if (e.key !== 'Escape') return;
+		insertOpen = false;
+		publishReview = null;
 	}
 
 	$: issues = lint(content);
@@ -186,6 +214,7 @@
 		const start = before ? before.length + 2 : 0;
 		content = (before ? before + '\n\n' : '') + snippet + (after ? '\n\n' + after : '\n');
 		tab = 'write';
+		insertOpen = false;
 		cursorLine = content.slice(0, start).split('\n').length;
 		requestAnimationFrame(() => {
 			const caret = start + snippet.split('\n')[0].length;
@@ -326,6 +355,8 @@
 		if (!response.ok) throw new Error(result.error);
 		return result.data;
 	}
+	// What a publish would send, shown for review before anything leaves this machine.
+	let publishReview = null;
 	async function publishSite() {
 		if (publishing) return;
 		if (dirty && !(await saveContent())) return;
@@ -336,13 +367,19 @@
 				error = 'Nada novo para publicar.';
 				return;
 			}
-			const list = pending.files.slice(0, 12).join('\n');
-			const more = pending.files.length > 12 ? `\n… e mais ${pending.files.length - 12}` : '';
-			const message = window.prompt(
-				`Publicar ${pending.files.length} arquivo(s) no GitHub?\n\n${list}${more}\n\nDescreva a mudança:`,
-				`editor: update ${page}`
-			);
-			if (message === null) return;
+			publishReview = { files: pending.files, message: `editor: update ${page}` };
+		} catch (e) {
+			error = 'Não foi possível publicar: ' + e.message;
+		} finally {
+			publishing = false;
+		}
+	}
+	async function confirmPublish() {
+		if (publishing || !publishReview) return;
+		const message = publishReview.message.trim() || `editor: update ${page}`;
+		publishReview = null;
+		publishing = true;
+		try {
 			error = 'Publicando…';
 			const done = await gitPublish({ message });
 			error = `Enviado ao GitHub (${done.commit}). Acompanhando a publicação…`;
@@ -440,6 +477,8 @@
 	}
 </script>
 
+<svelte:window on:click={onWindowClick} on:keydown={onWindowKeydown} />
+
 <div class="editor" class:loaded={_fadeIn}>
 	<header class="bar">
 		<a class="name" href={resolve('/')} aria-label="Fabio Sales — voltar ao site">
@@ -461,18 +500,19 @@
 			<span class="dot" class:dirty></span>
 			{error || (dirty ? 'Alterações não salvas' : 'Tudo salvo')}
 		</span>
-		<a
-			class="ghost"
-			href={resolve(page === 'index' ? '/' : `/${page}`)}
-			target="_blank"
-			rel="noopener">Ver página</a
-		>
 		<Button
 			variant="primary"
 			handleClick={saveContent}
 			value={remote ? 'Publicar' : 'Salvar'}
 			newValue={remote ? 'Publicado!' : 'Salvo!'}
 		/>
+		<span class="bar-sep" aria-hidden="true"></span>
+		<a
+			class="ghost"
+			href={resolve(page === 'index' ? '/' : `/${page}`)}
+			target="_blank"
+			rel="noopener">Ver página</a
+		>
 		{#if !remote}
 			<button
 				class="ghost"
@@ -480,7 +520,7 @@
 				on:click={publishSite}
 				disabled={publishing || ['waiting', 'building', 'deploying'].includes(deploy)}
 			>
-				{publishing ? 'Publicando…' : deployLabels[deploy] || 'Publicar no GitHub'}
+				{publishing ? 'Publicando…' : deployLabels[deploy] || 'Publicar no GitHub…'}
 			</button>
 		{/if}
 	</header>
@@ -501,21 +541,23 @@
 	>
 		<aside class="side">
 			<h2>Páginas</h2>
-			<ul class="pages">
-				{#each Object.keys($archiePages) as p (p)}
-					<li>
-						<button
-							type="button"
-							class="page"
-							aria-current={p === page ? 'page' : undefined}
-							on:click={() => selectPage(p)}
-						>
-							<span>{p}</span>
-							{#if $archiePages[p]?.showInMenu !== false}<small>no menu</small>{/if}
-						</button>
-					</li>
-				{/each}
-			</ul>
+			{#each pageGroups as [groupLabel, names] (groupLabel)}
+				<h3>{groupLabel}</h3>
+				<ul class="pages">
+					{#each names as p (p)}
+						<li>
+							<button
+								type="button"
+								class="page"
+								aria-current={p === page ? 'page' : undefined}
+								on:click={() => selectPage(p)}
+							>
+								<span>{p}</span>
+							</button>
+						</li>
+					{/each}
+				</ul>
+			{/each}
 			{#if creating}
 				<form class="new-page" on:submit|preventDefault={createPage}>
 					<label for="new-page">Nome da nova página</label>
@@ -627,17 +669,37 @@
 					</svg>
 				</IconButton>
 				<span class="sep" aria-hidden="true"></span>
-				<span class="tools-label">Inserir</span>
-				{#each INSERTABLE as item (item.label)}
-					<button type="button" class="chip" on:click={() => insertSnippet(item.snippet)}
-						>{item.label}</button
+				<div class="insert" bind:this={insertMenu}>
+					<button
+						type="button"
+						class="insert-toggle"
+						aria-haspopup="true"
+						aria-expanded={insertOpen}
+						on:click={() => (insertOpen = !insertOpen)}
 					>
-				{/each}
+						Inserir bloco <span aria-hidden="true">▾</span>
+					</button>
+					{#if insertOpen}
+						<div class="insert-menu">
+							{#each INSERT_GROUPS as group (group.label)}
+								<section>
+									<h3>{group.label}</h3>
+									{#each group.items as item (item.label)}
+										<button type="button" on:click={() => insertSnippet(item.snippet)}
+											>{item.label}</button
+										>
+									{/each}
+								</section>
+							{/each}
+						</div>
+					{/if}
+				</div>
 			</div>
 
 			<CodeEditor
 				bind:value={content}
 				bind:textarea
+				active={block}
 				on:cursor={(e) => (cursorLine = e.detail.line)}
 				on:keydown={onEditorKeydown}
 			/>
@@ -670,6 +732,41 @@
 		</aside>
 	</div>
 </div>
+
+{#if publishReview}
+	<div class="review-backdrop">
+		<form
+			class="review"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="review-title"
+			on:submit|preventDefault={confirmPublish}
+		>
+			<h2 id="review-title">
+				Publicar {publishReview.files.length}
+				{publishReview.files.length === 1 ? 'arquivo' : 'arquivos'} no GitHub
+			</h2>
+			<p>
+				A publicação envia todas as mudanças do projeto, não só as da página aberta. Confira a
+				lista antes de confirmar.
+			</p>
+			<ul class="review-files">
+				{#each publishReview.files as file (file)}
+					<li>{file}</li>
+				{/each}
+			</ul>
+			<label for="review-message">Descrição da mudança</label>
+			<input id="review-message" type="text" bind:value={publishReview.message} />
+			<div class="review-actions">
+				<button type="button" class="ghost" on:click={() => (publishReview = null)}>Cancelar</button>
+				<button type="submit" class="confirm">
+					Publicar {publishReview.files.length}
+					{publishReview.files.length === 1 ? 'arquivo' : 'arquivos'}
+				</button>
+			</div>
+		</form>
+	</div>
+{/if}
 
 <ConfirmModal
 	open={showDeleteModal}
@@ -757,10 +854,8 @@
 		padding: 0 14px;
 		border: 1px solid color-mix(in srgb, var(--color-dark) 30%, transparent);
 		border-radius: 999px;
-		font-size: 12px;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: 500;
 		color: var(--color-dark);
 		text-decoration: none;
 		white-space: nowrap;
@@ -774,8 +869,16 @@
 	}
 	.bar :global(.btn) {
 		min-height: 36px;
-		font-size: 12px;
-		letter-spacing: 0.06em;
+		padding: 0 18px;
+		font-size: 14px;
+		text-transform: none;
+	}
+	/* saving is the everyday action; viewing and publishing sit apart from it */
+	.bar-sep {
+		width: 1px;
+		height: 28px;
+		margin: 0 calc(var(--grid) * 1);
+		background: var(--color-rule);
 	}
 
 	/* columns */
@@ -860,6 +963,16 @@
 	.side h2:first-child {
 		margin-top: 0;
 	}
+	.side h3,
+	.insert-menu h3 {
+		font-size: 12px;
+		font-weight: 500;
+		color: color-mix(in srgb, var(--color-dark) 60%, transparent);
+	}
+	.side h3 {
+		margin-top: calc(var(--grid) * 0.75);
+		padding: 0 10px;
+	}
 
 	/* pages */
 	.pages {
@@ -870,7 +983,7 @@
 	}
 	.page {
 		width: 100%;
-		min-height: 44px;
+		min-height: 36px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -880,7 +993,7 @@
 		border-radius: 10px;
 		background: transparent;
 		font-family: inherit;
-		font-size: 16px;
+		font-size: 15px;
 		color: var(--color-dark);
 		text-align: left;
 		cursor: pointer;
@@ -1007,27 +1120,129 @@
 		margin: 0 6px;
 		background: var(--color-rule);
 	}
-	.tools-label {
-		font-size: 12px;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: color-mix(in srgb, var(--color-dark) 65%, transparent);
+	.insert {
+		position: relative;
 	}
-	.chip {
-		min-height: 36px;
-		padding: 0 12px;
-		border: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
-		border-radius: 999px;
+	.insert-toggle {
+		min-height: 40px;
+		padding: 0 14px;
+		border: 1px solid color-mix(in srgb, var(--color-dark) 30%, transparent);
+		border-radius: 10px;
 		background: var(--color-tertiary);
 		font-family: inherit;
-		font-size: 13px;
-		font-weight: 600;
-		color: var(--color-primary);
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--color-dark);
 		cursor: pointer;
 	}
-	.chip:hover {
-		background: color-mix(in srgb, var(--color-primary) 10%, var(--color-tertiary));
+	.insert-toggle[aria-expanded='true'] {
+		border-color: var(--color-primary);
+	}
+	.insert-menu {
+		position: absolute;
+		z-index: 20;
+		top: calc(100% + 6px);
+		left: 0;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(170px, 1fr));
+		gap: calc(var(--grid) * 1.5) calc(var(--grid) * 2);
+		padding: calc(var(--grid) * 1.75);
+		background: var(--color-tertiary);
+		border: 1px solid var(--color-rule);
+		border-radius: 12px;
+		box-shadow: var(--shadow-surface);
+	}
+	.insert-menu section {
+		display: flex;
+		flex-direction: column;
+	}
+	.insert-menu h3 {
+		padding: 0 8px 4px;
+	}
+	.insert-menu button {
+		min-height: 34px;
+		padding: 0 8px;
+		border: 0;
+		border-radius: 8px;
+		background: none;
+		font-family: inherit;
+		font-size: 15px;
+		color: var(--color-dark);
+		text-align: left;
+		cursor: pointer;
+	}
+	.insert-menu button:hover {
+		background: color-mix(in srgb, var(--color-dark) 7%, transparent);
+	}
+
+	/* publish review */
+	.review-backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 1000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: calc(var(--grid) * 2);
+		background: rgba(0, 0, 0, 0.45);
+	}
+	.review {
+		width: min(100%, 560px);
+		max-height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--grid) * 1.25);
+		padding: calc(var(--grid) * 3);
+		font-family: var(--font-primary);
+		color: var(--color-dark);
+		background: var(--color-tertiary);
+		border-radius: 14px;
+		box-shadow: var(--shadow-surface);
+	}
+	.review h2 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: 24px;
+		font-weight: 500;
+		letter-spacing: -0.015em;
+		text-transform: none;
+		color: var(--color-dark);
+	}
+	.review p {
+		font-size: 15px;
+		line-height: 1.45;
+		color: color-mix(in srgb, var(--color-dark) 75%, transparent);
+	}
+	.review-files {
+		min-height: 60px;
+		max-height: 40vh;
+		overflow-y: auto;
+		list-style: none;
+		padding: 8px 12px;
+		border: 1px solid var(--color-rule);
+		border-radius: 10px;
+		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-size: 13px;
+		line-height: 1.7;
+		overflow-wrap: anywhere;
+	}
+	.review-actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+		margin-top: calc(var(--grid) * 0.5);
+	}
+	.confirm {
+		min-height: 36px;
+		padding: 0 18px;
+		border: 0;
+		border-radius: 999px;
+		background: var(--color-primary);
+		font-family: inherit;
+		font-size: 14px;
+		font-weight: 600;
+		color: var(--color-on-primary);
+		cursor: pointer;
 	}
 	.issues {
 		flex-shrink: 0;
@@ -1096,7 +1311,8 @@
 			padding: 8px calc(var(--grid) * 1.5);
 		}
 		.tag,
-		.ghost,
+		.bar .ghost,
+		.bar-sep,
 		.panel-toggles {
 			display: none;
 		}

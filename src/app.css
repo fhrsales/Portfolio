@@ -409,7 +409,8 @@ html {
 }
 /* `classes: legenda-lado`: a small image with its caption beside it instead of under it,
    so the pair takes the height of the image only. */
-.image-block-wrapper.legenda-lado {
+/* the extra class names outrank the size classes, which would otherwise cap the pair at the image's width */
+figure.image-block.image-block-wrapper.legenda-lado {
 	max-width: var(--w-text);
 	width: calc(100% - (var(--grid) * 4));
 }

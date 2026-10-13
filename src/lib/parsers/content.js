@@ -316,7 +316,9 @@ export function buildBlockObjects(blocks) {
 
     // {faixa}: edge-to-edge strip of images (imagem_1: file | description). {lista}: ruled rows (item_1: name | line).
     // {fragmento}: a detail of a larger piece (nome, alt, legenda, altura).
-    if (/^\{(faixa|lista|fragmento)\}(?:\s|$)/i.test(trimmed)) {
+    // {antesDepois}: two pictures and a divider (antes, depois, rotulo_antes, rotulo_depois, legenda, tamanho).
+    // {visita}: a picture and notes that move in on its details (passo_1: x y zoom | text).
+    if (/^\{(faixa|lista|fragmento|antesdepois|visita)\}(?:\s|$)/i.test(trimmed)) {
       const name = trimmed.match(/^\{(\w+)\}/)[1].toLowerCase();
       let source = trimmed;
       while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
@@ -325,7 +327,7 @@ export function buildBlockObjects(blocks) {
         const match = line.trim().match(/^([^:]+):\s*(.*)$/);
         if (match) fields[match[1].trim().toLowerCase()] = match[2];
       }
-      const prefix = name === 'faixa' ? 'imagem_' : 'item_';
+      const prefix = name === 'faixa' ? 'imagem_' : name === 'visita' ? 'passo_' : 'item_';
       const itens = Object.keys(fields)
         .filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)))
         .sort((a, b) => a.slice(prefix.length) - b.slice(prefix.length))

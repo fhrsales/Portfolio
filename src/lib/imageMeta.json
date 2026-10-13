@@ -1,4 +1,81 @@
 {
+	"archive-m.png": {
+		"width": 900,
+		"height": 1157,
+		"ratio": 0.777874,
+		"avif": false,
+		"webp": false
+	},
+	"archive.png": {
+		"width": 1920,
+		"height": 2469,
+		"ratio": 0.777643,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/exp-02.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/exp-03.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/exp-05.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/exp-10.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/login.jpg": {
+		"width": 630,
+		"height": 1369,
+		"ratio": 0.46019,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/ofi-01.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/ofi-14.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/ofi-19.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
+	"atbl/prod-06.jpg": {
+		"width": 420,
+		"height": 913,
+		"ratio": 0.460022,
+		"avif": false,
+		"webp": false
+	},
 	"atbl-app-m.avif": {
 		"width": 600,
 		"height": 457,
@@ -41,10 +118,136 @@
 		"avif": true,
 		"webp": true
 	},
+	"blue/tablet-m.png": {
+		"width": 720,
+		"height": 529,
+		"ratio": 1.361059,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tablet.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tela01.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tela02-m.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tela02.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tela03.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tela04.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"blue/tela05.png": {
+		"width": 1016,
+		"height": 746,
+		"ratio": 1.36193,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/atbl-telas.png": {
+		"width": 1468,
+		"height": 1063,
+		"ratio": 1.380997,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/correio-2001.jpg": {
+		"width": 796,
+		"height": 1418,
+		"ratio": 0.561354,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/dn-estrada.jpg": {
+		"width": 1615,
+		"height": 1101,
+		"ratio": 1.466848,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/estadao-2010.jpg": {
+		"width": 851,
+		"height": 1481,
+		"ratio": 0.574612,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/estadao-niemeyer.jpg": {
+		"width": 898,
+		"height": 1579,
+		"ratio": 0.568714,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/odia-ataque.jpg": {
+		"width": 676,
+		"height": 872,
+		"ratio": 0.775229,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/redacao.jpg": {
+		"width": 1280,
+		"height": 576,
+		"ratio": 2.222222,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/snd-1997-restaurado-m.jpg": {
+		"width": 500,
+		"height": 908,
+		"ratio": 0.550661,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/snd-1997-restaurado.jpg": {
+		"width": 684,
+		"height": 1242,
+		"ratio": 0.550725,
+		"avif": false,
+		"webp": false
+	},
+	"capitulos/snd-1997.png": {
+		"width": 228,
+		"height": 414,
+		"ratio": 0.550725,
+		"avif": false,
+		"webp": false
+	},
 	"caro_leitor-m.png": {
 		"width": 900,
-		"height": 1895,
-		"ratio": 0.474934,
+		"height": 197,
+		"ratio": 4.568528,
 		"avif": false,
 		"webp": false
 	},
@@ -69,6 +272,62 @@
 		"avif": false,
 		"webp": false
 	},
+	"estadao/anatomia-m.jpg": {
+		"width": 900,
+		"height": 700,
+		"ratio": 1.285714,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/anatomia.jpg": {
+		"width": 2600,
+		"height": 2022,
+		"ratio": 1.285856,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/novo-estadao-capa-m.jpg": {
+		"width": 900,
+		"height": 700,
+		"ratio": 1.285714,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/novo-estadao-capa.jpg": {
+		"width": 2000,
+		"height": 1556,
+		"ratio": 1.285347,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/novo-estadao-pesquisa-m.jpg": {
+		"width": 900,
+		"height": 700,
+		"ratio": 1.285714,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/novo-estadao-pesquisa.jpg": {
+		"width": 2000,
+		"height": 1556,
+		"ratio": 1.285347,
+		"avif": false,
+		"webp": false
+	},
+	"fabio-sales-about-m.png": {
+		"width": 720,
+		"height": 720,
+		"ratio": 1,
+		"avif": false,
+		"webp": false
+	},
+	"fabio-sales-about.png": {
+		"width": 800,
+		"height": 800,
+		"ratio": 1,
+		"avif": false,
+		"webp": false
+	},
 	"fabio_sales-m.png": {
 		"width": 557,
 		"height": 557,
@@ -83,10 +342,269 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/adocao.jpg": {
+		"width": 932,
+		"height": 545,
+		"ratio": 1.710092,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/capa.jpg": {
+		"width": 519,
+		"height": 880,
+		"ratio": 0.589773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/estadao-036-paladar-negroni.jpg": {
+		"width": 500,
+		"height": 880,
+		"ratio": 0.568182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/exp-05.jpg": {
+		"width": 405,
+		"height": 880,
+		"ratio": 0.460227,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/favela_amazonia.jpg": {
+		"width": 585,
+		"height": 880,
+		"ratio": 0.664773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/identidade.jpg": {
+		"width": 1562,
+		"height": 880,
+		"ratio": 1.775,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/malofiej-adocao.jpg": {
+		"width": 294,
+		"height": 523,
+		"ratio": 0.562141,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/malofiej-basometro.jpg": {
+		"width": 173,
+		"height": 430,
+		"ratio": 0.402326,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/malofiej-mapa.jpg": {
+		"width": 173,
+		"height": 430,
+		"ratio": 0.402326,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/malofiej.jpg": {
+		"width": 1423,
+		"height": 880,
+		"ratio": 1.617045,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/movimento_baterista.jpg": {
+		"width": 722,
+		"height": 880,
+		"ratio": 0.820455,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/ofi-01.jpg": {
+		"width": 405,
+		"height": 880,
+		"ratio": 0.460227,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/ofi-14.jpg": {
+		"width": 405,
+		"height": 880,
+		"ratio": 0.460227,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/paladar-margherita.jpg": {
+		"width": 519,
+		"height": 880,
+		"ratio": 0.589773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/rota_segura.jpg": {
+		"width": 1407,
+		"height": 880,
+		"ratio": 1.598864,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/tapuiassauro.jpg": {
+		"width": 1016,
+		"height": 880,
+		"ratio": 1.154545,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/anatomia.jpg": {
+		"width": 1132,
+		"height": 880,
+		"ratio": 1.286364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/atbl-conferencia.jpg": {
+		"width": 404,
+		"height": 880,
+		"ratio": 0.459091,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/atbl-estoque.jpg": {
+		"width": 404,
+		"height": 880,
+		"ratio": 0.459091,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/atbl-login.jpg": {
+		"width": 404,
+		"height": 880,
+		"ratio": 0.459091,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/correio-2001.jpg": {
+		"width": 494,
+		"height": 880,
+		"ratio": 0.561364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/correio-2002.jpg": {
+		"width": 500,
+		"height": 880,
+		"ratio": 0.568182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/discursos.jpg": {
+		"width": 662,
+		"height": 880,
+		"ratio": 0.752273,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/estadao-2010.jpg": {
+		"width": 506,
+		"height": 880,
+		"ratio": 0.575,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/novo-estadao.jpg": {
+		"width": 1132,
+		"height": 880,
+		"ratio": 1.286364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/odia-ataque.jpg": {
+		"width": 682,
+		"height": 880,
+		"ratio": 0.775,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/adocao.jpg": {
+		"width": 932,
+		"height": 545,
+		"ratio": 1.710092,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/anatomia.jpg": {
+		"width": 1132,
+		"height": 880,
+		"ratio": 1.286364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/discursos.jpg": {
+		"width": 662,
+		"height": 880,
+		"ratio": 0.752273,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/estadao-036-paladar-negroni.jpg": {
+		"width": 500,
+		"height": 880,
+		"ratio": 0.568182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/estadao-2010.jpg": {
+		"width": 506,
+		"height": 880,
+		"ratio": 0.575,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/favela_amazonia.jpg": {
+		"width": 585,
+		"height": 880,
+		"ratio": 0.664773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/malofiej-basometro.jpg": {
+		"width": 173,
+		"height": 430,
+		"ratio": 0.402326,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/malofiej-mapa.jpg": {
+		"width": 173,
+		"height": 430,
+		"ratio": 0.402326,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/novo-estadao.jpg": {
+		"width": 1132,
+		"height": 880,
+		"ratio": 1.286364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/paladar-margherita.jpg": {
+		"width": 519,
+		"height": 880,
+		"ratio": 0.589773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/tapuiassauro.jpg": {
+		"width": 1016,
+		"height": 880,
+		"ratio": 1.154545,
+		"avif": false,
+		"webp": false
+	},
 	"favela_amazonia-m.png": {
-		"width": 838,
-		"height": 1261,
-		"ratio": 0.664552,
+		"width": 720,
+		"height": 1083,
+		"ratio": 0.66482,
 		"avif": false,
 		"webp": false
 	},
@@ -94,6 +612,48 @@
 		"width": 838,
 		"height": 1261,
 		"ratio": 0.664552,
+		"avif": false,
+		"webp": false
+	},
+	"ferramentas/editor-m.jpg": {
+		"width": 900,
+		"height": 563,
+		"ratio": 1.598579,
+		"avif": false,
+		"webp": false
+	},
+	"ferramentas/editor.jpg": {
+		"width": 2000,
+		"height": 1250,
+		"ratio": 1.6,
+		"avif": false,
+		"webp": false
+	},
+	"fragmentos/anatomia-m.jpg": {
+		"width": 900,
+		"height": 296,
+		"ratio": 3.040541,
+		"avif": false,
+		"webp": false
+	},
+	"fragmentos/anatomia.jpg": {
+		"width": 2600,
+		"height": 856,
+		"ratio": 3.037383,
+		"avif": false,
+		"webp": false
+	},
+	"fragmentos/legado-olimpico-m.jpg": {
+		"width": 900,
+		"height": 277,
+		"ratio": 3.249097,
+		"avif": false,
+		"webp": false
+	},
+	"fragmentos/legado-olimpico.jpg": {
+		"width": 1689,
+		"height": 520,
+		"ratio": 3.248077,
 		"avif": false,
 		"webp": false
 	},
@@ -140,9 +700,9 @@
 		"webp": true
 	},
 	"malofiej-m.png": {
-		"width": 1132,
-		"height": 700,
-		"ratio": 1.617143,
+		"width": 900,
+		"height": 557,
+		"ratio": 1.615799,
 		"avif": false,
 		"webp": false
 	},
@@ -167,6 +727,174 @@
 		"avif": false,
 		"webp": false
 	},
+	"newsletters/resultados-m.jpg": {
+		"width": 760,
+		"height": 428,
+		"ratio": 1.775701,
+		"avif": false,
+		"webp": false
+	},
+	"newsletters/resultados.jpg": {
+		"width": 1500,
+		"height": 844,
+		"ratio": 1.777251,
+		"avif": false,
+		"webp": false
+	},
+	"newsletters/saiba-agora-m.jpg": {
+		"width": 673,
+		"height": 782,
+		"ratio": 0.860614,
+		"avif": false,
+		"webp": false
+	},
+	"newsletters/saiba-agora.jpg": {
+		"width": 673,
+		"height": 782,
+		"ratio": 0.860614,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-035-paladar-bibimbap-m.png": {
+		"width": 720,
+		"height": 1266,
+		"ratio": 0.56872,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-035-paladar-bibimbap.png": {
+		"width": 898,
+		"height": 1579,
+		"ratio": 0.568714,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-036-paladar-negroni-m.png": {
+		"width": 720,
+		"height": 1266,
+		"ratio": 0.56872,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-036-paladar-negroni.png": {
+		"width": 898,
+		"height": 1579,
+		"ratio": 0.568714,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-037-paladar-oveva-m.png": {
+		"width": 720,
+		"height": 1266,
+		"ratio": 0.56872,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-037-paladar-oveva.png": {
+		"width": 898,
+		"height": 1579,
+		"ratio": 0.568714,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-038-paladar-poe-um-ovo-em-cima-m.png": {
+		"width": 720,
+		"height": 1266,
+		"ratio": 0.56872,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/estadao-038-paladar-poe-um-ovo-em-cima.png": {
+		"width": 898,
+		"height": 1579,
+		"ratio": 0.568714,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-brasil-simples-m.jpg": {
+		"width": 760,
+		"height": 1287,
+		"ratio": 0.590521,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-brasil-simples.jpg": {
+		"width": 1000,
+		"height": 1694,
+		"ratio": 0.590319,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-capsulas-m.jpg": {
+		"width": 760,
+		"height": 1287,
+		"ratio": 0.590521,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-capsulas.jpg": {
+		"width": 1000,
+		"height": 1694,
+		"ratio": 0.590319,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-margherita-m.jpg": {
+		"width": 760,
+		"height": 1287,
+		"ratio": 0.590521,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-margherita.jpg": {
+		"width": 1000,
+		"height": 1694,
+		"ratio": 0.590319,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-sorvete-m.jpg": {
+		"width": 760,
+		"height": 1287,
+		"ratio": 0.590521,
+		"avif": false,
+		"webp": false
+	},
+	"paladar/paladar-sorvete.jpg": {
+		"width": 1000,
+		"height": 1694,
+		"ratio": 0.590319,
+		"avif": false,
+		"webp": false
+	},
+	"podcasts/identidade-m.jpg": {
+		"width": 760,
+		"height": 428,
+		"ratio": 1.775701,
+		"avif": false,
+		"webp": false
+	},
+	"podcasts/identidade-m.png": {
+		"width": 761,
+		"height": 322,
+		"ratio": 2.363354,
+		"avif": false,
+		"webp": false
+	},
+	"podcasts/identidade.jpg": {
+		"width": 1800,
+		"height": 1013,
+		"ratio": 1.7769,
+		"avif": false,
+		"webp": false
+	},
+	"podcasts/identidade.png": {
+		"width": 1801,
+		"height": 764,
+		"ratio": 2.35733,
+		"avif": false,
+		"webp": false
+	},
 	"rota_segura-m.jpg": {
 		"width": 2500,
 		"height": 1563,
@@ -181,10 +909,24 @@
 		"avif": false,
 		"webp": false
 	},
+	"santos-dumont/capa-m.jpg": {
+		"width": 760,
+		"height": 1287,
+		"ratio": 0.590521,
+		"avif": false,
+		"webp": false
+	},
+	"santos-dumont/capa.jpg": {
+		"width": 1400,
+		"height": 2371,
+		"ratio": 0.590468,
+		"avif": false,
+		"webp": false
+	},
 	"speeches-m.png": {
-		"width": 2228,
-		"height": 2962,
-		"ratio": 0.752194,
+		"width": 900,
+		"height": 1196,
+		"ratio": 0.752508,
 		"avif": false,
 		"webp": false
 	},
@@ -196,9 +938,9 @@
 		"webp": false
 	},
 	"tapuiassauro-m.png": {
-		"width": 1343,
-		"height": 1163,
-		"ratio": 1.154772,
+		"width": 900,
+		"height": 779,
+		"ratio": 1.155327,
 		"avif": false,
 		"webp": false
 	},

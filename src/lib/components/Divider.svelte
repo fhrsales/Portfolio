@@ -1,8 +1,9 @@
 <script>
+	import { reveal } from '$lib/reveal';
 	export let classes = '';
 </script>
 
-<div class={`divider ${classes || ''}`.trim()} aria-hidden="true"></div>
+<div class={`divider ${classes || ''}`.trim()} aria-hidden="true" use:reveal></div>
 
 <style>
 	/* A section break: a full rule across the text column, with clear air above it and less below,
@@ -24,6 +25,15 @@
 				animation-range: entry 10% entry 90%;
 			}
 		}
+	}
+	/* without a scroll timeline: drawn once, on arrival (see $lib/reveal.js) */
+	:global(html.reveal-fallback) .divider {
+		transform-origin: left center;
+		transform: scaleX(0);
+		transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+	:global(html.reveal-fallback) .divider:global(.revealed) {
+		transform: none;
 	}
 	@keyframes divider-draw {
 		from {

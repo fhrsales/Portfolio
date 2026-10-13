@@ -3,7 +3,18 @@
 	import { resolve } from '$app/paths';
 </script>
 <footer>
-	<img class="signature" src={resolve('/imgs/fabio_sales.svg')} alt="" width="129" height="35" decoding="async" />
+	<a
+		class="signature"
+		href="#top"
+		aria-label={$language === 'pt' ? 'Voltar ao topo' : 'Back to top'}
+		on:click|preventDefault={() =>
+			window.scrollTo({
+				top: 0,
+				behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+			})}
+	>
+		<img src={resolve('/imgs/fabio_sales.svg')} alt="" width="129" height="35" decoding="async" />
+	</a>
 	<div class="contacts">
 		{$language === 'pt' ? 'Precisa de um parceiro que entenda de design e código? Vamos conversar e dar vida ao seu produto digital!' : 'Need a partner who speaks both design and code? Let’s talk and bring your digital product to life!'} <br/> <a href="mailto:fabio.sales@me.com" title="Email" target="_blank" rel="noopener"
 			>fabio.sales@me.com</a>
@@ -43,6 +54,8 @@
 		flex-direction: column;
 		margin: 0 auto calc(var(--grid) * 4) auto;
 		text-align: center;
+		/* even lines, so the invitation never ends on a single orphaned word */
+		text-wrap: balance;
 		font-family: var(--font-primary);
 		font-size: calc(var(--grid) * 1.5);
         line-height: 1.4;
@@ -89,13 +102,20 @@
 		opacity: 1;
 	}
 
-	.signature {
+	footer a.signature {
 		align-self: center;
-		height: 35px;
-		width: auto;
+		padding: 0;
 		margin-bottom: calc(var(--grid) * 2);
 	}
-	:global(html.theme-dark) .signature {
+	footer a.signature::after {
+		display: none;
+	}
+	.signature img {
+		display: block;
+		height: 35px;
+		width: auto;
+	}
+	:global(html.theme-dark) .signature img {
 		filter: invert(1) brightness(1.1);
 	}
 

@@ -137,6 +137,22 @@
 		border: 1px solid color-mix(in srgb, var(--color-dark) 45%, transparent);
 		border-radius: 10px;
 	}
+	/* the browser's own arrow sits against the border; this one is drawn with room around it */
+	select {
+		appearance: none;
+		-webkit-appearance: none;
+		padding-right: 36px;
+		text-overflow: ellipsis;
+		background-image:
+			linear-gradient(45deg, transparent 50%, currentColor 50%),
+			linear-gradient(135deg, currentColor 50%, transparent 50%);
+		background-position:
+			right 19px center,
+			right 14px center;
+		background-size: 5px 5px;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
 	input:focus,
 	select:focus {
 		outline: none;
@@ -172,8 +188,10 @@
 		outline: 2px solid var(--color-primary);
 		outline-offset: 2px;
 	}
+	/* stacked: beside the button the list is too narrow to show the option names */
 	.add {
 		display: flex;
+		flex-direction: column;
 		gap: 8px;
 	}
 	.add-btn {

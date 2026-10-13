@@ -17,6 +17,7 @@
 						width={item.width || undefined}
 						height={item.height || undefined}
 						loading={i < 4 ? 'eager' : 'lazy'}
+						fetchpriority={copy === 0 && i < 2 ? 'high' : undefined}
 						decoding="async"
 						draggable="false"
 					/>

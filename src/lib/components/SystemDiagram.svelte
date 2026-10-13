@@ -1,4 +1,5 @@
 <script>
+	import { reveal } from '$lib/reveal';
 	// Two lanes split by the interface: what people see on top, what the system absorbs underneath.
 	// seen / hidden: [{ name, text }]
 	export let seenLabel = '';
@@ -8,7 +9,7 @@
 	export let note = '';
 </script>
 
-<figure class="system">
+<figure class="system" use:reveal>
 	<div class="lane seen">
 		<p class="lane-label">{seenLabel}</p>
 		<ol class="steps">
@@ -169,6 +170,24 @@
 				animation-range: entry 0% entry 70%;
 			}
 		}
+	}
+	/* without a scroll timeline: drawn once, on arrival (see $lib/reveal.js) */
+	:global(html.reveal-fallback) .interface .line {
+		transform: scaleX(0);
+		transition: transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+	:global(html.reveal-fallback) .part {
+		opacity: 0;
+		transform: translateY(18px);
+		transition:
+			opacity 500ms ease,
+			transform 500ms ease;
+		transition-delay: calc(500ms + var(--i, 0) * 90ms);
+	}
+	:global(html.reveal-fallback) .system:global(.revealed) .interface .line,
+	:global(html.reveal-fallback) .system:global(.revealed) .part {
+		opacity: 1;
+		transform: none;
 	}
 	@keyframes interface-draw {
 		from {

@@ -147,6 +147,18 @@ export const BLOCKS = {
 		snippet:
 			'{faixa}\n  pasta: \n  imagem_1: arquivo.jpg | descrição\n  imagem_2: arquivo.jpg | descrição\n{}'
 	},
+	antesDepois: {
+		label: 'Antes e depois',
+		keys: ['antes', 'depois', 'rotulo_antes', 'rotulo_depois', 'alt', 'legenda', 'tamanho'],
+		snippet:
+			'{antesDepois}\n  antes: pasta/antes.jpg\n  depois: pasta/depois.jpg\n  rotulo_antes: Antes\n  rotulo_depois: Depois\n  alt: \n  legenda: \n  tamanho: G\n{}'
+	},
+	visita: {
+		label: 'Visita guiada',
+		keys: ['nome', 'alt', 'legenda', 'passo_1', 'passo_2', 'passo_3', 'passo_4', 'passo_5', 'passo_6'],
+		snippet:
+			'{visita}\n  nome: pasta/pagina.jpg\n  alt: \n  legenda: \n  passo_1: 30 20 2.2 | <strong>Título da nota</strong>Texto da nota.\n  passo_2: 70 60 2.5 | <strong>Título da nota</strong>Texto da nota.\n{}'
+	},
 	fragmento: {
 		label: 'Fragmento',
 		keys: ['nome', 'alt', 'legenda', 'altura'],
@@ -327,19 +339,34 @@ export const BLOCKS = {
 };
 
 // Buttons shown in the "Inserir" row, in this order.
-export const INSERTABLE = [
-	{ label: 'Título', snippet: 'chapeu: \nh3: ' },
-	...[
-		'imagem',
-		'video',
-		'scrollerVideo',
-		'telas',
-		'slider',
-		'imagemTexto',
-		'abertura',
-		'divisor'
-	].map((name) => ({ label: BLOCKS[name].label, snippet: BLOCKS[name].snippet }))
+// Everything the "Inserir" menu offers, grouped by what the block is for.
+const insertable = (names) =>
+	names.map((name) => ({ label: BLOCKS[name].label, snippet: BLOCKS[name].snippet }));
+export const INSERT_GROUPS = [
+	{
+		label: 'Texto',
+		items: [
+			{ label: 'Título', snippet: 'chapeu: \nh3: ' },
+			...insertable(['abertura', 'intro', 'lista', 'numeros', 'divisor'])
+		]
+	},
+	{
+		label: 'Imagem',
+		items: insertable([
+			'imagem',
+			'imagemTexto',
+			'antesDepois',
+			'fragmento',
+			'faixa',
+			'slider',
+			'carrossel'
+		])
+	},
+	{ label: 'Vídeo e rolagem', items: insertable(['video', 'scrollerVideo', 'telas', 'celular', 'visita']) },
+	{ label: 'Diagramas', items: insertable(['capitulos', 'trajetoria', 'sistema', 'fluxo']) },
+	{ label: 'Página', items: insertable(['fundo']) }
 ];
+export const INSERTABLE = INSERT_GROUPS.flatMap((group) => group.items);
 
 // How the inspector edits a value: a fixed list becomes buttons, the rest a text field.
 export const OPTIONS = {
@@ -466,22 +493,26 @@ const escapeHtml = (text) =>
 	text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Same characters as the source, wrapped in spans, so it can sit under the textarea.
-export function highlight(content) {
-	return (
-		readLines(content)
-			.map((line) => {
-				const text = escapeHtml(line.text);
-				if (line.kind === 'open' || line.kind === 'close' || line.kind === 'single')
-					return `<span class="tk-block">${text}</span>`;
-				if (line.kind === 'comment') return `<span class="tk-comment">${text}</span>`;
-				if (line.kind === 'key') {
-					const [, indent, key, space, value] = line.pair;
-					return `${indent}<span class="tk-key">${escapeHtml(key)}:</span>${space}<span class="tk-value">${escapeHtml(value)}</span>`;
-				}
-				return text;
-			})
-			.join('\n') + '\n'
-	);
+export function highlight(content, active = null) {
+	const html = readLines(content).map((line) => {
+		const text = escapeHtml(line.text);
+		if (line.kind === 'open' || line.kind === 'close' || line.kind === 'single')
+			return `<span class="tk-block">${text}</span>`;
+		if (line.kind === 'comment') return `<span class="tk-comment">${text}</span>`;
+		if (line.kind === 'key') {
+			const [, indent, key, space, value] = line.pair;
+			return `${indent}<span class="tk-key">${escapeHtml(key)}:</span>${space}<span class="tk-value">${escapeHtml(value)}</span>`;
+		}
+		return text;
+	});
+	if (!active || active.start < 0 || active.end < active.start) return html.join('\n') + '\n';
+	// The lines of the block being edited go inside one band. Each of the three parts ends with a
+	// line break: the last one of a part draws nothing, so an empty final line keeps its height.
+	const part = (from, to) => (to > from ? html.slice(from, to).join('\n') + '\n' : '');
+	const before = part(0, active.start);
+	const band = part(active.start, active.end + 1);
+	const after = part(active.end + 1, html.length);
+	return `${before}<div class="ln-active">${band}</div>${after}`;
 }
 
 // Problems worth showing before saving. Wording is cautious: the parser accepts more than the editor lists.

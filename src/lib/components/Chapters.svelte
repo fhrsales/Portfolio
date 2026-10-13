@@ -1,7 +1,8 @@
 <script>
+	import { reveal } from '$lib/reveal';
 	// A career as a vertical timeline: a spine that fills as the page scrolls,
 	// and for each chapter a period, a few lines and, when there is one, a piece of work from those years.
-	// chapters: [{ name, period, text, src, caption, paper, mark: { x, y, size, label } }]
+	// chapters: [{ name, period, text, src, ratio, caption, paper, mark: { x, y, size, label } }]
 	export let title = '';
 	export let chapters = [];
 </script>
@@ -11,7 +12,7 @@
 	<ol>
 		<span class="spine" aria-hidden="true"><span class="fill"></span></span>
 		{#each chapters as chapter, i (i)}
-			<li class="chapter" class:with-media={!!chapter.src}>
+			<li class="chapter" class:with-media={!!chapter.src} use:reveal>
 				<div class="copy">
 					<p class="period">{chapter.period}</p>
 					<h3>{chapter.name}</h3>
@@ -19,7 +20,11 @@
 				</div>
 				{#if chapter.src}
 					<figure class:paper={chapter.paper}>
-						<div class="shot" class:marked={!!chapter.mark}>
+						<div
+							class="shot"
+							class:marked={!!chapter.mark}
+							style={chapter.ratio ? `--r:${chapter.ratio}` : undefined}
+						>
 							<img
 								src={chapter.src}
 								alt={chapter.caption || `${chapter.name}, ${chapter.period}`}
@@ -174,13 +179,19 @@
 		height: 14px;
 		background: #fff;
 	}
-	figure.paper img {
-		width: auto;
-		max-width: 100%;
+	/* A printed page: the paper margin and shadow go on the frame, whose width follows the page's
+	   own proportion, so no browser has to guess the width of a height-limited image. */
+	figure.paper .shot {
+		--page-h: 404px;
+		width: min(100%, calc(var(--page-h) * var(--r, 1) + 16px));
 		margin: 0 auto;
 		border: 8px solid #fbfaf7;
 		background: #fbfaf7;
 		box-shadow: var(--shadow-surface);
+	}
+	figure.paper img {
+		height: auto;
+		max-height: none;
 	}
 	figcaption {
 		margin-top: calc(var(--grid) * 1.5);
@@ -207,6 +218,18 @@
 				animation-timeline: view();
 			}
 		}
+	}
+	/* without a scroll timeline: each chapter rises once, on arrival (see $lib/reveal.js) */
+	:global(html.reveal-fallback) .copy {
+		opacity: 0;
+		transform: translateY(28px);
+		transition:
+			opacity 600ms ease,
+			transform 600ms ease;
+	}
+	:global(html.reveal-fallback) .chapter:global(.revealed) .copy {
+		opacity: 1;
+		transform: none;
 	}
 	@keyframes spine-fill {
 		from {
@@ -236,6 +259,9 @@
 		}
 		figure img {
 			max-height: 320px;
+		}
+		figure.paper .shot {
+			--page-h: 304px;
 		}
 	}
 </style>
