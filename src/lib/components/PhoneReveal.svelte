@@ -7,6 +7,7 @@
 	export let screens = [];
 	export let signin = '';
 	export let signinAlt = '';
+	export let signinSmall = '';
 	export let color = '#353460';
 	export let label = '';
 
@@ -59,7 +60,7 @@
 			/>
 		{/each}
 		<div class="phone">
-			{#if signin}<img src={signin} alt={signinAlt} loading="lazy" decoding="async" draggable="false" />{/if}
+			{#if signin}<img src={signin} srcset={signinSmall ? `${signinSmall} 320w, ${signin} 612w` : undefined} sizes={signinSmall ? '(max-width: 760px) 140px, 236px' : undefined} alt={signinAlt} loading="lazy" decoding="async" draggable="false" />{/if}
 		</div>
 	</div>
 </figure>

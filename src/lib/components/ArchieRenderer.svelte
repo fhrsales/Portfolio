@@ -599,6 +599,9 @@
 									alt: tela.texto
 								}))}
 								signin={conf.entrada ? withBase(`/imgs/${folder}${conf.entrada.trim()}`, base) : ''}
+								signinSmall={conf.entrada && imageMeta[`${folder}${conf.entrada.trim()}`.replace(/\.(jpe?g|png)$/i, '-m.$1')]
+									? withBase(`/imgs/${folder}${conf.entrada.trim()}`.replace(/\.(jpe?g|png)$/i, '-m.$1'), base)
+									: ''}
 						signinAlt={conf.entrada_alt || ''}
 						color={(conf.cor || '').trim() || undefined}
 						label={conf.alt || ''}

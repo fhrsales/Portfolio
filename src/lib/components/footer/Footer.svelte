@@ -30,6 +30,12 @@
             title="GitHub"
             target="_blank"
             rel="noopener">GitHub</a>
+		|
+		<a
+			href={resolve(`/pdfs/cv-fabio-sales-${$language === 'pt' ? 'pt' : 'en'}.pdf`)}
+			title={$language === 'pt' ? 'Currículo (PDF)' : 'CV (PDF)'}
+			target="_blank"
+			rel="noopener">{$language === 'pt' ? 'Currículo' : 'CV'} ↗</a>
 	</div>
 	<div class="copyright">© {new Date().getFullYear()} Fabio Sales</div>
 	<div class="rights">{$language === 'pt' ? 'Todos os direitos reservados' : 'All rights reserved'}</div>

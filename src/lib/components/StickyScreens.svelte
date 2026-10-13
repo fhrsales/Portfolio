@@ -36,7 +36,7 @@
 					alt={i === active ? step.title || step.eyebrow || '' : ''}
 					aria-hidden={i === active ? undefined : 'true'}
 					class:active={i === active}
-					loading={i < 2 ? 'eager' : 'lazy'}
+					loading="lazy"
 					decoding="async"
 					draggable="false"
 				/>

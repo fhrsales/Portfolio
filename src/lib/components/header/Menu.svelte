@@ -59,11 +59,17 @@
 				>{translateLabel(menuLabels[p], $language)}</a
 			>
 		{/each}
+		<a
+			style={`--i:${pages.length}`}
+			href={resolve(`/pdfs/cv-fabio-sales-${$language === 'pt' ? 'pt' : 'en'}.pdf`)}
+			target="_blank"
+			rel="noopener">CV ↗</a
+		>
 		{#if import.meta.env.DEV}
-			<a style={`--i:${pages.length}`} href={resolve('/admin')}>Editor</a>
+			<a style={`--i:${pages.length + 1}`} href={resolve('/admin')}>Editor</a>
 		{/if}
 	</nav>
-	<div class="prefs" style={`--i:${pages.length + 1}`}>
+	<div class="prefs" style={`--i:${pages.length + 2}`}>
 		<LanguageSwitch />
 		<button
 			class="theme-toggle"

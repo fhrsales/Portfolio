@@ -41,6 +41,13 @@
 		"avif": false,
 		"webp": false
 	},
+	"atbl/login-m.jpg": {
+		"width": 320,
+		"height": 695,
+		"ratio": 0.460432,
+		"avif": false,
+		"webp": false
+	},
 	"atbl/login.jpg": {
 		"width": 630,
 		"height": 1369,
@@ -311,6 +318,20 @@
 		"width": 2000,
 		"height": 1556,
 		"ratio": 1.285347,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/pesquisa-recorte-m.jpg": {
+		"width": 600,
+		"height": 305,
+		"ratio": 1.967213,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/pesquisa-recorte.jpg": {
+		"width": 965,
+		"height": 490,
+		"ratio": 1.969388,
 		"avif": false,
 		"webp": false
 	},
