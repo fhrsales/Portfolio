@@ -28,7 +28,7 @@
 		{#each pieces as piece, i (i)}
 			{#if piece.signature}
 				<span class="word signed" aria-hidden="true" style={`--w:${i}`}
-					><img src={`${base}/imgs/fabio_sales.svg`} alt="" />{piece.after}</span
+					><img src={`${base}/imgs/fabio_sales.svg`} alt="" width="169" height="46" />{piece.after}</span
 				>
 			{:else}
 				<span class="word" aria-hidden="true" style={`--w:${i}`}>{piece.text}</span>

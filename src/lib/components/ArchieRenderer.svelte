@@ -123,6 +123,9 @@
 
 	// derive currentPage from $page
 	const currentPage = derived(page, ($page) => {
+		// the route says which page this is; while prerendering `base` is relative and can't be stripped from the path
+		if ($page.route?.id === '/') return 'index';
+		if ($page.params?.slug) return $page.params.slug;
 		let path = $page.url.pathname.replace(base, '').replace(/^\/+|\/+$/g, '');
 		if (!path || path === 'index') return 'index';
 		return path;
@@ -205,7 +208,7 @@
 
 	function fixLinks(html, basePath) {
 		if (!basePath) return html;
-		return String(html).replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${basePath}/$1'`);
+		return String(html).replace(/href=['"]\/(?!\/)([^'"]*)['"]/g, `href='${basePath}/$1'`);
 	}
 
 	function injectInlineLogo(html, basePath) {
@@ -572,11 +575,16 @@
 									const file = `${conf.pasta ? `${conf.pasta.trim()}/` : ''}${item.nome}`;
 									// known sizes let the strip reserve each image's width before it loads
 									const meta = imageMeta[file];
+									// a smaller copy for phones, when one exists next to the original
+									const small = file.replace(/\.(jpe?g|png)$/i, '-m.$1');
+									const smallMeta = small !== file ? imageMeta[small] : null;
 									return {
 										src: withBase(`/imgs/${file}`, base),
 										alt: item.texto,
 										width: meta?.width,
-										height: meta?.height
+										height: meta?.height,
+										smallSrc: smallMeta ? withBase(`/imgs/${small}`, base) : '',
+										smallWidth: smallMeta?.width
 									};
 								})}
 							/>
@@ -742,6 +750,7 @@
 													? conf.texto
 													: [conf.texto]
 												: []}
+								{#if conf.ancora}<span id={String(conf.ancora).trim()} class="block-anchor"></span>{/if}
 								<ScrollerVideo
 									introTitle={conf['intro-title'] || ''}
 									introText={conf['intro-text'] || ''}

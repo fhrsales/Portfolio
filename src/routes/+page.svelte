@@ -2,20 +2,13 @@
 	import { base } from '$app/paths';
 	import ArchieRenderer from '$lib/components/ArchieRenderer.svelte';
 	import pages from '$lib/archiePages.json';
-	import imageMeta from '$lib/imageMeta.json';
 	import { normalizeParsedToBlocks, buildBlockObjects, stripCommentLines } from '$lib/parsers/content.js';
-	import { parseImage as parseImageHelper } from '$lib/parsers/image.js';
-	import { withBase } from '$lib/paths.js';
 	import { onMount } from 'svelte';
-	const isProd = import.meta.env && import.meta.env.PROD;
 	const siteUrl = 'https://fhrsales.github.io/Portfolio/';
 	const imageUrl = 'https://fhrsales.github.io/Portfolio/imgs/fabio_sales.png';
 	const defaultDescription =
 		'Fabio Sales is a design leader and product builder with over 30 years of experience turning complex information and systems into clear, scalable experiences, combining visual craft, product thinking, technology, and business leadership.';
 
-	let lcpHref = '';
-	let lcpImagesrcset = '';
-	let lcpImagesizes = '';
 	let metaDescription = '';
 	let jsonLd = null;
 	{
@@ -32,7 +25,6 @@
 			const blocks = usedParsed ? normalizeParsedToBlocks(usedParsed) : [];
 			const objs = buildBlockObjects(blocks);
 			let introConf = null;
-			let lcpFound = false;
 			const stripHtml = (value) =>
 				String(value || '')
 					.replace(/<[^>]*>/g, ' ')
@@ -42,40 +34,7 @@
 			for (const o of objs) {
 				const bloco = o.raw;
 				if (!introConf && bloco && typeof bloco === 'object' && bloco.intro) introConf = bloco.intro;
-				if (!lcpFound && typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))) {
-					const img = parseImageHelper(bloco);
-					if (img && img.nome) {
-						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
-						const meta = imageMeta[img.nome];
-						const hasAvif = !!(meta && meta.avif);
-						const hasWebp = !!(meta && meta.webp);
-						if (isProd) {
-							const avif = hasAvif ? withBase(`/imgs/${baseName}.avif`, base) : '';
-							const webp = hasWebp ? withBase(`/imgs/${baseName}.webp`, base) : '';
-							lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
-						} else lcpHref = withBase(`/imgs/${img.nome}`, base);
-						lcpImagesrcset = '';
-						lcpImagesizes = '(max-width: 860px) 100vw, 860px';
-						lcpFound = true;
-					}
-				} else if (!lcpFound && typeof bloco === 'string' && /^imagem:/i.test(bloco)) {
-					const img = parseImageHelper(bloco);
-					if (img && img.nome) {
-						const baseName = String(img.nome).replace(/\.(png|jpg|jpeg)$/i, '');
-						const meta = imageMeta[img.nome];
-						const hasAvif = !!(meta && meta.avif);
-						const hasWebp = !!(meta && meta.webp);
-						if (isProd) {
-							const avif = hasAvif ? withBase(`/imgs/${baseName}.avif`, base) : '';
-							const webp = hasWebp ? withBase(`/imgs/${baseName}.webp`, base) : '';
-							lcpHref = avif || webp || withBase(`/imgs/${img.nome}`, base);
-						} else lcpHref = withBase(`/imgs/${img.nome}`, base);
-						lcpImagesrcset = '';
-						lcpImagesizes = '(max-width: 860px) 100vw, 860px';
-						lcpFound = true;
-					}
-				}
-				if (introConf && lcpFound) break;
+				if (introConf) break;
 			}
 
 			if (introConf) {
@@ -205,9 +164,6 @@
 		<meta name="twitter:description" content={metaDescription} />
 	{/if}
 	{#if jsonLd}<script type="application/ld+json">{JSON.stringify(jsonLd)}</script>{/if}
-	{#if lcpHref}
-		<link rel="preload" as="image" href={lcpHref} imagesrcset={lcpImagesrcset} imagesizes={lcpImagesizes} />
-	{/if}
 </svelte:head>
 
 <ArchieRenderer {base} />

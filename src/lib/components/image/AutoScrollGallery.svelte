@@ -349,39 +349,23 @@
 				lastEl ? (lastEl.offsetLeft || 0) + (lastEl.offsetWidth || 0) / 2 : 0;
 			const targetForCenter = (center) =>
 				Math.min(maxScroll, Math.max(0, Math.round(center - vw / 2)));
-			// If we are at/near the last card, wrap to the beginning
-			if (lastCenter && currentCenter >= lastCenter - 1) {
+			const centerOf = (el) => (el ? (el.offsetLeft || 0) + (el.offsetWidth || 0) / 2 : 0);
+			// Move the row itself and nothing else: scrollIntoView would also scroll the page up or
+			// down whenever the gallery is only partly on screen.
+			const slideTo = (el) => {
+				const left = targetForCenter(centerOf(el));
 				try {
-					firstEl?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+					containerEl.scrollTo({ left, behavior: 'smooth' });
 				} catch {
-					const firstCenter =
-						firstEl ? (firstEl.offsetLeft || 0) + (firstEl.offsetWidth || 0) / 2 : 0;
-					containerEl.scrollLeft = targetForCenter(firstCenter);
+					containerEl.scrollLeft = left;
 				}
+			};
+			// at the last card, wrap to the beginning; otherwise go to the next card after the centre
+			if (lastCenter && currentCenter >= lastCenter - 1) {
+				slideTo(firstEl);
 				return;
 			}
-			// Find next card center strictly after current center
-			let targetEl = null;
-			for (const el of cards) {
-				const left = el.offsetLeft || 0;
-				const width = el.offsetWidth || 0;
-				const center = left + width / 2;
-				if (center > currentCenter + 1) {
-					targetEl = el;
-					break;
-				}
-			}
-			if (!targetEl) {
-				// wrap to beginning
-				targetEl = firstEl;
-			}
-			try {
-				targetEl?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-			} catch {
-				const fallbackCenter =
-					targetEl ? (targetEl.offsetLeft || 0) + (targetEl.offsetWidth || 0) / 2 : 0;
-				containerEl.scrollLeft = targetForCenter(fallbackCenter);
-			}
+			slideTo(cards.find((el) => centerOf(el) > currentCenter + 1) || firstEl);
 			return;
 		}
 

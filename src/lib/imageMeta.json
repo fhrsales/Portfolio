@@ -349,10 +349,24 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/capa-m.jpg": {
+		"width": 366,
+		"height": 620,
+		"ratio": 0.590323,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/capa.jpg": {
 		"width": 519,
 		"height": 880,
 		"ratio": 0.589773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/estadao-036-paladar-negroni-m.jpg": {
+		"width": 352,
+		"height": 620,
+		"ratio": 0.567742,
 		"avif": false,
 		"webp": false
 	},
@@ -363,6 +377,13 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/exp-05-m.jpg": {
+		"width": 285,
+		"height": 620,
+		"ratio": 0.459677,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/exp-05.jpg": {
 		"width": 405,
 		"height": 880,
@@ -370,10 +391,24 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/favela_amazonia-m.jpg": {
+		"width": 412,
+		"height": 620,
+		"ratio": 0.664516,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/favela_amazonia.jpg": {
 		"width": 585,
 		"height": 880,
 		"ratio": 0.664773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/identidade-m.jpg": {
+		"width": 1101,
+		"height": 620,
+		"ratio": 1.775806,
 		"avif": false,
 		"webp": false
 	},
@@ -398,6 +433,13 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/malofiej-m.jpg": {
+		"width": 1003,
+		"height": 620,
+		"ratio": 1.617742,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/malofiej-mapa.jpg": {
 		"width": 173,
 		"height": 430,
@@ -412,10 +454,24 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/movimento_baterista-m.jpg": {
+		"width": 509,
+		"height": 620,
+		"ratio": 0.820968,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/movimento_baterista.jpg": {
 		"width": 722,
 		"height": 880,
 		"ratio": 0.820455,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/ofi-01-m.jpg": {
+		"width": 285,
+		"height": 620,
+		"ratio": 0.459677,
 		"avif": false,
 		"webp": false
 	},
@@ -426,10 +482,24 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/ofi-14-m.jpg": {
+		"width": 285,
+		"height": 620,
+		"ratio": 0.459677,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/ofi-14.jpg": {
 		"width": 405,
 		"height": 880,
 		"ratio": 0.460227,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/paladar-margherita-m.jpg": {
+		"width": 366,
+		"height": 620,
+		"ratio": 0.590323,
 		"avif": false,
 		"webp": false
 	},
@@ -440,10 +510,24 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa/rota_segura-m.jpg": {
+		"width": 991,
+		"height": 620,
+		"ratio": 1.598387,
+		"avif": false,
+		"webp": false
+	},
 	"faixa/rota_segura.jpg": {
 		"width": 1407,
 		"height": 880,
 		"ratio": 1.598864,
+		"avif": false,
+		"webp": false
+	},
+	"faixa/tapuiassauro-m.jpg": {
+		"width": 716,
+		"height": 620,
+		"ratio": 1.154839,
 		"avif": false,
 		"webp": false
 	},

@@ -8,6 +8,8 @@
 	const signatureSrc = resolve('/imgs/fabio_sales.svg');
 	let isDark = false;
 	let current = '';
+	// on phones the links fold behind a button
+	let open = false;
 
 	// Derived straight from the store, so the links are already in the server-rendered page.
 	$: menuEntries = Object.entries($archiePages).filter(([, v]) =>
@@ -18,6 +20,8 @@
 	// From the route, not the URL: the published site lives under a base path.
 	$: current = $page.params.slug ?? ($page.route.id || '').slice(1);
 	$: isHome = $page.route.id === '/';
+	// arriving at another page closes the phone menu
+	$: if (typeof current === 'string') open = false;
 	function applyTheme(next) {
 		isDark = next === 'dark';
 		if (typeof document === 'undefined') return;
@@ -46,7 +50,7 @@
 	<a class="signature" href={resolve('/')} aria-label="Fabio Sales, início">
 		<img src={signatureSrc} alt="Fabio Sales" width="169" height="46" decoding="async" />
 	</a>
-	<nav aria-label="Principal">
+	<nav id="site-nav" aria-label="Principal" class:open>
 		{#each pages as p, i (p)}
 			<a
 				style={`--i:${i}`}
@@ -83,6 +87,20 @@
 			{/if}
 		</button>
 	</div>
+	<button
+		class="menu-toggle"
+		class:open
+		type="button"
+		aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+		aria-expanded={open}
+		aria-controls="site-nav"
+		on:click={() => (open = !open)}
+	>
+		<svg viewBox="1 1 24 18" aria-hidden="true" focusable="false">
+			<rect class="line l1" x="0" y="4" width="24" height="2" rx="2" />
+			<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
+		</svg>
+	</button>
 </header>
 
 <style>
@@ -194,18 +212,76 @@
 		background: color-mix(in srgb, var(--color-dark) 8%, transparent);
 		outline: none;
 	}
+	.menu-toggle {
+		display: none;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		margin-right: -9px;
+		border: none;
+		border-radius: 50%;
+		background: transparent;
+		cursor: pointer;
+	}
+	.menu-toggle svg {
+		display: block;
+		width: 26px;
+		height: 20px;
+	}
+	.menu-toggle .line {
+		fill: var(--color-dark);
+		transform-origin: 12px 9px;
+		transition: transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1);
+	}
+	.menu-toggle.open .l1 {
+		transform: translateY(4px) rotate(45deg);
+	}
+	.menu-toggle.open .l3 {
+		transform: translateY(-4px) rotate(-45deg);
+	}
+	.menu-toggle:focus-visible {
+		background: color-mix(in srgb, var(--color-dark) 8%, transparent);
+		outline: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.menu-toggle .line {
+			transition: none;
+		}
+	}
+	/* Phones: one row with the signature, the preferences and a button; the links open below it. */
 	@media (max-width: 600px) {
 		.site-header {
 			padding-top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 2.5));
-		}
-		.signature {
-			flex-basis: 100%;
 		}
 		.signature img {
 			height: 40px;
 		}
 		.prefs {
 			margin-left: auto;
+		}
+		.menu-toggle {
+			display: inline-flex;
+		}
+		nav,
+		.home nav {
+			display: none;
+			order: 3;
+			flex-basis: 100%;
+			flex-direction: column;
+			gap: 0;
+			margin: 0;
+			padding: calc(var(--grid) * 1) 0 calc(var(--grid) * 2);
+			border-bottom: 1px solid var(--color-rule);
+		}
+		nav.open {
+			display: flex;
+		}
+		nav a {
+			min-height: 52px;
+			font-family: var(--font-display);
+			font-size: calc(var(--grid) * 3);
+			animation: none;
 		}
 	}
 </style>

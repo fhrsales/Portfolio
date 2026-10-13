@@ -59,7 +59,7 @@
 			/>
 		{/each}
 		<div class="phone">
-			{#if signin}<img src={signin} alt={signinAlt} decoding="async" draggable="false" />{/if}
+			{#if signin}<img src={signin} alt={signinAlt} loading="lazy" decoding="async" draggable="false" />{/if}
 		</div>
 	</div>
 </figure>

@@ -536,3 +536,9 @@ figure.image-block-wrapper.legenda-lado {
 html.theme-dark .content-block.has-page-bg .image-block .image-inner {
 	opacity: 1;
 }
+
+/* an invisible target for links that open a page at a given block (ancora: name) */
+.block-anchor {
+	display: block;
+	scroll-margin-top: calc(var(--grid) * 3);
+}

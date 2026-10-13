@@ -7,7 +7,7 @@
 
 	function fixLinks(html, base) {
 		if (!base) return html;
-		return html.replace(/href=['"]\/(?!\/)([^'"#?]*)['"]/g, `href='${base}/$1'`);
+		return html.replace(/href=['"]\/(?!\/)([^'"]*)['"]/g, `href='${base}/$1'`);
 	}
 
 	function sanitizeHtml(html) {

@@ -21,26 +21,51 @@
 		<meta name="theme-color" content="#ffffff" />
 
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- Load Google Fonts without render-blocking: preload + media swap -->
-		<link
-			rel="preload"
-			as="style"
-			href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
-			media="print"
-			onload="this.media='all'"
-		/>
-		<noscript>
-			<link
-				rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
-			/>
-		</noscript>
+		<style>
+			/* Fonts are served from the site itself: no extra connections before the first text paints. */
+			@font-face {
+				font-family: 'Fira Sans';
+				font-style: normal;
+				font-weight: 300;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/FiraSans-300.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Fira Sans';
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/FiraSans-400.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Fira Sans';
+				font-style: normal;
+				font-weight: 500;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/FiraSans-500.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Fira Sans';
+				font-style: normal;
+				font-weight: 600;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/FiraSans-600.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Fira Sans';
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/FiraSans-700.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Newsreader';
+				font-style: normal;
+				font-weight: 400 600;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/Newsreader-400-600.woff2') format('woff2');
+			}
+		</style>
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1"
