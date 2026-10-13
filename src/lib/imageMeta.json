@@ -636,10 +636,73 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa-estadao/anatomia-m.jpg": {
+		"width": 798,
+		"height": 620,
+		"ratio": 1.287097,
+		"avif": false,
+		"webp": false
+	},
 	"faixa-estadao/anatomia.jpg": {
 		"width": 1132,
 		"height": 880,
 		"ratio": 1.286364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-10-24-m.jpg": {
+		"width": 399,
+		"height": 620,
+		"ratio": 0.643548,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-10-24.jpg": {
+		"width": 566,
+		"height": 880,
+		"ratio": 0.643182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-10-26-m.jpg": {
+		"width": 399,
+		"height": 620,
+		"ratio": 0.643548,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-10-26.jpg": {
+		"width": 566,
+		"height": 880,
+		"ratio": 0.643182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-11-04-m.jpg": {
+		"width": 399,
+		"height": 620,
+		"ratio": 0.643548,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-11-04.jpg": {
+		"width": 566,
+		"height": 880,
+		"ratio": 0.643182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-11-09-m.jpg": {
+		"width": 399,
+		"height": 620,
+		"ratio": 0.643548,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/capa-2021-11-09.jpg": {
+		"width": 566,
+		"height": 880,
+		"ratio": 0.643182,
 		"avif": false,
 		"webp": false
 	},
@@ -685,6 +748,13 @@
 		"avif": false,
 		"webp": false
 	},
+	"faixa-estadao/novo-estadao-m.jpg": {
+		"width": 798,
+		"height": 620,
+		"ratio": 1.287097,
+		"avif": false,
+		"webp": false
+	},
 	"faixa-estadao/novo-estadao.jpg": {
 		"width": 1132,
 		"height": 880,
@@ -696,6 +766,20 @@
 		"width": 519,
 		"height": 880,
 		"ratio": 0.589773,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/pesquisa-m.jpg": {
+		"width": 797,
+		"height": 620,
+		"ratio": 1.285484,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/pesquisa.jpg": {
+		"width": 1131,
+		"height": 880,
+		"ratio": 1.285227,
 		"avif": false,
 		"webp": false
 	},
