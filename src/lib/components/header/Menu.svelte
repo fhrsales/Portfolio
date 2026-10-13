@@ -63,7 +63,10 @@
 			style={`--i:${pages.length}`}
 			href={resolve(`/pdfs/cv-fabio-sales-${$language === 'pt' ? 'pt' : 'en'}.pdf`)}
 			target="_blank"
-			rel="noopener">CV ↗</a
+			rel="noopener"
+			>CV<svg class="ext" viewBox="0 0 12 12" aria-hidden="true" focusable="false"
+				><path d="M3 9 9 3M4.2 3H9v4.8" /></svg
+			></a
 		>
 		{#if import.meta.env.DEV}
 			<a style={`--i:${pages.length + 1}`} href={resolve('/admin')}>Editor</a>
@@ -182,6 +185,17 @@
 			animation-delay: calc(120ms + var(--i, 0) * 190ms);
 		}
 	}
+	/* drawn, so the arrow keeps one weight in both typefaces */
+	.ext {
+		width: 0.5em;
+		height: 0.5em;
+		margin-left: 0.28em;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.4;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
 	@keyframes menu-in {
 		from {
 			opacity: 0;
@@ -266,8 +280,15 @@
 		.prefs {
 			margin-left: auto;
 		}
+		/* phone order: menu button, then the name, with language and theme at the right edge */
 		.menu-toggle {
 			display: inline-flex;
+			order: -1;
+			justify-content: flex-start;
+			margin-right: 0;
+		}
+		.signature {
+			margin-right: 0;
 		}
 		nav,
 		.home nav {
