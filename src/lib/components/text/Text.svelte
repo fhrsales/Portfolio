@@ -41,8 +41,14 @@
 		);
 	}
 
+	// The arrow that ends a link gets its own element so it can move on hover.
+	function wrapArrows(html) {
+		if (!html) return html;
+		return String(html).replace(/\s*→\s*<\/a>/g, '&nbsp;<span class="arrow" aria-hidden="true">→</span></a>');
+	}
+
 	function renderHtml(html) {
-		return sanitizeHtml(injectInlineLogo(injectBullet(fixLinks(html, base))));
+		return sanitizeHtml(wrapArrows(injectInlineLogo(injectBullet(fixLinks(html, base)))));
 	}
 </script>
 
@@ -72,13 +78,13 @@
 <style>
 	p {
 		font-family: var(--font-primary);
-		font-size: calc(var(--grid) * 2.2);
-		font-weight: 300;
-		line-height: 1.5;
-		letter-spacing: -0.035em;
+		font-size: calc(var(--grid) * 2);
+		font-weight: 400;
+		line-height: 1.55;
+		letter-spacing: -0.01em;
 		color: var(--color-dark);
 		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 50);
+		max-width: var(--w-text);
 		margin: 0 auto calc(var(--grid) * 2) auto;
 	}
 

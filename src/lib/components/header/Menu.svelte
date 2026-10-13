@@ -5,11 +5,7 @@
 	import { onMount } from 'svelte';
 	import { language, translateLabel } from '$lib/i18n';
 	import LanguageSwitch from './LanguageSwitch.svelte';
-    export let fadeIn = false;
-    export let hidden = false;
-    let open = false;
-	let logoTick = 0;
-	const logoSrc = resolve('/imgs/fabio_sales.svg');
+	const signatureSrc = resolve('/imgs/fabio_sales.svg');
 	let isDark = false;
 	let pages = [];
 	let menuLabels = {};
@@ -26,9 +22,6 @@
 		return unsubscribe;
 	});
 	$: current = $page.url.pathname.replace(/^\/|\/$/g, '');
-	const replayLogo = () => {
-		logoTick = (logoTick + 1) % 10000;
-	};
 	function applyTheme(next) {
 		isDark = next === 'dark';
 		if (typeof document === 'undefined') return;
@@ -51,307 +44,146 @@
 	onMount(() => {
 		applyTheme('light');
 	});
-
-	// close mobile menu when navigating to a new route
-	$: if (typeof current === 'string') {
-		open = false;
-	}
 </script>
 
-<nav class="menu-bar" class:fadeIn class:hidden>
-	<div class="menu-container">
-		<a class="logo" href={resolve('/')} on:mouseenter={replayLogo} on:focus={replayLogo}>
-			<img
-				src={`${logoSrc}?v=${logoTick}`}
-				alt="Fabio Sales"
-				class="logo-img"
-				width="169"
-				height="46"
-				decoding="async"
-			/>
-		</a>
-		<div class="menu-actions">
-			<button
-				class="menu-toggle"
-				class:open
-				on:click={() => (open = !open)}
-				aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-				aria-expanded={open}
+<header class="site-header" class:home={current === '' || current === 'index'}>
+	<a class="signature" href={resolve('/')} aria-label="Fabio Sales, início">
+		<img src={signatureSrc} alt="Fabio Sales" width="169" height="46" decoding="async" />
+	</a>
+	<nav aria-label="Principal">
+		{#each pages as p, i (p)}
+			<a
+				style={`--i:${i}`}
+				href={p === 'index' ? resolve('/') : resolve(`/${p}`)}
+				aria-current={current === p || (p === 'index' && (current === '' || current === 'index'))
+					? 'page'
+					: undefined}>{translateLabel(menuLabels[p], $language)}</a
 			>
-				<svg viewBox="1 1 24 18" aria-hidden="true" focusable="false">
-					<rect class="line l1" x="0" y="4" width="24" height="2" rx="2" />
-					<!-- <rect class="line l2" x="0" y="8" width="24" height="2" rx="1" /> -->
-					<rect class="line l3" x="0" y="12" width="24" height="2" rx="2" />
-				</svg>
-			</button>
-			<span class="menu-sep" aria-hidden="true"></span>
-			<button
-				class="theme-toggle theme-toggle-mobile"
-				type="button"
-				aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
-				on:click={toggleTheme}
-			>
-				{#if isDark}
-					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-						<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z" />
-					</svg>
-				{:else}
-					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-						<circle cx="12" cy="12" r="4.2" />
-						<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
-					</svg>
-				{/if}
-			</button>
-            <LanguageSwitch />
-		</div>
-		{#if pages.length || import.meta.env.DEV}
-			<ul class="desktop-menu">
-				{#each pages as p (p)}
-					<li
-						class:active={current === p ||
-							(p === 'index' && (current === '' || current === 'index'))}
-					>
-						<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{translateLabel(menuLabels[p], $language)}</a>
-					</li>
-				{/each}
-				<li class="theme-item">
-					<button
-						class="theme-toggle theme-toggle-desktop"
-						type="button"
-						aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
-						on:click={toggleTheme}
-					>
-						{#if isDark}
-							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-								<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z" />
-							</svg>
-						{:else}
-							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-								<circle cx="12" cy="12" r="4.2" />
-								<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
-							</svg>
-						{/if}
-					</button>
-                    <LanguageSwitch />
-				</li>
-				{#if import.meta.env.DEV}
-					<li class="admin-link">
-						<a href={resolve('/admin')} style="color:#0070f3;font-weight:bold;">Admin</a>
-					</li>
-				{/if}
-			</ul>
+		{/each}
+		{#if import.meta.env.DEV}
+			<a style={`--i:${pages.length}`} href={resolve('/admin')}>Admin</a>
 		{/if}
-
-	</div>
-	{#if pages.length || import.meta.env.DEV}
-		<ul class:open class="mobile-menu">
-			{#each pages as p (p)}
-				<li
-					class:active={current === p || (p === 'index' && (current === '' || current === 'index'))}
-				>
-					<a href={p === 'index' ? resolve('/') : resolve(`/${p}`)}>{translateLabel(menuLabels[p], $language)}</a>
-				</li>
-			{/each}
-			{#if import.meta.env.DEV}
-				<li class="admin-link">
-					<a href={resolve('/admin')} style="color:#0070f3;font-weight:bold;">Admin</a>
-				</li>
+	</nav>
+	<div class="prefs" style={`--i:${pages.length + 1}`}>
+		<LanguageSwitch />
+		<button
+			class="theme-toggle"
+			type="button"
+			aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo noturno'}
+			on:click={toggleTheme}
+		>
+			{#if isDark}
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<path
+						d="M21 14.5A8.5 8.5 0 1 1 9.5 3a.9.9 0 0 1 .96 1.2A6.5 6.5 0 0 0 20.8 13.5a.9.9 0 0 1 .2 1z"
+					/>
+				</svg>
+			{:else}
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<circle cx="12" cy="12" r="4.2" />
+					<path
+						d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"
+					/>
+				</svg>
 			{/if}
-		</ul>
-	{/if}
-</nav>
+		</button>
+	</div>
+</header>
 
 <style>
-    @media (max-width: 700px) {
-        .logo-img { max-width: 130px; object-fit: contain; }
-    }
-
-	.menu-bar {
-		width: 100vw;
-		background: var(--glass-1);
-		backdrop-filter: blur(14px) saturate(160%);
-		-webkit-backdrop-filter: blur(14px) saturate(160%);
-		/* border-bottom: 1px solid #eee; */
-		position: sticky;
-		top: env(safe-area-inset-top, 0px);
-		padding-top: env(safe-area-inset-top, 0px);
-		z-index: 1000;
-		/* margin-bottom: calc(var(--grid) * 5); */
-		opacity: 1;
-		transition: opacity 360ms ease;
-	}
-
-	:global(html.has-intro-h2:not(.intro-h2-exited)) .menu-bar {
-		opacity: 0;
-		pointer-events: none;
-	}
-	:global(html.has-intro-h2.intro-h2-exited) .menu-bar {
-		opacity: 1;
-		pointer-events: auto;
-	}
-
-	/* optional fade-in on mount (home only) */
-	.menu-bar.fadeIn {
-		animation: menu-fade-in 360ms ease-out both;
-	}
-	.menu-bar.hidden {
-		opacity: 0;
-		pointer-events: none;
-	}
-
-	@keyframes menu-fade-in {
-		from { opacity: 0; transform: translateY(-8px); }
-		to { opacity: 1; transform: translateY(0); }
-	}
-	.menu-container {
-		max-width: 900px;
-		margin: 0 auto;
+	/* A quiet masthead that scrolls away with the page: signature, three links, two preferences. */
+	.site-header {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		padding: 10px 1em;
-		position: relative;
+		flex-wrap: wrap;
+		gap: calc(var(--grid) * 1) calc(var(--grid) * 2);
+		width: calc(100% - (var(--grid) * 4));
+		max-width: var(--w-text);
+		margin: 0 auto;
+		padding-top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 4));
+		font-family: var(--font-primary);
 	}
-	/* .logo {
-  font-weight: bold;
-  font-size: 1.2em;
-} */
-	.logo-img {
-		height: 46px;
+	.signature {
 		display: block;
-		margin-right: 8px;
+		margin-right: auto;
 	}
-	:global(html.theme-dark) .logo-img {
+	/* on the home page the signature is in the title, so the masthead keeps only the menu */
+	.home .signature {
+		display: none;
+	}
+	.home nav {
+		margin-right: auto;
+	}
+	.signature img {
+		display: block;
+		height: 46px;
+		width: auto;
+	}
+	:global(html.theme-dark) .signature img {
 		filter: invert(1) brightness(1.1);
 	}
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	ul.desktop-menu {
+	nav {
 		display: flex;
-		/* gap: 1em; */
+		gap: calc(var(--grid) * 2);
 	}
-	/* bolinha antes de cada item de menu */
-	ul.desktop-menu li::before,
-	ul.mobile-menu li::before {
-		position: relative;
-		top: -2px;
-		content: '';
-		display: inline-block;
-		width: 1px;
-		height: 1em;
-		background: var(--color-dark);
-		border-radius: 1px;
-		margin: 0 calc(var(--grid) * 1);
-		vertical-align: middle;
-        opacity: 0.3;
-	}
-
-	ul.mobile-menu {
-		/* curtain animation: keep in DOM and animate max-height */
-		display: block;
-		max-height: 0;
-		overflow: hidden;
-		transition:
-			max-height 340ms cubic-bezier(0.2, 0.9, 0.3, 1),
-			box-shadow 220ms ease;
-		transform-origin: top center;
-		box-shadow: none;
-	}
-
-	li a {
-		font-family: var(--font-primary);
-		font-size: calc(var(--grid) * 2);
+	nav a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		font-size: calc(var(--grid) * 1.7);
 		font-weight: 500;
-		letter-spacing: -0.025em;
 		color: var(--color-dark);
 		text-decoration: none;
-		margin: 0 calc(var(--grid) * 1);
-		position: relative;
-		transition: color 180ms ease;
+		text-underline-offset: 6px;
+		text-decoration-thickness: 2px;
 	}
-
-	li.active a {
-		color: var(--color-primary);
-	}
-	ul.desktop-menu li a::after {
-		content: '';
-		position: absolute;
-		left: 0;
-		bottom: -3px;
-		height: 2px;
-		width: 0;
-		background: currentColor;
-		transition: width 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
-	}
-	ul.mobile-menu li a::after {
-		content: '';
-		position: absolute;
-		left: 0;
-		bottom: -3px;
-		height: 2px;
-		width: 0;
-		background: currentColor;
-		transition: width 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
-	}
-	ul.desktop-menu li a:hover,
-	ul.desktop-menu li a:focus {
-		color: var(--color-primary);
+	nav a:hover,
+	nav a:focus-visible {
+		text-decoration: underline;
 		outline: none;
 	}
-	ul.desktop-menu li a:hover::after,
-	ul.desktop-menu li a:focus::after {
-		width: 100%;
+	nav a[aria-current='page'] {
+		text-decoration: underline;
+		text-decoration-color: var(--color-primary);
 	}
-	ul.mobile-menu li a:hover,
-	ul.mobile-menu li a:focus {
-		color: var(--color-primary);
-		outline: none;
+	/* On arrival the signature writes itself (about a second), then the menu follows,
+	   one item at a time from left to right. */
+	@media (prefers-reduced-motion: no-preference) {
+		nav a,
+		.prefs {
+			animation: menu-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+			animation-delay: calc(850ms + var(--i, 0) * 110ms);
+		}
 	}
-	ul.mobile-menu li a:hover::after,
-	ul.mobile-menu li a:focus::after {
-		width: 100%;
+	/* on the home page there is no signature to wait for: the menu comes in with the title
+	   (whose last word lands at about 1.5s) and finishes with it */
+	@media (prefers-reduced-motion: no-preference) {
+		.home nav a,
+		.home .prefs {
+			animation-delay: calc(120ms + var(--i, 0) * 190ms);
+		}
 	}
-	.menu-toggle {
-		display: none;
-		background: none;
-		border: none;
-		font-size: 2em;
-		cursor: pointer;
-        margin-right: 0.4em;
+	@keyframes menu-in {
+		from {
+			opacity: 0;
+			transform: translateX(-14px);
+		}
 	}
-	.menu-actions {
-		display: none;
-		position: absolute;
-		right: 1em;
-		top: 50%;
-		transform: translateY(-50%);
+	.prefs {
+		display: flex;
 		align-items: center;
-		gap: 0.5em;
-	}
-	.menu-sep {
-		display: inline-block;
-		width: 1px;
-		height: 1em;
-		background: var(--color-dark);
-		border-radius: 1px;
-		opacity: 0.3;
+		gap: calc(var(--grid) * 0.5);
 	}
 	.theme-toggle {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 34px;
-		height: 34px;
-		border-radius: 50%;
+		width: 44px;
+		height: 44px;
 		border: none;
+		border-radius: 50%;
 		background: transparent;
 		cursor: pointer;
-		transition: background 180ms ease;
-		position: relative;
-		top: -2px;
 	}
 	.theme-toggle svg {
 		width: 18px;
@@ -362,106 +194,23 @@
 		stroke-linecap: round;
 		stroke-linejoin: round;
 	}
-	li.theme-item {
-		display: flex;
-		align-items: center;
-	}
-	.theme-toggle-desktop {
-		width: 30px;
-		height: 30px;
-	}
 	.theme-toggle:hover,
 	.theme-toggle:focus-visible {
-		background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+		background: color-mix(in srgb, var(--color-dark) 8%, transparent);
 		outline: none;
 	}
-	/* Hamburger SVG styles */
-	.menu-toggle svg {
-		width: 26px;
-		height: 20px;
-		display: block;
-	}
-	.menu-toggle .line {
-		fill: var(--color-dark);
-		transition:
-			transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1),
-			opacity 180ms ease;
-		transform-origin: 12px 9px;
-	}
-	.menu-toggle.open .l1 {
-		transform: translateY(4px) rotate(45deg);
-	}
-	/* .menu-toggle.open .l2 {
-		opacity: 0;
-		transform: scaleX(0);
-	} */
-	.menu-toggle.open .l3 {
-		transform: translateY(-2px) rotate(-45deg);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.menu-toggle .line {
-			transition: none;
+	@media (max-width: 600px) {
+		.site-header {
+			padding-top: calc(env(safe-area-inset-top, 0px) + (var(--grid) * 2.5));
 		}
-	}
-	@media (max-width: 700px) {
-		.menu-container {
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			width: 100%;
-			padding: 0.5em 1em;
+		.signature {
+			flex-basis: 100%;
 		}
-		.logo {
-			margin-bottom: 0;
+		.signature img {
+			height: 40px;
 		}
-		ul.desktop-menu {
-			display: none;
-		}
-		li.theme-item {
-			display: none;
-		}
-		ul.mobile-menu {
-			flex-direction: column;
-			width: 100%;
-			margin-top: 0.5em;
-			padding-left: 1.5em;
-			padding-right: 1.5em;
-			box-sizing: border-box;
-			line-height: 1.5;
-		}
-		ul.mobile-menu li + li {
-			margin-top: calc(var(--grid) * 1);
-		}
-		ul.mobile-menu li::before {
-			display: none;
-		}
-		ul.mobile-menu.open {
-			max-height: 400px; /* tall enough for menu content; adjust if necessary */
-			box-shadow: 4px 20px 30px rgba(0, 0, 0, 0.12);
-		}
-		/* space after last mobile menu item */
-		ul.mobile-menu li:last-child {
-			margin-bottom: calc(var(--grid) * 4);
-		}
-		.menu-toggle {
-			display: block;
-		}
-		.menu-actions {
-			display: inline-flex;
-            position: static;
-            transform: none;
-            order: 3;
-		}
-		.theme-toggle-mobile {
-			position: relative;
-			top: 1px;
-		}
-		.theme-toggle {
-			margin-left: 0;
-		}
-		.admin-link {
-			margin-left: 0 !important;
+		.prefs {
+			margin-left: auto;
 		}
 	}
 </style>

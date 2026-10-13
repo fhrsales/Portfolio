@@ -24,3 +24,7 @@ vite.config.ts.timestamp-*
 
 *storybook.log
 storybook-static
+
+# Documentos pessoais locais
+/curriculum/
+.playwright-mcp

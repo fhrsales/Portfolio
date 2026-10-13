@@ -3,6 +3,8 @@
     export let color = '';
     export let height = '';
     export let intro = false;
+    // centered: the colour applies only while the marker covers the middle of the screen
+    export let centered = false;
     let el;
 
     // Shared registry to choose the closest marker to viewport center
@@ -17,9 +19,15 @@
         for (const it of this.items) {
             if (!it.visible) continue;
             const r = it.el.getBoundingClientRect();
+            if (it.centered && (r.top > center || r.bottom < center)) continue;
             const mid = (r.top + r.bottom) / 2;
             const d = Math.abs(mid - center);
             if (!best || d < best.d) best = { it, d };
+        }
+        // a group that sets the page colour knows when its colour is on, so what is inside can wait for it
+        for (const it of this.items) {
+            const host = it.centered && it.el.closest('.has-page-bg');
+            if (host) host.classList.toggle('page-bg-on', !!best && best.it === it);
         }
         if (best) {
             const c = best.it.color || 'var(--color-light)';
@@ -46,7 +54,7 @@
     let io;
     onMount(() => {
         if (!registry) return;
-        const item = { el, color, visible: false };
+        const item = { el, color, centered, visible: false };
         registry.items.push(item);
         registry.ensureListeners();
         try {

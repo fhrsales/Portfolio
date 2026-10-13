@@ -5,12 +5,37 @@
     import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
+    import { onNavigate } from '$app/navigation';
     import { language } from '$lib/i18n';
+    import { archiePages } from '$lib/stores';
+    // cross-fade between pages where the browser supports view transitions
+    onNavigate((navigation) => {
+        if (!document.startViewTransition) return;
+        return new Promise((resolve) => {
+            document.startViewTransition(async () => {
+                resolve();
+                await navigation.complete;
+            });
+        });
+    });
+
     onMount(() => {
         language.set('en');
         return language.subscribe(value => {
             document.documentElement.lang = value === 'pt' ? 'pt-BR' : 'en';
         });
+    });
+    // Inside the editor's preview frame, show the draft the editor sends instead of the saved page.
+    onMount(() => {
+        if (window.parent === window) return;
+        const onDraft = (event) => {
+            if (event.origin !== window.location.origin || event.source !== window.parent) return;
+            const { type, page: name, content } = event.data || {};
+            if (type !== 'editor-draft' || typeof name !== 'string' || typeof content !== 'string') return;
+            archiePages.update((pages) => ({ ...pages, [name]: { ...pages[name], content } }));
+        };
+        window.addEventListener('message', onDraft);
+        return () => window.removeEventListener('message', onDraft);
     });
     let { children } = $props();
     let scrollFadeTimer;
@@ -33,10 +58,10 @@
     });
 </script>
 
-{#if !$page.url.pathname?.startsWith('/admin')}
+{#if !$page.route.id?.startsWith('/admin')}
 	<Menu />
 {/if}
-{#if $page.url.pathname?.startsWith('/admin')}
+{#if $page.route.id?.startsWith('/admin')}
 	{@render children?.()}
 
 {:else}
@@ -46,6 +71,6 @@
 		{/key}
 	</main>
 {/if}
-{#if !$page.url.pathname?.startsWith('/admin')}
+{#if !$page.route.id?.startsWith('/admin')}
 	<Footer />
 {/if}

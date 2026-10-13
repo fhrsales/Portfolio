@@ -18,14 +18,16 @@ it('keeps the Archive introduction and viewport-filling video in one immersive s
 });
 
 
-it('keeps the ATBL scroll video in the normal page flow without a tall spacer', () => {
- const blocks = buildBlockObjects(pages.index.content.split(/\n\n+/));
- const conf = blocks.find((block) => block.raw?.scrollerVideo).raw.scrollerVideo;
- expect(conf.fixar).toBe('nao');
- const { body } = render(ScrollerVideo, { props: {
-  pin: conf.fixar !== 'nao', stageRatio: conf.proporcao, size: conf.tamanho
- } });
- expect(body).toContain('height:auto');
- expect(body).toContain('aspect-ratio: 16 / 9');
- expect(body).not.toContain('position: sticky');
+it('keeps an unpinned scroll video in the normal page flow without a tall spacer', () => {
+	const { body } = render(ScrollerVideo, { props: { pin: false, stageRatio: '16 / 9', size: 'G' } });
+	expect(body).toContain('height:auto');
+	expect(body).toContain('aspect-ratio: 16 / 9');
+	expect(body).not.toContain('position: sticky');
+});
+
+it('opens the ATBL section on the home page with the phone and its app screens', () => {
+	const blocks = buildBlockObjects(pages.index.content.split(/\n\n+/));
+	const conf = blocks.find((block) => block.raw?.celular).raw.celular;
+	expect(conf.telas).toHaveLength(3);
+	expect(conf.entrada).toBe('login.jpg');
 });

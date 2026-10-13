@@ -1,16 +1,22 @@
 :root {
 	--grid: 9px;
 	--font-primary: 'Fira Sans', sans-serif;
+	--font-display: 'Newsreader', Georgia, serif;
+	--w-text: 580px;
+	--w-page: 1106px;
 	--vh: 1vh;
-	--header-h: 66px;
+	--header-h: 0px; /* the masthead is not fixed, so nothing needs to clear it */
 
-	--color-primary: #31158b;
-	--color-secondary: #f4604a;
+	/* Ink, paper and one vermilion accent */
+	--color-primary: #d9381e;
+	--color-on-primary: #ffffff;
+	--color-secondary: #121214;
 	--color-tertiary: #ffffff;
-    --color-danger: #e63946;
-    --color-success: #2a9d8f;
-	--color-dark: #333338;
-	--color-light: #f5f5f5;
+	--color-danger: #c62f3b;
+	--color-success: #1f7a70;
+	--color-dark: #121214;
+	--color-light: #ffffff;
+	--color-rule: #d9d9de;
 	--body-bg: var(--color-light);
 
 	--glass-1: rgba(255, 255, 255, 0.6);
@@ -33,11 +39,13 @@
 	}
 }
 .theme-dark {
-	--color-primary: #f22800;
-	--color-secondary: #7cc46b;
-	--color-tertiary: #0f1116;
-	--color-dark: #e1e2e2;
-	--color-light: #2b2d31;
+	--color-primary: #ff6a4d;
+	--color-on-primary: #111114;
+	--color-secondary: #f1f1f4;
+	--color-tertiary: #1c1c20;
+	--color-dark: #f1f1f4;
+	--color-light: #111114;
+	--color-rule: #3a3a40;
 	--body-bg: var(--color-light);
 
 	--glass-1: rgba(18, 20, 30, 0.72);
@@ -56,7 +64,13 @@
 
 body {
 	background-color: var(--body-bg, var(--color-light));
-	transition: background-color 1.5s ease;
+	/* guard against horizontal scroll without breaking position: sticky */
+	overflow-x: clip;
+	transition: background-color 900ms ease;
+}
+/* page colours set by a section are chosen for dark text: the dark theme keeps its own */
+html.theme-dark body {
+	background-color: var(--color-light);
 }
 
 main {
@@ -66,7 +80,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	min-height: calc(var(--vh) * 100);
-	width: 100vw;
+	width: 100%;
 }
 
 .main-content {
@@ -76,7 +90,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	min-height: calc(var(--vh) * 100);
-	width: 100vw;
+	width: 100%;
 }
 
 /* Home with menu hidden: center hero tighter vertically */
@@ -100,33 +114,43 @@ strong {
 	font-weight: 600;
 }
 
-.sublinks {
-	font-size: 70%;
+/* Follow-on links under a text: text-sized, underlined in the accent, with an arrow that steps aside on hover. */
+.main-content p a.sublinks {
+	display: inline-block;
+	font-size: 0.9em;
+	font-weight: 500;
+	text-decoration: none;
+	padding: 6px 0;
+	/* two underlines: the accent one always there, the ink one drawn over it on hover */
+	background:
+		linear-gradient(var(--color-dark), var(--color-dark)) left calc(100% - 2px) / 0 2px no-repeat,
+		linear-gradient(var(--color-primary), var(--color-primary)) left calc(100% - 2px) / 100% 2px no-repeat;
+	transition:
+		background-size 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+		color 180ms ease;
+}
+.main-content p a.sublinks::after {
+	display: none;
+}
+.main-content p a.sublinks .arrow {
+	display: inline-block;
+	transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.main-content p a.sublinks:hover,
+.main-content p a.sublinks:focus-visible {
+	background-size:
+		100% 2px,
+		100% 2px;
+}
+.main-content p a.sublinks:hover .arrow,
+.main-content p a.sublinks:focus-visible .arrow {
+	transform: translateX(5px);
 }
 
+/* A printed page resting on a surface. Applied to the element that is the page itself. */
 .shadow-1 {
-	position: relative; /* Essential for positioning pseudo-elements */
-}
-
-.shadow-1:before,
-.shadow-1:after {
-	content: '';
-	position: absolute;
-	z-index: -1;
-	bottom: 15px; /* Adjust as needed for desired lift */
-	height: 17px; /* Adjust for shadow thickness */
-	width: 50%; /* Adjust for shadow width */
-	box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3); /* Shadow properties for corners */
-}
-
-.shadow-1:before {
-	left: 10px; /* Position left corner shadow */
-	transform: rotate(-5deg); /* Angle the left shadow */
-}
-
-.shadow-1:after {
-	right: 10px; /* Position right corner shadow */
-	transform: rotate(5deg); /* Angle the right shadow */
+	position: relative;
+	box-shadow: var(--shadow-surface);
 }
 
 /* Blend multiply helper: wrapper provides background color, image uses mix-blend-mode */
@@ -331,4 +355,183 @@ html:not(.is-scrolling) .tag-selector-anchor {
 	.intro-hero {
 		padding: calc(var(--grid) * 3) 0;
 	}
+}
+
+/* Full-width dark band: flips the colour tokens, so every block inside follows. */
+.content-block.secao-escura {
+	--color-primary: #ff6a4d;
+	--color-on-primary: #111114;
+	--color-secondary: #f1f1f4;
+	--color-tertiary: #1c1c20;
+	--color-dark: #f1f1f4;
+	--color-light: #111114;
+	--color-rule: #3a3a40;
+	background: #111114;
+	color: var(--color-dark);
+	padding: calc(var(--grid) * 8) 0 calc(var(--grid) * 9);
+	margin: calc(var(--grid) * 8) 0;
+}
+/* The page's own colours, resolved once per theme, for bands that fade from and back to the page. */
+html {
+	--page-bg: var(--color-light);
+	--page-ink: var(--color-dark);
+}
+
+.content-block.secao-escura .divider {
+	opacity: 0.5;
+}
+
+/* Paper resting on a surface: translucent black only, so it holds on any background. */
+:root {
+	--shadow-surface: 0 1px 1px rgba(0, 0, 0, 0.12), 0 8px 14px -6px rgba(0, 0, 0, 0.3), 0 24px 34px -18px rgba(0, 0, 0, 0.38);
+}
+.theme-dark,
+.secao-escura {
+	--shadow-surface: 0 1px 1px rgba(0, 0, 0, 0.3), 0 8px 14px -6px rgba(0, 0, 0, 0.55), 0 24px 34px -18px rgba(0, 0, 0, 0.7);
+}
+
+/* Line art on a transparent background disappears on a dark page. Images marked `classes: papel`
+   get paper to sit on; cut-out photos stay transparent and float on the page. */
+.theme-dark .image-block.papel img,
+.secao-escura .image-block.papel img {
+	background-color: #fbfaf7;
+}
+
+/* Newspaper pages shown as single images: a white paper margin, the surface shadow and,
+   for a double page (`classes: shadow-1 dupla`), the fold down the middle. */
+.image-block.shadow-1 {
+	box-shadow: none;
+}
+.image-block.shadow-1 .image-inner {
+	border: clamp(6px, 0.7vw, 10px) solid #fff;
+	background: #fff;
+	box-shadow: var(--shadow-surface);
+}
+/* `classes: legenda-lado`: a small image with its caption beside it instead of under it,
+   so the pair takes the height of the image only. */
+.image-block-wrapper.legenda-lado {
+	max-width: var(--w-text);
+	width: calc(100% - (var(--grid) * 4));
+}
+.image-block-wrapper.legenda-lado figure,
+figure.image-block-wrapper.legenda-lado {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+	align-items: end;
+	gap: calc(var(--grid) * 3);
+}
+.image-block-wrapper.legenda-lado figcaption {
+	margin-top: 0;
+	padding-bottom: calc(var(--grid) * 1);
+}
+@media (max-width: 600px) {
+	.image-block-wrapper.legenda-lado figure,
+	figure.image-block-wrapper.legenda-lado {
+		gap: calc(var(--grid) * 2);
+	}
+	.image-block-wrapper.legenda-lado figcaption {
+		font-size: 14px;
+	}
+}
+
+/* A screen capture (`classes: tela`): rounded corners and the surface shadow, no paper margin. */
+.image-block.tela .image-inner {
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow:
+		0 0 0 1px color-mix(in srgb, var(--color-dark) 14%, transparent),
+		var(--shadow-surface);
+}
+.image-block.shadow-1.dupla .image-inner::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(
+		90deg,
+		transparent 45%,
+		rgba(0, 0, 0, 0.07) 49.4%,
+		rgba(0, 0, 0, 0.16) 50%,
+		rgba(0, 0, 0, 0.07) 50.6%,
+		transparent 55%
+	);
+}
+
+/* Scroll-driven entrances. Only where the browser can tie an animation to the scroll position,
+   and only for people who have not asked for less motion; everywhere else things simply sit there. */
+@supports (animation-timeline: view()) {
+	@media (prefers-reduced-motion: no-preference) {
+		/* figures settle into place as they come into view */
+		.image-block .image-inner,
+		.video-block video {
+			animation: figure-settle linear both;
+			animation-timeline: view();
+			/* a fixed distance, so a figure taller than the screen is not left half-faded */
+			animation-range: entry 0px entry 220px;
+		}
+		/* a coloured band fades in from the page colour and back out, instead of cutting */
+		.content-block.secao-escura {
+			position: relative;
+			animation: band-in linear both;
+			animation-timeline: view();
+			animation-range: entry 0px entry 200px;
+		}
+		.content-block.secao-escura::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background: var(--page-bg);
+			opacity: 0;
+			animation: band-out linear both;
+			animation-timeline: view();
+			animation-range: exit calc(100% - 200px) exit 100%;
+		}
+	}
+}
+@keyframes figure-settle {
+	from {
+		opacity: 0;
+		transform: translateY(28px) scale(0.985);
+	}
+}
+@keyframes band-in {
+	from {
+		background-color: var(--page-bg);
+		color: var(--page-ink);
+	}
+}
+@keyframes band-out {
+	to {
+		opacity: 1;
+	}
+}
+
+/* Moving between pages: a short cross-fade. */
+@media (prefers-reduced-motion: no-preference) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 260ms;
+	}
+}
+
+/* Inside a group that colours the page, figures wait for the colour before they appear,
+   and leave with it, so their own background is never seen against the plain page. */
+.content-block.has-page-bg .image-block .image-inner {
+	animation: none;
+	opacity: 0;
+	transition: opacity 500ms ease;
+}
+.content-block.has-page-bg.page-bg-on .image-block .image-inner {
+	opacity: 1;
+	transition: opacity 700ms ease 450ms;
+}
+@media (prefers-reduced-motion: reduce) {
+	.content-block.has-page-bg .image-block .image-inner {
+		opacity: 1;
+		transition: none;
+	}
+}
+html.theme-dark .content-block.has-page-bg .image-block .image-inner {
+	opacity: 1;
 }

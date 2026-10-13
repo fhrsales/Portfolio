@@ -78,6 +78,11 @@ export function buildBlockObjects(blocks) {
 						.join(' ');
 					continue;
 				}
+				// fundo: a colour the whole page takes while this group is on screen
+				if ((key === 'fundo' || key === 'bg') && val) {
+					bloco.fundo = val;
+					continue;
+				}
 				if (key === 'gap' && val) {
 					bloco.gap = val;
 					continue;
@@ -263,6 +268,211 @@ export function buildBlockObjects(blocks) {
       }
       const tags = (fields.tags || '').split(',').map((tag) => tag.trim().toLowerCase()).filter(Boolean);
       objs.push({ raw: { imagemTexto: fields }, tags });
+      continue;
+    }
+
+    // Opening statement of a page: eyebrow, title, deck and up to four figures.
+    if (/^\{abertura\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const numeros = Object.keys(fields)
+        .filter((key) => /^numero/.test(key))
+        .sort()
+        .map((key) => {
+          const [value, ...label] = fields[key].split('|');
+          return { value: value.trim(), label: label.join('|').trim() };
+        });
+      objs.push({ raw: { abertura: { ...fields, numeros } }, tags: [] });
+      continue;
+    }
+
+    // A fixed phone whose screen changes with each step: imagem_1, chapeu_1, titulo_1, texto_1, ...
+    if (/^\{telas\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const passos = Object.keys(fields)
+        .map((key) => key.match(/^imagem_(\d+)$/)?.[1])
+        .filter(Boolean)
+        .sort((a, b) => a - b)
+        .map((n) => ({
+          imagem: fields[`imagem_${n}`].trim(),
+          chapeu: fields[`chapeu_${n}`] || '',
+          titulo: fields[`titulo_${n}`] || '',
+          texto: fields[`texto_${n}`] || ''
+        }));
+      objs.push({ raw: { telas: { pasta: (fields.pasta || '').trim(), passos } }, tags: [] });
+      continue;
+    }
+
+    // {faixa}: edge-to-edge strip of images (imagem_1: file | description). {lista}: ruled rows (item_1: name | line).
+    // {fragmento}: a detail of a larger piece (nome, alt, legenda, altura).
+    if (/^\{(faixa|lista|fragmento)\}(?:\s|$)/i.test(trimmed)) {
+      const name = trimmed.match(/^\{(\w+)\}/)[1].toLowerCase();
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const prefix = name === 'faixa' ? 'imagem_' : 'item_';
+      const itens = Object.keys(fields)
+        .filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)))
+        .sort((a, b) => a.slice(prefix.length) - b.slice(prefix.length))
+        .map((key) => {
+          const [first, ...rest] = fields[key].split('|');
+          return { nome: first.trim(), texto: rest.join('|').trim() };
+        });
+      objs.push({ raw: { [name]: { ...fields, itens } }, tags: [] });
+      continue;
+    }
+
+    // {trajetoria}: career chart. periodo_1: 1997-2000 | name; marco_1: 2011 | 1 | what it was.
+    if (/^\{trajetoria\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const numbered = (prefix) =>
+        Object.keys(fields)
+          .filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)))
+          .sort((a, b) => a.slice(prefix.length) - b.slice(prefix.length))
+          .map((key) => fields[key].split('|').map((part) => part.trim()));
+      const periodos = numbered('periodo_').map(([years, label]) => {
+        const [from, to] = years.split('-').map(Number);
+        return { from, to, label: label || '' };
+      });
+      const marcos = numbered('marco_').map(([year, count, label]) => ({ year: Number(year), count: Number(count) || 1, label: label || '' }));
+      objs.push({ raw: { trajetoria: { ...fields, periodos, marcos } }, tags: [] });
+      continue;
+    }
+
+    // {capitulos}: career timeline. capitulo_1: name | period | text; imagem_1, legenda_1, papel_1 are optional.
+    if (/^\{capitulos\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const capitulos = Object.keys(fields)
+        .map((key) => key.match(/^capitulo_(\d+)$/)?.[1])
+        .filter(Boolean)
+        .sort((a, b) => a - b)
+        .map((n) => {
+          const [nome, periodo, ...texto] = fields[`capitulo_${n}`].split('|').map((part) => part.trim());
+          return {
+            nome,
+            periodo: periodo || '',
+            texto: texto.join(' | '),
+            imagem: (fields[`imagem_${n}`] || '').trim(),
+            legenda: fields[`legenda_${n}`] || '',
+            papel: (fields[`papel_${n}`] || '').trim() === 'sim',
+            // marca_1: 54 52 14 | label  (centre in % from the left and top of the picture, then the ring's width in %; label optional)
+            marca: (() => {
+              const [pos, ...label] = (fields[`marca_${n}`] || '').split('|').map((part) => part.trim());
+              const [x, y, size] = (pos || '').split(/\s+/).map(Number);
+              return Number.isFinite(x) && Number.isFinite(y) ? { x, y, size: size || 12, label: label.join(' | ') } : null;
+            })()
+          };
+        });
+      objs.push({ raw: { capitulos: { titulo: fields.titulo || '', capitulos } }, tags: [] });
+      continue;
+    }
+
+    // {sistema}: two-lane diagram. visivel_1: name | text (what people see); oculto_1: name | text (what the system absorbs).
+    if (/^\{sistema\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const numbered = (prefix) =>
+        Object.keys(fields)
+          .filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)))
+          .sort((a, b) => a.slice(prefix.length) - b.slice(prefix.length))
+          .map((key) => {
+            const [name, ...text] = fields[key].split('|').map((part) => part.trim());
+            return { name, text: text.join(' | ') };
+          });
+      objs.push({ raw: { sistema: { ...fields, visivel: numbered('visivel_'), oculto: numbered('oculto_') } }, tags: [] });
+      continue;
+    }
+
+    // {fluxo}: two lanes of steps that meet in one result. esquerda_1 / direita_1 / fim_1: name | text.
+    if (/^\{fluxo\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const numbered = (prefix) =>
+        Object.keys(fields)
+          .filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)))
+          .sort((a, b) => a.slice(prefix.length) - b.slice(prefix.length))
+          .map((key) => {
+            const [name, ...text] = fields[key].split('|').map((part) => part.trim());
+            return { name, text: text.join(' | ') };
+          });
+      objs.push({ raw: { fluxo: { ...fields, esquerda: numbered('esquerda_'), direita: numbered('direita_'), fim: numbered('fim_') } }, tags: [] });
+      continue;
+    }
+
+    // {celular}: a phone that turns as the page scrolls while screens slide out. tela_1: file | description.
+    if (/^\{celular\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const telas = Object.keys(fields)
+        .filter((key) => /^tela_\d+$/.test(key))
+        .sort((a, b) => a.slice(5) - b.slice(5))
+        .map((key) => {
+          const [nome, ...texto] = fields[key].split('|').map((part) => part.trim());
+          return { nome, texto: texto.join(' | ') };
+        });
+      objs.push({ raw: { celular: { ...fields, telas } }, tags: [] });
+      continue;
+    }
+
+    // {numeros}: figures that count up. numero_1: 6,359 | what it counts. nota: where the figures come from.
+    if (/^\{numeros\}(?:\s|$)/i.test(trimmed)) {
+      let source = trimmed;
+      while (!/\{\}\s*$/.test(source) && i + 1 < blocks.length) source += '\n' + blocks[++i];
+      const fields = {};
+      for (const line of source.split(/\r?\n/)) {
+        const match = line.trim().match(/^([^:]+):\s*(.*)$/);
+        if (match) fields[match[1].trim().toLowerCase()] = match[2];
+      }
+      const itens = Object.keys(fields)
+        .filter((key) => /^numero_\d+$/.test(key))
+        .sort((a, b) => a.slice(7) - b.slice(7))
+        .map((key) => {
+          const [value, ...label] = fields[key].split('|').map((part) => part.trim());
+          return { value, label: label.join(' | ') };
+        });
+      objs.push({ raw: { numeros: { nota: fields.nota || '', itens } }, tags: [] });
       continue;
     }
 

@@ -770,9 +770,13 @@
 		}
 	}
 	.video-block figcaption {
-		font-size: 0.95em;
-		color: #555;
-		margin-top: 0.5em;
+		width: 100%;
+		margin-top: calc(var(--grid) * 1.25);
+		font-family: var(--font-primary);
+		font-size: calc(var(--grid) * 1.6);
+		line-height: 1.45;
+		text-align: left;
+		color: color-mix(in srgb, var(--color-dark) 68%, transparent);
 	}
 
 	.video-block-wrapper.video-pp {
@@ -788,7 +792,7 @@
 		max-width: 875px;
 	}
 	.video-block-wrapper.video-gg {
-		max-width: 100vw;
+		max-width: 100%;
 		border-radius: 0;
 	}
 

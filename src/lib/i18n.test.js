@@ -14,6 +14,6 @@ test('Portuguese preserves media, notation, links and English source', () => {
       if (pt[line.trim()]) expect(translated).toContain(pt[line.trim()]);
     }
   }
-  expect(translateContent(pages.index.content, 'pt')).toContain('Olá, sou');
+  expect(translateContent(pages.index.content, 'pt')).toContain('titulo: Sou Fabio Sales');
   expect(translateContent(pages.archive.content, 'pt')).toContain('h1: Um olhar mais amplo');
 });

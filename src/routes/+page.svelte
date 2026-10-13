@@ -177,8 +177,7 @@
 		const container = document.querySelector('.main-content');
 		if (!container) return;
 		function tryInitOnce() {
-			let candidates = Array.from(container.querySelectorAll('.intro-animated'));
-			if (!candidates.length) candidates = Array.from(container.querySelectorAll('p')).filter((el) => (el.textContent || '').trim().length > 20).slice(0, 2);
+			const candidates = Array.from(container.querySelectorAll('.intro-animated'));
 			if (!candidates.length) return false;
 			let ok = false;
 			if (candidates[0]) ok = setupIntro(candidates[0]) || ok;

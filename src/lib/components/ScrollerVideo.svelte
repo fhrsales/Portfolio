@@ -48,6 +48,8 @@
   export let maxStepSec = undefined;
   // Preload mode override: 'metadata' | 'auto'
   export let preloadMode = 'metadata';
+  // Blend a video rendered on a near-white background into the page, in light and dark themes
+  export let blend = false;
 
   // Consume deprecated/legacy props to avoid Svelte unused export warnings when parents pass them
   $: void windowSize;
@@ -451,7 +453,7 @@
     style:aspect-ratio={stageRatio || undefined}
     style={pin ? `position: sticky; top: ${offsetTop}px;` : ''}
   >
-  <div class="scroller-video__stage" class:visible={hasAppeared}>
+  <div class="scroller-video__stage" class:visible={hasAppeared} class:blend>
       <video
         bind:this={videoEl}
         src={shouldLoad ? (chosenSrc || src || undefined) : undefined}
@@ -501,7 +503,7 @@
   .scroller-story { width: 100%; }
   .scroller-story.immersive {
     --story-bg: #000;
-    width: 100vw;
+    width: 100%;
     position: relative;
     z-index: 1001;
     color: #f5f5f5;
@@ -524,7 +526,7 @@
   }
   .story-intro > div { width: 100%; }
   .scroller-story.immersive .scroller-video { margin: 0; max-width: none; }
-  .immersive .scroller-video__sticky { height: 100vh; height: 100dvh; background: var(--story-bg); }
+  .immersive .scroller-video__sticky { height: 100vh; height: 100svh; background: var(--story-bg); }
   .immersive .scroller-video__stage { background: var(--story-bg); }
   .immersive .scroller-video__stage > video {
     mask-image: linear-gradient(to bottom, transparent, #000 80px);
@@ -545,6 +547,7 @@
   .scroller-video__sticky {
     margin-inline: auto;
     height: 100vh;
+    height: 100svh;
     width: 100%;
   }
   .scroller-video__stage {
@@ -556,6 +559,15 @@
     transition: opacity 480ms ease;
   }
   .scroller-video__stage.visible { opacity: 1; }
+  /* The lift takes the baked near-white backdrop to pure white; the blend then drops it out on light pages.
+     A dark page cannot absorb a light backdrop without an alpha channel, so there it becomes a rounded panel. */
+  :global(html:not(.theme-dark)) .scroller-video__stage.blend > video {
+    filter: brightness(1.06);
+    mix-blend-mode: multiply;
+  }
+  :global(html.theme-dark) .scroller-video__stage.blend {
+    border-radius: 16px;
+  }
   .scroller-video__stage > video {
     position: absolute;
     inset: 0;

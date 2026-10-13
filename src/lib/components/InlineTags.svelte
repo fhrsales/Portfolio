@@ -19,7 +19,7 @@
 	/* Inline, non-interactive tag chips displayed after text blocks */
 	.inline-tags {
 		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 50);
+		max-width: var(--w-text);
 		margin: calc(var(--grid) * 0) auto calc(var(--grid) * 4) auto; /* pull closer to the paragraph above */
 	}
 	.inline-tags__label {
@@ -49,10 +49,10 @@
 		padding: 0.25rem 0.50rem 0.20rem; /* top slightly larger to visually center on iOS */
 		border-radius: 999px;
 		background: var(--color-primary); /* dark blue */
-		color: #fff; /* white text */
+		color: var(--color-on-primary);
 		font-family: var(--font-primary);
 		font-weight: 700;
-		font-size: calc(var(--grid) * 0.95); /* smaller text */
+		font-size: max(11px, calc(var(--grid) * 0.95));
 		line-height: 1.12; /* improves vertical balance on iOS */
 		text-transform: uppercase;
 		letter-spacing: 0.06em; /* increased spacing */

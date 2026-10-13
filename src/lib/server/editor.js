@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, renameSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 export function savePage(file, { page, data, original }) {
 	if (!/^[a-z0-9][a-z0-9_-]*$/i.test(page || '') || page === '__nova__' ||
@@ -54,6 +55,28 @@ export function saveSamples(file, { original, hiddenIds, dates = {} }) {
 	return manifest;
 }
 
+// Commit everything that changed in the project and push it; the push starts the site's deploy.
+// With { dryRun: true } it only reports what would go.
+export function publishProject(root, { message, dryRun } = {}) {
+	const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trimEnd();
+	const branch = git('rev-parse', '--abbrev-ref', 'HEAD');
+	const files = git('status', '--porcelain').split('\n').filter(Boolean).map(line => line.slice(3));
+	const ahead = Number(git('rev-list', '--count', `origin/${branch}..HEAD`));
+	if (dryRun) return { branch, files, ahead };
+	if (branch !== 'main') throw new Error(`O projeto está no ramo "${branch}". A publicação sai do ramo main.`);
+	if (!files.length && !ahead) throw new Error('Nada novo para publicar.');
+	if (files.length) {
+		git('add', '-A');
+		git('commit', '-m', String(message || '').trim().slice(0, 200) || 'editor: update site');
+	}
+	try {
+		git('push', 'origin', branch);
+	} catch (error) {
+		throw new Error('O commit foi feito, mas o envio ao GitHub falhou: ' + String(error.stderr || error.message).trim().split('\n').pop());
+	}
+	return { branch, files, commit: git('rev-parse', '--short', 'HEAD') };
+}
+
 export function editorSave() {
 	return {
 		name: 'local-editor-save',
@@ -61,7 +84,8 @@ export function editorSave() {
 		configureServer(server) {
 			for (const [route, file, save] of [
 				['save', 'src/lib/archiePages.json', savePage],
-				['samples', 'static/imgs/samples/manifest.json', saveSamples]
+				['samples', 'static/imgs/samples/manifest.json', saveSamples],
+				['publish', '', publishProject]
 			]) server.middlewares.use(`/__editor/${route}`, (req, res) => {
 				res.setHeader('Content-Type', 'application/json');
 				if (req.method !== 'POST' || req.headers.origin !== `http://${req.headers.host}` ||
@@ -77,7 +101,7 @@ export function editorSave() {
 				});
 				req.on('end', () => {
 					try {
-						const data = save(`${server.config.root}/${file}`, JSON.parse(body));
+						const data = save(file ? `${server.config.root}/${file}` : server.config.root, JSON.parse(body));
 						res.end(JSON.stringify({ data }));
 					} catch (error) {
 						res.statusCode = 400;

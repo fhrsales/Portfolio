@@ -236,8 +236,17 @@
 		return src;
 	}
 
+	// A phone-sized file (`name-m.ext`) is assumed to exist; when it does not, show the full image.
+	let mobileMissing = false;
+	function useFullImage() {
+		if (currentSrc && currentSrc !== src) {
+			mobileMissing = true;
+			currentSrc = src;
+		}
+	}
+
 	function updateSrc() {
-		const srcToUse = getResponsiveSrcSync();
+		const srcToUse = mobileMissing ? src : getResponsiveSrcSync();
 		lastSrcChecked = srcToUse;
 		currentSrc = srcToUse;
 	}
@@ -440,6 +449,7 @@
 						fetchpriority={priority ? 'high' : 'auto'}
 						{decoding}
 						on:load={() => (imgLoaded = true)}
+						on:error={useFullImage}
 						on:transitionend={onImgTransitionEnd}
 						style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
 					/>
@@ -459,6 +469,7 @@
 					fetchpriority={priority ? 'high' : 'auto'}
 					{decoding}
 					on:load={() => (imgLoaded = true)}
+					on:error={useFullImage}
 					on:transitionend={onImgTransitionEnd}
 					style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
 				/>
@@ -536,9 +547,13 @@
 	}
 
 	.image-block figcaption {
-		font-size: 0.95em;
-		color: #555;
-		margin-top: 0.5em;
+		width: 100%;
+		margin-top: calc(var(--grid) * 1.25);
+		font-family: var(--font-primary);
+		font-size: calc(var(--grid) * 1.6);
+		line-height: 1.45;
+		text-align: left;
+		color: color-mix(in srgb, var(--color-dark) 68%, transparent);
 	}
 
 	.image-block-wrapper.img-pp {
@@ -554,7 +569,7 @@
 		max-width: 875px;
 	}
 	.image-block-wrapper.img-gg {
-		max-width: 100vw;
+		max-width: 100%;
 		border-radius: 0;
 	}
 
@@ -577,34 +592,4 @@
 		}
 	}
 
-	.image-block.show.shadow-1 img {
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-	}
-
-	/* Override global .shadow-1 pseudo-elements so they appear only after the image is shown
-   (global rules may place :before/:after as soon as class is present; we delay them until .show) */
-	.image-block.shadow-1:before,
-	.image-block.shadow-1:after {
-		display: none !important;
-	}
-	.image-block.show.shadow-1:before,
-	.image-block.show.shadow-1:after {
-		/* mirror global shadow styles but only after .show is active */
-		content: '';
-		position: absolute;
-		z-index: -1;
-		bottom: 15px;
-		height: 17px;
-		width: 50%;
-		box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
-		display: block !important;
-	}
-	.image-block.show.shadow-1:before {
-		left: 10px;
-		transform: rotate(-5deg);
-	}
-	.image-block.show.shadow-1:after {
-		right: 10px;
-		transform: rotate(5deg);
-	}
 </style>

@@ -120,11 +120,11 @@
 	}
 	.btn.primary {
 		background: var(--color-primary);
-		color: white;
+		color: var(--color-on-primary);
 	}
 	.btn.active {
 		background: var(--color-primary);
-		color: white;
+		color: var(--color-on-primary);
 	}
 	.btn:disabled {
 		opacity: 0.6;

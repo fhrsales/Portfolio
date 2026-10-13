@@ -14,7 +14,7 @@
   text-transform: uppercase;
   color: var(--color-primary);
   width: calc(100% - (var(--grid) * 4));
-  max-width: calc(var(--grid) * 50);
+  max-width: var(--w-text);
   margin: 0 auto calc(var(--grid) * .8);
  }
 </style>

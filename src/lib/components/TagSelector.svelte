@@ -87,7 +87,7 @@
 	.tag-selector :global(.btn.primary),
 	.tag-selector :global(.btn.active) {
 		background: var(--color-primary);
-		color: #fff;
+		color: var(--color-on-primary);
 	}
 	.tag-selector :global(.btn:hover:not(.active):not(.primary)) {
 		background: color-mix(in srgb, var(--color-primary) 12%, var(--color-light));
@@ -120,6 +120,12 @@
 	@media (min-width: 900px) {
 		.tag-selector {
 			max-width: 600px;
+		}
+	}
+	/* fingers need more than a 23px chip */
+	@media (pointer: coarse) {
+		.btn {
+			min-height: 36px;
 		}
 	}
 </style>

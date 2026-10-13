@@ -8,17 +8,17 @@
 
 <style>
 	.heading {
-		font-family: var(--font-primary);
-		font-weight: 600;
-		letter-spacing: -0.01em;
-		line-height: 1.3;
+		font-family: var(--font-display);
+		font-weight: 500;
+		letter-spacing: -0.015em;
+		line-height: 1.18;
 		color: var(--color-dark);
 		margin: 0 auto calc(var(--grid) * 1.2) auto;
 		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 50);
+		max-width: var(--w-text);
 	}
 	.heading-4 {
-		font-size: calc(var(--grid) * 2.4);
+		font-size: calc(var(--grid) * 2.5);
 	}
 	@media (max-width: 600px) {
 		.heading-4 {

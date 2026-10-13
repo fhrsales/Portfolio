@@ -56,7 +56,8 @@
 	$: manifestUrl = normalizedDir ? resolve(`${normalizedDir}/manifest.json`) : '';
 	$: safeFade = Math.max(200, Number(fadeMs) || 600);
 	$: safeInterval = Math.max(safeFade + 200, Number(intervalMs) || 3000);
-	$: aspectRatio = getAspectRatio(currentIdx) || getAspectRatio(0) || '';
+	// recompute when the list or the measured sizes arrive, not only when the slide changes
+	$: aspectRatio = (items, naturalSizes, getAspectRatio(currentIdx) || getAspectRatio(0) || '');
 
 	async function ensureLoaded() {
 		if (hasLoaded || isLoading) return;
@@ -276,7 +277,7 @@
 		max-width: 875px;
 	}
 	.fade-carousel.img-gg {
-		max-width: 100vw;
+		max-width: 100%;
 		border-radius: 0;
 	}
 	@media (max-width: 600px) {

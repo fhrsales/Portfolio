@@ -10,9 +10,11 @@ it('loads the tracked content immediately, including the Archive route and real 
 	expect(get(archiePages)).not.toBe(pages);
 	expect(pages.archive.showInMenu).toBe(true);
 	expect(pages.archive.content).toContain('video: tapui-scrolly.mp4');
-	expect(pages.archive.content).toContain('video-mobile: tapui-scrolly.mp4');
+	expect(pages.archive.content).toContain('video-mobile: tapui-scrolly-mobile.mp4');
 	expect(pages.archive.content).toContain('video-desktop: tapui-scrolly.mp4');
 	expect(entries()).toContainEqual({ slug: 'archive' });
-	const video = readFileSync('static/videos/tapui-scrolly.mp4');
-	expect(video.toString('ascii', 4, 8)).toBe('ftyp');
+	for (const file of ['tapui-scrolly.mp4', 'tapui-scrolly-mobile.mp4']) {
+		const video = readFileSync(`static/videos/${file}`);
+		expect(video.toString('ascii', 4, 8)).toBe('ftyp');
+	}
 });

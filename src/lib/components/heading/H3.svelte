@@ -8,22 +8,22 @@
 
 <style>
 	.heading {
-		font-family: var(--font-primary);
-		font-weight: 600;
+		font-family: var(--font-display);
+		font-weight: 500;
 		letter-spacing: -0.015em;
-		line-height: 1.25;
+		line-height: 1.15;
 		color: var(--color-dark);
 		margin: calc(var(--grid) * 3) auto calc(var(--grid) * 1.5) auto;
 		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 50);
+		max-width: var(--w-text);
 		/* text-align: center; */
 	}
 	.heading-3 {
-		font-size: calc(var(--grid) * 2.6);
+		font-size: calc(var(--grid) * 2.8);
 	}
 	@media (max-width: 600px) {
 		.heading-3 {
-			font-size: calc(var(--grid) * 2.4);
+			font-size: calc(var(--grid) * 2.6);
 		}
 	}
 </style>

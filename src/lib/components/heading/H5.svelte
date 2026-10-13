@@ -15,7 +15,7 @@
 		color: var(--color-dark);
 		margin: 0 auto calc(var(--grid) * 1) auto;
 		width: calc(100% - (var(--grid) * 4));
-		max-width: calc(var(--grid) * 50);
+		max-width: var(--w-text);
 	}
 	.heading-5 {
 		font-size: calc(var(--grid) * 2.2);

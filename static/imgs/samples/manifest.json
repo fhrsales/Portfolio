@@ -175,7 +175,8 @@
         676,
         872
       ],
-      "label": "A pátria de raquete"
+      "label": "A pátria de raquete",
+      "hidden": true
     },
     {
       "id": "134-1",
@@ -281,7 +282,8 @@
         1410,
         874
       ],
-      "label": "Poderosas"
+      "label": "Poderosas",
+      "hidden": true
     },
     {
       "id": "138-1",
@@ -582,7 +584,8 @@
         676,
         872
       ],
-      "label": "Maracanã 50 anos"
+      "label": "Maracanã 50 anos",
+      "hidden": true
     },
     {
       "id": "150-2",
@@ -917,22 +920,23 @@
       ],
       "label": "tao bela",
       "date": "2000-07-02",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "363-0",
       "name": "correio-braziliense-219-tumtumtum.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "tumtumtum",
       "hidden": true,
@@ -944,15 +948,15 @@
       "name": "correio-braziliense-209-lugares.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "lugares",
       "hidden": true,
@@ -984,15 +988,15 @@
       "name": "correio-braziliense-177-0-azul-de-quem-vive-com-os-es-wa.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "0 azul de quem vive com os es wa",
       "date": "2000-07-31",
@@ -1015,7 +1019,8 @@
       ],
       "label": "imagens da anarquia",
       "date": "2000-09-13",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "88-0",
@@ -1034,7 +1039,8 @@
       ],
       "label": "fujimori adeus",
       "date": "2000-09-18",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "85-0",
@@ -1121,15 +1127,15 @@
       "name": "correio-braziliense-188-snd-guia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd guia",
       "date": "2000-12-02",
@@ -1369,7 +1375,8 @@
       ],
       "label": "compream",
       "date": "2001-01-31",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "94-0",
@@ -1467,7 +1474,8 @@
       ],
       "label": "transito",
       "date": "2001-04-16",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "101-0",
@@ -1582,22 +1590,23 @@
       ],
       "label": "2001 a01 1910",
       "date": "2001-10-19",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "344-0",
       "name": "correio-braziliense-203-0-tamanho.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "0 tamanho",
       "date": "2001-10-27",
@@ -1700,7 +1709,8 @@
       ],
       "label": "roseana tira 0",
       "date": "2002-03-06",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "225-0",
@@ -1799,7 +1809,8 @@
       ],
       "label": "venceu a",
       "date": "2002-04-15",
-      "dateSource": "ocr"
+      "dateSource": "ocr",
+      "hidden": true
     },
     {
       "id": "230-0",
@@ -1884,15 +1895,15 @@
       "name": "correio-braziliense-144-braziliens.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "braziliens",
       "group": "copas"
@@ -1902,15 +1913,15 @@
       "name": "correio-braziliense-162-snd-copa-gloria.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd copa gloria",
       "group": "copas"
@@ -1920,15 +1931,15 @@
       "name": "correio-braziliense-163-a-alemanha-nos-espera.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "a alemanha nos espera",
       "group": "copas"
@@ -1938,15 +1949,15 @@
       "name": "correio-braziliense-164-caiu-pela.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "caiu pela",
       "group": "copas"
@@ -1956,15 +1967,15 @@
       "name": "correio-braziliense-165-snd-copa-vamos-a-luta.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd copa vamos a luta",
       "hidden": true,
@@ -1975,15 +1986,15 @@
       "name": "correio-braziliense-166-snd-copa-viva-o-povo-brasileiro.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd copa viva o povo brasileiro",
       "group": "copas"
@@ -1993,15 +2004,15 @@
       "name": "correio-braziliense-167-snd-cordel-de-rede.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd cordel de rede",
       "group": "copas"
@@ -2011,15 +2022,15 @@
       "name": "correio-braziliense-172-de-volta-ao.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "de volta ao",
       "hidden": true,
@@ -2191,7 +2202,8 @@
         813,
         1467
       ],
-      "label": "2000 a01 1304"
+      "label": "2000 a01 1304",
+      "hidden": true
     },
     {
       "id": "90-0",
@@ -2226,7 +2238,8 @@
         813,
         1467
       ],
-      "label": "jomens pequeninos e magricelas"
+      "label": "jomens pequeninos e magricelas",
+      "hidden": true
     },
     {
       "id": "97-0",
@@ -2313,7 +2326,8 @@
         1555,
         1388
       ],
-      "label": "apocalipse em manhattan"
+      "label": "apocalipse em manhattan",
+      "hidden": true
     },
     {
       "id": "105-0",
@@ -3530,15 +3544,15 @@
       "name": "correio-braziliense-130-bancos-divergem-sobre-0-futuro-do-brasil.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "bancos divergem sobre 0 futuro do brasil"
     },
@@ -3547,15 +3561,15 @@
       "name": "correio-braziliense-131-tecnologia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "tecnologia",
       "hidden": true
@@ -3565,15 +3579,15 @@
       "name": "correio-braziliense-132-snd-41anos.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd 41anos"
     },
@@ -3582,15 +3596,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 911.5876288659794,
+      "width": 888.1875,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        674,
+        678,
         18,
-        224,
-        388
+        216,
+        384
       ],
       "label": "verdade",
       "hidden": true
@@ -3600,15 +3614,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 903.4484536082474,
+      "width": 879.9635416666666,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        948,
+        952,
         18,
-        222,
-        388
+        214,
+        384
       ],
       "label": "verdade",
       "hidden": true
@@ -3618,15 +3632,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 911.5876288659794,
+      "width": 888.1875,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        120,
+        124,
         20,
-        224,
-        388
+        216,
+        384
       ],
       "label": "verdade",
       "hidden": true
@@ -3636,15 +3650,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 911.5876288659794,
+      "width": 888.1875,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        404,
+        408,
         20,
-        224,
-        388
+        216,
+        384
       ],
       "label": "verdade",
       "hidden": true
@@ -3654,15 +3668,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 906.9128205128204,
+      "width": 883.5854922279793,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        118,
+        122,
         422,
-        224,
-        390
+        216,
+        386
       ],
       "label": "verdade",
       "hidden": true
@@ -3672,15 +3686,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 906.9128205128204,
+      "width": 883.5854922279793,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        402,
+        406,
         422,
-        224,
-        390
+        216,
+        386
       ],
       "label": "verdade",
       "hidden": true
@@ -3690,15 +3704,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 903.4484536082474,
+      "width": 879.9635416666666,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        676,
+        680,
         422,
-        222,
-        388
+        214,
+        384
       ],
       "label": "verdade",
       "hidden": true
@@ -3708,15 +3722,15 @@
       "name": "correio-braziliense-133-verdade.png",
       "publication": "correio",
       "format": "standard",
-      "width": 908.1295336787565,
+      "width": 884.5706806282723,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        948,
+        952,
         422,
-        222,
-        386
+        214,
+        382
       ],
       "label": "verdade",
       "hidden": true
@@ -3726,32 +3740,33 @@
       "name": "correio-braziliense-134-nunca-mais.png",
       "publication": "correio",
       "format": "standard",
-      "width": 968.1763157894737,
+      "width": 949.0797872340426,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        160,
+        167,
         30,
-        466,
-        760
+        452,
+        752
       ],
-      "label": "nunca mais"
+      "label": "nunca mais",
+      "hidden": true
     },
     {
       "id": "266-1",
       "name": "correio-braziliense-134-nunca-mais.png",
       "publication": "correio",
       "format": "standard",
-      "width": 968.1763157894737,
+      "width": 949.0797872340426,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        650,
+        657,
         30,
-        466,
-        760
+        452,
+        752
       ],
       "label": "nunca mais",
       "hidden": true
@@ -3761,15 +3776,15 @@
       "name": "correio-braziliense-135-aperto-no-contrib.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "aperto no contrib",
       "hidden": true
@@ -3779,15 +3794,15 @@
       "name": "correio-braziliense-136-alberto-de-souza-nao-identifica.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "alberto de souza nao identifica",
       "hidden": true
@@ -3797,15 +3812,15 @@
       "name": "correio-braziliense-137-direitos.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "direitos",
       "hidden": true
@@ -3815,15 +3830,15 @@
       "name": "correio-braziliense-138-estatuto-de-papel.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "estatuto de papel"
     },
@@ -3832,15 +3847,15 @@
       "name": "correio-braziliense-139-orreio-braziliens.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "orreio braziliens",
       "hidden": true
@@ -3850,15 +3865,15 @@
       "name": "correio-braziliense-140-snd-gdf-emprega-parentes.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd gdf emprega parentes"
     },
@@ -3867,15 +3882,15 @@
       "name": "correio-braziliense-141-x-tudotm.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "x tudotm",
       "hidden": true
@@ -3885,15 +3900,15 @@
       "name": "correio-braziliense-142-juscelino.png",
       "publication": "correio",
       "format": "standard",
-      "width": 911.5876288659794,
+      "width": 888.1875,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        476,
+        480,
         20,
-        224,
-        388
+        216,
+        384
       ],
       "label": "juscelino",
       "hidden": true
@@ -3903,15 +3918,15 @@
       "name": "correio-braziliense-142-juscelino.png",
       "publication": "correio",
       "format": "standard",
-      "width": 903.4484536082474,
+      "width": 879.9635416666666,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        794,
+        798,
         20,
-        222,
-        388
+        214,
+        384
       ],
       "label": "juscelino",
       "hidden": true
@@ -3921,15 +3936,15 @@
       "name": "correio-braziliense-142-juscelino.png",
       "publication": "correio",
       "format": "standard",
-      "width": 903.4484536082474,
+      "width": 879.9635416666666,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        160,
+        164,
         22,
-        222,
-        388
+        214,
+        384
       ],
       "label": "juscelino",
       "hidden": true
@@ -3939,15 +3954,15 @@
       "name": "correio-braziliense-142-juscelino.png",
       "publication": "correio",
       "format": "standard",
-      "width": 906.9128205128204,
+      "width": 883.5854922279793,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        276,
+        280,
         424,
-        224,
-        390
+        216,
+        386
       ],
       "label": "juscelino",
       "hidden": true
@@ -3957,15 +3972,15 @@
       "name": "correio-braziliense-142-juscelino.png",
       "publication": "correio",
       "format": "standard",
-      "width": 903.4484536082474,
+      "width": 879.9635416666666,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        594,
+        598,
         424,
-        222,
-        388
+        214,
+        384
       ],
       "label": "juscelino",
       "hidden": true
@@ -3975,15 +3990,15 @@
       "name": "correio-braziliense-142-juscelino.png",
       "publication": "correio",
       "format": "standard",
-      "width": 908.1295336787565,
+      "width": 884.5706806282723,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        912,
+        916,
         424,
-        222,
-        386
+        214,
+        382
       ],
       "label": "juscelino",
       "hidden": true
@@ -3993,15 +4008,15 @@
       "name": "correio-braziliense-143-o-joco-da-mentira.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "o joco da mentira",
       "hidden": true
@@ -4011,15 +4026,15 @@
       "name": "correio-braziliense-145-quem-se-bem.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "quem se bem"
     },
@@ -4028,15 +4043,15 @@
       "name": "correio-braziliense-146-cade-05-remedios-mais-baratos.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "cade 05 remedios mais baratos",
       "hidden": true
@@ -4046,15 +4061,15 @@
       "name": "correio-braziliense-147-snd-a-mais-bela.png",
       "publication": "correio",
       "format": "standard",
-      "width": 1049.4573170731708,
+      "width": 1026.7149460708783,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         76,
-        436,
-        656
+        422,
+        649
       ],
       "label": "snd a mais bela",
       "hidden": true
@@ -4064,15 +4079,15 @@
       "name": "correio-braziliense-148-snd-acabou.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd acabou",
       "hidden": true
@@ -4082,15 +4097,15 @@
       "name": "correio-braziliense-149-agorae-ecomaljustica.png",
       "publication": "correio",
       "format": "standard",
-      "width": 900.9018404907976,
+      "width": 881.3023255813954,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        46,
+        52,
         82,
-        372,
-        652
+        360,
+        645
       ],
       "label": "agorae ecomaljustica",
       "hidden": true
@@ -4100,15 +4115,15 @@
       "name": "correio-braziliense-149-agorae-ecomaljustica.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.7453987730062,
+      "width": 886.1984496124031,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        866,
+        872,
         82,
-        374,
-        652
+        362,
+        645
       ],
       "label": "agorae ecomaljustica",
       "hidden": true
@@ -4118,15 +4133,15 @@
       "name": "correio-braziliense-150-ta-tensao.png",
       "publication": "correio",
       "format": "standard",
-      "width": 910.0026315789474,
+      "width": 890.2872340425532,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        438,
-        760
+        424,
+        752
       ],
       "label": "ta tensao",
       "hidden": true
@@ -4136,15 +4151,15 @@
       "name": "correio-braziliense-151-fashion-7.png",
       "publication": "correio",
       "format": "standard-double",
-      "width": 1778.4526315789474,
+      "width": 1738.5797872340424,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        184,
+        198,
         30,
-        856,
-        760
+        828,
+        752
       ],
       "label": "fashion 7",
       "hidden": true
@@ -4154,15 +4169,15 @@
       "name": "correio-braziliense-152-sy-2-1-4-0-0-0-318-243-7-18-1-3-1-4-1-0-0-318-243-7-18-1-4-1-4-1-1-0-318-243-7-18-1-5-1-4-1-1-1-318.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "sy 2 1 4 0 0 0 318 243 7 18 1 3 1 4 1 0 0 318 243 7 18 1 4 1 4 1 1 0 318 243 7 18 1 5 1 4 1 1 1 318",
       "hidden": true
@@ -4172,15 +4187,15 @@
       "name": "correio-braziliense-153-a-da-previdencia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "a da previdencia",
       "hidden": true
@@ -4190,15 +4205,15 @@
       "name": "correio-braziliense-154-lalau-quer-se-entregar-a-policia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "lalau quer se entregar a policia",
       "hidden": true
@@ -4208,15 +4223,15 @@
       "name": "correio-braziliense-155-blablabla.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "blablabla"
     },
@@ -4225,15 +4240,15 @@
       "name": "correio-braziliense-156-snd-bolsa-de-sp.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "snd bolsa de sp",
       "hidden": true
@@ -4243,15 +4258,15 @@
       "name": "correio-braziliense-157-brasilia-roda-mais-devagar.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "brasilia roda mais devagar",
       "hidden": true
@@ -4261,15 +4276,15 @@
       "name": "correio-braziliense-158-brasiliense-corre-demais-ww.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "brasiliense corre demais ww",
       "hidden": true
@@ -4279,15 +4294,15 @@
       "name": "correio-braziliense-159-snd-cartas.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "snd cartas",
       "hidden": true
@@ -4297,15 +4312,15 @@
       "name": "correio-braziliense-160-e-proibido-proibir.png",
       "publication": "correio",
       "format": "standard",
-      "width": 910.0026315789474,
+      "width": 890.2872340425532,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        78,
+        85,
         30,
-        438,
-        760
+        424,
+        752
       ],
       "label": "e proibido proibir",
       "hidden": true
@@ -4315,15 +4330,15 @@
       "name": "correio-braziliense-160-e-proibido-proibir.png",
       "publication": "correio",
       "format": "standard",
-      "width": 904.9604743083004,
+      "width": 884.24,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        580,
+        585,
         160,
-        290,
-        506
+        280,
+        500
       ],
       "label": "e proibido proibir",
       "hidden": true
@@ -4333,15 +4348,15 @@
       "name": "correio-braziliense-160-e-proibido-proibir.png",
       "publication": "correio",
       "format": "standard",
-      "width": 904.9604743083004,
+      "width": 884.24,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        928,
+        933,
         160,
-        290,
-        506
+        280,
+        500
       ],
       "label": "e proibido proibir",
       "hidden": true
@@ -4351,15 +4366,15 @@
       "name": "correio-braziliense-161-as-imagens-da-anarquia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "as imagens da anarquia",
       "hidden": true
@@ -4369,15 +4384,15 @@
       "name": "correio-braziliense-168-snd-correio-da-galera.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 713.6083086053412,
+      "width": 696.9715142428786,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        362,
+        371,
         72,
-        538,
-        674
+        520,
+        667
       ],
       "label": "snd correio da galera"
     },
@@ -4386,15 +4401,15 @@
       "name": "correio-braziliense-169-crime-e-castigo.png",
       "publication": "correio",
       "format": "standard-double",
-      "width": 1778.4526315789474,
+      "width": 1738.5797872340424,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        184,
+        198,
         30,
-        856,
-        760
+        828,
+        752
       ],
       "label": "crime e castigo",
       "hidden": true
@@ -4404,15 +4419,15 @@
       "name": "correio-braziliense-170-snd-de-bem-com-o-prazer.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd de bem com o prazer"
     },
@@ -4421,15 +4436,15 @@
       "name": "correio-braziliense-171-dei-branco-pela-paz.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "dei branco pela paz",
       "hidden": true
@@ -4439,15 +4454,15 @@
       "name": "correio-braziliense-173-snd-dia-das-criancas.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "snd dia das criancas",
       "hidden": true
@@ -4457,15 +4472,15 @@
       "name": "correio-braziliense-174-piratas-ja.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "piratas ja",
       "hidden": true
@@ -4475,15 +4490,15 @@
       "name": "correio-braziliense-175-dinheiro-para-o-social.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "dinheiro para o social",
       "hidden": true
@@ -4493,15 +4508,15 @@
       "name": "correio-braziliense-176-enganacao.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "enganacao",
       "hidden": true
@@ -4511,15 +4526,15 @@
       "name": "correio-braziliense-178-quais-as-suas-chances.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "quais as suas chances",
       "hidden": true
@@ -4529,15 +4544,15 @@
       "name": "correio-braziliense-179-agloria.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "agloria"
     },
@@ -4546,15 +4561,15 @@
       "name": "correio-braziliense-180-snd-esfericos-e-geometricos.png",
       "publication": "correio",
       "format": "standard-double",
-      "width": 1778.4526315789474,
+      "width": 1738.5797872340424,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        184,
+        198,
         30,
-        856,
-        760
+        828,
+        752
       ],
       "label": "snd esfericos e geometricos",
       "hidden": true
@@ -4564,15 +4579,15 @@
       "name": "correio-braziliense-181-de-politico.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 779.9287833827893,
+      "width": 763.9880059970016,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        340,
+        349,
         72,
-        588,
-        674
+        570,
+        667
       ],
       "label": "de politico",
       "hidden": true
@@ -4582,15 +4597,15 @@
       "name": "correio-braziliense-182-candisvaldo.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 779.9287833827893,
+      "width": 763.9880059970016,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        340,
+        349,
         72,
-        588,
-        674
+        570,
+        667
       ],
       "label": "candisvaldo",
       "hidden": true
@@ -4600,15 +4615,15 @@
       "name": "correio-braziliense-183-fasa-como-eles.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "fasa como eles",
       "hidden": true
@@ -4618,15 +4633,15 @@
       "name": "correio-braziliense-184-dia-des.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 786.080476900149,
+      "width": 770.1325301204819,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        340,
+        349,
         73,
-        590,
-        671
+        572,
+        664
       ],
       "label": "dia des",
       "hidden": true
@@ -4636,15 +4651,15 @@
       "name": "correio-braziliense-185-par-aser-federal.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "par aser federal",
       "hidden": true
@@ -4654,15 +4669,15 @@
       "name": "correio-braziliense-186-bem-vindo-a-uxb.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 779.9287833827893,
+      "width": 763.9880059970016,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        340,
+        349,
         72,
-        588,
-        674
+        570,
+        667
       ],
       "label": "bem vindo a uxb",
       "hidden": true
@@ -4672,15 +4687,15 @@
       "name": "correio-braziliense-187-celular.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "celular",
       "hidden": true
@@ -4690,15 +4705,15 @@
       "name": "correio-braziliense-189-governo-libera.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "governo libera",
       "hidden": true
@@ -4708,15 +4723,15 @@
       "name": "correio-braziliense-190-policia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 906.6028708133971,
+      "width": 886.9927360774818,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        472,
+        476,
         204,
-        240,
-        418
+        232,
+        413
       ],
       "label": "policia",
       "hidden": true
@@ -4726,15 +4741,15 @@
       "name": "correio-braziliense-190-policia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 906.6028708133971,
+      "width": 886.9927360774818,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        742,
+        746,
         204,
-        240,
-        418
+        232,
+        413
       ],
       "label": "policia",
       "hidden": true
@@ -4744,15 +4759,15 @@
       "name": "correio-braziliense-190-policia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 906.6028708133971,
+      "width": 886.9927360774818,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        1008,
+        1012,
         204,
-        240,
-        418
+        232,
+        413
       ],
       "label": "policia",
       "hidden": true
@@ -4762,15 +4777,15 @@
       "name": "correio-braziliense-191-snd-inesquecivel.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd inesquecivel"
     },
@@ -4779,15 +4794,15 @@
       "name": "correio-braziliense-192-lewinsky-x-clinton.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "lewinsky x clinton",
       "hidden": true
@@ -4797,15 +4812,15 @@
       "name": "correio-braziliense-193-lula-la.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "lula la"
     },
@@ -4814,15 +4829,15 @@
       "name": "correio-braziliense-194-snd-magreza.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "snd magreza",
       "hidden": true
@@ -4832,15 +4847,15 @@
       "name": "correio-braziliense-195-mt-destruidas.png",
       "publication": "correio",
       "format": "standard",
-      "width": 910.0026315789474,
+      "width": 890.2872340425532,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        160,
+        167,
         30,
-        438,
-        760
+        424,
+        752
       ],
       "label": "mt destruidas",
       "hidden": true
@@ -4850,15 +4865,15 @@
       "name": "correio-braziliense-195-mt-destruidas.png",
       "publication": "correio",
       "format": "standard",
-      "width": 910.0026315789474,
+      "width": 890.2872340425532,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        650,
+        657,
         30,
-        438,
-        760
+        424,
+        752
       ],
       "label": "mt destruidas",
       "hidden": true
@@ -4868,15 +4883,15 @@
       "name": "correio-braziliense-196-nesecio.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "nesecio",
       "hidden": true
@@ -4886,15 +4901,15 @@
       "name": "correio-braziliense-197-dos-reus.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 742.7893175074184,
+      "width": 726.4587706146926,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        348,
+        357,
         72,
-        560,
-        674
+        542,
+        667
       ],
       "label": "dos reus"
     },
@@ -4903,15 +4918,15 @@
       "name": "correio-braziliense-198-oano-mais-longo.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "oano mais longo"
     },
@@ -4920,15 +4935,15 @@
       "name": "correio-braziliense-199-snd-o-caminho-da-volta.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd o caminho da volta",
       "hidden": true
@@ -4938,15 +4953,15 @@
       "name": "correio-braziliense-200-snd-o-correio-errou.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd o correio errou",
       "hidden": true
@@ -4956,15 +4971,15 @@
       "name": "correio-braziliense-201-de-ttamar.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "de ttamar",
       "hidden": true
@@ -4974,15 +4989,15 @@
       "name": "correio-braziliense-202-au-gares.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "au gares"
     },
@@ -4991,15 +5006,15 @@
       "name": "correio-braziliense-204-inteligencia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "inteligencia",
       "hidden": true
@@ -5009,15 +5024,15 @@
       "name": "correio-braziliense-205-snd-orfaos.png",
       "publication": "correio",
       "format": "standard",
-      "width": 910.0026315789474,
+      "width": 890.2872340425532,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        160,
+        167,
         30,
-        438,
-        760
+        424,
+        752
       ],
       "label": "snd orfaos"
     },
@@ -5026,15 +5041,15 @@
       "name": "correio-braziliense-205-snd-orfaos.png",
       "publication": "correio",
       "format": "standard",
-      "width": 910.0026315789474,
+      "width": 890.2872340425532,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        650,
+        657,
         30,
-        438,
-        760
+        424,
+        752
       ],
       "label": "snd orfaos",
       "hidden": true
@@ -5044,15 +5059,15 @@
       "name": "correio-braziliense-206-tragedia-americana-9.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "tragedia americana 9",
       "hidden": true
@@ -5062,15 +5077,15 @@
       "name": "correio-braziliense-207-db-aida-de.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "db aida de",
       "hidden": true
@@ -5080,15 +5095,15 @@
       "name": "correio-braziliense-208-balanca-e.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 779.9287833827893,
+      "width": 763.9880059970016,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        340,
+        349,
         72,
-        588,
-        674
+        570,
+        667
       ],
       "label": "balanca e"
     },
@@ -5097,15 +5112,15 @@
       "name": "correio-braziliense-210-4-5-mil-km.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "4 5 mil km"
     },
@@ -5114,15 +5129,15 @@
       "name": "correio-braziliense-211-atropeladas-na.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "atropeladas na",
       "hidden": true
@@ -5132,15 +5147,15 @@
       "name": "correio-braziliense-212-0s-refugiados-do-brasil.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "0s refugiados do brasil",
       "hidden": true
@@ -5150,15 +5165,15 @@
       "name": "correio-braziliense-213-orme-0-do.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "orme 0 do",
       "hidden": true
@@ -5168,15 +5183,15 @@
       "name": "correio-braziliense-214-snd-sem-direito-a-voz.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "snd sem direito a voz",
       "hidden": true
@@ -5186,15 +5201,15 @@
       "name": "correio-braziliense-215-0s-sobreviventes.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "0s sobreviventes",
       "hidden": true
@@ -5204,15 +5219,15 @@
       "name": "correio-braziliense-216-snd-sofrimento-e-gloria.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "snd sofrimento e gloria"
     },
@@ -5221,15 +5236,15 @@
       "name": "correio-braziliense-217-somalia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 968.1763157894737,
+      "width": 949.0797872340426,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        160,
+        167,
         30,
-        466,
-        760
+        452,
+        752
       ],
       "label": "somalia",
       "hidden": true
@@ -5239,15 +5254,15 @@
       "name": "correio-braziliense-217-somalia.png",
       "publication": "correio",
       "format": "standard",
-      "width": 968.1763157894737,
+      "width": 949.0797872340426,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        650,
+        657,
         30,
-        466,
-        760
+        452,
+        752
       ],
       "label": "somalia",
       "hidden": true
@@ -5257,15 +5272,15 @@
       "name": "correio-braziliense-218-tiros-e-sangue-no-laco-sul.png",
       "publication": "correio",
       "format": "standard",
-      "width": 951.5552631578947,
+      "width": 932.281914893617,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        760
+        444,
+        752
       ],
       "label": "tiros e sangue no laco sul",
       "hidden": true
@@ -5275,15 +5290,15 @@
       "name": "correio-braziliense-220-snd-tv.png",
       "publication": "correio",
       "format": "tabloid",
-      "width": 779.9287833827893,
+      "width": 763.9880059970016,
       "height": 894,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        340,
+        349,
         72,
-        588,
-        674
+        570,
+        667
       ],
       "label": "snd tv",
       "hidden": true
@@ -5293,15 +5308,15 @@
       "name": "correio-braziliense-221-nezuela.png",
       "publication": "correio",
       "format": "standard",
-      "width": 905.8473684210527,
+      "width": 886.0877659574468,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        412,
+        419,
         30,
-        436,
-        760
+        422,
+        752
       ],
       "label": "nezuela",
       "hidden": true
@@ -5311,17 +5326,18 @@
       "name": "correio-braziliense-222-snd-x-vida.png",
       "publication": "correio",
       "format": "standard",
-      "width": 977.272972972973,
+      "width": 957.7540983606557,
       "height": 1579,
       "sourceWidth": 1280,
       "sourceHeight": 854,
       "crop": [
-        398,
+        405,
         30,
-        458,
-        740
+        444,
+        732
       ],
-      "label": "snd x vida"
+      "label": "snd x vida",
+      "hidden": true
     },
     {
       "id": "161-2",
@@ -6449,7 +6465,8 @@
         898,
         1579
       ],
-      "label": "greciacrise"
+      "label": "greciacrise",
+      "hidden": true
     },
     {
       "id": "39-0",

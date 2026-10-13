@@ -22,7 +22,7 @@
 		background: var(--bullet-bg);
 		color: var(--bullet-fg);
 		border-radius: 12px 0 0 12px;
-        font-size: 55%;
+        font-size: max(12px, 55%);
 		font-weight: 600;
 		letter-spacing: 0.02em;
 		line-height: 1.1;

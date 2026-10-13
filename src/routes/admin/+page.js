@@ -1,6 +1,3 @@
-export const prerender = false; // Este arquivo impede o build da rota /admin em produção
+// Client-only editor: prerendered as an empty shell so it also opens on the published site.
+export const prerender = true;
 export const ssr = false;
-
-if (import.meta.env.PROD) {
-	throw new Error('A rota /admin só está disponível em desenvolvimento.');
-}

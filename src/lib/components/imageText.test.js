@@ -27,7 +27,7 @@ it('allows the Tapuiassauro spread to use the reversed desktop layout', () => {
  const blocks = buildBlockObjects(pages.archive.content.split(/\n\n+/));
  const conf = blocks.find((b) => b.raw?.imagemTexto?.imagem === 'tapuiassauro.png').raw.imagemTexto;
  expect(conf.lado).toBe('direita');
- expect(conf.classes).toBe('shadow-1');
+ expect(conf.classes).toBe('shadow-1 dupla');
  const { body } = render(ImageText, { props: { imageRight: conf.lado === 'direita', title: conf.titulo, text: conf.texto } });
  expect(body).toContain('image-right');
  expect(body).toContain(conf.titulo);

@@ -8,5 +8,7 @@
 <style>
     .language-switch { display: flex; gap: 4px; margin-left: 4px; flex-shrink: 0; }
     .language-switch button { font: 600 12px var(--font-primary); color: var(--color-dark); background: transparent; border: 0; border-radius: 4px; padding: 7px 5px; cursor: pointer; }
-    .language-switch button[aria-pressed="true"] { color: white; background: var(--color-primary); }
+    /* larger touch targets only where fingers are used, so the desktop header keeps its one line */
+    @media (pointer: coarse) { .language-switch button { min-width: 36px; min-height: 36px; } }
+    .language-switch button[aria-pressed="true"] { color: var(--color-on-primary); background: var(--color-primary); }
 </style>

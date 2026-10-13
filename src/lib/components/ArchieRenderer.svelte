@@ -16,9 +16,20 @@
 	import VideoBlock from '$lib/components/video/VideoBlock.svelte';
 	import ScrollerVideo from '$lib/components/ScrollerVideo.svelte';
 	import ImageText from '$lib/components/ImageText.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import StickyScreens from '$lib/components/StickyScreens.svelte';
+	import WorkStrip from '$lib/components/WorkStrip.svelte';
+	import RowList from '$lib/components/RowList.svelte';
+	import Fragment from '$lib/components/Fragment.svelte';
+	import CareerChart from '$lib/components/CareerChart.svelte';
+	import Chapters from '$lib/components/Chapters.svelte';
+	import Pipeline from '$lib/components/Pipeline.svelte';
+	import SystemDiagram from '$lib/components/SystemDiagram.svelte';
+	import PhoneReveal from '$lib/components/PhoneReveal.svelte';
+	import Figures from '$lib/components/Figures.svelte';
 	import AutoScrollGallery from '$lib/components/image/AutoScrollGallery.svelte';
 	import FadeCarousel from '$lib/components/image/FadeCarousel.svelte';
-    import ScrollBg from '$lib/components/ScrollBg.svelte';
+	import ScrollBg from '$lib/components/ScrollBg.svelte';
 	import LazyMount from '$lib/components/LazyMount.svelte';
 	import TagSelector from '$lib/components/TagSelector.svelte';
 	import InlineTags from '$lib/components/InlineTags.svelte';
@@ -116,27 +127,30 @@
 	});
 
 	// derive parsed from archiePages + currentPage when parsed prop not provided
-	const internalParsed = derived([archiePages, currentPage, language], ([$archiePages, $currentPage, $language]) => {
-		if (!$archiePages || !$currentPage) return { erro: 'Store não carregado' };
-		if (!$archiePages[$currentPage])
-			return { erro: `Página '${$currentPage}' não encontrada no store` };
+	const internalParsed = derived(
+		[archiePages, currentPage, language],
+		([$archiePages, $currentPage, $language]) => {
+			if (!$archiePages || !$currentPage) return { erro: 'Store não carregado' };
+			if (!$archiePages[$currentPage])
+				return { erro: `Página '${$currentPage}' não encontrada no store` };
 
-		let raw = $archiePages[$currentPage];
-		if (typeof raw === 'object' && raw !== null) raw = raw.content || '';
+			let raw = $archiePages[$currentPage];
+			if (typeof raw === 'object' && raw !== null) raw = raw.content || '';
 
-		if (raw && typeof raw === 'string') {
-			const content = stripCommentLines(translateContent(raw, $language)).trim();
-			if (content) {
-				const blocos = content
-					.split(/\n\n+/)
-					.map((s) => s.trim())
-					.filter(Boolean);
-				return { orderedContent: blocos };
+			if (raw && typeof raw === 'string') {
+				const content = stripCommentLines(translateContent(raw, $language)).trim();
+				if (content) {
+					const blocos = content
+						.split(/\n\n+/)
+						.map((s) => s.trim())
+						.filter(Boolean);
+					return { orderedContent: blocos };
+				}
 			}
-		}
 
-		return { erro: 'Nenhum conteúdo encontrado' };
-	});
+			return { erro: 'Nenhum conteúdo encontrado' };
+		}
+	);
 
 	// chosen parsed value: prop takes precedence
 	$: usedParsed = parsed !== undefined ? parsed : $internalParsed;
@@ -150,7 +164,9 @@
 	// inline parsing code removed (logic moved to parsers)
 
 	function parseDurationMs(value, fallbackMs) {
-		const raw = String(value || '').trim().toLowerCase();
+		const raw = String(value || '')
+			.trim()
+			.toLowerCase();
 		if (!raw) return fallbackMs;
 		if (/ms$/.test(raw)) {
 			const ms = Number(raw.replace(/ms$/, '').trim());
@@ -167,7 +183,9 @@
 	function parseBool(value, fallback = false) {
 		if (typeof value === 'boolean') return value;
 		if (typeof value === 'number') return value > 0;
-		const raw = String(value ?? '').trim().toLowerCase();
+		const raw = String(value ?? '')
+			.trim()
+			.toLowerCase();
 		if (!raw) return fallback;
 		return /^(?:1|true|yes|sim|ligado|on)$/.test(raw);
 	}
@@ -210,8 +228,6 @@
 		return sanitizeHeadingHtml(injectInlineLogo(fixLinks(html, base), base));
 	}
 
-
-
 	// mark the first image on the page as priority (helps LCP)
 	let _firstImageMarked = false;
 	function nextImagePriority() {
@@ -243,410 +259,582 @@
 				{#if !localSelectedTag || (obj.tags && obj.tags
 							.map((t) => t.toLowerCase())
 							.includes(localSelectedTag.toLowerCase()))}
-				<div
-					class="filtered-block"
-					in:fade={enableFilterFade ? fadeIn : noFade}
-					out:fade={enableFilterFade ? fadeOut : noFade}
-				>
-				{#if blocoStr.match(/^h1:\s*(.+)$/i)}
-					<H1 value={blocoStr.replace(/^h1:\s*/i, '')} />
-				{:else if blocoStr.match(/^h2:\s*(.+)$/i)}
-					<H2 value={blocoStr.replace(/^h2:\s*/i, '')} />
-				{:else if blocoStr.match(/^chapeu:\s*(.+)$/i)}
-					<Eyebrow value={blocoStr.replace(/^chapeu:\s*/i, '')} />
-				{:else if blocoStr.match(/^h3:\s*(.+)$/i)}
-					<H3 value={blocoStr.replace(/^h3:\s*/i, '')} />
-				{:else if blocoStr.match(/^h4:\s*(.+)$/i)}
-					<H4 value={blocoStr.replace(/^h4:\s*/i, '')} />
-				{:else if blocoStr.match(/^h5:\s*(.+)$/i)}
-					<H5 value={blocoStr.replace(/^h5:\s*/i, '')} />
-				{:else if blocoStr.match(/^<divisor\s*\/?>$/i) || blocoStr.match(/^<divisor\s*>\s*<\/divisor>$/i) || blocoStr.match(/^\{divisor\}$/i)}
-					<Divider />
-				{:else if blocoStr.match(/^titulo: (.+)$/i)}
-					<Title value={blocoStr.replace(/^titulo: /i, '')} />
-				{:else if blocoStr.match(/^embedWrapper: (.+)$/i)}
-					<EmbedWrapper value={blocoStr.replace(/^embedWrapper: /i, '')} />
-				{:else if blocoStr.match(/^pdf: (.+)$/i)}
-					<PdfViewer value={blocoStr.replace(/^pdf: /i, '')} />
-				{:else if blocoStr.match(/^ai2html: (.+)$/i)}
-					<Ai2Html dir={withBase(`/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`, base)} />
-				{:else if typeof bloco === 'object' && bloco.fundo}
-					{#key i}
-						<ScrollBg
-							color={(bloco.fundo.cor || bloco.fundo.color || bloco.fundo.bg || '').trim() || 'var(--color-light)'}
-							height={(bloco.fundo.altura || bloco.fundo.height || bloco.fundo.vh || '').trim()}
-						/>
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.intro}
-					{#key i}
-						{@const conf = bloco.intro}
-						{#if conf.fundo1}
-							<ScrollBg
-								color={String(conf.fundo1 || '').trim() || 'var(--color-light)'}
-								height={String(conf.altura1 || '').trim()}
-								intro={true}
+					<div
+						class="filtered-block"
+						in:fade={enableFilterFade ? fadeIn : noFade}
+						out:fade={enableFilterFade ? fadeOut : noFade}
+					>
+						{#if blocoStr.match(/^h1:\s*(.+)$/i)}
+							<H1 value={blocoStr.replace(/^h1:\s*/i, '')} />
+						{:else if blocoStr.match(/^h2:\s*(.+)$/i)}
+							<H2 value={blocoStr.replace(/^h2:\s*/i, '')} />
+						{:else if blocoStr.match(/^chapeu:\s*(.+)$/i)}
+							<Eyebrow value={blocoStr.replace(/^chapeu:\s*/i, '')} />
+						{:else if blocoStr.match(/^h3:\s*(.+)$/i)}
+							<H3 value={blocoStr.replace(/^h3:\s*/i, '')} />
+						{:else if blocoStr.match(/^h4:\s*(.+)$/i)}
+							<H4 value={blocoStr.replace(/^h4:\s*/i, '')} />
+						{:else if blocoStr.match(/^h5:\s*(.+)$/i)}
+							<H5 value={blocoStr.replace(/^h5:\s*/i, '')} />
+						{:else if blocoStr.match(/^<divisor\s*\/?>$/i) || blocoStr.match(/^<divisor\s*>\s*<\/divisor>$/i) || blocoStr.match(/^\{divisor\}$/i)}
+							<Divider />
+						{:else if blocoStr.match(/^titulo: (.+)$/i)}
+							<Title value={blocoStr.replace(/^titulo: /i, '')} />
+						{:else if blocoStr.match(/^embedWrapper: (.+)$/i)}
+							<EmbedWrapper value={blocoStr.replace(/^embedWrapper: /i, '')} />
+						{:else if blocoStr.match(/^pdf: (.+)$/i)}
+							<PdfViewer value={blocoStr.replace(/^pdf: /i, '')} />
+						{:else if blocoStr.match(/^ai2html: (.+)$/i)}
+							<Ai2Html
+								dir={withBase(
+									`/ai2html/${blocoStr.replace(/^ai2html: /i, '')}/ai2html-output`,
+									base
+								)}
 							/>
-						{/if}
-						{#if conf.texto1}
-							<h1 class="intro-paragraph text-m intro-animated intro-h1">
-								{@html renderIntroHtml(conf.texto1)}
-							</h1>
-						{/if}
-						{#if conf.fundo2}
-							<ScrollBg
-								color={String(conf.fundo2 || '').trim() || 'var(--color-light)'}
-								height={String(conf.altura2 || '').trim()}
-								intro={true}
-							/>
-						{/if}
-						{#if conf.texto2}
-							<h2 class="intro-paragraph text-m intro-animated intro-h2">
-								{@html renderIntroHtml(conf.texto2)}
-							</h2>
-						{/if}
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.bloco}
-					{#key i}
-						{@const conf = bloco.bloco}
-						{@const blocoTags = conf.tags && conf.tags.length ? conf.tags : obj.tags}
-						<div
-							class={`content-block ${conf.display && conf.display.toLowerCase() === 'flex' ? 'is-flex' : ''} ${conf.classes || ''}`}
-							style={`${conf.display ? `display:${conf.display};` : ''}${conf.gap ? `gap:${conf.gap};` : ''}${conf.align ? `align-items:${conf.align};` : ''}`}
-						>
-							{#each conf.items || [] as item, bi (bi)}
-								{#if item.type === 'image'}
-									{#await Promise.resolve(parseImagem(item.data)) then img}
-										{@const _baseName3 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
-										{@const _meta3 = imageMeta[img.nome]}
-										{@const _hasAvif3 = !!(_meta3 && _meta3.avif)}
-										{@const _hasWebp3 = !!(_meta3 && _meta3.webp)}
-										<ImageBlock
-											src={withBase(`/imgs/${img.nome}`, base)}
-											nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
-											alt={img.nome}
-											size={img.tamanho}
-											caption={img.legenda}
-											classes={img.classes}
-											radius={img.radius}
-											borda={img.radius}
-											tags={img.tags}
-											multiply={img.multiply}
-											width={img.width || (_meta3 && _meta3.width) || ''}
-											height={img.height || (_meta3 && _meta3.height) || ''}
-											ratio={img.ratio || (_meta3 && _meta3.ratio) || ''}
-											srcset={img.srcset}
-											sizes={img.sizes}
-											webp={
-												isProd && _hasWebp3
-													? withBase(`/imgs/${img.webp || `${_baseName3}.webp`}`, base)
-													: ''
-											}
-											avif={
-												isProd && _hasAvif3
-													? withBase(`/imgs/${img.avif || `${_baseName3}.avif`}`, base)
-													: ''
-											}
-											sources={img.sources}
-											priority={nextImagePriority()}
-										/>
-									{/await}
-								{:else if item.type === 'video'}
-									{#await Promise.resolve(parseVideo(item.data.video || item.data)) then vid}
-										<VideoBlock
-											src={withBase(`/videos/${vid.nome || vid.name}`, base)}
-											sources={vid.sources
-												? Array.isArray(vid.sources)
-													? vid.sources.map((s) =>
-															s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
-														)
-													: String(vid.sources)
-															.split(',')
+						{:else if typeof bloco === 'object' && bloco.fundo}
+							{#key i}
+								<ScrollBg
+									color={(bloco.fundo.cor || bloco.fundo.color || bloco.fundo.bg || '').trim() ||
+										'var(--color-light)'}
+									height={(bloco.fundo.altura || bloco.fundo.height || bloco.fundo.vh || '').trim()}
+								/>
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.intro}
+							{#key i}
+								{@const conf = bloco.intro}
+								{#if conf.fundo1}
+									<ScrollBg
+										color={String(conf.fundo1 || '').trim() || 'var(--color-light)'}
+										height={String(conf.altura1 || '').trim()}
+										intro={true}
+									/>
+								{/if}
+								{#if conf.texto1}
+									<h1 class="intro-paragraph text-m intro-animated intro-h1">
+										{@html renderIntroHtml(conf.texto1)}
+									</h1>
+								{/if}
+								{#if conf.fundo2}
+									<ScrollBg
+										color={String(conf.fundo2 || '').trim() || 'var(--color-light)'}
+										height={String(conf.altura2 || '').trim()}
+										intro={true}
+									/>
+								{/if}
+								{#if conf.texto2}
+									<h2 class="intro-paragraph text-m intro-animated intro-h2">
+										{@html renderIntroHtml(conf.texto2)}
+									</h2>
+								{/if}
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.bloco}
+							{#key i}
+								{@const conf = bloco.bloco}
+								{@const blocoTags = conf.tags && conf.tags.length ? conf.tags : obj.tags}
+								<div
+									class={`content-block ${conf.display && conf.display.toLowerCase() === 'flex' ? 'is-flex' : ''} ${conf.fundo ? 'has-page-bg' : ''} ${conf.classes || ''}`}
+									style={`${conf.display ? `display:${conf.display};` : ''}${conf.gap ? `gap:${conf.gap};` : ''}${conf.align ? `align-items:${conf.align};` : ''}`}
+								>
+									{#if conf.fundo}
+										<div class="page-bg-zone"><ScrollBg color={conf.fundo} height="100%" centered /></div>
+									{/if}
+									{#each conf.items || [] as item, bi (bi)}
+										{#if item.type === 'image'}
+											{#await Promise.resolve(parseImagem(item.data)) then img}
+												{@const _baseName3 = String(img.nome || '').replace(
+													/\.(png|jpg|jpeg)$/i,
+													''
+												)}
+												{@const _meta3 = imageMeta[img.nome]}
+												{@const _hasAvif3 = !!(_meta3 && _meta3.avif)}
+												{@const _hasWebp3 = !!(_meta3 && _meta3.webp)}
+												<ImageBlock
+													src={withBase(`/imgs/${img.nome}`, base)}
+													nome_mobile={img.nome_mobile
+														? withBase(`/imgs/${img.nome_mobile}`, base)
+														: ''}
+													alt={(img.alt || img.nome || "").trim()}
+													size={img.tamanho}
+													caption={img.legenda}
+													classes={img.classes}
+													radius={img.radius}
+													borda={img.radius}
+													tags={img.tags}
+													multiply={img.multiply}
+													width={img.width || (_meta3 && _meta3.width) || ''}
+													height={img.height || (_meta3 && _meta3.height) || ''}
+													ratio={img.ratio || (_meta3 && _meta3.ratio) || ''}
+													srcset={img.srcset}
+													sizes={img.sizes}
+													webp={isProd && _hasWebp3
+														? withBase(`/imgs/${img.webp || `${_baseName3}.webp`}`, base)
+														: ''}
+													avif={isProd && _hasAvif3
+														? withBase(`/imgs/${img.avif || `${_baseName3}.avif`}`, base)
+														: ''}
+													sources={img.sources}
+													priority={nextImagePriority()}
+												/>
+											{/await}
+										{:else if item.type === 'video'}
+											{#await Promise.resolve(parseVideo(item.data.video || item.data)) then vid}
+												<VideoBlock
+													src={withBase(`/videos/${vid.nome || vid.name}`, base)}
+													sources={vid.sources
+														? Array.isArray(vid.sources)
+															? vid.sources.map((s) =>
+																	s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+																)
+															: String(vid.sources)
+																	.split(',')
+																	.map((s) => s.trim())
+																	.filter(Boolean)
+																	.map((s) =>
+																		s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+																	)
+														: []}
+													size={vid.tamanho || vid.size || 'M'}
+													caption={vid.legenda || vid.caption || ''}
+													classes={vid.classes}
+													radius={vid.radius || vid.borda}
+													tags={vid.tags}
+												/>
+											{/await}
+										{:else if item.type === 'text'}
+											<Text
+												value={{
+													body: String(item.text || '')
+														.split(/\n+/)
+														.map((s) => s.trim())
+														.filter(Boolean)
+												}}
+											/>
+										{:else if item.type === 'eyebrow'}
+											<Eyebrow value={item.text} />
+										{:else if item.type === 'heading'}
+											{#if item.level === 1}
+												<H1 value={item.text || ''} />
+											{:else if item.level === 2}
+												<H2 value={item.text || ''} />
+											{:else if item.level === 3}
+												<H3 value={item.text || ''} />
+											{:else if item.level === 4}
+												<H4 value={item.text || ''} />
+											{:else if item.level === 5}
+												<H5 value={item.text || ''} />
+											{:else}
+												<Text
+													value={{
+														body: String(item.text || '')
+															.split(/\n+/)
 															.map((s) => s.trim())
 															.filter(Boolean)
-															.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
-												: []}
-											size={vid.tamanho || vid.size || 'M'}
-											caption={vid.legenda || vid.caption || ''}
-											classes={vid.classes}
-											radius={vid.radius || vid.borda}
-											tags={vid.tags}
-										/>
-									{/await}
-								{:else if item.type === 'text'}
-									<Text
-										value={{
-											body: String(item.text || '')
-												.split(/\n+/)
-												.map((s) => s.trim())
-												.filter(Boolean)
-										}}
-									/>
-								{:else if item.type === 'eyebrow'}
-									<Eyebrow value={item.text} />
-								{:else if item.type === 'heading'}
-									{#if item.level === 1}
-										<H1 value={item.text || ''} />
-									{:else if item.level === 2}
-										<H2 value={item.text || ''} />
-									{:else if item.level === 3}
-										<H3 value={item.text || ''} />
-									{:else if item.level === 4}
-										<H4 value={item.text || ''} />
-									{:else if item.level === 5}
-										<H5 value={item.text || ''} />
-									{:else}
-										<Text
-											value={{
-												body: String(item.text || '')
-													.split(/\n+/)
-													.map((s) => s.trim())
-													.filter(Boolean)
-											}}
-										/>
+													}}
+												/>
+											{/if}
+										{/if}
+									{/each}
+									{#if blocoTags && blocoTags.length}
+										<InlineTags tags={blocoTags} />
 									{/if}
-								{/if}
-							{/each}
-							{#if blocoTags && blocoTags.length}
-								<InlineTags tags={blocoTags} />
-							{/if}
-						</div>
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.cronologia}
-					{#key i}
-						<Timeline
-							items={Array.isArray(bloco.cronologia.itens) ? bloco.cronologia.itens : []}
-							title={bloco.cronologia.titulo || ''}
-							classes={bloco.cronologia.classes || ''}
-						/>
-					{/key}
-				{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}
-					{#key i}
-						{#await Promise.resolve(parseImagem(bloco)) then img}
-							{@const _baseName = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
-							{@const _meta = imageMeta[img.nome]}
-							{@const _hasAvif = !!(_meta && _meta.avif)}
-							{@const _hasWebp = !!(_meta && _meta.webp)}
-							<ImageBlock
-								src={withBase(`/imgs/${img.nome}`, base)}
-								nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
-								alt={img.nome}
-								size={img.tamanho}
-								caption={img.legenda}
-								classes={img.classes}
-								radius={img.radius}
-								borda={img.radius}
-								tags={img.tags}
-								multiply={img.multiply}
-								width={img.width || (_meta && _meta.width) || ''}
-								height={img.height || (_meta && _meta.height) || ''}
-								ratio={img.ratio || (_meta && _meta.ratio) || ''}
-								srcset={img.srcset}
-								sizes={img.sizes}
-								webp={
-									isProd && _hasWebp ? withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base) : ''
-								}
-								avif={
-									isProd && _hasAvif ? withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base) : ''
-								}
-								sources={img.sources}
-								priority={nextImagePriority()}
-							/>
-						{/await}
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.slider}
-					{#key i}
-						{@const conf = bloco.slider}
-						{@const dir = (conf.pasta || conf.dir || '').trim()}
-						{@const size = (conf.tamanho || conf.size || '').trim()}
-						{@const intervalMs = conf.tempo ? Math.max(200, Math.round(Number(conf.tempo) * 1000)) : 3000}
-						{@const autoScroll = conf.auto !== undefined || conf.autoscroll !== undefined || conf.autoplay !== undefined
-							? parseBool(conf.auto ?? conf.autoscroll ?? conf.autoplay, true)
-							: true}
-						<AutoScrollGallery
-							dir={dir ? `imgs/${dir}` : 'imgs'}
-							intervalMs={intervalMs}
-							autoScroll={autoScroll}
-							height={(conf.altura || conf.height || '').trim()}
-							background={(conf.fundo || conf.bg || '').trim()}
-							size={size}
-							classes={conf.classes}
-							gap={(conf.espaco || conf['espaço'] || conf.gap || conf.gutter) ? Number(String(conf.espaco || conf['espaço'] || conf.gap || conf.gutter).replace(/px$/,'').trim()) : undefined}
-							pdfAsImage={true}
-							padding={(conf.padding || '').trim()}
-							paddingTop={(conf['padding-top'] || conf.paddingtop || '').trim()}
-							paddingBottom={(conf['padding-bottom'] || conf.paddingbottom || '').trim()}
-						/>
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.carrossel}
-					{#key i}
-						{@const conf = bloco.carrossel}
-						{@const dir = (conf.pasta || conf.dir || '').trim()}
-						{@const size = (conf.tamanho || conf.size || '').trim()}
-						{@const intervalMs = parseDurationMs(conf.tempo, 3000)}
-						{@const fadeMs = parseDurationMs(conf.fade || conf.transicao || conf['transição'], 600)}
-						<FadeCarousel
-							dir={dir ? `imgs/${dir}` : 'imgs'}
-							intervalMs={intervalMs}
-							fadeMs={fadeMs}
-							height={(conf.altura || conf.height || '').trim()}
-							background={(conf.fundo || conf.bg || '').trim()}
-							size={size}
-							classes={conf.classes}
-						/>
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.video}
-					{#key i}
-						{#await Promise.resolve(parseVideo(bloco.video || bloco)) then vid}
-							<VideoBlock
-								src={withBase(`/videos/${vid.nome || vid.name}`, base)}
-								sources={vid.sources
-									? Array.isArray(vid.sources)
-										? vid.sources.map((s) =>
-												s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+								</div>
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.cronologia}
+							{#key i}
+								<Timeline
+									items={Array.isArray(bloco.cronologia.itens) ? bloco.cronologia.itens : []}
+									title={bloco.cronologia.titulo || ''}
+									classes={bloco.cronologia.classes || ''}
+								/>
+							{/key}
+						{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}
+							{#key i}
+								{#await Promise.resolve(parseImagem(bloco)) then img}
+									{@const _baseName = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
+									{@const _meta = imageMeta[img.nome]}
+									{@const _hasAvif = !!(_meta && _meta.avif)}
+									{@const _hasWebp = !!(_meta && _meta.webp)}
+									<ImageBlock
+										src={withBase(`/imgs/${img.nome}`, base)}
+										nome_mobile={img.nome_mobile ? withBase(`/imgs/${img.nome_mobile}`, base) : ''}
+										alt={(img.alt || img.nome || "").trim()}
+										size={img.tamanho}
+										caption={img.legenda}
+										classes={img.classes}
+										radius={img.radius}
+										borda={img.radius}
+										tags={img.tags}
+										multiply={img.multiply}
+										width={img.width || (_meta && _meta.width) || ''}
+										height={img.height || (_meta && _meta.height) || ''}
+										ratio={img.ratio || (_meta && _meta.ratio) || ''}
+										srcset={img.srcset}
+										sizes={img.sizes}
+										webp={isProd && _hasWebp
+											? withBase(`/imgs/${img.webp || `${_baseName}.webp`}`, base)
+											: ''}
+										avif={isProd && _hasAvif
+											? withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base)
+											: ''}
+										sources={img.sources}
+										priority={nextImagePriority()}
+									/>
+								{/await}
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.slider}
+							{#key i}
+								{@const conf = bloco.slider}
+								{@const dir = (conf.pasta || conf.dir || '').trim()}
+								{@const size = (conf.tamanho || conf.size || '').trim()}
+								{@const intervalMs = conf.tempo
+									? Math.max(200, Math.round(Number(conf.tempo) * 1000))
+									: 3000}
+								{@const autoScroll =
+									conf.auto !== undefined ||
+									conf.autoscroll !== undefined ||
+									conf.autoplay !== undefined
+										? parseBool(conf.auto ?? conf.autoscroll ?? conf.autoplay, true)
+										: true}
+								<AutoScrollGallery
+									dir={dir ? `imgs/${dir}` : 'imgs'}
+									publication={(conf.publicacao || conf.publication || '').trim()}
+									{intervalMs}
+									{autoScroll}
+									height={(conf.altura || conf.height || '').trim()}
+									background={(conf.fundo || conf.bg || '').trim()}
+									{size}
+									classes={conf.classes}
+									gap={conf.espaco || conf['espaço'] || conf.gap || conf.gutter
+										? Number(
+												String(conf.espaco || conf['espaço'] || conf.gap || conf.gutter)
+													.replace(/px$/, '')
+													.trim()
 											)
-										: String(vid.sources)
-												.split(',')
-												.map((s) => s.trim())
-												.filter(Boolean)
-												.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
-									: []}
-								size={vid.tamanho || vid.size || 'M'}
-								caption={vid.legenda || vid.caption || ''}
-								classes={vid.classes}
-								radius={vid.radius || vid.borda}
-								tags={vid.tags}
+										: undefined}
+									pdfAsImage={true}
+									padding={(conf.padding || '').trim()}
+									paddingTop={(conf['padding-top'] || conf.paddingtop || '').trim()}
+									paddingBottom={(conf['padding-bottom'] || conf.paddingbottom || '').trim()}
+								/>
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.carrossel}
+							{#key i}
+								{@const conf = bloco.carrossel}
+								{@const dir = (conf.pasta || conf.dir || '').trim()}
+								{@const size = (conf.tamanho || conf.size || '').trim()}
+								{@const intervalMs = parseDurationMs(conf.tempo, 3000)}
+								{@const fadeMs = parseDurationMs(
+									conf.fade || conf.transicao || conf['transição'],
+									600
+								)}
+								<FadeCarousel
+									dir={dir ? `imgs/${dir}` : 'imgs'}
+									publication={(conf.publicacao || conf.publication || '').trim()}
+									{intervalMs}
+									{fadeMs}
+									height={(conf.altura || conf.height || '').trim()}
+									background={(conf.fundo || conf.bg || '').trim()}
+									{size}
+									classes={conf.classes}
+								/>
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.video}
+							{#key i}
+								{#await Promise.resolve(parseVideo(bloco.video || bloco)) then vid}
+									<VideoBlock
+										src={withBase(`/videos/${vid.nome || vid.name}`, base)}
+										sources={vid.sources
+											? Array.isArray(vid.sources)
+												? vid.sources.map((s) =>
+														s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+													)
+												: String(vid.sources)
+														.split(',')
+														.map((s) => s.trim())
+														.filter(Boolean)
+														.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
+											: []}
+										size={vid.tamanho || vid.size || 'M'}
+										caption={vid.legenda || vid.caption || ''}
+										classes={vid.classes}
+										radius={vid.radius || vid.borda}
+										tags={vid.tags}
+									/>
+								{/await}
+							{/key}
+						{:else if typeof bloco === 'object' && bloco.faixa}
+							{@const conf = bloco.faixa}
+							<WorkStrip
+								duration={Number(conf.tempo) || 80}
+								items={conf.itens.map((item) => ({
+									src: withBase(
+										`/imgs/${conf.pasta ? `${conf.pasta.trim()}/` : ''}${item.nome}`,
+										base
+									),
+									alt: item.texto
+								}))}
 							/>
-						{/await}
-					{/key}
-				{:else if typeof bloco === 'object' && bloco.imagemTexto}
-					{@const conf = bloco.imagemTexto}
-					<ImageText src={withBase(`/imgs/${conf.imagem}`, base)} alt={conf.alt || conf.titulo || ''} title={conf.titulo || ''} eyebrow={conf.chapeu || ''} text={conf.texto || ''} tags={obj.tags || []} imageRight={conf.lado === 'direita'} classes={conf.classes || ''} />
-				{:else if typeof bloco === 'object' && bloco.scrollerVideo}
-					{#key i}
-						{@const conf = bloco.scrollerVideo}
-						{@const file = conf.video || conf.nome || conf.src || ''}
-						{@const _extMatch = String(file).match(/\.([a-z0-9]+)$/i)}
-						{@const _ext = _extMatch ? _extMatch[1] : ''}
-						{@const _base = _ext ? String(file).slice(0, -(_ext.length + 1)) : String(file)}
-						{@const fileMobile = conf['video-mobile'] || conf.mobile || conf.nome_mobile || (_base ? `${_base}-mobile${_ext ? `.${_ext}` : ''}` : '')}
-						{@const fileDesktop = conf['video-desktop'] || conf.desktop || conf.nome_desktop || (_base ? `${_base}-desktop${_ext ? `.${_ext}` : ''}` : '')}
-						{@const guide = conf.guia !== undefined ? !!conf.guia : true}
-						{@const height = conf.altura || conf.scroll || '300vh'}
-						{@const texts = conf.passos && Array.isArray(conf.passos)
-							? conf.passos.map((p) => ({
-								at: parseFloat(p.posicao || p.at || 0),
-								text: p.texto || p.text || '',
-								class: p.classe || p.class || ''
-							}))
-							: Array.isArray(conf.textos)
-							? conf.textos
-							: conf.texto
-								? Array.isArray(conf.texto)
-									? conf.texto
-									: [conf.texto]
-								: []}
-						<ScrollerVideo
-							introTitle={conf['intro-title'] || ''}
-							introText={conf['intro-text'] || ''}
-							src={withBase(`/videos/${file}`, base)}
-							srcMobile={fileMobile ? withBase(`/videos/${fileMobile}`, base) : ''}
-							srcDesktop={fileDesktop ? withBase(`/videos/${fileDesktop}`, base) : ''}
-							size={(conf.tamanho || conf.size || 'M')}
-							texts={texts}
-							showGuide={guide}
-							height={height}
-							objectFit={conf.fit || conf.objectfit || 'cover'}
-							stageRatio={conf.proporcao || ''}
-							pin={conf.fixar !== 'nao'}
-							ease={conf.ease !== undefined ? Number(conf.ease) : undefined}
-							offsetTop={conf.top ? Number(conf.top) : 0}
-							vhPerSecond={conf.vhpersecond ? Number(conf.vhpersecond) : conf.vhps ? Number(conf.vhps) : undefined}
-							fps={conf.fps ? Number(conf.fps) : undefined}
-							pxPerFrame={(conf.pxperframe ? Number(conf.pxperframe) : (conf.ppf ? Number(conf.ppf) : undefined))}
-							windowSize={conf.windowsize ? Number(conf.windowsize) : conf.janela ? Number(conf.janela) : undefined}
-							travelVh={conf.travelvh ? Number(conf.travelvh) : undefined}
-							overlayVAlign={(conf.overlay || conf.alinhamento || conf.valign || '').toLowerCase() || undefined}
-							showVignette={conf.vignette !== undefined ? !!conf.vignette : conf.vinheta !== undefined ? !!conf.vinheta : undefined}
-							speedVh={conf.speedvh ? Number(conf.speedvh) : 100}
-							maxStepSec={(conf.maxstepsec ? Number(conf.maxstepsec) : (conf.maxstep ? Number(conf.maxstep) : undefined))}
-							preloadMode={conf.preload ? String(conf.preload) : undefined}
-						/>
-					{/key}
-				{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
-					{#key i}
-						{#await Promise.resolve(parseImagem(bloco)) then img}
-							{@const _baseName2 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
-							{@const _meta2 = imageMeta[img.nome]}
-							{@const _hasAvif2 = !!(_meta2 && _meta2.avif)}
-							{@const _hasWebp2 = !!(_meta2 && _meta2.webp)}
-							<ImageBlock
-								src={withBase(`/imgs/${img.nome}`, base)}
-								alt={img.nome}
-								size={img.tamanho}
-								caption={img.legenda}
-								classes={img.classes}
-								radius={img.radius}
-								tags={img.tags}
-								multiply={img.multiply}
-								width={img.width || (_meta2 && _meta2.width) || ''}
-								height={img.height || (_meta2 && _meta2.height) || ''}
-								ratio={img.ratio || (_meta2 && _meta2.ratio) || ''}
-								srcset={img.srcset}
-								sizes={img.sizes}
-								webp={
-									isProd && _hasWebp2
-										? withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base)
-										: ''
-								}
-								avif={
-									isProd && _hasAvif2
-										? withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base)
-										: ''
-								}
-								sources={img.sources}
-								priority={nextImagePriority()}
+						{:else if typeof bloco === 'object' && bloco.numeros}
+							<Figures items={bloco.numeros.itens} note={bloco.numeros.nota} />
+						{:else if typeof bloco === 'object' && bloco.celular}
+							{@const conf = bloco.celular}
+							{@const folder = conf.pasta ? `${conf.pasta.trim()}/` : ''}
+							<PhoneReveal
+								screens={conf.telas.map((tela) => ({
+									src: withBase(`/imgs/${folder}${tela.nome}`, base),
+									alt: tela.texto
+								}))}
+								signin={conf.entrada ? withBase(`/imgs/${folder}${conf.entrada.trim()}`, base) : ''}
+						signinAlt={conf.entrada_alt || ''}
+						color={(conf.cor || '').trim() || undefined}
+						label={conf.alt || ''}
 							/>
-						{/await}
-					{/key}
-				{:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
-					{#key i}
-						{#await Promise.resolve(parseVideo(bloco)) then vid}
-							<VideoBlock
-								src={withBase(`/videos/${vid.nome}`, base)}
-								sources={vid.sources
-									? Array.isArray(vid.sources)
-										? vid.sources.map((s) =>
-												s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
-											)
-										: String(vid.sources)
-												.split(',')
-												.map((s) => s.trim())
-												.filter(Boolean)
-												.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
-									: []}
-								size={vid.tamanho}
-								caption={vid.legenda}
-								classes={vid.classes}
-								radius={vid.radius}
-								tags={vid.tags}
+						{:else if typeof bloco === 'object' && bloco.sistema}
+							{@const conf = bloco.sistema}
+							<SystemDiagram
+								seenLabel={conf.titulo_cima || ''}
+								hiddenLabel={conf.titulo_baixo || ''}
+								seen={conf.visivel}
+								hidden={conf.oculto}
+								note={conf.nota || ''}
 							/>
-						{/await}
-					{/key}
-				{:else}
-					<Text
-						value={{
-							body: Array.isArray(bloco)
-								? bloco
-								: typeof bloco === 'string'
-									? bloco.split(/\n+/)
-									: ['']
-						}}
-					/>
-				{/if}
-				{#if obj.footerTags?.length}
-					<InlineTags tags={obj.footerTags} />
-				{/if}
-				</div>
+						{:else if typeof bloco === 'object' && bloco.fluxo}
+							{@const conf = bloco.fluxo}
+							<Pipeline
+								title={conf.titulo || ''}
+								leftLabel={conf.titulo_esquerda || ''}
+								rightLabel={conf.titulo_direita || ''}
+								left={conf.esquerda}
+								right={conf.direita}
+								end={conf.fim}
+								note={conf.nota || ''}
+							/>
+						{:else if typeof bloco === 'object' && bloco.capitulos}
+							{@const conf = bloco.capitulos}
+							<Chapters
+								title={conf.titulo}
+								chapters={conf.capitulos.map((item) => ({
+									name: item.nome,
+									period: item.periodo,
+									text: item.texto,
+									src: item.imagem ? withBase(`/imgs/${item.imagem}`, base) : '',
+									caption: item.legenda,
+									paper: item.papel,
+									mark: item.marca
+								}))}
+							/>
+						{:else if typeof bloco === 'object' && bloco.trajetoria}
+							{@const conf = bloco.trajetoria}
+							<CareerChart
+								title={conf.titulo || ''}
+								note={conf.nota || ''}
+								start={Number(conf.inicio) || 1997}
+								end={Number(conf.fim) || new Date().getFullYear()}
+								periods={conf.periodos}
+								marks={conf.marcos}
+							/>
+						{:else if typeof bloco === 'object' && bloco.fragmento}
+							{@const conf = bloco.fragmento}
+							<Fragment
+								src={withBase(`/imgs/${(conf.nome || '').trim()}`, base)}
+								alt={conf.alt || ''}
+								caption={conf.legenda || ''}
+								height={(conf.altura || '').trim()}
+							/>
+						{:else if typeof bloco === 'object' && bloco.lista}
+							{@const conf = bloco.lista}
+							<RowList
+								title={conf.titulo || ''}
+								text={conf.texto || ''}
+								rows={conf.itens.map((item) => ({ label: item.nome, text: item.texto }))}
+							/>
+						{:else if typeof bloco === 'object' && bloco.telas}
+							{@const conf = bloco.telas}
+							<StickyScreens
+								steps={conf.passos.map((passo) => ({
+									src: withBase(`/imgs/${conf.pasta ? `${conf.pasta}/` : ''}${passo.imagem}`, base),
+									eyebrow: passo.chapeu,
+									title: passo.titulo,
+									text: passo.texto
+								}))}
+							/>
+						{:else if typeof bloco === 'object' && bloco.abertura}
+							{@const conf = bloco.abertura}
+							<Hero
+								eyebrow={conf.chapeu || ''}
+								title={conf.titulo || ''}
+								text={conf.texto || ''}
+								stats={conf.numeros}
+							/>
+						{:else if typeof bloco === 'object' && bloco.imagemTexto}
+							{@const conf = bloco.imagemTexto}
+							<ImageText
+								src={withBase(`/imgs/${conf.imagem}`, base)}
+								alt={conf.alt || conf.titulo || ''}
+								title={conf.titulo || ''}
+								eyebrow={conf.chapeu || ''}
+								text={conf.texto || ''}
+								tags={obj.tags || []}
+								imageRight={conf.lado === 'direita'}
+								classes={conf.classes || ''}
+							/>
+						{:else if typeof bloco === 'object' && bloco.scrollerVideo}
+							{#key i}
+								{@const conf = bloco.scrollerVideo}
+								{@const file = conf.video || conf.nome || conf.src || ''}
+								{@const _extMatch = String(file).match(/\.([a-z0-9]+)$/i)}
+								{@const _ext = _extMatch ? _extMatch[1] : ''}
+								{@const _base = _ext ? String(file).slice(0, -(_ext.length + 1)) : String(file)}
+								{@const fileMobile =
+									conf['video-mobile'] ||
+									conf.mobile ||
+									conf.nome_mobile ||
+									(_base ? `${_base}-mobile${_ext ? `.${_ext}` : ''}` : '')}
+								{@const fileDesktop =
+									conf['video-desktop'] ||
+									conf.desktop ||
+									conf.nome_desktop ||
+									(_base ? `${_base}-desktop${_ext ? `.${_ext}` : ''}` : '')}
+								{@const guide = conf.guia !== undefined ? !!conf.guia : true}
+								{@const height = conf.altura || conf.scroll || '300vh'}
+								{@const texts =
+									conf.passos && Array.isArray(conf.passos)
+										? conf.passos.map((p) => ({
+												at: parseFloat(p.posicao || p.at || 0),
+												text: p.texto || p.text || '',
+												class: p.classe || p.class || ''
+											}))
+										: Array.isArray(conf.textos)
+											? conf.textos
+											: conf.texto
+												? Array.isArray(conf.texto)
+													? conf.texto
+													: [conf.texto]
+												: []}
+								<ScrollerVideo
+									introTitle={conf['intro-title'] || ''}
+									introText={conf['intro-text'] || ''}
+									src={withBase(`/videos/${file}`, base)}
+									srcMobile={fileMobile ? withBase(`/videos/${fileMobile}`, base) : ''}
+									srcDesktop={fileDesktop ? withBase(`/videos/${fileDesktop}`, base) : ''}
+									size={conf.tamanho || conf.size || 'M'}
+									{texts}
+									showGuide={guide}
+									{height}
+									objectFit={conf.fit || conf.objectfit || 'cover'}
+									stageRatio={conf.proporcao || ''}
+									pin={conf.fixar !== 'nao'}
+									blend={conf.fundir === 'sim'}
+									ease={conf.ease !== undefined ? Number(conf.ease) : undefined}
+									offsetTop={conf.top ? Number(conf.top) : 0}
+									vhPerSecond={conf.vhpersecond
+										? Number(conf.vhpersecond)
+										: conf.vhps
+											? Number(conf.vhps)
+											: undefined}
+									fps={conf.fps ? Number(conf.fps) : undefined}
+									pxPerFrame={conf.pxperframe
+										? Number(conf.pxperframe)
+										: conf.ppf
+											? Number(conf.ppf)
+											: undefined}
+									windowSize={conf.windowsize
+										? Number(conf.windowsize)
+										: conf.janela
+											? Number(conf.janela)
+											: undefined}
+									travelVh={conf.travelvh ? Number(conf.travelvh) : undefined}
+									overlayVAlign={(
+										conf.overlay ||
+										conf.alinhamento ||
+										conf.valign ||
+										''
+									).toLowerCase() || undefined}
+									showVignette={conf.vignette !== undefined
+										? !!conf.vignette
+										: conf.vinheta !== undefined
+											? !!conf.vinheta
+											: undefined}
+									speedVh={conf.speedvh ? Number(conf.speedvh) : 100}
+									maxStepSec={conf.maxstepsec
+										? Number(conf.maxstepsec)
+										: conf.maxstep
+											? Number(conf.maxstep)
+											: undefined}
+									preloadMode={conf.preload ? String(conf.preload) : undefined}
+								/>
+							{/key}
+						{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
+							{#key i}
+								{#await Promise.resolve(parseImagem(bloco)) then img}
+									{@const _baseName2 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
+									{@const _meta2 = imageMeta[img.nome]}
+									{@const _hasAvif2 = !!(_meta2 && _meta2.avif)}
+									{@const _hasWebp2 = !!(_meta2 && _meta2.webp)}
+									<ImageBlock
+										src={withBase(`/imgs/${img.nome}`, base)}
+										alt={(img.alt || img.nome || "").trim()}
+										size={img.tamanho}
+										caption={img.legenda}
+										classes={img.classes}
+										radius={img.radius}
+										tags={img.tags}
+										multiply={img.multiply}
+										width={img.width || (_meta2 && _meta2.width) || ''}
+										height={img.height || (_meta2 && _meta2.height) || ''}
+										ratio={img.ratio || (_meta2 && _meta2.ratio) || ''}
+										srcset={img.srcset}
+										sizes={img.sizes}
+										webp={isProd && _hasWebp2
+											? withBase(`/imgs/${img.webp || `${_baseName2}.webp`}`, base)
+											: ''}
+										avif={isProd && _hasAvif2
+											? withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base)
+											: ''}
+										sources={img.sources}
+										priority={nextImagePriority()}
+									/>
+								{/await}
+							{/key}
+						{:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
+							{#key i}
+								{#await Promise.resolve(parseVideo(bloco)) then vid}
+									<VideoBlock
+										src={withBase(`/videos/${vid.nome}`, base)}
+										sources={vid.sources
+											? Array.isArray(vid.sources)
+												? vid.sources.map((s) =>
+														s.startsWith('http') ? s : withBase(`/videos/${s}`, base)
+													)
+												: String(vid.sources)
+														.split(',')
+														.map((s) => s.trim())
+														.filter(Boolean)
+														.map((s) => (s.startsWith('http') ? s : withBase(`/videos/${s}`, base)))
+											: []}
+										size={vid.tamanho}
+										caption={vid.legenda}
+										classes={vid.classes}
+										radius={vid.radius}
+										tags={vid.tags}
+									/>
+								{/await}
+							{/key}
+						{:else}
+							<Text
+								value={{
+									body: Array.isArray(bloco)
+										? bloco
+										: typeof bloco === 'string'
+											? bloco.split(/\n+/)
+											: ['']
+								}}
+							/>
+						{/if}
+						{#if obj.footerTags?.length}
+							<InlineTags tags={obj.footerTags} />
+						{/if}
+					</div>
 				{/if}
 			{/if}
 		{/if}
@@ -680,14 +868,27 @@
 		box-sizing: border-box;
 		border: clamp(3px, 0.5vw, 6px) solid white;
 		background: #fff;
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		box-shadow: var(--shadow-surface);
 	}
 	.paladar-pages :global(.image-inner) {
 		clip-path: inset(0 2.5% 3% 2.5%);
 	}
 	.paladar-pages :global(h3),
 	.paladar-pages :global(p),
-	.paladar-pages :global(.inline-tags) { grid-column: 1 / -1; }
+	.paladar-pages :global(.inline-tags) {
+		grid-column: 1 / -1;
+	}
+	/* `fundo:` on a group: the page takes that colour while the middle of the group is on screen */
+	.content-block.has-page-bg {
+		position: relative;
+		/* air around it, so the neighbours are mostly off screen while the colour is on */
+		margin: calc(var(--grid) * 14) 0;
+	}
+	.page-bg-zone {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
 	.content-block.is-flex {
 		display: flex;
 		flex-wrap: wrap;

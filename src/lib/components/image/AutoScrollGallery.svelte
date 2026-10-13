@@ -7,6 +7,10 @@
 
 	// Directory under static (e.g., 'imgs/galeria1' or '/imgs/galeria1')
 	export let dir = '';
+	// Optional: comma-separated publication ids; filtered strips run from most recent to oldest
+	export let publication = '';
+	// a strip with a single publication already has its heading above; the name under the page would repeat it
+	$: mixedPublications = new Set(items.map((item) => item.publication).filter(Boolean)).size > 1;
 	const publicationNames = { 'o-dia': 'O Dia', 'o-globo': 'O Globo', correio: 'Correio Braziliense', 'diario-de-noticias': 'Diário de Notícias', estadao: 'Estadão' };
 	$: hasPaperFormats = items.some(item => item.format);
 	// Interval between scroll steps (ms)
@@ -179,6 +183,18 @@
 			const list = rawList
 				.map((entry) => (typeof entry === 'string' ? { name: entry } : entry))
 				.filter((entry) => entry && entry.name && entry.hidden !== true);
+			const wanted = publication.split(',').map((id) => id.trim()).filter(Boolean);
+			if (wanted.length) {
+				// Keep editorial sequences (same group) together and in page order.
+				const units = [];
+				for (const entry of list.filter((item) => wanted.includes(item.publication))) {
+					const last = units[units.length - 1];
+					if (entry.group && last?.group === entry.group && last.publication === entry.publication) last.entries.push(entry);
+					else units.push({ group: entry.group, publication: entry.publication, date: entry.date || '', entries: [entry] });
+				}
+				units.sort((a, b) => b.date.localeCompare(a.date));
+				list.splice(0, list.length, ...units.flatMap((unit) => unit.entries));
+			}
 			if (!list.length) {
 				error = rawList.length ? '' : 'manifest.json vazio. Gere a lista de arquivos.';
 				return;
@@ -504,12 +520,13 @@
 			{#each items as it, i (i)}
 				{@const size = scaledSize(it, sizeScale, viewportWidth)}
 				<div
-					class={`card ${shadow ? 'shadow-1' : ''} ${size ? 'fixed-size' : ''}`}
+					class={`card ${shadow && !it.format ? 'shadow-1' : ''} ${size ? 'fixed-size' : ''}`}
 					class:paper-page={!!it.format}
+					class:paper-double={/double/.test(it.format || '')}
 					data-index={i}
 					style={`${height ? `height:${height};` : ''}${size ? `width:${size.w}px; height:${size.h}px;` : ''}`}
 				>
-					{#if it.publication && it.publication !== items[i - 1]?.publication}
+					{#if mixedPublications && it.publication && it.publication !== items[i - 1]?.publication}
 						<span class="publication-label">{publicationNames[it.publication] || it.publication}</span>
 					{/if}
 					{#if it.type === 'image'}
@@ -663,7 +680,25 @@
 	}
 	.card.paper-page {
 		box-sizing: content-box;
+		/* pure white, so the margin joins the white of the scan without a seam */
 		border: clamp(6px, 0.6vw, 10px) solid #fff;
+		background: #fff;
+		box-shadow: var(--shadow-surface);
+	}
+	/* fold down the middle of a double page */
+	.card.paper-double::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: linear-gradient(
+			90deg,
+			transparent 45%,
+			rgba(0, 0, 0, 0.08) 49.4%,
+			rgba(0, 0, 0, 0.18) 50%,
+			rgba(0, 0, 0, 0.08) 50.6%,
+			transparent 55%
+		);
 	}
 	/* add soft elevation on the card itself; corner shadows handled by global .shadow-1 */
 	.card.shadow-1 {
