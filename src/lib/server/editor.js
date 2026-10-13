@@ -74,7 +74,22 @@ export function publishProject(root, { message, dryRun } = {}) {
 	} catch (error) {
 		throw new Error('O commit foi feito, mas o envio ao GitHub falhou: ' + String(error.stderr || error.message).trim().split('\n').pop());
 	}
-	return { branch, files, commit: git('rev-parse', '--short', 'HEAD') };
+	return { branch, files, commit: git('rev-parse', '--short', 'HEAD'), sha: git('rev-parse', 'HEAD') };
+}
+
+// Where the deploy of a pushed commit stands: the build workflow first, then the GitHub Pages one it triggers.
+export function deployStatus(root, { sha } = {}) {
+	if (!/^[0-9a-f]{40}$/.test(sha || '')) throw new Error('Commit inválido.');
+	const runs = (...args) => JSON.parse(execFileSync('gh', ['run', 'list', '--limit', '1', '--json', 'status,conclusion,createdAt,url', ...args],
+		{ cwd: root, encoding: 'utf8' }));
+	const [build] = runs('--workflow', 'deploy.yml', '--commit', sha);
+	if (!build) return { state: 'waiting' };
+	if (build.status !== 'completed') return { state: 'building', url: build.url };
+	if (build.conclusion !== 'success') return { state: 'failed', url: build.url, conclusion: build.conclusion };
+	const [pages] = runs('--workflow', 'pages-build-deployment');
+	if (!pages || pages.createdAt < build.createdAt || pages.status !== 'completed') return { state: 'deploying', url: build.url };
+	if (pages.conclusion !== 'success') return { state: 'failed', url: pages.url, conclusion: pages.conclusion };
+	return { state: 'published', url: build.url };
 }
 
 export function editorSave() {
@@ -85,7 +100,8 @@ export function editorSave() {
 			for (const [route, file, save] of [
 				['save', 'src/lib/archiePages.json', savePage],
 				['samples', 'static/imgs/samples/manifest.json', saveSamples],
-				['publish', '', publishProject]
+				['publish', '', publishProject],
+				['deploy', '', deployStatus]
 			]) server.middlewares.use(`/__editor/${route}`, (req, res) => {
 				res.setHeader('Content-Type', 'application/json');
 				if (req.method !== 'POST' || req.headers.origin !== `http://${req.headers.host}` ||

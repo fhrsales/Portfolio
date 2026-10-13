@@ -3,7 +3,7 @@
 	import { get } from 'svelte/store';
 	import ArchieML from 'archieml';
 	import { resolve } from '$app/paths';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	import Button from '$lib/components/ui/Button.svelte';
 	import ConfirmModal from '$lib/components/ui/ConfirmModal.svelte';
@@ -305,8 +305,19 @@
 
 	// Dev server only: commit the whole project and push it, which starts the deploy.
 	let publishing = false;
-	async function gitPublish(body) {
-		const response = await fetch('/__editor/publish', {
+	// Deploy of the last publish: '' | waiting | building | deploying | published | failed.
+	let deploy = '';
+	let deployWatch = 0;
+	const deployLabels = {
+		waiting: 'Aguardando o GitHub…',
+		building: 'Compilando o site…',
+		deploying: 'Atualizando o site…',
+		published: 'Publicado ✓',
+		failed: 'Falha na publicação'
+	};
+	$: if (dirty && (deploy === 'published' || deploy === 'failed')) deploy = '';
+	async function gitPublish(body, route = 'publish') {
+		const response = await fetch(`/__editor/${route}`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(body)
@@ -334,13 +345,44 @@
 			if (message === null) return;
 			error = 'Publicando…';
 			const done = await gitPublish({ message });
-			error = `Publicado (${done.commit}). O site atualiza em alguns minutos.`;
+			error = `Enviado ao GitHub (${done.commit}). Acompanhando a publicação…`;
+			watchDeploy(done);
 		} catch (e) {
 			error = 'Não foi possível publicar: ' + e.message;
 		} finally {
 			publishing = false;
 		}
 	}
+
+	// Follow the GitHub Actions run of a pushed commit until the site is live.
+	async function watchDeploy({ commit, sha }) {
+		const watch = ++deployWatch;
+		const deadline = Date.now() + 15 * 60_000;
+		deploy = 'waiting';
+		try {
+			while (Date.now() < deadline) {
+				await new Promise((done) => setTimeout(done, 5000));
+				if (watch !== deployWatch) return;
+				const status = await gitPublish({ sha }, 'deploy');
+				if (watch !== deployWatch) return;
+				deploy = status.state;
+				if (deploy === 'published') {
+					error = `Publicado (${commit}). O site está no ar.`;
+					return;
+				}
+				if (deploy === 'failed') {
+					error = `A publicação de ${commit} falhou no GitHub Actions (${status.conclusion}): ${status.url}`;
+					return;
+				}
+			}
+			throw new Error('tempo esgotado');
+		} catch (e) {
+			if (watch !== deployWatch) return;
+			deploy = '';
+			error = `Enviado ao GitHub (${commit}), mas não foi possível acompanhar a publicação: ${e.message}`;
+		}
+	}
+	onDestroy(() => deployWatch++);
 
 	function loadContent() {
 		const pages = get(archiePages);
@@ -432,8 +474,13 @@
 			newValue={remote ? 'Publicado!' : 'Salvo!'}
 		/>
 		{#if !remote}
-			<button class="ghost" type="button" on:click={publishSite} disabled={publishing}>
-				{publishing ? 'Publicando…' : 'Publicar no GitHub'}
+			<button
+				class="ghost"
+				type="button"
+				on:click={publishSite}
+				disabled={publishing || ['waiting', 'building', 'deploying'].includes(deploy)}
+			>
+				{publishing ? 'Publicando…' : deployLabels[deploy] || 'Publicar no GitHub'}
 			</button>
 		{/if}
 	</header>

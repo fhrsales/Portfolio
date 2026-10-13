@@ -3,7 +3,6 @@
     import Menu from '$lib/components/header/Menu.svelte';
     import Footer from '$lib/components/footer/Footer.svelte';
     import { page } from '$app/stores';
-    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { onNavigate } from '$app/navigation';
     import { language } from '$lib/i18n';
@@ -65,7 +64,7 @@
 	{@render children?.()}
 
 {:else}
-	<main class="main-content" class:is-home={$page.url.pathname === `${base || ''}/`}>
+	<main class="main-content" class:is-home={$page.route.id === '/'}>
 		{#key $language}
 			{@render children?.()}
 		{/key}

@@ -21,7 +21,9 @@
 		});
 		return unsubscribe;
 	});
-	$: current = $page.url.pathname.replace(/^\/|\/$/g, '');
+	// From the route, not the URL: the published site lives under a base path.
+	$: current = $page.params.slug ?? ($page.route.id || '').slice(1);
+	$: isHome = $page.route.id === '/';
 	function applyTheme(next) {
 		isDark = next === 'dark';
 		if (typeof document === 'undefined') return;
@@ -46,7 +48,7 @@
 	});
 </script>
 
-<header class="site-header" class:home={current === '' || current === 'index'}>
+<header class="site-header" class:home={isHome}>
 	<a class="signature" href={resolve('/')} aria-label="Fabio Sales, início">
 		<img src={signatureSrc} alt="Fabio Sales" width="169" height="46" decoding="async" />
 	</a>
@@ -55,7 +57,7 @@
 			<a
 				style={`--i:${i}`}
 				href={p === 'index' ? resolve('/') : resolve(`/${p}`)}
-				aria-current={current === p || (p === 'index' && (current === '' || current === 'index'))
+				aria-current={current === p || (p === 'index' && isHome)
 					? 'page'
 					: undefined}>{translateLabel(menuLabels[p], $language)}</a
 			>
