@@ -20,7 +20,12 @@
 			<div class="set" aria-hidden={copy === 1 ? 'true' : undefined}>
 				{#each items as item, i (i)}
 					<!-- a landscape page is a spread: it gets the fold down the middle -->
-					<span class="page" class:spread={paper && item.width > item.height}>
+					<!-- a phone screen is much narrower than any printed page: its corners are rounded off -->
+					<span
+						class="page"
+						class:spread={paper && item.width > item.height}
+						class:phone={item.width && item.height && item.width / item.height < 0.5}
+					>
 					<img
 						src={item.src}
 						srcset={item.smallSrc && item.width && item.height
@@ -68,6 +73,11 @@
 		height: var(--strip-h);
 		width: auto;
 		background: color-mix(in srgb, var(--color-dark) 6%, transparent);
+	}
+	/* the screen's own rounded corners, so the grey behind them does not show */
+	.phone {
+		border-radius: 13.5% / 6.2%;
+		overflow: hidden;
 	}
 	/* room around the pages, so the strip's clipping does not cut the shadow */
 	.paper {
