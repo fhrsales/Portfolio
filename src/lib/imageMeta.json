@@ -258,6 +258,13 @@
 		"avif": false,
 		"webp": false
 	},
+	"caro_leitor-celular.png": {
+		"width": 1122,
+		"height": 914,
+		"ratio": 1.227571,
+		"avif": false,
+		"webp": false
+	},
 	"caro_leitor-m.png": {
 		"width": 900,
 		"height": 197,
