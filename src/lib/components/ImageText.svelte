@@ -45,6 +45,8 @@
 	.copy :global(h3) { margin-top: 0; }
 	.copy :global(p:last-child) { margin-bottom: 0; }
 	@media (min-width: 768px) {
+		/* a tall picture beside the text still fits the screen */
+		.visual :global(img) { width: auto !important; max-height: 80vh; }
 		.image-text.image-right { grid-template-columns: minmax(0, 450px) minmax(0, 620px); }
 		.image-right .copy { grid-column: 1; grid-row: 1; }
 		.image-right .visual { grid-column: 2; grid-row: 1; }

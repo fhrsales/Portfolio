@@ -23,6 +23,7 @@
 						<div
 							class="shot"
 							class:marked={!!chapter.mark}
+							class:single={chapter.ratio > 0 && chapter.ratio < 1}
 							style={chapter.ratio ? `--r:${chapter.ratio}` : undefined}
 						>
 							<img
@@ -188,6 +189,11 @@
 		border: 8px solid #fbfaf7;
 		background: #fbfaf7;
 		box-shadow: var(--shadow-surface);
+	}
+	/* single pages share one width, so a squarer page (a tabloid cover) does not look bigger
+	   than a broadsheet; spreads keep the shared height */
+	figure.paper .shot.single {
+		width: min(100%, calc(var(--page-h) * 0.565 + 16px));
 	}
 	figure.paper img {
 		height: auto;

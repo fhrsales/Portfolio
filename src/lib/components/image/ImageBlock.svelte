@@ -83,6 +83,9 @@
 		return Number.isFinite(r) && r > 0 ? r : 0;
 	})();
 
+	// width over height, from the ratio or from the image's own measures: it caps the figure to the screen height
+	$: fitRatio = numericRatio || (Number(width) > 0 && Number(height) > 0 ? +(Number(width) / Number(height)).toFixed(4) : 0);
+
 	function defaultWidthForSize(sz) {
 		switch (sz) {
 			case 'PP':
@@ -419,6 +422,8 @@
 	class={`image-block image-block-wrapper ${sizeClass} ${layoutClasses} ${appliedClasses}`}
 	class:show
 	class:panorama
+	class:fits={!!fitRatio}
+	style={fitRatio ? `--ratio:${fitRatio}` : undefined}
 >
 	<div
 		class="image-inner"
@@ -537,6 +542,13 @@
 		transition: opacity 600ms ease;
 	}
 
+	/* on a laptop no picture is taller than the screen: it is seen whole, without scrolling */
+	@media (min-width: 601px) {
+		.image-block.image-block-wrapper.fits {
+			max-width: min(var(--mw, 100%), calc(86vh * var(--ratio)));
+		}
+	}
+
 	/* When the component has both loaded and entered viewport, show image with 2s fade */
 	.image-block.show img {
 		opacity: 1;
@@ -572,15 +584,19 @@
 	}
 
 	.image-block-wrapper.img-pp {
+		--mw: 250px;
 		max-width: 250px;
 	}
 	.image-block-wrapper.img-p {
+		--mw: 450px;
 		max-width: 450px;
 	}
 	.image-block-wrapper.img-m {
+		--mw: 640px;
 		max-width: 640px;
 	}
 	.image-block-wrapper.img-g {
+		--mw: 875px;
 		max-width: 875px;
 	}
 	.image-block-wrapper.img-gg {

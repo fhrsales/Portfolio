@@ -587,31 +587,45 @@
 		"avif": false,
 		"webp": false
 	},
-	"faixa-about/anatomia.jpg": {
-		"width": 1132,
-		"height": 880,
-		"ratio": 1.286364,
+	"faixa-about/atbl-giro-m.jpg": {
+		"width": 285,
+		"height": 620,
+		"ratio": 0.459677,
 		"avif": false,
 		"webp": false
 	},
-	"faixa-about/atbl-conferencia.jpg": {
-		"width": 404,
+	"faixa-about/atbl-giro.jpg": {
+		"width": 405,
 		"height": 880,
-		"ratio": 0.459091,
+		"ratio": 0.460227,
 		"avif": false,
 		"webp": false
 	},
-	"faixa-about/atbl-estoque.jpg": {
-		"width": 404,
-		"height": 880,
-		"ratio": 0.459091,
+	"faixa-about/atbl-movimentacao-m.jpg": {
+		"width": 285,
+		"height": 620,
+		"ratio": 0.459677,
 		"avif": false,
 		"webp": false
 	},
-	"faixa-about/atbl-login.jpg": {
-		"width": 404,
+	"faixa-about/atbl-movimentacao.jpg": {
+		"width": 405,
 		"height": 880,
-		"ratio": 0.459091,
+		"ratio": 0.460227,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/atbl-vale-m.jpg": {
+		"width": 285,
+		"height": 620,
+		"ratio": 0.459677,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/atbl-vale.jpg": {
+		"width": 405,
+		"height": 880,
+		"ratio": 0.460227,
 		"avif": false,
 		"webp": false
 	},
@@ -629,13 +643,6 @@
 		"avif": false,
 		"webp": false
 	},
-	"faixa-about/discursos.jpg": {
-		"width": 662,
-		"height": 880,
-		"ratio": 0.752273,
-		"avif": false,
-		"webp": false
-	},
 	"faixa-about/estadao-2010.jpg": {
 		"width": 506,
 		"height": 880,
@@ -643,10 +650,45 @@
 		"avif": false,
 		"webp": false
 	},
-	"faixa-about/novo-estadao.jpg": {
-		"width": 1132,
+	"faixa-about/estadao-arena-2012-m.jpg": {
+		"width": 714,
+		"height": 620,
+		"ratio": 1.151613,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/estadao-arena-2012.jpg": {
+		"width": 1013,
 		"height": 880,
-		"ratio": 1.286364,
+		"ratio": 1.151136,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/estadao-tetra-2014-m.jpg": {
+		"width": 349,
+		"height": 620,
+		"ratio": 0.562903,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/estadao-tetra-2014.jpg": {
+		"width": 495,
+		"height": 880,
+		"ratio": 0.5625,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/estadao-tsunami-2011-m.jpg": {
+		"width": 356,
+		"height": 620,
+		"ratio": 0.574194,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/estadao-tsunami-2011.jpg": {
+		"width": 505,
+		"height": 880,
+		"ratio": 0.573864,
 		"avif": false,
 		"webp": false
 	},
@@ -864,6 +906,34 @@
 		"width": 566,
 		"height": 880,
 		"ratio": 0.643182,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-reportagem-m.jpg": {
+		"width": 808,
+		"height": 620,
+		"ratio": 1.303226,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-reportagem.jpg": {
+		"width": 1147,
+		"height": 880,
+		"ratio": 1.303409,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-sextou-m.jpg": {
+		"width": 382,
+		"height": 620,
+		"ratio": 0.616129,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-sextou.jpg": {
+		"width": 542,
+		"height": 880,
+		"ratio": 0.615909,
 		"avif": false,
 		"webp": false
 	},
