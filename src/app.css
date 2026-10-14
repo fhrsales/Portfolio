@@ -121,7 +121,12 @@ strong {
 
 /* Follow-on links under a text: text-sized, underlined in the accent, with an arrow that steps aside on hover. */
 .main-content p a.sublinks {
-	display: inline-block;
+	/* inline, with the underline repeated on every line, so a link that wraps is underlined
+	   under its words and not across the whole column */
+	display: inline;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	line-height: 2.3;
 	font-size: 0.9em;
 	font-weight: 500;
 	text-decoration: none;
@@ -574,4 +579,9 @@ p,
 li,
 figcaption {
 	text-wrap: pretty;
+}
+
+/* keeps a link's last word and its arrow on the same line */
+.nowrap {
+	white-space: nowrap;
 }

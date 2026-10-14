@@ -45,8 +45,9 @@
 	function wrapArrows(html) {
 		if (!html) return html;
 		return String(html)
-			.replace(/\s*→\s*<\/a>/g, '&nbsp;<span class="arrow" aria-hidden="true">→</span></a>')
-			.replace(/\s*↗\s*<\/a>/g, '&nbsp;<span class="arrow ext-arrow" aria-hidden="true"></span></a>');
+			// the last word travels with its arrow, so a wrapping link never leaves the arrow alone on a line
+			.replace(/([^\s>]+)\s*→\s*<\/a>/g, '<span class="nowrap">$1&nbsp;<span class="arrow" aria-hidden="true">→</span></span></a>')
+			.replace(/([^\s>]+)\s*↗\s*<\/a>/g, '<span class="nowrap">$1&nbsp;<span class="arrow ext-arrow" aria-hidden="true"></span></span></a>');
 	}
 
 	function renderHtml(html) {
