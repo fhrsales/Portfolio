@@ -1,9 +1,10 @@
 import { expect, test } from 'vitest';
 import pages from './archiePages.json';
 import pt from './pt.json';
-import { translateContent } from './i18n.js';
+import { loadPortuguese, translateContent } from './i18n.js';
 
-test('Portuguese preserves media, notation, links and English source', () => {
+test('Portuguese preserves media, notation, links and English source', async () => {
+  await loadPortuguese();
   const markup = text => text.match(/\{[^\n]*\}|(?:href|src)=['"][^'"]+['"]|^[ \t]*(?:nome|video(?:-mobile|-desktop)?|pasta|imagem|tags|tamanho|altura|top|fixar):[^\n]*/gm);
   for (const page of Object.values(pages)) {
     const en = page.content || '';

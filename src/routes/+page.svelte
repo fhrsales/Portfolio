@@ -158,6 +158,11 @@
 </script>
 
 <svelte:head>
+	<title>Fabio Sales — Design Leader & Product Builder</title>
+	<link rel="canonical" href={siteUrl} />
+	<meta property="og:title" content="Fabio Sales — Design Leader & Product Builder" />
+	<meta property="og:url" content={siteUrl} />
+	<meta name="twitter:title" content="Fabio Sales — Design Leader & Product Builder" />
 	{#if metaDescription}
 		<meta name="description" content={metaDescription} />
 		<meta property="og:description" content={metaDescription} />

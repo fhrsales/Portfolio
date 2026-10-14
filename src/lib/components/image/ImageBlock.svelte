@@ -33,7 +33,8 @@
 	// eslint-disable-next-line no-unused-vars
 	let isIntersecting = false;
 	let imgLoaded = false;
-	let currentSrc = '';
+	// the first picture on a page is in the HTML from the start and shown at once, without waiting for scripts
+	let currentSrc = priority ? src : '';
 	// eslint-disable-next-line no-unused-vars
 	let lastSrcChecked = '';
 	// eslint-disable-next-line no-unused-vars
@@ -42,7 +43,7 @@
 	let onResize;
 	let preloaded = false;
 	let inViewport = false;
-	let show = false; // when true, image opacity goes to 1
+	let show = priority; // when true, image opacity goes to 1
 	let preloader;
 	let prefetchObserver;
 	let themeObserver;
@@ -127,10 +128,17 @@
 	// version of the file exists.
 	const metaKey = (u) => String(u || '').split('/imgs/')[1] || '';
 	$: mobileMeta = imageMeta[metaKey(nome_mobile || withMobileSuffix(src))];
+	// the file's own measures, so the browser knows its shape before it arrives
+	$: ownMeta = imageMeta[metaKey(src)];
+	$: attrWidth = width || ownMeta?.width || (numericRatio ? defaultWidthForSize(size) : undefined);
+	$: attrHeight =
+		height ||
+		ownMeta?.height ||
+		(numericRatio ? Math.round(defaultWidthForSize(size) / numericRatio) : undefined);
 	$: panorama = numericRatio >= 2.5 && (!mobileMeta || mobileMeta.ratio >= 2.5);
 
 	// Derive mobile candidate: explicit prop or inferred from src using -m suffix
-	$: mobileCandidate = panorama ? '' : nome_mobile || (src ? withMobileSuffix(src) : '');
+	$: mobileCandidate = panorama ? '' : nome_mobile || (src && mobileMeta ? withMobileSuffix(src) : '');
 
 	// Build srcset for avif/webp using mobileCandidate when available
 	$: computedSizes = sizes || (mobileCandidate ? defaultSizesForSize(size) : undefined);
@@ -218,7 +226,7 @@
 
 	// only apply visual classes (shadow, custom classes) when the image is shown
 	// visual classes (shadow/custom) should be applied only after the fade-in completes
-	let showVisuals = false;
+	let showVisuals = priority;
 	let _visualsTimer;
 	$: if (!show) {
 		showVisuals = false;
@@ -242,7 +250,8 @@
 			isMobile = mobile;
 			if (mobile && !panorama) {
 				if (nome_mobile) return nome_mobile;
-				if (src) {
+				// only ask for a -m file the site actually has (an SVG never has one)
+				if (src && mobileMeta) {
 					const dotIndex = src.lastIndexOf('.');
 					if (dotIndex !== -1) {
 						return `${src.slice(0, dotIndex)}-m${src.slice(dotIndex)}`;
@@ -269,7 +278,8 @@
 	}
 
 	onMount(() => {
-		updateSrc();
+		// the priority picture keeps the file the browser already chose from srcset
+		if (!priority) updateSrc();
 		if (typeof window !== 'undefined') {
 			isDarkTheme = document.documentElement.classList.contains('theme-dark');
 			themeObserver = new MutationObserver(() => {
@@ -376,7 +386,9 @@
 			clearTimeout(_showTimeout);
 			_showTimeout = null;
 		}
-		if (imgLoaded && inViewport) {
+		if (priority) {
+			show = true;
+		} else if (imgLoaded && inViewport) {
 			// small delay to let the browser settle (especially for cached images)
 			_showTimeout = setTimeout(() => {
 				show = true;
@@ -412,7 +424,7 @@
 
 	// when both preloaded and inViewport are true, assign currentSrc so the <img>
 	// renders quickly (it will be served from cache because of preloader)
-	$: if (inViewport && preloaded) {
+	$: if (inViewport && preloaded && !priority) {
 		updateSrc();
 	}
 </script>
@@ -462,9 +474,8 @@
 							(mobileCandidate ? `${mobileCandidate} 600w, ${currentSrc} 1200w` : undefined)}
 						sizes={computedSizes}
 						{alt}
-						width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
-						height={height ||
-							(numericRatio ? Math.round(defaultWidthForSize(size) / numericRatio) : undefined)}
+						width={attrWidth}
+						height={attrHeight}
 						loading={priority ? 'eager' : 'lazy'}
 						fetchpriority={priority ? 'high' : 'auto'}
 						{decoding}
@@ -475,6 +486,11 @@
 					/>
 				</picture>
 			{:else}
+				<!-- before any script runs, phones must still get the light file: the srcset alone would pick the large one -->
+				<picture class="plain">
+				{#if priority && mobileMeta && mobileCandidate}
+					<source media="(max-width: 600px)" srcset={mobileCandidate} />
+				{/if}
 				<img
 					bind:this={imgEl}
 					src={currentSrc}
@@ -482,9 +498,8 @@
 						(mobileCandidate ? `${mobileCandidate} 600w, ${currentSrc} 1200w` : undefined)}
 					sizes={computedSizes}
 					{alt}
-					width={width || (numericRatio ? defaultWidthForSize(size) : undefined)}
-					height={height ||
-						(numericRatio ? Math.round(defaultWidthForSize(size) / numericRatio) : undefined)}
+					width={attrWidth}
+					height={attrHeight}
 					loading={priority ? 'eager' : 'lazy'}
 					fetchpriority={priority ? 'high' : 'auto'}
 					{decoding}
@@ -493,6 +508,7 @@
 					on:transitionend={onImgTransitionEnd}
 					style={`width: 100%; max-width: 100%; ${effectiveRadius ? `border-radius: ${effectiveRadius};` : ''} ${shadowStyle} ${mixBlendStyle}`}
 				/>
+				</picture>
 			{/if}
 		{/if}
 
@@ -514,6 +530,9 @@
     {/if} -->
 
 <style>
+	picture.plain {
+		display: contents;
+	}
 	/* Layout and sizing */
 	.image-block {
 		margin: 3em auto 1rem auto;

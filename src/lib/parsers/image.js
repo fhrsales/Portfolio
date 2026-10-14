@@ -70,6 +70,7 @@ export function parseImageObject(input) {
 	}
 	return {
 		nome,
+		alt: obj.alt || '',
 		tamanho,
 		legenda,
 		classes,

@@ -238,9 +238,9 @@
 		"webp": false
 	},
 	"capitulos/snd-1997-restaurado-m.jpg": {
-		"width": 500,
-		"height": 908,
-		"ratio": 0.550661,
+		"width": 480,
+		"height": 872,
+		"ratio": 0.550459,
 		"avif": false,
 		"webp": false
 	},
@@ -377,16 +377,16 @@
 		"avif": false,
 		"webp": false
 	},
-	"fabio-sales-about-m.png": {
-		"width": 720,
-		"height": 720,
+	"fabio-sales-about-m.jpg": {
+		"width": 440,
+		"height": 440,
 		"ratio": 1,
 		"avif": false,
 		"webp": false
 	},
-	"fabio-sales-about.png": {
-		"width": 800,
-		"height": 800,
+	"fabio-sales-about.jpg": {
+		"width": 500,
+		"height": 500,
 		"ratio": 1,
 		"avif": false,
 		"webp": false
@@ -647,6 +647,13 @@
 		"width": 494,
 		"height": 880,
 		"ratio": 0.561364,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-about/correio-2002-m.jpg": {
+		"width": 352,
+		"height": 620,
+		"ratio": 0.567742,
 		"avif": false,
 		"webp": false
 	},

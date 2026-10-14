@@ -6,6 +6,8 @@
 	export let duration = 80;
 	// printed pages: each one rests on the surface, with a shadow under it
 	export let paper = false;
+	// near the top of the page the first pictures load at once; further down they wait their turn
+	export let priority = true;
 
 	// the strip's height is set in CSS, so each image's width on screen is that height times its ratio
 	const sizes = (item) => {
@@ -26,6 +28,9 @@
 						class:spread={paper && item.width > item.height}
 						class:phone={item.width && item.height && item.width / item.height < 0.5}
 					>
+					<!-- phones always get the light copy: the strip is small there and it moves -->
+					<picture>
+					{#if item.smallSrc}<source media="(max-width: 600px)" srcset={item.smallSrc} />{/if}
 					<img
 						src={item.src}
 						srcset={item.smallSrc && item.width && item.height
@@ -35,11 +40,12 @@
 						alt={copy === 0 ? item.alt : ''}
 						width={item.width || undefined}
 						height={item.height || undefined}
-						loading={copy === 0 && i < 2 ? 'eager' : 'lazy'}
-						fetchpriority={copy === 0 && i === 0 ? 'high' : undefined}
+						loading={priority && copy === 0 && i < 2 ? 'eager' : 'lazy'}
+						fetchpriority={priority && copy === 0 && i === 0 ? 'high' : undefined}
 						decoding="async"
 						draggable="false"
 					/>
+					</picture>
 					</span>
 				{/each}
 			</div>
@@ -75,6 +81,9 @@
 		background: color-mix(in srgb, var(--color-dark) 6%, transparent);
 	}
 	/* the screen's own rounded corners, so the grey behind them does not show */
+	picture {
+		display: contents;
+	}
 	.phone {
 		border-radius: 13.5% / 6.2%;
 		overflow: hidden;

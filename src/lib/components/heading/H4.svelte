@@ -1,10 +1,12 @@
 <script>
 	export let value = '';
+	// the outline level can differ from the look, as in H3
+	export let level = 4;
 </script>
 
-<h4 class="heading heading-4">
+<svelte:element this={`h${level}`} class="heading heading-4">
 	{#if value}{value}{:else}<slot />{/if}
-</h4>
+</svelte:element>
 
 <style>
 	.heading {

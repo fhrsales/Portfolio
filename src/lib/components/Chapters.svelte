@@ -28,6 +28,8 @@
 						>
 							<img
 								src={chapter.src}
+								width={chapter.width || undefined}
+								height={chapter.height || undefined}
 								alt={chapter.caption || `${chapter.name}, ${chapter.period}`}
 								loading="lazy"
 								decoding="async"
@@ -136,6 +138,7 @@
 	figure img {
 		display: block;
 		width: 100%;
+		height: auto;
 		max-height: 420px;
 		object-fit: contain;
 		object-position: center;

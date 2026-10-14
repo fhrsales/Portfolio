@@ -12,7 +12,7 @@
 </script>
 
 <figure class="pipeline" use:reveal>
-	{#if title}<h3>{title}</h3>{/if}
+	{#if title}<h2>{title}</h2>{/if}
 	<div class="lanes">
 		{#each [[leftLabel, left], [rightLabel, right]] as [label, steps], lane (lane)}
 			<div class="lane">
@@ -50,7 +50,7 @@
 		font-family: var(--font-primary);
 		color: var(--color-dark);
 	}
-	h3 {
+	h2 {
 		font-family: var(--font-display);
 		font-size: calc(var(--grid) * 2.8);
 		font-weight: 500;

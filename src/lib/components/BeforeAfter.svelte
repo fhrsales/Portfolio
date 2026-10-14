@@ -20,27 +20,30 @@
 
 <figure class="before-after" style={`--max:${WIDTHS[size] || WIDTHS.G}`}>
 	<div class="stage" style={`--pos:${position}%; ${ratio ? `aspect-ratio:${ratio};` : ''}`}>
-		<img
+		<!-- phones always get the -m copy: it is sharp enough at that width and much lighter -->
+		<picture>
+			{#if afterSmall}<source media="(max-width: 600px)" srcset={afterSmall} />{/if}
+			<img
 			class="after"
 			src={after}
-			srcset={afterSmall ? `${afterSmall} 600w, ${after} 1200w` : undefined}
-			sizes={afterSmall ? `(max-width: 600px) 100vw, ${WIDTHS[size] || WIDTHS.G}` : undefined}
 			{alt}
 			loading={priority ? 'eager' : 'lazy'}
 			fetchpriority={priority ? 'high' : undefined}
 			decoding="async"
 			draggable="false"
 		/>
+		</picture>
 		<div class="clip" aria-hidden="true">
+			<picture>
+			{#if beforeSmall}<source media="(max-width: 600px)" srcset={beforeSmall} />{/if}
 			<img
 				src={before}
-				srcset={beforeSmall ? `${beforeSmall} 600w, ${before} 1200w` : undefined}
-				sizes={beforeSmall ? `(max-width: 600px) 100vw, ${WIDTHS[size] || WIDTHS.G}` : undefined}
 				alt=""
 				loading={priority ? 'eager' : 'lazy'}
 				decoding="async"
 				draggable="false"
 			/>
+			</picture>
 		</div>
 		{#if labelBefore}<span class="label label-before" aria-hidden="true">{labelBefore}</span>{/if}
 		{#if labelAfter}<span class="label label-after" aria-hidden="true">{labelAfter}</span>{/if}
@@ -58,6 +61,9 @@
 </figure>
 
 <style>
+	picture {
+		display: contents;
+	}
 	.before-after {
 		width: calc(100% - (var(--grid) * 4));
 		max-width: var(--max);

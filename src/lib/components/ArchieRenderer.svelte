@@ -197,6 +197,13 @@
 
 	// annotate blocks: mark whether they appear after a selector (so filtering only affects blocks after it)
 	$: annotatedBlocks = annotateBlocks(blockObjects);
+	// subheads that come before the page's first h2 are the outline's second level
+	$: firstH2Index = (() => {
+		const i = annotatedBlocks.findIndex(
+			(o) => typeof o.raw === 'string' && /^h2:/i.test(o.raw.trim())
+		);
+		return i === -1 ? Infinity : i;
+	})();
 
 	// the -m copy of an image, when one was generated
 	function smallVariant(name) {
@@ -240,10 +247,11 @@
 		return sanitizeHeadingHtml(injectInlineLogo(fixLinks(html, base), base));
 	}
 
-	// mark the first image on the page as priority (helps LCP)
+	// mark the first image on the page as priority (helps LCP), but only near the top:
+	// a picture far down the page should not compete with what the reader sees first
 	let _firstImageMarked = false;
-	function nextImagePriority() {
-		if (_firstImageMarked) return false;
+	function nextImagePriority(blockIndex = 0) {
+		if (_firstImageMarked || blockIndex > 4) return false;
 		_firstImageMarked = true;
 		return true;
 	}
@@ -283,9 +291,15 @@
 						{:else if blocoStr.match(/^chapeu:\s*(.+)$/i)}
 							<Eyebrow value={blocoStr.replace(/^chapeu:\s*/i, '')} />
 						{:else if blocoStr.match(/^h3:\s*(.+)$/i)}
-							<H3 value={blocoStr.replace(/^h3:\s*/i, '')} />
+							<H3
+								value={blocoStr.replace(/^h3:\s*/i, '')}
+								level={i < firstH2Index ? 2 : 3}
+							/>
 						{:else if blocoStr.match(/^h4:\s*(.+)$/i)}
-							<H4 value={blocoStr.replace(/^h4:\s*/i, '')} />
+							<H4
+								value={blocoStr.replace(/^h4:\s*/i, '')}
+								level={i < firstH2Index ? 3 : 4}
+							/>
 						{:else if blocoStr.match(/^h5:\s*(.+)$/i)}
 							<H5 value={blocoStr.replace(/^h5:\s*/i, '')} />
 						{:else if blocoStr.match(/^<divisor\s*\/?>$/i) || blocoStr.match(/^<divisor\s*>\s*<\/divisor>$/i) || blocoStr.match(/^\{divisor\}$/i)}
@@ -385,7 +399,7 @@
 														? withBase(`/imgs/${img.avif || `${_baseName3}.avif`}`, base)
 														: ''}
 													sources={img.sources}
-													priority={nextImagePriority()}
+													priority={nextImagePriority(i)}
 												/>
 											{/each}
 										{:else if item.type === 'video'}
@@ -489,7 +503,7 @@
 											? withBase(`/imgs/${img.avif || `${_baseName}.avif`}`, base)
 											: ''}
 										sources={img.sources}
-										priority={nextImagePriority()}
+										priority={nextImagePriority(i)}
 									/>
 								{/each}
 							{/key}
@@ -577,6 +591,7 @@
 						{:else if typeof bloco === 'object' && bloco.faixa}
 							{@const conf = bloco.faixa}
 							<WorkStrip
+								priority={i < 5}
 								duration={Number(conf.tempo) || 80}
 								paper={(conf.papel || '').trim() === 'sim'}
 								items={conf.itens.map((item) => {
@@ -644,6 +659,8 @@
 									text: item.texto,
 									src: item.imagem ? withBase(`/imgs/${item.imagem}`, base) : '',
 									ratio: imageMeta[item.imagem]?.ratio,
+									width: imageMeta[item.imagem]?.width,
+									height: imageMeta[item.imagem]?.height,
 									caption: item.legenda,
 									paper: item.papel,
 									mark: item.marca
@@ -680,7 +697,7 @@
 								size={(conf.tamanho || 'G').trim().toUpperCase()}
 								beforeSmall={smallVariant(conf.antes)}
 								afterSmall={smallVariant(conf.depois)}
-								priority={i < 3}
+								priority={nextImagePriority(i)}
 							/>
 						{:else if typeof bloco === 'object' && bloco.visita}
 							{@const conf = bloco.visita}
@@ -846,7 +863,7 @@
 											? withBase(`/imgs/${img.avif || `${_baseName2}.avif`}`, base)
 											: ''}
 										sources={img.sources}
-										priority={nextImagePriority()}
+										priority={nextImagePriority(i)}
 									/>
 								{/each}
 							{/key}

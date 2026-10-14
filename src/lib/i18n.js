@@ -1,7 +1,22 @@
 import { writable } from 'svelte/store';
-import portuguese from './pt.json';
 
-export const language = writable('en');
+// The Portuguese dictionary is large and most readers stay in English:
+// it is fetched the first time someone switches to PT, and only then does the language change.
+let portuguese = {};
+let loading;
+export function loadPortuguese() {
+  loading ||= import('./pt.json').then((m) => { portuguese = m.default; });
+  return loading;
+}
+
+const current = writable('en');
+export const language = {
+  subscribe: current.subscribe,
+  set(value) {
+    if (value !== 'pt') return current.set(value);
+    loadPortuguese().then(() => current.set('pt'));
+  }
+};
 
 // Translate prose only; assets, editor notation, ordering and filter IDs stay canonical.
 export function translateContent(content, lang) {
