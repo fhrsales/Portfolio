@@ -613,6 +613,8 @@
 
 	@media (max-width: 600px) {
 		.image-block.panorama .image-inner {
+			/* the strip keeps its own height here, not the desktop proportion reserved inline */
+			aspect-ratio: auto !important;
 			overflow-x: auto;
 			scrollbar-width: none;
 			/* a first look at the strip, cut at the right edge so it reads as something to swipe */
