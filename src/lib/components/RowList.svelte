@@ -13,7 +13,7 @@
 		{#each rows as row, i (i)}
 			<div class="row">
 				<dt>{row.label}</dt>
-				<dd>{row.text}</dd>
+				<dd>{@html row.text}</dd>
 			</div>
 		{/each}
 	</dl>
@@ -57,5 +57,18 @@
 		font-size: calc(var(--grid) * 1.7);
 		line-height: 1.45;
 		color: color-mix(in srgb, var(--color-dark) 70%, transparent);
+	}
+	/* a title linked inside a row: ink, with the site's red underline */
+	dd :global(a) {
+		color: inherit;
+		font-weight: 500;
+		text-decoration: underline;
+		text-decoration-color: var(--color-primary);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+	dd :global(a:hover),
+	dd :global(a:focus-visible) {
+		color: var(--color-primary);
 	}
 </style>
