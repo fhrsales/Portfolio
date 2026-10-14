@@ -427,7 +427,7 @@
 >
 	<div
 		class="image-inner"
-		style={`width:100%; ${fitRatio ? `aspect-ratio: ${fitRatio};` : ''}`}
+		style={`width:100%; ${fitRatio ? `--ar:${fitRatio};` : ''} ${mobileCandidate && mobileMeta?.ratio ? `--ar-m:${mobileMeta.ratio};` : ''}`}
 	>
 		{#if currentSrc}
 			{#if (Array.isArray(sources) && sources.length) || webp || avif}
@@ -526,10 +526,18 @@
 		width: 100%;
 	}
 
+	/* the box is reserved at the picture's own proportion before it loads; on phones the
+	   phone version (a -m file or nome_mobile) may have another one */
 	.image-inner {
 		position: relative;
 		display: block;
 		width: 100%;
+		aspect-ratio: var(--ar, auto);
+	}
+	@media (max-width: 600px) {
+		.image-inner {
+			aspect-ratio: var(--ar-m, var(--ar, auto));
+		}
 	}
 
 	/* Image base and transition for fade-in */
@@ -613,8 +621,8 @@
 
 	@media (max-width: 600px) {
 		.image-block.panorama .image-inner {
-			/* the strip keeps its own height here, not the desktop proportion reserved inline */
-			aspect-ratio: auto !important;
+			/* the strip keeps its own height here, not the proportion reserved for the whole picture */
+			aspect-ratio: auto;
 			overflow-x: auto;
 			scrollbar-width: none;
 			/* a first look at the strip, cut at the right edge so it reads as something to swipe */
