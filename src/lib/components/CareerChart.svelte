@@ -61,9 +61,12 @@
 						on:focus={() => (picked = i)}
 						on:click={() => (picked = i)}
 					>
-						{#each Array.from({ length: mark.count }, (_, n) => n) as n (n)}
-							<span class="dot"></span>
-						{/each}
+						<!-- a tall year wraps into columns of twelve, filled from the baseline up -->
+						<span class="dots" style={`--rows:${Math.min(mark.count, 12)}`}>
+							{#each Array.from({ length: mark.count }, (_, n) => n) as n (n)}
+								<span class="dot"></span>
+							{/each}
+						</span>
 						<span class="year">{String(mark.year).slice(2)}</span>
 					</button>
 				{/each}
@@ -158,28 +161,34 @@
 	.mark {
 		position: absolute;
 		bottom: 0;
-		width: 10px;
+		translate: -50% 0;
 		border: 0;
 		background: none;
 		font: inherit;
 		cursor: pointer;
-		/* a finger-sized target around a 10px column of dots */
-		box-sizing: content-box;
-		padding: 0 9px 4px;
-		margin-left: -14px;
+		/* a finger-sized target around the dots */
+		padding: 0 8px 4px;
 		display: flex;
-		flex-direction: column-reverse;
-		align-items: center;
-		gap: 3px;
+		align-items: flex-end;
+		justify-content: center;
 		min-height: 40px;
+	}
+	.dots {
+		--d: 6px;
+		display: grid;
+		grid-auto-flow: column;
+		grid-template-rows: repeat(var(--rows), var(--d));
+		grid-auto-columns: var(--d);
+		gap: 2px;
+		transform: scaleY(-1);
 	}
 	.mark:focus-visible {
 		outline: 2px solid var(--color-dark);
 		outline-offset: 2px;
 	}
 	.dot {
-		width: 10px;
-		height: 10px;
+		width: var(--d);
+		height: var(--d);
 		border-radius: 50%;
 		background: var(--color-primary);
 		opacity: 0.45;
@@ -303,16 +312,12 @@
 		.year {
 			font-size: 10px;
 		}
-		.dot,
-		.mark {
-			width: 8px;
-		}
-		.dot {
-			height: 8px;
+		.dots {
+			--d: 4px;
+			gap: 1px;
 		}
 		.mark {
-			padding: 0 7px 4px;
-			margin-left: -11px;
+			padding: 0 5px 4px;
 		}
 		.readout {
 			margin-top: calc(var(--grid) * 4);
