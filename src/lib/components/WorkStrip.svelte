@@ -90,8 +90,9 @@
 		display: block;
 	}
 	/* a white paper margin, the surface shadow and, for a spread, the fold */
+	/* the paper margin is padding, not border, so the fold below runs to the paper's edge */
 	.paper .page {
-		border: clamp(6px, 0.7vw, 10px) solid #fff;
+		padding: clamp(6px, 0.7vw, 10px);
 		background: #fff;
 		box-shadow: var(--shadow-surface);
 	}
