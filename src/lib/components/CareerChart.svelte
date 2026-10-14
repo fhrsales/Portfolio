@@ -304,10 +304,28 @@
 		}
 	}
 	@media (max-width: 700px) {
+		/* room at both ends, so the first and last dots are not cut by the screen edge */
+		.chart {
+			padding-inline: 6px;
+		}
 		.row {
 			grid-template-columns: minmax(0, 1fr);
 			gap: 2px;
-			margin-bottom: calc(var(--grid) * 1);
+			margin-bottom: calc(var(--grid) * 0.5);
+		}
+		/* the years are on the axis below; under the dots only the one being read is named */
+		.year {
+			display: none;
+		}
+		.mark.active .year {
+			display: block;
+		}
+		.row:not(.marks):not(.readout):not(.axis) .label {
+			font-size: 13px;
+		}
+		.bar {
+			height: 6px;
+			margin-top: -3px;
 		}
 		.track,
 		.row {

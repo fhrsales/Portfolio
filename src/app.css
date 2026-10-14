@@ -92,6 +92,11 @@ main {
 	min-height: calc(var(--vh) * 100);
 	width: 100%;
 }
+/* only the home centres its hero; an inner page starts at the top, so a block that loads late
+   (a PDF viewer, an embed) adds height below instead of pushing the title up */
+.main-content:not(.is-home) {
+	justify-content: flex-start;
+}
 
 /* Home with menu hidden: center hero tighter vertically */
 .main-content.home-initial .intro-paragraph {

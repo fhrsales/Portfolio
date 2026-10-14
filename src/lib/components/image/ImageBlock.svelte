@@ -427,7 +427,7 @@
 >
 	<div
 		class="image-inner"
-		style={`width:100%; ${!height && numericRatio ? `aspect-ratio: ${numericRatio};` : ''}`}
+		style={`width:100%; ${fitRatio ? `aspect-ratio: ${fitRatio};` : ''}`}
 	>
 		{#if currentSrc}
 			{#if (Array.isArray(sources) && sources.length) || webp || avif}

@@ -198,6 +198,13 @@
 	// annotate blocks: mark whether they appear after a selector (so filtering only affects blocks after it)
 	$: annotatedBlocks = annotateBlocks(blockObjects);
 
+	// the -m copy of an image, when one was generated
+	function smallVariant(name) {
+		const n = String(name || '').trim();
+		const m = n.replace(/(\.[a-z0-9]+)$/i, '-m$1');
+		return m !== n && imageMeta[m] ? withBase(`/imgs/${m}`, base) : '';
+	}
+
 	function parseImagem(bloco) {
 		return parseImageHelper(bloco);
 	}
@@ -345,7 +352,7 @@
 									{/if}
 									{#each conf.items || [] as item, bi (bi)}
 										{#if item.type === 'image'}
-											{#await Promise.resolve(parseImagem(item.data)) then img}
+											{#each [parseImagem(item.data)] as img (0)}
 												{@const _baseName3 = String(img.nome || '').replace(
 													/\.(png|jpg|jpeg)$/i,
 													''
@@ -380,9 +387,9 @@
 													sources={img.sources}
 													priority={nextImagePriority()}
 												/>
-											{/await}
+											{/each}
 										{:else if item.type === 'video'}
-											{#await Promise.resolve(parseVideo(item.data.video || item.data)) then vid}
+											{#each [parseVideo(item.data.video || item.data)] as vid (0)}
 												<VideoBlock
 													src={withBase(`/videos/${vid.nome || vid.name}`, base)}
 													sources={vid.sources
@@ -404,7 +411,7 @@
 													radius={vid.radius || vid.borda}
 													tags={vid.tags}
 												/>
-											{/await}
+											{/each}
 										{:else if item.type === 'text'}
 											<Text
 												value={{
@@ -454,7 +461,7 @@
 							{/key}
 						{:else if typeof bloco === 'object' && (bloco.nome || (bloco.imagem && bloco.imagem.nome))}
 							{#key i}
-								{#await Promise.resolve(parseImagem(bloco)) then img}
+								{#each [parseImagem(bloco)] as img (0)}
 									{@const _baseName = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
 									{@const _meta = imageMeta[img.nome]}
 									{@const _hasAvif = !!(_meta && _meta.avif)}
@@ -484,7 +491,7 @@
 										sources={img.sources}
 										priority={nextImagePriority()}
 									/>
-								{/await}
+								{/each}
 							{/key}
 						{:else if typeof bloco === 'object' && bloco.slider}
 							{#key i}
@@ -545,7 +552,7 @@
 							{/key}
 						{:else if typeof bloco === 'object' && bloco.video}
 							{#key i}
-								{#await Promise.resolve(parseVideo(bloco.video || bloco)) then vid}
+								{#each [parseVideo(bloco.video || bloco)] as vid (0)}
 									<VideoBlock
 										src={withBase(`/videos/${vid.nome || vid.name}`, base)}
 										sources={vid.sources
@@ -565,7 +572,7 @@
 										radius={vid.radius || vid.borda}
 										tags={vid.tags}
 									/>
-								{/await}
+								{/each}
 							{/key}
 						{:else if typeof bloco === 'object' && bloco.faixa}
 							{@const conf = bloco.faixa}
@@ -671,6 +678,9 @@
 								caption={conf.legenda || ''}
 								ratio={imageMeta[(conf.depois || '').trim()]?.ratio || 0}
 								size={(conf.tamanho || 'G').trim().toUpperCase()}
+								beforeSmall={smallVariant(conf.antes)}
+								afterSmall={smallVariant(conf.depois)}
+								priority={i < 3}
 							/>
 						{:else if typeof bloco === 'object' && bloco.visita}
 							{@const conf = bloco.visita}
@@ -810,7 +820,7 @@
 							{/key}
 						{:else if blocoStr.match(/^imagem: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
 							{#key i}
-								{#await Promise.resolve(parseImagem(bloco)) then img}
+								{#each [parseImagem(bloco)] as img (0)}
 									{@const _baseName2 = String(img.nome || '').replace(/\.(png|jpg|jpeg)$/i, '')}
 									{@const _meta2 = imageMeta[img.nome]}
 									{@const _hasAvif2 = !!(_meta2 && _meta2.avif)}
@@ -838,11 +848,11 @@
 										sources={img.sources}
 										priority={nextImagePriority()}
 									/>
-								{/await}
+								{/each}
 							{/key}
 						{:else if blocoStr.match(/^video: ([^,]+)(?:,\s*([PMG]{1,2}|GG))?(?:,\s*(.+))?$/i)}
 							{#key i}
-								{#await Promise.resolve(parseVideo(bloco)) then vid}
+								{#each [parseVideo(bloco)] as vid (0)}
 									<VideoBlock
 										src={withBase(`/videos/${vid.nome}`, base)}
 										sources={vid.sources
@@ -862,7 +872,7 @@
 										radius={vid.radius}
 										tags={vid.tags}
 									/>
-								{/await}
+								{/each}
 							{/key}
 						{:else}
 							<Text

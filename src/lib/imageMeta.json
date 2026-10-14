@@ -195,6 +195,13 @@
 		"avif": false,
 		"webp": false
 	},
+	"capitulos/correio-capa-2001.jpg": {
+		"width": 813,
+		"height": 1467,
+		"ratio": 0.554192,
+		"avif": false,
+		"webp": false
+	},
 	"capitulos/dn-estrada.jpg": {
 		"width": 1615,
 		"height": 1101,
@@ -1263,6 +1270,13 @@
 		"width": 1400,
 		"height": 2371,
 		"ratio": 0.590468,
+		"avif": false,
+		"webp": false
+	},
+	"share-2026.jpg": {
+		"width": 1200,
+		"height": 630,
+		"ratio": 1.904762,
 		"avif": false,
 		"webp": false
 	},

@@ -167,9 +167,23 @@
       if (!fps && typeof videoEl.requestVideoFrameCallback === 'function' && !measuredFps && duration > 0) {
         measureFps();
       }
+      if (!measuringFps) primeForSeeking();
     } catch {
       duration = 0;
     }
+  }
+
+  // iOS Safari buffers no frames until the video has played once, so seeking by scroll shows nothing.
+  // A muted inline play, stopped at once, makes it load and paint the first frame.
+  let _primed = false;
+  function primeForSeeking() {
+    if (_primed || !videoEl) return;
+    _primed = true;
+    try {
+      videoEl.muted = true;
+      const played = videoEl.play();
+      if (played && typeof played.then === 'function') played.then(() => videoEl.pause()).catch(() => {});
+    } catch {}
   }
 
   function measureFps() {
@@ -526,9 +540,10 @@
   }
   .story-intro > div { width: 100%; }
   .scroller-story.immersive .scroller-video { margin: 0; max-width: none; }
-  .immersive .scroller-video__sticky { height: 100vh; height: 100svh; background: var(--story-bg); }
+  .immersive .scroller-video__sticky { height: 100vh; height: 100lvh; background: var(--story-bg); }
   .immersive .scroller-video__stage { background: var(--story-bg); }
   .immersive .scroller-video__stage > video {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 80px);
     mask-image: linear-gradient(to bottom, transparent, #000 80px);
   }
   @media (prefers-reduced-motion: reduce) {
@@ -547,7 +562,7 @@
   .scroller-video__sticky {
     margin-inline: auto;
     height: 100vh;
-    height: 100svh;
+    height: 100lvh;
     width: 100%;
   }
   .scroller-video__stage {

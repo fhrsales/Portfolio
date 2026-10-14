@@ -66,8 +66,8 @@
 		font-size: calc(var(--grid) * 1.5);
         line-height: 1.4;
 		/* text-transform: uppercase; */
-		color: var(--color-dark);
-        opacity: 0.8;
+		/* softened through the colour, not opacity, so the red links keep their full contrast */
+		color: color-mix(in srgb, var(--color-dark) 80%, var(--color-tertiary));
 	}
 
 	footer a {

@@ -9,6 +9,10 @@
 	export let caption = '';
 	export let ratio = 0;
 	export let size = 'G';
+	// lighter copies for phones (the -m files), and whether this is the first picture on the page
+	export let beforeSmall = '';
+	export let afterSmall = '';
+	export let priority = false;
 
 	let position = 50;
 	const WIDTHS = { PP: '250px', P: '450px', M: '640px', G: '875px', GG: '100%' };
@@ -16,9 +20,27 @@
 
 <figure class="before-after" style={`--max:${WIDTHS[size] || WIDTHS.G}`}>
 	<div class="stage" style={`--pos:${position}%; ${ratio ? `aspect-ratio:${ratio};` : ''}`}>
-		<img class="after" src={after} {alt} loading="lazy" decoding="async" draggable="false" />
+		<img
+			class="after"
+			src={after}
+			srcset={afterSmall ? `${afterSmall} 600w, ${after} 1200w` : undefined}
+			sizes={afterSmall ? `(max-width: 600px) 100vw, ${WIDTHS[size] || WIDTHS.G}` : undefined}
+			{alt}
+			loading={priority ? 'eager' : 'lazy'}
+			fetchpriority={priority ? 'high' : undefined}
+			decoding="async"
+			draggable="false"
+		/>
 		<div class="clip" aria-hidden="true">
-			<img src={before} alt="" loading="lazy" decoding="async" draggable="false" />
+			<img
+				src={before}
+				srcset={beforeSmall ? `${beforeSmall} 600w, ${before} 1200w` : undefined}
+				sizes={beforeSmall ? `(max-width: 600px) 100vw, ${WIDTHS[size] || WIDTHS.G}` : undefined}
+				alt=""
+				loading={priority ? 'eager' : 'lazy'}
+				decoding="async"
+				draggable="false"
+			/>
 		</div>
 		{#if labelBefore}<span class="label label-before" aria-hidden="true">{labelBefore}</span>{/if}
 		{#if labelAfter}<span class="label label-after" aria-hidden="true">{labelAfter}</span>{/if}

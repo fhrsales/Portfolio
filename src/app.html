@@ -24,6 +24,9 @@
 		<meta name="theme-color" content="#ffffff" />
 
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
+		<!-- the title and body fonts arrive with the page, so text does not reflow when they swap in -->
+		<link rel="preload" href="%sveltekit.assets%/fonts/Newsreader-400-600.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="%sveltekit.assets%/fonts/FiraSans-400.woff2" as="font" type="font/woff2" crossorigin />
 		<style>
 			/* Fonts are served from the site itself: no extra connections before the first text paints. */
 			@font-face {
