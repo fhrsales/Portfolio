@@ -127,6 +127,7 @@ export const BLOCKS = {
 		keys: [
 			'pasta',
 			'tempo',
+			'papel',
 			'imagem_1',
 			'imagem_2',
 			'imagem_3',

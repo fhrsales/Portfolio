@@ -147,6 +147,20 @@ strong {
 	transform: translateX(5px);
 }
 
+/* The mark for a link that leaves the site or opens a file: drawn, so it keeps one weight in every typeface. */
+.ext-arrow {
+	display: inline-block;
+	width: 0.6em;
+	height: 0.6em;
+	background: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9 9 3M4.2 3H9v4.8'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9 9 3M4.2 3H9v4.8'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.main-content p a.sublinks:hover .ext-arrow,
+.main-content p a.sublinks:focus-visible .ext-arrow {
+	transform: translate(3px, -3px);
+}
+
 /* A printed page resting on a surface. Applied to the element that is the page itself. */
 .shadow-1 {
 	position: relative;
@@ -541,4 +555,18 @@ html.theme-dark .content-block.has-page-bg .image-block .image-inner {
 .block-anchor {
 	display: block;
 	scroll-margin-top: calc(var(--grid) * 3);
+}
+
+/* Titles break into lines of similar length; running text avoids a lone last word. */
+h1,
+h2,
+h3,
+h4,
+h5 {
+	text-wrap: balance;
+}
+p,
+li,
+figcaption {
+	text-wrap: pretty;
 }

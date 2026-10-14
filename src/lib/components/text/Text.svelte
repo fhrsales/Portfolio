@@ -44,7 +44,9 @@
 	// The arrow that ends a link gets its own element so it can move on hover.
 	function wrapArrows(html) {
 		if (!html) return html;
-		return String(html).replace(/\s*→\s*<\/a>/g, '&nbsp;<span class="arrow" aria-hidden="true">→</span></a>');
+		return String(html)
+			.replace(/\s*→\s*<\/a>/g, '&nbsp;<span class="arrow" aria-hidden="true">→</span></a>')
+			.replace(/\s*↗\s*<\/a>/g, '&nbsp;<span class="arrow ext-arrow" aria-hidden="true"></span></a>');
 	}
 
 	function renderHtml(html) {

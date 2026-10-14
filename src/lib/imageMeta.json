@@ -293,6 +293,34 @@
 		"avif": false,
 		"webp": false
 	},
+	"estadao/formato-berliner-m.jpg": {
+		"width": 600,
+		"height": 1008,
+		"ratio": 0.595238,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/formato-berliner.jpg": {
+		"width": 900,
+		"height": 1512,
+		"ratio": 0.595238,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/formato-standard-m.jpg": {
+		"width": 600,
+		"height": 1008,
+		"ratio": 0.595238,
+		"avif": false,
+		"webp": false
+	},
+	"estadao/formato-standard.jpg": {
+		"width": 900,
+		"height": 1512,
+		"ratio": 0.595238,
+		"avif": false,
+		"webp": false
+	},
 	"estadao/novo-estadao-capa-m.jpg": {
 		"width": 900,
 		"height": 700,
@@ -322,16 +350,16 @@
 		"webp": false
 	},
 	"estadao/pesquisa-recorte-m.jpg": {
-		"width": 600,
-		"height": 305,
-		"ratio": 1.967213,
+		"width": 1100,
+		"height": 315,
+		"ratio": 3.492063,
 		"avif": false,
 		"webp": false
 	},
 	"estadao/pesquisa-recorte.jpg": {
-		"width": 965,
-		"height": 490,
-		"ratio": 1.969388,
+		"width": 2400,
+		"height": 688,
+		"ratio": 3.488372,
 		"avif": false,
 		"webp": false
 	},
@@ -780,6 +808,62 @@
 		"width": 1131,
 		"height": 880,
 		"ratio": 1.285227,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-afundo-1-m.jpg": {
+		"width": 796,
+		"height": 620,
+		"ratio": 1.283871,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-afundo-1.jpg": {
+		"width": 1130,
+		"height": 880,
+		"ratio": 1.284091,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-afundo-2-m.jpg": {
+		"width": 796,
+		"height": 620,
+		"ratio": 1.283871,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-afundo-2.jpg": {
+		"width": 1130,
+		"height": 880,
+		"ratio": 1.284091,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-alias-m.jpg": {
+		"width": 796,
+		"height": 620,
+		"ratio": 1.283871,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-alias.jpg": {
+		"width": 1130,
+		"height": 880,
+		"ratio": 1.284091,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-bem-estar-m.jpg": {
+		"width": 399,
+		"height": 620,
+		"ratio": 0.643548,
+		"avif": false,
+		"webp": false
+	},
+	"faixa-estadao/prototipo-bem-estar.jpg": {
+		"width": 566,
+		"height": 880,
+		"ratio": 0.643182,
 		"avif": false,
 		"webp": false
 	},

@@ -64,9 +64,7 @@
 			href={resolve(`/pdfs/cv-fabio-sales-${$language === 'pt' ? 'pt' : 'en'}.pdf`)}
 			target="_blank"
 			rel="noopener"
-			>CV<svg class="ext" viewBox="0 0 12 12" aria-hidden="true" focusable="false"
-				><path d="M3 9 9 3M4.2 3H9v4.8" /></svg
-			></a
+			>CV<span class="ext-arrow ext" aria-hidden="true"></span></a
 		>
 		{#if import.meta.env.DEV}
 			<a style={`--i:${pages.length + 1}`} href={resolve('/admin')}>Editor</a>
@@ -118,7 +116,7 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: calc(var(--grid) * 1) calc(var(--grid) * 2);
+		gap: calc(var(--grid) * 1) calc(var(--grid) * 1.5);
 		width: calc(100% - (var(--grid) * 4));
 		max-width: var(--w-text);
 		margin: 0 auto;
@@ -146,7 +144,27 @@
 	}
 	nav {
 		display: flex;
-		gap: calc(var(--grid) * 2);
+		gap: calc(var(--grid) * 1.5);
+	}
+	/* above phone width everything stays on one row: the preferences never drop below the name */
+	@media (min-width: 601px) {
+		.site-header {
+			flex-wrap: nowrap;
+		}
+		.signature {
+			flex: 0 1 169px;
+			min-width: 124px;
+		}
+		.signature img {
+			width: 100%;
+			height: auto;
+		}
+		nav a {
+			white-space: nowrap;
+		}
+		.prefs {
+			flex: none;
+		}
 	}
 	nav a {
 		display: inline-flex;
@@ -161,11 +179,11 @@
 	}
 	nav a:hover,
 	nav a:focus-visible {
-		text-decoration: underline;
+		text-decoration-line: underline;
 		outline: none;
 	}
 	nav a[aria-current='page'] {
-		text-decoration: underline;
+		text-decoration-line: underline;
 		text-decoration-color: var(--color-primary);
 	}
 	/* On arrival the signature writes itself (about a second), then the menu follows,
@@ -185,16 +203,10 @@
 			animation-delay: calc(120ms + var(--i, 0) * 190ms);
 		}
 	}
-	/* drawn, so the arrow keeps one weight in both typefaces */
 	.ext {
 		width: 0.5em;
 		height: 0.5em;
 		margin-left: 0.28em;
-		fill: none;
-		stroke: currentColor;
-		stroke-width: 1.4;
-		stroke-linecap: round;
-		stroke-linejoin: round;
 	}
 	@keyframes menu-in {
 		from {

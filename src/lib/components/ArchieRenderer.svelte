@@ -571,6 +571,7 @@
 							{@const conf = bloco.faixa}
 							<WorkStrip
 								duration={Number(conf.tempo) || 80}
+								paper={(conf.papel || '').trim() === 'sim'}
 								items={conf.itens.map((item) => {
 									const file = `${conf.pasta ? `${conf.pasta.trim()}/` : ''}${item.nome}`;
 									// known sizes let the strip reserve each image's width before it loads
@@ -888,6 +889,10 @@
 {/if}
 
 <style>
+	/* a page that opens with its title, not an image, needs air under the masthead */
+	.filtered-block:first-child :global(.heading-1) {
+		margin-top: calc(var(--grid) * 7);
+	}
 	.filtered-block {
 		width: 100%;
 	}

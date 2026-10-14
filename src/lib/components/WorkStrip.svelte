@@ -4,6 +4,8 @@
 	export let items = [];
 	// seconds for one full pass
 	export let duration = 80;
+	// printed pages: each one rests on the surface, with a shadow under it
+	export let paper = false;
 
 	// the strip's height is set in CSS, so each image's width on screen is that height times its ratio
 	const sizes = (item) => {
@@ -12,11 +14,13 @@
 	};
 </script>
 
-<div class="work-strip" style={`--duration:${duration}s`}>
+<div class="work-strip" class:paper style={`--duration:${duration}s`}>
 	<div class="track">
 		{#each [0, 1] as copy (copy)}
 			<div class="set" aria-hidden={copy === 1 ? 'true' : undefined}>
 				{#each items as item, i (i)}
+					<!-- a landscape page is a spread: it gets the fold down the middle -->
+					<span class="page" class:spread={paper && item.width > item.height}>
 					<img
 						src={item.src}
 						srcset={item.smallSrc && item.width && item.height
@@ -31,6 +35,7 @@
 						decoding="async"
 						draggable="false"
 					/>
+					</span>
 				{/each}
 			</div>
 		{/each}
@@ -63,6 +68,39 @@
 		height: var(--strip-h);
 		width: auto;
 		background: color-mix(in srgb, var(--color-dark) 6%, transparent);
+	}
+	/* room around the pages, so the strip's clipping does not cut the shadow */
+	.paper {
+		--gap: 26px;
+		padding: 14px 0 44px;
+		margin-bottom: calc(var(--grid) * 2);
+	}
+	.page {
+		position: relative;
+		display: block;
+	}
+	/* a white paper margin, the surface shadow and, for a spread, the fold */
+	.paper .page {
+		border: clamp(6px, 0.7vw, 10px) solid #fff;
+		background: #fff;
+		box-shadow: var(--shadow-surface);
+	}
+	.paper img {
+		background: #fff;
+	}
+	.paper .spread::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: linear-gradient(
+			90deg,
+			transparent 45%,
+			rgba(0, 0, 0, 0.07) 49.4%,
+			rgba(0, 0, 0, 0.16) 50%,
+			rgba(0, 0, 0, 0.07) 50.6%,
+			transparent 55%
+		);
 	}
 	@keyframes strip-drift {
 		to {
