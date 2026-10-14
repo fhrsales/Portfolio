@@ -5,7 +5,7 @@
 	import { normalizeParsedToBlocks, buildBlockObjects, stripCommentLines } from '$lib/parsers/content.js';
 	import { onMount } from 'svelte';
 	const siteUrl = 'https://fhrsales.github.io/Portfolio/';
-	const imageUrl = 'https://fhrsales.github.io/Portfolio/imgs/fabio_sales.png';
+	const imageUrl = 'https://fhrsales.github.io/Portfolio/imgs/share-2026.jpg';
 	const defaultDescription =
 		'Fabio Sales is a design leader and product builder with over 30 years of experience turning complex information and systems into clear, scalable experiences, combining visual craft, product thinking, technology, and business leadership.';
 

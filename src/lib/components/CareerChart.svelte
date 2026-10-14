@@ -75,7 +75,15 @@
 		{#if marks[active]}
 			<div class="row readout" aria-live="polite">
 				<span class="label"></span>
-				<p><strong>{marks[active].year}</strong> {marks[active].label}</p>
+				<!-- every label sits in the same cell, so the tallest one sets the height and nothing below moves -->
+				<div class="labels">
+					{#each marks as mark, i (i)}
+						<p class:on={i === active} aria-hidden={i === active ? undefined : 'true'}>
+							<strong>{mark.year}</strong>
+							{mark.label}
+						</p>
+					{/each}
+				</div>
 			</div>
 		{/if}
 		{#each periods as period, i (i)}
@@ -208,10 +216,17 @@
 		margin: calc(var(--grid) * 2.5) 0 calc(var(--grid) * 1.5);
 		align-items: start;
 	}
+	.labels {
+		display: grid;
+	}
 	.readout p {
+		grid-area: 1 / 1;
 		font-size: 15px;
 		line-height: 1.4;
-		min-height: 2.8em;
+		visibility: hidden;
+	}
+	.readout p.on {
+		visibility: visible;
 	}
 	.readout strong {
 		font-family: var(--font-display);
