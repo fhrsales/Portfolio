@@ -309,29 +309,29 @@
 	},
 	"estadao/formato-berliner-m.jpg": {
 		"width": 600,
-		"height": 1008,
-		"ratio": 0.595238,
+		"height": 1021,
+		"ratio": 0.587659,
 		"avif": false,
 		"webp": false
 	},
 	"estadao/formato-berliner.jpg": {
-		"width": 900,
-		"height": 1512,
-		"ratio": 0.595238,
+		"width": 873,
+		"height": 1485,
+		"ratio": 0.587879,
 		"avif": false,
 		"webp": false
 	},
 	"estadao/formato-standard-m.jpg": {
 		"width": 600,
-		"height": 1008,
-		"ratio": 0.595238,
+		"height": 1021,
+		"ratio": 0.587659,
 		"avif": false,
 		"webp": false
 	},
 	"estadao/formato-standard.jpg": {
-		"width": 900,
-		"height": 1512,
-		"ratio": 0.595238,
+		"width": 873,
+		"height": 1485,
+		"ratio": 0.587879,
 		"avif": false,
 		"webp": false
 	},

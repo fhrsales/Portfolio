@@ -186,8 +186,8 @@
 		--page-h: 404px;
 		width: min(100%, calc(var(--page-h) * var(--r, 1) + 16px));
 		margin: 0 auto;
-		border: 8px solid #fbfaf7;
-		background: #fbfaf7;
+		border: 8px solid #fff;
+		background: #fff;
 		box-shadow: var(--shadow-surface);
 	}
 	/* single pages share one width, so a squarer page (a tabloid cover) does not look bigger
