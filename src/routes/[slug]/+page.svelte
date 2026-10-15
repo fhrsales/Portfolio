@@ -16,6 +16,8 @@
 		let inBlock = false;
 		for (const line of String(raw || '').split(/\n+/)) {
 			// a bullet's label is decoration; the sentence after it is prose
+			// role, team and period labels are metadata, not the page's description
+			if (/^<bullet texto='(Role|Team|Period)'/i.test(line.trim())) continue;
 			const text = line.trim().replace(/^<bullet[^>]*\/>\s*/i, '');
 			if (/^\{[^}]*\}$/.test(text)) inBlock = text !== '{}';
 			if (inBlock || !text || /^(\{|h\d:|chapeu:|pdf:|<a |<strong>Role|\w+:\s)/i.test(text)) continue;
@@ -52,4 +54,7 @@
 	{/if}
 </svelte:head>
 
-<ArchieRenderer {base} />
+<!-- Remount on every page change so blocks never keep the previous page's images -->
+{#key $page.params.slug}
+	<ArchieRenderer {base} />
+{/key}
