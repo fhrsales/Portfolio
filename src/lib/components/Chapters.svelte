@@ -16,7 +16,7 @@
 				<div class="copy">
 					<p class="period">{chapter.period}</p>
 					<h3>{chapter.name}</h3>
-					<p class="text">{chapter.text}</p>
+					<p class="text">{@html chapter.text}</p>
 				</div>
 				{#if chapter.src}
 					<figure class:paper={chapter.paper}>
