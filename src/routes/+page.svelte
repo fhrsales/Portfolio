@@ -168,7 +168,8 @@
 		<meta property="og:description" content={metaDescription} />
 		<meta name="twitter:description" content={metaDescription} />
 	{/if}
-	{#if jsonLd}<script type="application/ld+json">{JSON.stringify(jsonLd)}</script>{/if}
+	<!-- Svelte does not fill in expressions inside a script tag, so the structured data goes in as HTML -->
+	{#if jsonLd}{@html `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`}{/if}
 </svelte:head>
 
 <ArchieRenderer {base} />
