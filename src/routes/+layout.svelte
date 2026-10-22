@@ -2,6 +2,7 @@
 	import '../app.css';
     import Menu from '$lib/components/header/Menu.svelte';
     import Footer from '$lib/components/footer/Footer.svelte';
+    import ConsentNotice from '$lib/components/ConsentNotice.svelte';
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
     import { onNavigate } from '$app/navigation';
@@ -72,4 +73,5 @@
 {/if}
 {#if !$page.route.id?.startsWith('/admin')}
 	<Footer />
+	<ConsentNotice />
 {/if}
