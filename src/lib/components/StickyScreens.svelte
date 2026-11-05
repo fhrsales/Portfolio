@@ -2,6 +2,10 @@
 <script>
 	/* eslint-disable svelte/no-at-html-tags */
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
+
+	// internal links in the step text need the site's base path, like the rest of the content
+	const withBase = (html) => String(html || '').replace(/href=(['"])\/(?!\/)/g, `href=$1${base}/`);
 
 	// A phone stays fixed while the text steps scroll past; each step swaps the screen.
 	// steps: [{ src, eyebrow, title, text }]
@@ -54,7 +58,7 @@
 				<div class="card">
 					{#if step.eyebrow}<p class="eyebrow">{step.eyebrow}</p>{/if}
 					{#if step.title}<h3>{step.title}</h3>{/if}
-					{#if step.text}<p class="text">{@html step.text}</p>{/if}
+					{#if step.text}<p class="text">{@html withBase(step.text)}</p>{/if}
 				</div>
 			</li>
 		{/each}
@@ -153,10 +157,12 @@
 	.step.active .card {
 		opacity: 1;
 	}
-	/* a link that closes the last step reads as part of the sentence */
+	/* a link that closes the last step sits on its own line under the sentence */
 	.text :global(a.sublinks) {
-		display: inline;
-		padding: 0;
+		display: block;
+		width: fit-content;
+		margin-top: calc(var(--grid) * 1.5);
+		padding: 4px 0;
 		color: var(--color-dark);
 		font-weight: 500;
 	}
