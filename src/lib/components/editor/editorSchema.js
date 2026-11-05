@@ -78,6 +78,7 @@ export const BLOCKS = {
 		label: 'Telas com rolagem',
 		keys: [
 			'pasta',
+			'formato',
 			'imagem_1',
 			'chapeu_1',
 			'titulo_1',
@@ -371,6 +372,7 @@ export const INSERTABLE = INSERT_GROUPS.flatMap((group) => group.items);
 
 // How the inspector edits a value: a fixed list becomes buttons, the rest a text field.
 export const OPTIONS = {
+	formato: ['phone', 'desktop'],
 	tamanho: SIZES,
 	fixar: YES_NO,
 	guia: YES_NO,

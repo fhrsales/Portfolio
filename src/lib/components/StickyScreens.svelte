@@ -6,6 +6,8 @@
 	// A phone stays fixed while the text steps scroll past; each step swaps the screen.
 	// steps: [{ src, eyebrow, title, text }]
 	export let steps = [];
+	// 'phone' or 'desktop': the frame the screens sit in
+	export let device = 'phone';
 
 	let active = 0;
 	let stepEls = [];
@@ -27,7 +29,7 @@
 	});
 </script>
 
-<section class="sticky-screens">
+<section class="sticky-screens" class:desktop={device === 'desktop'}>
 	<div class="stage">
 		<div class="phone">
 			{#each steps as step, i (i)}
@@ -196,6 +198,36 @@
 		}
 		.text {
 			font-size: 18px;
+		}
+	}
+	/* Desktop screens: a wide window takes most of the row, the steps run in a narrow column. */
+	.desktop {
+		max-width: 1320px;
+		grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+		gap: calc(var(--grid) * 5);
+	}
+	.desktop .phone {
+		height: auto;
+		width: 100%;
+		aspect-ratio: 1600 / 780;
+		border-radius: 10px;
+		background: #111;
+	}
+	.desktop .phone img {
+		object-fit: cover;
+		object-position: top left;
+	}
+	@media (max-width: 900px) {
+		.desktop .stage {
+			height: auto;
+			padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2) calc(var(--grid) * 3);
+		}
+		.desktop .phone {
+			border-radius: 6px;
+		}
+		.desktop .step,
+		.desktop .step:first-child {
+			min-height: 52svh;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {

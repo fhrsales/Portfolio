@@ -310,7 +310,7 @@ export function buildBlockObjects(blocks) {
           titulo: fields[`titulo_${n}`] || '',
           texto: fields[`texto_${n}`] || ''
         }));
-      objs.push({ raw: { telas: { pasta: (fields.pasta || '').trim(), passos } }, tags: [] });
+      objs.push({ raw: { telas: { pasta: (fields.pasta || '').trim(), formato: (fields.formato || '').trim().toLowerCase(), passos } }, tags: [] });
       continue;
     }
 

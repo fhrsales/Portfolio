@@ -721,6 +721,7 @@
 						{:else if typeof bloco === 'object' && bloco.telas}
 							{@const conf = bloco.telas}
 							<StickyScreens
+								device={conf.formato === 'desktop' ? 'desktop' : 'phone'}
 								steps={conf.passos.map((passo) => ({
 									src: withBase(`/imgs/${conf.pasta ? `${conf.pasta}/` : ''}${passo.imagem}`, base),
 									eyebrow: passo.chapeu,
