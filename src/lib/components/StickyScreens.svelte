@@ -31,6 +31,7 @@
 
 <section class="sticky-screens" class:desktop={device === 'desktop'}>
 	<div class="stage">
+		<div class="frame">
 		<div class="phone">
 			{#each steps as step, i (i)}
 				<img
@@ -45,6 +46,7 @@
 			{/each}
 		</div>
 		<p class="counter" aria-hidden="true">{active + 1} / {steps.length}</p>
+		</div>
 	</div>
 	<ol class="steps">
 		{#each steps as step, i (i)}
@@ -109,7 +111,20 @@
 	.phone img.active {
 		opacity: 1;
 	}
+	/* the frame holds the screen and its counter; only the screen counts for centring */
+	.frame {
+		position: relative;
+	}
+	.desktop .frame {
+		width: 100%;
+	}
 	.counter {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		margin-top: calc(var(--grid) * 1.5);
+		text-align: center;
 		font-size: 12px;
 		font-weight: 600;
 		letter-spacing: 0.08em;
@@ -137,6 +152,13 @@
 	}
 	.step.active .card {
 		opacity: 1;
+	}
+	/* a link that closes the last step reads as part of the sentence */
+	.text :global(a.sublinks) {
+		display: inline;
+		padding: 0;
+		color: var(--color-dark);
+		font-weight: 500;
 	}
 	.eyebrow {
 		font-size: calc(var(--grid) * 1.5);
