@@ -203,13 +203,13 @@
 	/* Desktop screens: a wide window takes most of the row, the steps run in a narrow column. */
 	.desktop {
 		max-width: 1320px;
-		grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
 		gap: calc(var(--grid) * 5);
 	}
 	.desktop .phone {
 		height: auto;
 		width: 100%;
-		aspect-ratio: 1600 / 780;
+		aspect-ratio: 16 / 10;
 		border-radius: 10px;
 		background: #111;
 	}
