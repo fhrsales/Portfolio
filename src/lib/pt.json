@@ -604,5 +604,6 @@
   "h3: A family country house, run from one app": "h3: O sítio da família num app só",
   "Calendar, bookings, notices, and monthly accounts for a family country house in Aldeia Velha, in the state of Rio de Janeiro, designed and programmed by me on fab.IO, the same design system behind the ATBL apps. Each family books its weekends with no overlaps, notices are written in a text editor and shared to the family group by link, and the monthly accounts are published for every co-owner to approve.": "Agenda, reservas, comunicados e prestação de contas de um sítio de família em Aldeia Velha, no Rio de Janeiro, desenhados e programados por mim sobre o fab.IO, o mesmo design system dos apps da ATBL. Cada família marca seus fins de semana sem sobreposição, os comunicados são escritos num editor de texto e compartilhados no grupo da família por link, e o balancete do mês é publicado para cada condômino aprovar.",
   "It scores 100 in all four Lighthouse categories in production. The video uses test data.": "Em produção, tira 100 nas quatro categorias do Lighthouse. O vídeo usa dados de teste.",
-  "tags: Product Design, UX/UI, Code": "tags: Product Design, UX/UI, Code"
+  "tags: Product Design, UX/UI, Code": "tags: Product Design, UX/UI, Code",
+  "<a class='sublinks' href='https://atbl.com.br/aldeia/' target='_blank'>Open Aldeia Velha (the app asks for a family login) →</a>": "<a class='sublinks' href='https://atbl.com.br/aldeia/' target='_blank'>Abrir o Aldeia Velha (o app pede login da família) →</a>"
 }
