@@ -1,0 +1,14 @@
+/Portfolio/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/Portfolio/_app/immutable/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/Portfolio/imgs/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/Portfolio/videos/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/Portfolio/pdfs/*
+  Cache-Control: public, max-age=31536000, immutable

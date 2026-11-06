@@ -1,0 +1,72 @@
+{
+  "files": [
+    {
+      "id": "47-0",
+      "name": "estadao-035-paladar-bibimbap.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "paladar bibimbap"
+    },
+    {
+      "id": "48-0",
+      "name": "estadao-036-paladar-negroni.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "paladar negroni"
+    },
+    {
+      "id": "49-0",
+      "name": "estadao-037-paladar-oveva.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "paladar oveva"
+    },
+    {
+      "id": "50-0",
+      "name": "estadao-038-paladar-poe-um-ovo-em-cima.png",
+      "publication": "estadao",
+      "format": "standard",
+      "width": 898.0000000000001,
+      "height": 1579,
+      "sourceWidth": 898,
+      "sourceHeight": 1579,
+      "crop": [
+        0,
+        0,
+        898,
+        1579
+      ],
+      "label": "paladar poe um ovo em cima"
+    }
+  ]
+}

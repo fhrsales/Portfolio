@@ -1,0 +1,230 @@
+{
+  "note": "Display-only crop rectangles preserve the original files and typography. Logical dimensions follow formats.txt regardless of raster resolution. Portfolio boards are excluded as whole slides; their unique newspaper pages remain as separate crop entries. Duplicate standalone and board pages were compared visually. O Dia pages are identified by their mastheads even when stored in the old Correio folder. No identifiable Diario de Noticias pages were found in the supplied collection. The six sports pages from old portfolio pages 12–14 belong to O Globo, as identified by their printed running headers. All publications share one continuous gallery.",
+  "excluded": [
+    {
+      "name": "001-sinal-amarelo.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "002-bis.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "003-domingo-negro.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "004-buraco-rubro-negro.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "010-taca-a-vista.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "011-programado-para-vencer.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "012-com-os-pes-no-chao.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "013-fla-acerta-compra-de-tuta.png",
+      "reason": "duplicate"
+    },
+    {
+      "name": "200-pensar.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-suplementos-pensar-1-12.png"
+    },
+    {
+      "name": "201-talibas-ficam-com-bin-laden.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2001-a01-1909.png"
+    },
+    {
+      "name": "203-gdf-atrasa-pagamentos.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2000-a01-0812.png"
+    },
+    {
+      "name": "brasil-da-silva.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2002-s01-2810.png"
+    },
+    {
+      "name": "houaiss.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-dicionario-houaiss.png"
+    },
+    {
+      "name": "leucemia.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2000-a01-0512.png"
+    },
+    {
+      "name": "talibas.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2001-a01-1909.png"
+    },
+    {
+      "name": "cb-2001-d25-1803.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-febem-d25-1803.png"
+    },
+    {
+      "name": "cb-2001-d26-1803.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-febem-d26-1803.png"
+    },
+    {
+      "name": "cb-2001-d27-1803.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-febem-d27-1803.png"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p01.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p02.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p03.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p04.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p05.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p06.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p07.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p08.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p09.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p10.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p11.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p12.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p13.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p14.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p15.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p16.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p17.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p18.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p19.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-portifolio-do-correio-p20.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-correio-braziliense-primeiro-caderno-jesus-d12412.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-jesus-d1-2412.png"
+    },
+    {
+      "name": "cb-correio-braziliense-pdfs-noblat-s012910b.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-pdfs-noblat-s01-2910.png"
+    },
+    {
+      "name": "cb-snd-11-de-setembro.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2001-a01-1209.png"
+    },
+    {
+      "name": "cb-snd-fichas.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-snd-papai-noel-existe.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2000-s01-2512.png"
+    },
+    {
+      "name": "cb-snd-africa.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2001-s01-1604.png"
+    },
+    {
+      "name": "cb-snd-correio.png",
+      "reason": "presentation"
+    },
+    {
+      "name": "cb-snd-dicionario-houaiss.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-dicionario-houaiss.png"
+    },
+    {
+      "name": "cb-snd-estrutural.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2002-est1-01.png"
+    },
+    {
+      "name": "cb-snd-india.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-primeiro-caderno-india-terra-de-genios.png"
+    },
+    {
+      "name": "cb-snd-passei.png",
+      "reason": "duplicate",
+      "sameAs": "cb-2002-a01-1403.png"
+    },
+    {
+      "name": "cb-snd-proteja-a-sua-casa.png",
+      "reason": "duplicate",
+      "sameAs": "cb-correio-braziliense-guia-g1-2612.png"
+    },
+    {
+      "name": "cb-snd-yokohama.png",
+      "reason": "duplicate",
+      "sameAs": "230-brasil-penta.png"
+    }
+  ]
+}
